@@ -8,7 +8,7 @@ func _fake_button_func():
 
 
 func test_debug_popup() -> void:
-	var debug_popup = load("res://component/debug/debug_popup.tscn").instantiate()
+	var debug_popup = load("res://libraries/debug/debug_popup.tscn").instantiate()
 	debug_popup.default_debug_buttons = DebugButtonCollection.new()
 	var fake_debug_button = DebugButton.new()
 	fake_debug_button.func_or_path = "_fake_button_func"
