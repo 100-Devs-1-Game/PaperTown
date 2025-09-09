@@ -18,7 +18,7 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 
 Logger="*res://addons/godot-logger/logger.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
-EventBus="*res://global/event_bus.gd"
+EventBus="*res://autoloads/event_bus.gd"
 
 [debug_draw_3d]
 
