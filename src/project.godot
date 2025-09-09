@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Project Template"
+config/name="Paper Town: Attack of the Bristling Boars!"
 run/main_scene="uid://cygqjanirnqqt"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 
