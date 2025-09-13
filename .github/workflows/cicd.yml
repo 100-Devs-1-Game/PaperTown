@@ -7,6 +7,7 @@ env:
 # Whenever a tag push matching pattern "v*" then run the job
 on:
   push:
+    branches: [ main ]
     tags:
       - "v*"
 
