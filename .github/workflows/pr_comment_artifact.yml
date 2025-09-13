@@ -64,7 +64,7 @@ jobs:
         with:
           issue-number: ${{ env.PR_NUMBER }}
           comment-author: 'github-actions[bot]'
-          body-includes: Build Preview
+          body-includes: Download
 
       - name: Update Comment
         env:
@@ -77,22 +77,12 @@ jobs:
           issue-number: ${{ env.PR_NUMBER }}
           edit-mode: replace
           body: |-
-            ## Build Preview
-
             [![badge]]($JOB_PATH)
 
-            You can find files attached to the below linked Workflow Run URL (Logs).
+            Downloads will expire after 24 hours
 
-            Please note that export artifacts only stay for one day, so if you want to keep them, please download them.
-
-            | Name      | Link
-            --------------------------------------------------------------------
-            | Windows Export | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ env.PREVIOUS_JOB_ID }}/artifacts/${{ env.WINDOWS_ARTIFACT_ID }}
-
-            | Linux Export | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ env.PREVIOUS_JOB_ID }}/artifacts/${{ env.LINUX_ARTIFACT_ID }}
-
-            | Commit    | ${{ env.HEAD_SHA }}
-
-            | Logs      | ${{ env.JOB_PATH }}
+            - [Download Windows Builds](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ env.PREVIOUS_JOB_ID }}/artifacts/${{ env.WINDOWS_ARTIFACT_ID }})
+            - [Download Linux Builds](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ env.PREVIOUS_JOB_ID }}/artifacts/${{ env.LINUX_ARTIFACT_ID }})
+            - View Commit: ${{ env.HEAD_SHA }}
 
             [badge]: https://img.shields.io/badge/Build-Success!-3fb950?logo=github&style=for-the-badge
