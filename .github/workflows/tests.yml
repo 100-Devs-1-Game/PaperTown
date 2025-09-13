@@ -54,7 +54,6 @@ jobs:
         uses: 100-Devs-1-Game/godot-gut-ci@feature/more-better-ci-errors
         with:
           godot_version: ${{ env.GODOT_VERSION }}
-          gut_params: -gdir=res://tests/unit
           project_path: src
 
       - name: Validate Git Diff

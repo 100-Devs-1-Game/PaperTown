@@ -111,7 +111,7 @@ jobs:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_RELEASE_WEBHOOK }}
         uses: Ilshidur/action-discord@master
         with:
-          args: 'SpiritKeeper ${{ github.ref_name }} has been released to : https://${{ vars.ITCHIO_USERNAME }}.itch.io/${{ vars.ITCHIO_GAME }} Password: ${{ secrets.ITCHIO_PAGE_PASS }}'
+          args: '${{ vars.GAME_NAME }} ${{ github.ref_name }} released: https://${{ vars.ITCHIO_USERNAME }}.itch.io/${{ vars.ITCHIO_GAME }} Password: 100devs'
 
   test-linux-build:
     needs: build-game
