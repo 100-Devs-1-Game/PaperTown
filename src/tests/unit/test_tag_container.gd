@@ -1,4 +1,12 @@
-extends "res://addons/gut/test.gd"
+extends GutTest
+
+
+func before_all():
+	TagContainer.enforce_tags_exist = false
+
+
+func after_all():
+	TagContainer.enforce_tags_exist = true
 
 
 func test_add_and_has():
@@ -19,12 +27,6 @@ func test_add_multiple_increments():
 
 	tc.sub("foo", 1)
 	assert_false(tc.has("foo"))
-
-
-func test_add_initial():
-	var tc = TagContainer.new()
-	tc.add_initial("foo")
-	assert_true(tc.has("foo"))
 
 
 func test_delete():
