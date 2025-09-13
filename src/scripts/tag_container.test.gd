@@ -104,7 +104,7 @@ func test_to_and_from_dictionary():
 	var tc2 = TagContainer.new_from_dictionary(d)
 	assert_true(tc2.has("foo"))
 	assert_true(tc2.has("bar"))
-	assert_eq(tc2.get_count("foo"), 2)
+	assert_eq(tc2.count("foo"), 2)
 
 
 func test_new_from_container():
@@ -113,7 +113,7 @@ func test_new_from_container():
 	var tc2 = TagContainer.new_from_container(tc)
 
 	assert_true(tc2.has("foo"))
-	assert_eq(tc2.get_count("foo"), 3)
+	assert_eq(tc2.count("foo"), 3)
 
 
 func test_signals_are_emitted():

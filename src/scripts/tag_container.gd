@@ -110,6 +110,7 @@ func add(tag: StringName, increment: int = 1):
 	if !_is_valid_leaf_tag(tag):
 		push_error("TagContainer: failed to add invalid tag '%s" % tag)
 		assert(false)
+		return
 
 	_tags[tag] = _tags.get(tag, 0) + increment
 
@@ -134,6 +135,7 @@ func sub(tag: StringName, decrement: int = 1):
 	if !_is_valid_leaf_tag(tag):
 		push_error("TagContainer: failed to sub invalid tag '%s" % tag)
 		assert(false)
+		return
 
 	_tags[tag] = max(_tags.get(tag, 0) - decrement, 0)
 
@@ -183,10 +185,11 @@ func has(tag: StringName) -> bool:
 			"TagContainer: attempted to check if we contain the tag '%s' but this isn't a tag" % tag
 		)
 		assert(false)
+		return false
 
 	if _tags.has(tag):
 		assert(_tags[tag] > 0)
-		return true
+		return _tags[tag] > 0
 
 	# otherwise we asked for an exact match which isn't there
 	if !tag.ends_with(".*") || len(tag) < 3:
@@ -198,16 +201,28 @@ func has(tag: StringName) -> bool:
 	for owned_tag in _tags:
 		if owned_tag.begins_with(tag):
 			assert(_tags[owned_tag] > 0)
-			return true
+			return _tags[owned_tag] > 0
 
 	return false
 
 
-func get_count(tag: StringName) -> int:
-	assert(!tag.ends_with(".*"))
+func count(tag: StringName) -> int:
 	assert(!tag.ends_with("."))
+	if !_tag_exists(tag):
+		assert(false)
+		return 0
 
-	return _tags.get(tag, 0)
+	if not tag.ends_with(".*"):
+		return _tags.get(tag, 0)
+
+	var count := 0
+	tag = tag.trim_suffix(".*")
+	for owned_tag in _tags:
+		if owned_tag.begins_with(tag):
+			assert(_tags[owned_tag] > 0)
+			count += max(_tags[owned_tag], 0)
+
+	return count
 
 
 func has_any(tags: Array[StringName]) -> bool:
@@ -232,6 +247,7 @@ func _is_valid_leaf_tag(tag: StringName) -> bool:
 		or tag.ends_with(".*")
 		or not tag.begins_with(tag_prefix.trim_suffix(".*"))
 	):
+		assert(false)
 		return false
 
 	return _tag_exists(tag)
@@ -243,6 +259,7 @@ func _is_valid_branch_tag(tag: StringName) -> bool:
 		or not tag.ends_with(".*")
 		or not tag.begins_with(tag_prefix.trim_suffix(".*"))
 	):
+		assert(false)
 		return false
 
 	return _tag_exists(tag)
