@@ -985,7 +985,9 @@ func _on_new_dialog_file_selected(path: String) -> void:
 
 
 func _on_save_dialog_file_selected(path: String) -> void:
-	if path == "": path = "res://untitled.dialogue"
+	if path == "":
+		push_error("failed to save dialogue")
+		return
 
 	new_file(path, code_edit.text)
 	open_file(path)
