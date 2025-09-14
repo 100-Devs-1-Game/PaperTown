@@ -302,11 +302,21 @@ class GodotValidator:
         for match in self.uid_path_pattern.finditer(content):
             uid_path = match.group(1)
 
-            if uid_path not in self.uid_to_path:
-                self.errors.append(
-                    f"{file_path.relative_to(self.project_root).as_posix()}: "
-                    f"The UID '{uid_path}' does not exist"
-                )
+            if uid_path in self.uid_to_path:
+                continue
+
+            lines = content.splitlines()
+            start_idx = match.start()
+            line_num = content.count("\n", 0, start_idx)
+            line = lines[line_num].strip()
+
+            if ".begins_with(" in line or line.startswith("#"):
+                continue
+
+            self.errors.append(
+                f"{file_path.relative_to(self.project_root).as_posix()}: "
+                f"The UID '{uid_path}' does not exist"
+            )
 
     def _check_file_has_uid(self, file_path: Path, content: str):
         """Check if files that should have UIDs actually have them."""
