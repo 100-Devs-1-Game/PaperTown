@@ -215,14 +215,14 @@ func count(tag: StringName) -> int:
 	if not tag.ends_with(".*"):
 		return _tags.get(tag, 0)
 
-	var count := 0
+	var the_count := 0
 	tag = tag.trim_suffix(".*")
 	for owned_tag in _tags:
 		if owned_tag.begins_with(tag):
 			assert(_tags[owned_tag] > 0)
-			count += max(_tags[owned_tag], 0)
+			the_count += max(_tags[owned_tag], 0)
 
-	return count
+	return the_count
 
 
 func has_any(tags: Array[StringName]) -> bool:
