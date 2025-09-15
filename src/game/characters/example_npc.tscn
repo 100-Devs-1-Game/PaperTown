@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://caykrn62k7r0i"]
+
+[ext_resource type="Script" uid="uid://ch537u370tlq6" path="res://game/characters/example_npc.gd" id="1_2c5rv"]
+[ext_resource type="Texture2D" uid="uid://beo0ugbdfe0j1" path="res://assets/100devs/characters/corn_cowboy.png" id="2_giixd"]
+
+[node name="ExampleNpc" type="Node3D"]
+script = ExtResource("1_2c5rv")
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="Visuals"]
+centered = false
+offset = Vector2(-72, 0)
+modulate = Color(1, 0.678431, 1, 1)
+texture = ExtResource("2_giixd")

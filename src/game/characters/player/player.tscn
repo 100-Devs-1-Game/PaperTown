@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://px8n52y05giq"]
+
+[ext_resource type="Script" uid="uid://xg6jnmm42eih" path="res://game/characters/player/player.gd" id="1_yjtv7"]
+[ext_resource type="Texture2D" uid="uid://beo0ugbdfe0j1" path="res://assets/100devs/characters/corn_cowboy.png" id="2_5hw72"]
+
+[node name="Player" type="Node3D"]
+script = ExtResource("1_yjtv7")
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="Visuals"]
+centered = false
+offset = Vector2(-72, 0)
+texture = ExtResource("2_5hw72")

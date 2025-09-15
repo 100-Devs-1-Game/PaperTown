@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbah586chnhbp"]
+
+[ext_resource type="PackedScene" uid="uid://px8n52y05giq" path="res://game/characters/player/player.tscn" id="1_3bxco"]
+[ext_resource type="PackedScene" uid="uid://caykrn62k7r0i" path="res://game/characters/example_npc.tscn" id="2_dqqlc"]
+
+[node name="TestScene01" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_3bxco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.30392, 0, -0.0552969)
+
+[node name="ExampleNpc" parent="." instance=ExtResource("2_dqqlc")]
