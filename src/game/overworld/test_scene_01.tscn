@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbah586chnhbp"]
+[gd_scene load_steps=10 format=3 uid="uid://cbah586chnhbp"]
 
 [ext_resource type="PackedScene" uid="uid://px8n52y05giq" path="res://game/characters/player/player.tscn" id="1_3bxco"]
 [ext_resource type="PackedScene" uid="uid://caykrn62k7r0i" path="res://game/characters/example_npc.tscn" id="2_dqqlc"]
+[ext_resource type="PackedScene" uid="uid://bxf2iw36fhu4j" path="res://game/environment/modular/floor.tscn" id="3_u73ws"]
+[ext_resource type="PackedScene" uid="uid://cktqdkpjnljbb" path="res://game/environment/modular/floor_corner_left.tscn" id="4_e24px"]
+[ext_resource type="PackedScene" uid="uid://1xffej8rych6" path="res://game/environment/modular/floor_corner_right.tscn" id="5_eurm5"]
+[ext_resource type="PackedScene" uid="uid://dpj20m70q42wj" path="res://game/environment/modular/floor_front.tscn" id="6_q7wix"]
+[ext_resource type="PackedScene" uid="uid://cpsr21ixm0kel" path="res://game/environment/modular/floor_right.tscn" id="7_jqrcp"]
+
+[sub_resource type="Environment" id="Environment_u73ws"]
+ambient_light_source = 3
+ambient_light_color = Color(0.462745, 0.776471, 0.823529, 1)
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_e24px"]
 
 [node name="TestScene01" type="Node3D"]
 
@@ -9,3 +20,50 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.30392, 0, -0.0552969)
 
 [node name="ExampleNpc" parent="." instance=ExtResource("2_dqqlc")]
+
+[node name="Level" type="Node3D" parent="."]
+
+[node name="Floor" parent="Level" instance=ExtResource("3_u73ws")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4)
+
+[node name="Floor2" parent="Level" instance=ExtResource("3_u73ws")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="FloorCornerLeft" parent="Level" instance=ExtResource("4_e24px")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+
+[node name="FloorCornerRight" parent="Level" instance=ExtResource("5_eurm5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="FloorFront" parent="Level" instance=ExtResource("6_q7wix")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="FloorFront2" parent="Level" instance=ExtResource("6_q7wix")]
+
+[node name="FloorRight" parent="Level" instance=ExtResource("7_jqrcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
+
+[node name="FloorRight2" parent="Level" instance=ExtResource("7_jqrcp")]
+transform = Transform3D(-1, 0.000166687, -0.000118021, 0.000166687, 1, -9.89306e-05, 0.000118021, -9.89306e-05, -1, -8, 0, -4)
+
+[node name="FloorCornerLeft2" parent="Level" instance=ExtResource("4_e24px")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4, 0, -8)
+
+[node name="FloorCornerRight2" parent="Level" instance=ExtResource("5_eurm5")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -8, 0, -8)
+
+[node name="FloorFront3" parent="Level" instance=ExtResource("6_q7wix")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -8)
+
+[node name="FloorFront4" parent="Level" instance=ExtResource("6_q7wix")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -4, 0, -8)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_u73ws")
+camera_attributes = SubResource("CameraAttributesPractical_e24px")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, -4.64612e-15, 5.37594e-15, 0, 0.756596, 0.653883, -7.10543e-15, -0.653883, 0.756596, -1.99299, 4.1426, 5.35884)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.800397, 0.599471, 0, -0.599471, 0.800397, 0, 6.63982, -16.166)
