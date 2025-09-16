@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://k126qihwv8y"]
+
+[ext_resource type="PackedScene" uid="uid://px8n52y05giq" path="res://game/characters/player/player.tscn" id="1_osalh"]
+
+[node name="Battle" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_osalh")]
+
+[node name="BattleScene" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

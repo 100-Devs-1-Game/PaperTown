@@ -6,9 +6,15 @@
 [node name="Player" type="Node3D"]
 script = ExtResource("1_yjtv7")
 
-[node name="Visuals" type="Node3D" parent="."]
+[node name="Overworld3D" type="Node3D" parent="."]
 
-[node name="Sprite3D" type="Sprite3D" parent="Visuals"]
+[node name="Sprite3D" type="Sprite3D" parent="Overworld3D"]
 centered = false
 offset = Vector2(-72, 0)
 texture = ExtResource("2_5hw72")
+
+[node name="Battle2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Battle2D"]
+texture = ExtResource("2_5hw72")
+offset = Vector2(0, -72)

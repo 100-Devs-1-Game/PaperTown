@@ -25,6 +25,11 @@ Tags="*res://autoloads/tags.gd"
 
 settings/addon_root_folder="res://addons/debug_draw_3d"
 
+[display]
+
+window/size/borderless=true
+window/stretch/mode="viewport"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/format_on_save/plugin.cfg", "res://addons/godot-logger/plugin.cfg", "res://addons/gut/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/resource_resave/plugin.cfg", "res://addons/script-ide/plugin.cfg", "res://addons/version_check/plugin.cfg")
