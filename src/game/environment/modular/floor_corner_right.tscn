@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://1xffej8rych6"]
+
+[ext_resource type="PackedScene" uid="uid://d3gndbqf5dko8" path="res://assets/100devs/environment/modular/floor_corner_right.gltf" id="1_fhupo"]
+
+[node name="FloorCornerRight" type="Node3D"]
+
+[node name="floor_corner_right" parent="." instance=ExtResource("1_fhupo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
