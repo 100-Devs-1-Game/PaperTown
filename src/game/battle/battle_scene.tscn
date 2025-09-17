@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://o3nhvax6wqd1"]
+[gd_scene load_steps=2 format=3 uid="uid://o3nhvax6wqd1"]
 
 [ext_resource type="Script" uid="uid://c8nejl1qdc655" path="res://game/battle/battle_ui.gd" id="1_hwj65"]
-[ext_resource type="Texture2D" uid="uid://c3rydhkpuxhwd" path="res://assets/100devs/GUI/Fantasy Wooden GUI  Free/PNG/UI board Small  parchment.png" id="2_opksx"]
 
 [node name="Battle" type="Control"]
 layout_mode = 3
@@ -21,38 +20,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hwj65")
-
-[node name="MarginContainer" type="MarginContainer" parent="BattleUI"]
-layout_mode = 2
-size_flags_vertical = 8
-
-[node name="HBoxContainer" type="HBoxContainer" parent="BattleUI/MarginContainer"]
-y_sort_enabled = true
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 8
-theme_override_constants/separation = 25
-
-[node name="NinePatchRect" type="NinePatchRect" parent="BattleUI/MarginContainer/HBoxContainer"]
-y_sort_enabled = true
-custom_minimum_size = Vector2(350, 200)
-layout_mode = 2
-size_flags_horizontal = 0
-texture = ExtResource("2_opksx")
-
-[node name="NinePatchRect2" type="NinePatchRect" parent="BattleUI/MarginContainer/HBoxContainer"]
-y_sort_enabled = true
-custom_minimum_size = Vector2(350, 200)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-texture = ExtResource("2_opksx")
-
-[node name="NinePatchRect3" type="NinePatchRect" parent="BattleUI/MarginContainer/HBoxContainer"]
-y_sort_enabled = true
-custom_minimum_size = Vector2(350, 200)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
-texture = ExtResource("2_opksx")

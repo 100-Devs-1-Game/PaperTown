@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=2 format=3 uid="uid://d3khed82c6ogm"]
+
+[ext_resource type="Script" uid="uid://b6fb47jj2sp07" path="res://game/characters/enemies/enemy_stats.gd" id="1_cquno"]
+
+[resource]
+script = ExtResource("1_cquno")
+enemy_name = ""
+level = 1
+max_HP = 20
+current_HP = null
+attack = 4
+defense = 1
+speed = 2
+luck = 1
+metadata/_custom_type_script = "uid://b6fb47jj2sp07"
