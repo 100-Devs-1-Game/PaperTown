@@ -27,7 +27,6 @@ func _register_settings():
         "name": SETTING_NAME,
         "type": TYPE_STRING,
         "hint": PROPERTY_HINT_NONE,
-        "usage": PROPERTY_USAGE_DEFAULT
     })
 
     ProjectSettings.save()
