@@ -2,7 +2,7 @@ class_name Player extends Node3D
 
 const STATS = preload("res://game/resources/stats.tres")
 
-var stats = PLAYER_STATS
+var stats = STATS
 
 func _ready() -> void:
 	if stats == null:

@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Paper Town: Attack of the Bristling Boars!"
 run/main_scene="uid://cygqjanirnqqt"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/features=PackedStringArray("4.5", "GL Compatibility")
 
 [autoload]
 
