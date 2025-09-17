@@ -4,6 +4,7 @@ const STATS = preload("res://game/resources/stats.tres")
 
 var stats = STATS
 
+
 func _ready() -> void:
 	if stats == null:
 		push_error("Player stats not loaded!")
@@ -13,8 +14,8 @@ func _ready() -> void:
 	print("Player Name: %s" % stats.player_name)
 	print("Level: %s" % stats.level)
 	print("Max HP: %s" % stats.max_HP)
-	print("Current HP: %s" % stats.current_HP)
+	print("Current HP: %s" % stats.current_hp)
 	print("Attack: %s" % stats.attack)
-	print("Defense: %s" % stats.defense)   
+	print("Defense: %s" % stats.defense)
 	print("Speed: %s" % stats.speed)
 	print("Luck: %s" % stats.luck)

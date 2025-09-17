@@ -6,8 +6,8 @@
 script = ExtResource("1_cquno")
 enemy_name = ""
 level = 1
-max_HP = 20
-current_HP = null
+max_hp = 20
+current_hp = null
 attack = 4
 defense = 1
 speed = 2
