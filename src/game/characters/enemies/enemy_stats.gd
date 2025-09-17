@@ -1,4 +1,4 @@
-class_name Enemy extends Resource
+class_name EnemyStats extends Resource
 
 @export var enemy_name: String = "" # the Enemy's name
 @export var level: int = 1 # Enemy's level

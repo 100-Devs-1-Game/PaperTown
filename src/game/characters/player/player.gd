@@ -1,6 +1,6 @@
 class_name Player extends Node3D
 
-const PLAYER_STATS = preload("res://game/characters/player/player_stats.tres")
+const STATS = preload("res://game/resources/stats.tres")
 
 var stats = PLAYER_STATS
 
