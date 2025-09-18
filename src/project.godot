@@ -31,8 +31,9 @@ runtime/balloon_path="res://game/dialogue/balloon.tscn"
 
 [display]
 
-window/size/borderless=true
-window/stretch/mode="viewport"
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/aspect="expand"
 
 [editor_plugins]
 
@@ -41,6 +42,11 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://add
 [filesystem]
 
 import/blender/enabled=false
+
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
+theme/default_font_generate_mipmaps=true
 
 [input]
 

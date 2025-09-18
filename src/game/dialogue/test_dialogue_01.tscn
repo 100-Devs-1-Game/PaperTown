@@ -1,9 +1,44 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddv2ylx4vrmf4"]
+[gd_scene load_steps=4 format=3 uid="uid://ddv2ylx4vrmf4"]
 
 [ext_resource type="Script" uid="uid://dqm4d21itxsf8" path="res://game/dialogue/test_dialogue_01.gd" id="1_l3101"]
 [ext_resource type="PackedScene" uid="uid://cbah586chnhbp" path="res://game/overworld/test_scene_01.tscn" id="2_l3101"]
+[ext_resource type="PackedScene" uid="uid://cajrbf7ccprgv" path="res://game/other/floating_text/floating_text.tscn" id="3_l3101"]
 
 [node name="TestDialogue01" type="Node3D"]
 script = ExtResource("1_l3101")
 
 [node name="TestScene01" parent="." instance=ExtResource("2_l3101")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="Control" type="Control" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -280.0
+offset_top = 57.0
+offset_right = -240.0
+offset_bottom = 97.0
+grow_horizontal = 0
+
+[node name="FloatingText" parent="CanvasLayer/UI/Control" instance=ExtResource("3_l3101")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
