@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://civbj3kypuvdw"]
+
+[ext_resource type="Script" uid="uid://baewd2vwcmxps" path="res://scripts/components/overworld_attack_component.gd" id="1_r8mxy"]
+
+[node name="OverworldAttackComponent" type="Node"]
+script = ExtResource("1_r8mxy")

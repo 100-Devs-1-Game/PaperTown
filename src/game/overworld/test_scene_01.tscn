@@ -1,11 +1,56 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbah586chnhbp"]
+[gd_scene load_steps=9 format=3 uid="uid://cbah586chnhbp"]
 
 [ext_resource type="PackedScene" uid="uid://px8n52y05giq" path="res://game/characters/player/player.tscn" id="1_3bxco"]
 [ext_resource type="PackedScene" uid="uid://caykrn62k7r0i" path="res://game/characters/example_npc.tscn" id="2_dqqlc"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3bxco"]
+friction = 1.6
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3bxco"]
+size = Vector3(54.943, 0.250977, 53.8121)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dqqlc"]
+size = Vector2(20, 20)
+
+[sub_resource type="Environment" id="Environment_3bxco"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_dqqlc"]
+
+[sub_resource type="Compositor" id="Compositor_rpxl0"]
+
 [node name="TestScene01" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_3bxco")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.30392, 0, -0.0552969)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.30392, 1.4289, -0.0552969)
+metadata/_edit_group_ = true
 
 [node name="ExampleNpc" parent="." instance=ExtResource("2_dqqlc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.888517, 0)
+
+[node name="TestGround" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.30392, 0.888517, -0.0552969)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TestGround"]
+physics_material_override = SubResource("PhysicsMaterial_3bxco")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestGround/StaticBody3D"]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, 5.55835, -0.923057, -0.0106398)
+shape = SubResource("BoxShape3D_3bxco")
+debug_color = Color(0.0431373, 0.607843, 0.639216, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestGround/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.46686, -0.979513, 0.0565338)
+mesh = SubResource("PlaneMesh_dqqlc")
+skeleton = NodePath("../..")
+metadata/_edit_group_ = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.995518, -0.0702704, -0.0632924, 0.0943797, 0.780849, 0.617549, 0.00602642, -0.620755, 0.783982, -2.36063, 5.92242, 6.38164)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.3473, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3bxco")
+camera_attributes = SubResource("CameraAttributesPractical_dqqlc")
+compositor = SubResource("Compositor_rpxl0")
