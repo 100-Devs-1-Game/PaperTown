@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddv2ylx4vrmf4"]
+
+[ext_resource type="Script" uid="uid://dqm4d21itxsf8" path="res://game/dialogue/test_dialogue_01.gd" id="1_l3101"]
+[ext_resource type="PackedScene" uid="uid://cbah586chnhbp" path="res://game/overworld/test_scene_01.tscn" id="2_l3101"]
+
+[node name="TestDialogue01" type="Node3D"]
+script = ExtResource("1_l3101")
+
+[node name="TestScene01" parent="." instance=ExtResource("2_l3101")]
