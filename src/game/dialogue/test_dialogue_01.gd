@@ -11,5 +11,6 @@ func _ready() -> void:
 	DialogueManager.show_dialogue_balloon_scene(BALLOON, DIALOGUE, "start", [self])
 
 
-func _process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	$FloatingText3D.position.z -= 4 * delta
 	pass

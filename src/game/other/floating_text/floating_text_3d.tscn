@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdhebkpn4r2xh"]
+
+[ext_resource type="Script" uid="uid://bhm8oafoe1xrd" path="res://game/other/floating_text/floating_text_3d.gd" id="1_2rw8m"]
+[ext_resource type="PackedScene" uid="uid://cajrbf7ccprgv" path="res://game/other/floating_text/floating_text.tscn" id="2_tmttj"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_tmttj"]
+viewport_path = NodePath("SubViewport")
+
+[node name="FloatingText3D" type="Sprite3D"]
+texture = SubResource("ViewportTexture_tmttj")
+script = ExtResource("1_2rw8m")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(64, 140)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="SubViewport"]
+
+[node name="UI" type="Control" parent="SubViewport/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -64.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="FloatingText" parent="SubViewport/CanvasLayer/UI" instance=ExtResource("2_tmttj")]
+layout_mode = 0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="RichTextLabel" parent="SubViewport/CanvasLayer/UI/FloatingText" index="0"]
+layout_mode = 0
+anchors_preset = 0
+offset_right = 64.0
+grow_horizontal = 1
+grow_vertical = 1
+text = ""
+
+[editable path="SubViewport/CanvasLayer/UI/FloatingText"]

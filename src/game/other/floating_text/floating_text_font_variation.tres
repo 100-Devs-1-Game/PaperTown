@@ -1,4 +1,7 @@
-[gd_resource type="FontVariation" format=3 uid="uid://c4kb3wvk8aih8"]
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://c4kb3wvk8aih8"]
+
+[ext_resource type="FontFile" uid="uid://m47lrhvfh7y0" path="res://assets/external/gui/Fantasy Wooden GUI  Free/Font/Fonts/buddychampion.ttf" id="1_dp15p"]
 
 [resource]
-spacing_glyph = 32
+base_font = ExtResource("1_dp15p")
+spacing_glyph = -8

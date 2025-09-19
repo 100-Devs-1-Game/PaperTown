@@ -4,5 +4,6 @@
 
 [resource]
 shader = ExtResource("1_m0g38")
-shader_parameter/top_color = Color(1, 0, 0, 1)
+shader_parameter/top_color = Color(1, 0.351352, 0.7027199, 1)
 shader_parameter/bottom_color = Color(1, 1, 1, 1)
+shader_parameter/rect_height = 140.0

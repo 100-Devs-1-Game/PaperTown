@@ -10,6 +10,11 @@ var bbcode := "tilt"
 
 
 func _process_custom_fx(char_fx: CharFXTransform) -> bool:
+	# I only vaguely understood what's going on here
+	# but basically, lots of hacks to make the text wobble a bit
+	# TL;DR the transform origin is the label's corner, not the glyphs center
+	# so we have to do some stuff to work around that... otherwise it would be easy
+
 	var ts := TextServerManager.get_primary_interface()
 	var glyph_size := ts.font_get_glyph_size(char_fx.font, Vector2i(160, 0), char_fx.glyph_index)
 	var pivot := Vector2(glyph_size.x * 0.5, 0.0)

@@ -1,35 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://cajrbf7ccprgv"]
+[gd_scene load_steps=7 format=3 uid="uid://cajrbf7ccprgv"]
 
 [ext_resource type="Script" uid="uid://cnsr5l86ymuyc" path="res://game/other/floating_text/floating_text.gd" id="1_k1c4h"]
 [ext_resource type="FontVariation" uid="uid://c4kb3wvk8aih8" path="res://game/other/floating_text/floating_text_font_variation.tres" id="1_wa7se"]
 [ext_resource type="Script" uid="uid://bo4ferod0q3yp" path="res://game/other/floating_text/tilt_effect.gd" id="2_atbfn"]
 [ext_resource type="Material" uid="uid://c1xyxhykvb44h" path="res://game/other/floating_text/floating_text_gradient.tres" id="2_tm57r"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_atbfn"]
-content_margin_left = 32.0
-content_margin_right = 32.0
-bg_color = Color(0.6, 0.6, 0.6, 0)
+[ext_resource type="StyleBox" uid="uid://byl7xs7581mfd" path="res://game/other/floating_text/floating_text_stylebox.tres" id="3_tm57r"]
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_k1c4h"]
 script = ExtResource("2_atbfn")
 metadata/_custom_type_script = "uid://bo4ferod0q3yp"
 
-[sub_resource type="Gradient" id="Gradient_tm57r"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_d83k0"]
-gradient = SubResource("Gradient_tm57r")
-fill_to = Vector2(0, 1)
-
 [node name="FloatingText" type="Control"]
-custom_minimum_size = Vector2(128, 128)
 layout_mode = 3
 anchors_preset = 0
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
-scale = Vector2(0.1, 0.1)
-pivot_offset = Vector2(64, 64)
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_k1c4h")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
@@ -40,29 +25,21 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 792.0
+offset_bottom = 140.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_outline_color = Color(0.97317225, 0, 0.42576483, 1)
-theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.972549, 0, 0.3529412, 1)
+theme_override_colors/font_shadow_color = Color(0.99607843, 0.99607843, 0.99607843, 1)
 theme_override_constants/shadow_outline_size = 40
 theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = -10
 theme_override_constants/outline_size = 50
 theme_override_fonts/normal_font = ExtResource("1_wa7se")
 theme_override_font_sizes/normal_font_size = 160
-theme_override_styles/normal = SubResource("StyleBoxFlat_atbfn")
+theme_override_styles/normal = ExtResource("3_tm57r")
 bbcode_enabled = true
 text = "[tilt]STYLISH![/tilt]"
 fit_content = true
 autowrap_mode = 0
 custom_effects = [SubResource("RichTextEffect_k1c4h")]
-
-[node name="TextureRect" type="TextureRect" parent="RichTextLabel"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("GradientTexture2D_d83k0")
