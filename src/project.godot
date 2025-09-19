@@ -20,6 +20,7 @@ PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_came
 Signals="*res://autoloads/signals.gd"
 Tags="*res://autoloads/tags.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+FloatingText="*res://autoloads/floating_text.gd"
 
 [debug_draw_3d]
 
