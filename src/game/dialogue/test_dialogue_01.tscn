@@ -18,13 +18,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2153726, 0.84853673, 2.058
 texture = SubResource("ViewportTexture_byin1")
 
 [node name="SubViewport" parent="FloatingText3D" index="0"]
-size = Vector2i(486, 140)
+size = Vector2i(512, 140)
 
 [node name="UI" parent="FloatingText3D/SubViewport/CanvasLayer" index="0"]
 offset_right = -139.0
 
 [node name="RichTextLabel" parent="FloatingText3D/SubViewport/CanvasLayer/UI/FloatingText" index="0"]
-text = "[tilt]Stylish[/tilt]!"
+text = "[tilt]STYLISH![/tilt]"
 
 [node name="Sprite3D" type="Sprite3D" parent="FloatingText3D"]
 transform = Transform3D(0.02, 0, 0, 0, 4.305, 0, 0, 0, 0.425, 0, -0.9131119, 0)
