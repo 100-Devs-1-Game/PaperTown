@@ -4,4 +4,4 @@
 
 [resource]
 base_font = ExtResource("1_2tc7b")
-spacing_glyph = -8
+spacing_glyph = 16
