@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cpsr21ixm0kel" path="res://game/environment/modular/floor_right.tscn" id="7_jqrcp"]
 
 [sub_resource type="Environment" id="Environment_u73ws"]
+background_mode = 1
+background_color = Color(0.29038727, 0.6759722, 1.1801987, 1)
 ambient_light_source = 3
 ambient_light_color = Color(0.462745, 0.776471, 0.823529, 1)
 
