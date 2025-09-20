@@ -19,6 +19,7 @@ script = ExtResource("1_k1c4h")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 clip_children = 2
+texture_filter = 4
 material = ExtResource("2_tm57r")
 clip_contents = false
 layout_mode = 1

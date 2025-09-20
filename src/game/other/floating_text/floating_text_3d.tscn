@@ -12,8 +12,6 @@ script = ExtResource("1_2rw8m")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
-canvas_item_default_texture_filter = 2
-oversampling_override = 2.0
 size = Vector2i(64, 140)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="SubViewport"]

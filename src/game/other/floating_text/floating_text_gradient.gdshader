@@ -4,6 +4,9 @@ uniform vec4 top_color : source_color;
 uniform vec4 bottom_color : source_color;
 uniform float rect_height;
 
+// only works in viewport?
+// the fragcoord/rect_height thing moves around with the screen in 2D?
+
 void fragment() {
     float t = FRAGCOORD.y / rect_height;
 
