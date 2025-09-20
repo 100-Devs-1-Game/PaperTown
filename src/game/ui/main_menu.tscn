@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://blhwwgupnhdwy"]
+[gd_scene load_steps=7 format=3 uid="uid://blhwwgupnhdwy"]
 
 [ext_resource type="Theme" uid="uid://w46o85kkkof2" path="res://game/ui/base_theme.tres" id="1_478ix"]
 [ext_resource type="Script" uid="uid://c83yg6jw4oq58" path="res://game/ui/main_menu.gd" id="1_spbnf"]
 [ext_resource type="PackedScene" uid="uid://cajrbf7ccprgv" path="res://game/other/floating_text/floating_text.tscn" id="3_hjbl3"]
 [ext_resource type="FontVariation" uid="uid://ditpur2fgahcx" path="res://game/ui/font_variation.tres" id="4_3nuvx"]
+[ext_resource type="Shader" uid="uid://chhfhfvslvbio" path="res://game/other/floating_text/floating_text_gradient.gdshader" id="4_w7b7d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3nlpe"]
+shader = ExtResource("4_w7b7d")
+shader_parameter/top_color = Color(0.62593067, 0.7492802, 1, 1)
+shader_parameter/bottom_color = Color(1, 1, 1, 1)
+shader_parameter/rect_height = 340.0
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -41,6 +48,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="RichTextLabel" parent="PanelContainer/VBoxContainer/FloatingText" index="0"]
+material = SubResource("ShaderMaterial_3nlpe")
 layout_mode = 0
 anchors_preset = 0
 offset_left = -331.0
@@ -72,6 +80,7 @@ grow_vertical = 2
 scale = Vector2(0.45, 0.45)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/Control/Control"]
+texture_filter = 4
 clip_contents = false
 layout_mode = 1
 anchors_preset = 15
@@ -121,6 +130,7 @@ scale = Vector2(0.5, 0.5)
 mouse_filter = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/VBoxContainer | Buttons/Play/Control"]
+texture_filter = 4
 clip_contents = false
 layout_mode = 1
 anchors_preset = 15
@@ -160,6 +170,7 @@ scale = Vector2(0.5, 0.5)
 mouse_filter = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/VBoxContainer | Buttons/Settings/Control"]
+texture_filter = 4
 clip_contents = false
 layout_mode = 1
 anchors_preset = 15
@@ -203,6 +214,7 @@ scale = Vector2(0.5, 0.5)
 mouse_filter = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/VBoxContainer | Buttons/Quit/Control"]
+texture_filter = 4
 clip_contents = false
 layout_mode = 1
 anchors_preset = 8
