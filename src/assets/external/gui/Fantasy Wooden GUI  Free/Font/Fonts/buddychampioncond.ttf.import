@@ -14,7 +14,7 @@ dest_files=["res://.godot/imported/buddychampioncond.ttf-6b9a8c58043135d98c7e675
 
 Rendering=null
 antialiasing=1
-generate_mipmaps=false
+generate_mipmaps=true
 disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
