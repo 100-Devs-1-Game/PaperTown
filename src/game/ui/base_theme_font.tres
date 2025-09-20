@@ -1,0 +1,9 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://cs4y5cn70ghcn"]
+
+[ext_resource type="FontFile" uid="uid://d5g5shv3q1f3" path="res://assets/external/fontsforpeas/heygorgeous.ttf" id="1_dtnia"]
+
+[resource]
+base_font = ExtResource("1_dtnia")
+spacing_glyph = 6
+spacing_top = 24
+spacing_bottom = 24
