@@ -1,4 +1,5 @@
 @tool
+class_name FloatingTextLabel
 extends Control
 
 @onready var rtl: RichTextLabel = $RichTextLabel as RichTextLabel

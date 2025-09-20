@@ -1,7 +1,8 @@
 @tool
+class_name FloatingText3D
 extends Sprite3D
 
-@onready var floating_text: Control = $SubViewport/CanvasLayer/UI/FloatingText
+@onready var floating_text: FloatingTextLabel = $SubViewport/CanvasLayer/UI/FloatingText
 @onready var sub_viewport: SubViewport = $SubViewport
 
 
