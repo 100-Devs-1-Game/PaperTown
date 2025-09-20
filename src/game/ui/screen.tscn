@@ -1,36 +1,57 @@
-[gd_scene load_steps=7 format=3 uid="uid://13pulyn1bbcj"]
+[gd_scene load_steps=9 format=3 uid="uid://13pulyn1bbcj"]
 
 [ext_resource type="PackedScene" uid="uid://blhwwgupnhdwy" path="res://game/ui/main_menu.tscn" id="1_8cosx"]
-[ext_resource type="Texture2D" uid="uid://beo0ugbdfe0j1" path="res://assets/100devs/characters/corn_cowboy.png" id="1_eria8"]
+[ext_resource type="Script" uid="uid://dth4062q1cegh" path="res://game/ui/screen.gd" id="1_eria8"]
 [ext_resource type="Shader" uid="uid://cbo0suho5kddy" path="res://game/ui/screen_blur.gdshader" id="2_50n40"]
+[ext_resource type="Shader" uid="uid://dx4bdfrh3vmdc" path="res://game/ui/stripe.gdshader" id="2_jdf4q"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jdf4q"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_if1mq"]
 shader = ExtResource("2_50n40")
 shader_parameter/BLUR_STRENGTH = 2.0
-shader_parameter/DARKEN_STRENGTH = 0.1
+shader_parameter/DARKEN_STRENGTH = 0.5000000712500001
 
-[sub_resource type="Gradient" id="Gradient_2176l"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(1, 1, 1, 1)
+[sub_resource type="Gradient" id="Gradient_eria8"]
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_b71hv"]
-gradient = SubResource("Gradient_2176l")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_eria8"]
+gradient = SubResource("Gradient_eria8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2176l"]
+shader = ExtResource("2_jdf4q")
+shader_parameter/center = Vector2(0.5, 1.5)
+shader_parameter/stripes = 48
+shader_parameter/speed = 0.2
+shader_parameter/direction = 1
+shader_parameter/stripe_colors = PackedColorArray(1, 0.5803922, 0.5137255, 0.39607844, 1, 0.4862745, 0.5803922, 0.23921569, 1, 0.6431373, 0, 0.28235295, 1, 0.7294118, 0.79607844, 0.28235295, 1, 0.6431373, 0, 0.28235295, 1, 0.7294118, 0.79607844, 0.28235295, 1, 0.6431373, 0, 0.28235295, 1, 0.7294118, 0.79607844, 0.28235295)
+shader_parameter/color_count = 2
+shader_parameter/alpha_mul = 2.0
+shader_parameter/stripe_distance_mul = 1.0
+shader_parameter/stripe_strength_mul = 1.0
+shader_parameter/minimum_alpha = 0.4000000665000001
+shader_parameter/maximum_alpha = 0.950000045125
 
 [node name="Screen" type="CanvasLayer"]
+script = ExtResource("1_eria8")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(131, 399)
-texture = ExtResource("1_eria8")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-material = SubResource("ShaderMaterial_jdf4q")
+[node name="BlurBackdrop" type="TextureRect" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_if1mq")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = SubResource("GradientTexture1D_b71hv")
+texture = SubResource("GradientTexture1D_eria8")
+
+[node name="StripeBackdrop" type="ColorRect" parent="BlurBackdrop"]
+material = SubResource("ShaderMaterial_2176l")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.47058824, 0.7137255, 1, 1)
 
 [node name="MainMenu" parent="." instance=ExtResource("1_8cosx")]
+unique_name_in_owner = true
