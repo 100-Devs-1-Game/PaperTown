@@ -16,22 +16,19 @@ func _process_custom_fx(char_fx: CharFXTransform) -> bool:
 	# but basically, lots of hacks to make the text wobble a bit
 	# TL;DR the transform origin is the label's corner, not the glyphs center
 	# so we have to do some stuff to work around that... otherwise it would be easy
+	# WARNING: MSDF (multichannel signed distance field fonts) have a different glyph_size???
+	#   which then breaks the tilt origin... so, something to watch out
+	#   (it also breaks the gradient btw)
 
 	var ts := TextServerManager.get_primary_interface()
 	var glyph_size := ts.font_get_glyph_size(char_fx.font, Vector2i(160, 0), char_fx.glyph_index)
-	var _pivot := Vector2(glyph_size.x * 0.5, glyph_size.y * 0.5)
+	var pivot := Vector2(glyph_size.x * 0.5, glyph_size.y * 0.5)
 	var angle := 0.1 * sin(char_fx.elapsed_time * 6.0 + float(char_fx.relative_index))
-
-	var xf := char_fx.transform
-	#todo: the pivits cause it to stutter/jitter
-	var xf2 = xf  # * Transform2D(0, pivot)
-	var xf3 = xf2 * Transform2D(angle, Vector2.ZERO)
-	var xf4 = xf3  # * Transform2D(0, -pivot)
-	var xf5 = xf4
-	#xf5.origin.x = floor(xf4.origin.x)
-	#xf5.origin.y = floor(xf4.origin.y)
-	#print("\nxf1 %s\nxf2 %s\nxf3 %s\nxf4 %s\nxf5 %s\n" % [xf, xf2, xf3, xf4, xf5])
-
-	char_fx.transform = xf5
+	char_fx.transform = (
+		char_fx.transform
+		* Transform2D(0, pivot)
+		* Transform2D(angle, Vector2.ZERO)
+		* Transform2D(0, -pivot)
+	)
 
 	return true

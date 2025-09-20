@@ -21,3 +21,5 @@ TODO:
 	- Shadows?
 	- Tweens?
 	- Spawning floating text easily?
+
+For the tilt to work without jiterring, the viewport must be oversampling at 2x, but that makes it pixelated, so then apply linear mipmap filtering
