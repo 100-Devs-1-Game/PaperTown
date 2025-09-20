@@ -44,6 +44,18 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://add
 
 theme/default_font_multichannel_signed_distance_field=true
 theme/default_font_generate_mipmaps=true
+theme/custom="uid://w46o85kkkof2"
+
+[importer_defaults]
+
+font_data_dynamic={
+&"generate_mipmaps": true,
+&"multichannel_signed_distance_field": true
+}
+texture={
+&"mipmaps/generate": true,
+&"process/size_limit": 2048
+}
 
 [input]
 
