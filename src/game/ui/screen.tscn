@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://13pulyn1bbcj"]
+
+[ext_resource type="PackedScene" uid="uid://blhwwgupnhdwy" path="res://game/ui/main_menu.tscn" id="1_8cosx"]
+[ext_resource type="Texture2D" uid="uid://beo0ugbdfe0j1" path="res://assets/100devs/characters/corn_cowboy.png" id="1_eria8"]
+[ext_resource type="Shader" uid="uid://cbo0suho5kddy" path="res://game/ui/screen_blur.gdshader" id="2_50n40"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jdf4q"]
+shader = ExtResource("2_50n40")
+shader_parameter/BLUR_STRENGTH = 2.0
+shader_parameter/DARKEN_STRENGTH = 0.1
+
+[sub_resource type="Gradient" id="Gradient_2176l"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b71hv"]
+gradient = SubResource("Gradient_2176l")
+
+[node name="Screen" type="CanvasLayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(131, 399)
+texture = ExtResource("1_eria8")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_jdf4q")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("GradientTexture1D_b71hv")
+
+[node name="MainMenu" parent="." instance=ExtResource("1_8cosx")]
