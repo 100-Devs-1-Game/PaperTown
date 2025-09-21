@@ -11,9 +11,9 @@ func _process(delta):
 
 	var screen_size = get_viewport_rect().size
 	if (
-		global_position.y > screen_size.y
-		or global_position.y < -500
-		or global_position.x < -500
-		or global_position.x > screen_size.x + 500
+		global_position.y > screen_size.y * 2
+		or global_position.y < -screen_size.y
+		or global_position.x < -screen_size.x
+		or global_position.x > screen_size.x * 2
 	):
 		queue_free()
