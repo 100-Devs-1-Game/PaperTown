@@ -45,7 +45,6 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://add
 
 theme/default_font_multichannel_signed_distance_field=true
 theme/default_font_generate_mipmaps=true
-theme/custom="uid://w46o85kkkof2"
 
 [importer_defaults]
 
