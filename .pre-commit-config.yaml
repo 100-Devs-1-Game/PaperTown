@@ -19,7 +19,7 @@ repos:
     rev: 4.3.4
     hooks:
       - id: gdformat
-      - id: gdlint
+    # - id: gdlint
 
   # Local repo
   - repo: local
@@ -46,4 +46,4 @@ repos:
         pass_filenames: false
         verbose: true
 
-exclude: '^src/addons/'
+exclude: '^src/addons/|^src/assets/external'

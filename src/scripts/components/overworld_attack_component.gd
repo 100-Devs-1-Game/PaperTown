@@ -5,7 +5,7 @@ var on_attack_cooldown := false
 
 
 # TODO: Link to an anim player
-func generate_attack(character_body: CharacterBody3D, dir: float, dist: float):
+func generate_attack(character_body: CharacterBody3D, dir: float, dist: float, time: float):
 	if on_attack_cooldown:
 		return
 
@@ -17,7 +17,9 @@ func generate_attack(character_body: CharacterBody3D, dir: float, dist: float):
 		character_body.global_position.y,
 		character_body.global_position.z
 	)
-	attack.lasting_timer.timeout.connect(on_timer_timeout)
+	if time > 0:
+		attack.lasting_timer.timeout.connect(on_timer_timeout)
+		attack.start_timer(time)
 	on_attack_cooldown = true
 
 

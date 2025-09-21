@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c1xyxhykvb44h"]
+
+[ext_resource type="Shader" uid="uid://chhfhfvslvbio" path="res://game/other/floating_text/floating_text_gradient.gdshader" id="1_m0g38"]
+
+[resource]
+shader = ExtResource("1_m0g38")
+shader_parameter/top_color = Color(1, 0, 0, 1)
+shader_parameter/bottom_color = Color(1, 1, 1, 1)

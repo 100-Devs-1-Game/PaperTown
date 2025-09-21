@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8x3kcryc0xtb"]
+
+[ext_resource type="Script" uid="uid://bce6o7cvu1di5" path="res://game/characters/enemies/boar.gd" id="1_qqv8h"]
+[ext_resource type="PackedScene" uid="uid://civbj3kypuvdw" path="res://game/characters/components/overworld_attack_component.tscn" id="2_lfbaa"]
+[ext_resource type="PackedScene" uid="uid://cup8w5o8dum5r" path="res://game/characters/attacks/overworld/player_overworld_attack.tscn" id="3_i8rah"]
+[ext_resource type="PackedScene" uid="uid://c3yxi66r1gr3e" path="res://game/characters/components/movement_component.tscn" id="4_xarcl"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lfbaa"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_i8rah"]
+radius = 8.119
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xarcl"]
+
+[node name="Boar" type="CharacterBody3D"]
+script = ExtResource("1_qqv8h")
+
+[node name="OverworldAttackComponent" parent="." instance=ExtResource("2_lfbaa")]
+overworld_attack = ExtResource("3_i8rah")
+
+[node name="MovementComponent" parent="." instance=ExtResource("4_xarcl")]
+unit_travel = 2.0
+
+[node name="AlertTimer" type="Timer" parent="."]
+
+[node name="WalkTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0158945, 0)
+shape = SubResource("CapsuleShape3D_lfbaa")
+
+[node name="DetectionBubble" type="Area3D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionBubble"]
+shape = SubResource("SphereShape3D_i8rah")
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="temp_boar_mesh" type="MeshInstance3D" parent="Visuals"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0119913, 0)
+mesh = SubResource("CapsuleMesh_xarcl")
+
+[node name="debug_excla_mark" type="Label3D" parent="Visuals"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6459289, 0)
+pixel_size = 0.03
+modulate = Color(0.627451, 0, 0.19607843, 1)
+text = "!!"
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+target_desired_distance = 0.5
+debug_enabled = true
+
+[connection signal="body_entered" from="DetectionBubble" to="." method="_on_detection_bubble_body_entered"]

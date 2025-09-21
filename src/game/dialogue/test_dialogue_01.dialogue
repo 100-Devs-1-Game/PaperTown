@@ -1,0 +1,11 @@
+~ start
+Cowboy: [[Hi|Hello|Howdy]], this is some dialogue.
+Cowboy: Here are some choices.
+- Dejavu [if super_cool_test_var]
+	Cowboy: You picked the secret
+- Start again
+	set super_cool_test_var = true
+	=> start
+- End the conversation => END
+Cowboy: Weird...
+=> END

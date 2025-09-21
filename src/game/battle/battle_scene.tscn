@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://o3nhvax6wqd1"]
+
+[ext_resource type="Script" uid="uid://c8nejl1qdc655" path="res://game/battle/battle_ui.gd" id="1_hwj65"]
+
+[node name="Battle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="BattleUI" type="Container" parent="."]
+y_sort_enabled = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hwj65")

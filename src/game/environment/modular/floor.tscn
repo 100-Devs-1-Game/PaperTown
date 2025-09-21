@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxf2iw36fhu4j"]
+
+[ext_resource type="PackedScene" uid="uid://ct7cwqq6nnr31" path="res://assets/100devs/environment/modular/floor.gltf" id="1_sj6ww"]
+
+[node name="Floor" type="Node3D"]
+
+[node name="floor" parent="." instance=ExtResource("1_sj6ww")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)

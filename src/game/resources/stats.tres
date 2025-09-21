@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Stats" load_steps=2 format=3 uid="uid://cw61rv1otpcdw"]
+
+[ext_resource type="Script" uid="uid://bvd4lnuwuqrhc" path="res://scripts/stats.gd" id="1_2j5wb"]
+
+[resource]
+script = ExtResource("1_2j5wb")
+level = 1
+hit_counter = 0
+attack = 5
+luck = 1
+health = 15
+metadata/_custom_type_script = "uid://bvd4lnuwuqrhc"

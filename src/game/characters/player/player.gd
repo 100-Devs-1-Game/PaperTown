@@ -1,10 +1,14 @@
-extends CharacterBody3D
+class_name Player extends CharacterBody3D
 
 enum State { MOVEMENT, ATTACK }
 
+const STATS = preload("res://game/resources/stats.tres")
+
 var direction
 var attack_distance := 1.5
+var attack_time = 1.0
 var player_state: State
+var stats = STATS
 
 @onready var movement_component = $MovementComponent
 @onready var overworld_attack_component = $OverworldAttackComponent
@@ -13,6 +17,20 @@ var player_state: State
 
 func _ready():
 	player_state = State.MOVEMENT
+
+	if stats == null:
+		push_error("Player stats not loaded!")
+		return
+
+	print("Player Stats Loaded:")
+	#print("Player Name: %s" % stats.player_name)
+	print("Level: %s" % stats.level)
+	#print("Max HP: %s" % stats.max_HP)
+	#print("Current HP: %s" % stats.current_hp)
+	#print("Attack: %s" % stats.attack)
+	#print("Defense: %s" % stats.defense)
+	#print("Speed: %s" % stats.speed)
+	print("Luck: %s" % stats.luck)
 
 
 func _physics_process(delta):
@@ -44,7 +62,6 @@ func get_movement_vector():
 	var x_movement := Input.get_action_strength("right") - Input.get_action_strength("left")
 	var z_movement := Input.get_action_strength("down") - Input.get_action_strength("up")
 
-	print(x_movement)
 	if (
 		(movement_component.facing_right == true and x_movement < 0.0)
 		or (movement_component.facing_right == false and x_movement > 0.0)
@@ -61,7 +78,7 @@ func handle_attack():
 
 	player_state = State.ATTACK
 	var dir = 1.0 if movement_component.facing_right else -1.0
-	overworld_attack_component.generate_attack(self, dir, attack_distance)
+	overworld_attack_component.generate_attack(self, dir, attack_distance, attack_time)
 
 
 # This will likely get obsolete with an anim player
