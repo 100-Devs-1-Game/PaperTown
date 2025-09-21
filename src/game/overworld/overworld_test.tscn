@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://bur7gpdci0aj7"]
+
+[ext_resource type="PackedScene" uid="uid://px8n52y05giq" path="res://game/characters/player/player.tscn" id="1_n3xei"]
+[ext_resource type="PackedScene" uid="uid://c8x3kcryc0xtb" path="res://game/characters/enemies/boar.tscn" id="2_vssvh"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vssvh"]
+size = Vector2(50, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ahblj"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_vssvh"]
+vertices = PackedVector3Array(-24.5, 1, -24.5, -24.5, 1, 24.5, 24.5, 1, 24.5, 24.5, 1, -24.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="Environment" id="Environment_fargr"]
+ambient_light_source = 3
+ambient_light_color = Color(0.462745, 0.776471, 0.823529, 1)
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_srvkv"]
+
+[node name="OverworldTest" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_n3xei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7997425, 5.567525)
+
+[node name="Boar" parent="." instance=ExtResource("2_vssvh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7184334, 2.708621, -9.601168)
+
+[node name="floortest" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floortest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.016326308, 0)
+mesh = SubResource("PlaneMesh_vssvh")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floortest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.47473073, 0)
+shape = SubResource("BoxShape3D_ahblj")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="floortest"]
+navigation_mesh = SubResource("NavigationMesh_vssvh")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="floortest/NavigationRegion3D"]
+use_collision = true
+size = Vector3(50, 1, 50)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_fargr")
+camera_attributes = SubResource("CameraAttributesPractical_srvkv")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, -4.6461184e-15, 5.375939e-15, 0, 0.75659585, 0.6538828, -7.10543e-15, -0.6538828, 0.75659585, -1.99299, 8.538815, 5.35884)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.800397, 0.599471, 0, -0.599471, 0.800397, 0, 6.63982, -16.166)
