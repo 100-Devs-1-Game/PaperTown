@@ -12,4 +12,4 @@ func _ready() -> void:
 	get_tree().paused = true
 
 	screen.finished_fadeout.connect(func(): get_tree().paused = false)
-	screen.finished_fadein.connect(func(): get_tree().paused = true)
+	screen.started_fadein.connect(func(): get_tree().paused = true)
