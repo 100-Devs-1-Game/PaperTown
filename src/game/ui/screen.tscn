@@ -8,8 +8,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_if1mq"]
 shader = ExtResource("2_50n40")
-shader_parameter/BLUR_STRENGTH = 2.0
-shader_parameter/BACKGROUND_COLOR = Color(0.39215687, 0.2627451, 1, 0.24705882)
+shader_parameter/BLUR_STRENGTH = 4.00000019
+shader_parameter/BACKGROUND_COLOR = Color(0.39215687, 0.2627451, 1, 0.27058825)
 
 [sub_resource type="Gradient" id="Gradient_eria8"]
 
