@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cygqjanirnqqt"]
+[gd_scene load_steps=4 format=3 uid="uid://cygqjanirnqqt"]
 
 [ext_resource type="Script" uid="uid://b5k4cn4tkdvlk" path="res://game/main.gd" id="1_oa506"]
+[ext_resource type="PackedScene" uid="uid://vh1c5iw178fp" path="res://game/game.tscn" id="2_emt18"]
 [ext_resource type="PackedScene" uid="uid://13pulyn1bbcj" path="res://game/ui/screen.tscn" id="3_vop5m"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_oa506")
+
+[node name="Game" parent="." instance=ExtResource("2_emt18")]
+unique_name_in_owner = true
 
 [node name="Screen" parent="." instance=ExtResource("3_vop5m")]
 unique_name_in_owner = true

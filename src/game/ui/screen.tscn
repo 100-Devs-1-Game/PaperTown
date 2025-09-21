@@ -8,7 +8,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_if1mq"]
 shader = ExtResource("2_50n40")
 shader_parameter/BLUR_STRENGTH = 2.0
-shader_parameter/DARKEN_STRENGTH = 0.5000000712500001
+shader_parameter/BACKGROUND_COLOR = Color(0.39215687, 0.2627451, 1, 0.24705882)
 
 [sub_resource type="Gradient" id="Gradient_eria8"]
 
@@ -30,11 +30,32 @@ shader_parameter/minimum_alpha = 0.4000000665000001
 shader_parameter/maximum_alpha = 0.950000045125
 
 [node name="Screen" type="CanvasLayer"]
+layer = 512
 script = ExtResource("1_eria8")
 
-[node name="BlurBackdrop" type="TextureRect" parent="."]
+[node name="MouseFilter" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MouseFilter"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.39215687, 0.2627451, 1, 1)
+
+[node name="BlurBackdrop" type="TextureRect" parent="MouseFilter"]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_if1mq")
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -42,7 +63,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture1D_eria8")
 
-[node name="StripeBackdrop" type="ColorRect" parent="BlurBackdrop"]
+[node name="StripeBackdrop" type="ColorRect" parent="MouseFilter/BlurBackdrop"]
+unique_name_in_owner = true
 material = SubResource("ShaderMaterial_2176l")
 layout_mode = 1
 anchors_preset = 15
@@ -50,8 +72,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 color = Color(0.47058824, 0.7137255, 1, 1)
 
-[node name="MainMenu" parent="." instance=ExtResource("1_8cosx")]
+[node name="MainMenu" parent="MouseFilter" instance=ExtResource("1_8cosx")]
 unique_name_in_owner = true
+layout_mode = 1

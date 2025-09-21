@@ -72,19 +72,19 @@ func animate(button_pressed: Button) -> void:
 	var physcomp2 := preload("res://game/ui/components/physics_ui.gd").new()
 	physcomp2.velocity = Vector2(0, randf_range(1200, 1200))
 	physcomp2.gravity *= -1
-	$PanelContainer/VBoxContainer/FloatingText.add_child(physcomp2)
+	$PanelContainer/VBoxContainer/VBoxContainer/FloatingText.add_child(physcomp2)
 	physcomp2.tree_exited.connect(func(): count.append(0))
 
 	var physcomp3 := preload("res://game/ui/components/physics_ui.gd").new()
 	physcomp3.velocity = Vector2(0, randf_range(-600, -600))
 	physcomp3.gravity /= 2.0
-	$PanelContainer/VBoxContainer/Control.add_child(physcomp3)
+	$PanelContainer/VBoxContainer/VBoxContainer/Control.add_child(physcomp3)
 	physcomp3.tree_exited.connect(func(): count.append(0))
+
+	finished.emit(button_pressed)
 
 	while count.size() < button_container.get_child_count() + 2:
 		await get_tree().process_frame
 
 	if quitting:
 		get_tree().quit()
-	else:
-		finished.emit(button_pressed)

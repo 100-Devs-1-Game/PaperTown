@@ -10,7 +10,7 @@
 shader = ExtResource("4_w7b7d")
 shader_parameter/top_color = Color(0.62593067, 0.7492802, 1, 1)
 shader_parameter/bottom_color = Color(1, 1, 1, 1)
-shader_parameter/rect_height = 340.0
+shader_parameter/rect_height = 150.0
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -40,46 +40,39 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
-theme_override_constants/separation = 0
+theme_override_constants/separation = 48
 
-[node name="FloatingText" parent="PanelContainer/VBoxContainer" instance=ExtResource("3_hjbl3")]
-custom_minimum_size = Vector2(200, 200)
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="FloatingText" parent="PanelContainer/VBoxContainer/VBoxContainer" instance=ExtResource("3_hjbl3")]
+custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="RichTextLabel" parent="PanelContainer/VBoxContainer/FloatingText" index="0"]
+[node name="RichTextLabel" parent="PanelContainer/VBoxContainer/VBoxContainer/FloatingText" index="0"]
 material = SubResource("ShaderMaterial_3nlpe")
-layout_mode = 0
-anchors_preset = 0
-offset_left = -331.0
-offset_top = -17.5
-offset_right = 392.0
-offset_bottom = 122.5
-grow_horizontal = 1
-grow_vertical = 1
-scale = Vector2(1.5, 1.5)
+offset_right = 0.0
+offset_bottom = 0.0
 theme_override_colors/font_outline_color = Color(0.36078432, 0.5568628, 1, 1)
 text = "[wave][tilt]PAPER TOWN![/tilt][wave]"
 
-[node name="Control" type="Control" parent="PanelContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="PanelContainer/VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 mouse_filter = 1
 
-[node name="Control" type="Control" parent="PanelContainer/VBoxContainer/Control"]
+[node name="Control" type="Control" parent="PanelContainer/VBoxContainer/VBoxContainer/Control"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
 grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.45, 0.45)
+scale = Vector2(0.2, 0.2)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/Control/Control"]
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/VBoxContainer/Control/Control"]
 texture_filter = 4
 clip_contents = false
 layout_mode = 1
@@ -102,15 +95,13 @@ text = "[wave]attack  of  the  bristling  boars"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Control2" type="Control" parent="PanelContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-
 [node name="VBoxContainer | Buttons" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-theme_override_constants/separation = 0
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = -30
 
 [node name="Play" type="Button" parent="PanelContainer/VBoxContainer/VBoxContainer | Buttons"]
 unique_name_in_owner = true
@@ -126,7 +117,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.25, 0.25)
 mouse_filter = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/VBoxContainer | Buttons/Play/Control"]
@@ -166,7 +157,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.25, 0.25)
 mouse_filter = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/VBoxContainer | Buttons/Settings/Control"]
@@ -210,22 +201,16 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.25, 0.25)
 mouse_filter = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/VBoxContainer | Buttons/Quit/Control"]
 texture_filter = 4
 clip_contents = false
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -133.5
-offset_top = -70.0
-offset_right = 133.5
-offset_bottom = 70.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -242,4 +227,4 @@ text = "[wave amp=50]QUIT"
 fit_content = true
 autowrap_mode = 0
 
-[editable path="PanelContainer/VBoxContainer/FloatingText"]
+[editable path="PanelContainer/VBoxContainer/VBoxContainer/FloatingText"]
