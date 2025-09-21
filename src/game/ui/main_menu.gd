@@ -1,4 +1,5 @@
 @tool
+class_name MainMenu
 extends Control
 
 const BUTTON_WIDTH = 400
@@ -7,6 +8,8 @@ const BUTTON_WIDTH = 400
 @onready var play: Button = %Play
 @onready var settings: Button = %Settings
 @onready var quit: Button = %Quit
+
+signal finished(Button)
 
 
 func get_rtl(btn: Button) -> RichTextLabel:
@@ -84,4 +87,4 @@ func animate(button_pressed: Button) -> void:
 	if quitting:
 		get_tree().quit()
 	else:
-		queue_free()
+		finished.emit(button_pressed)
