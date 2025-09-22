@@ -54,7 +54,6 @@ font_data_dynamic={
 &"multichannel_signed_distance_field": true
 }
 texture={
-&"mipmaps/generate": true,
 &"process/size_limit": 2048
 }
 
