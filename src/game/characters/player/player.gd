@@ -1,6 +1,6 @@
 class_name Player extends CharacterBody3D
 
-enum State { MOVEMENT, ATTACK }
+enum State { MOVEMENT, ATTACK, BATTLE }
 
 const STATS = preload("res://game/resources/stats.tres")
 
@@ -22,16 +22,6 @@ func _ready():
 		push_error("Player stats not loaded!")
 		return
 
-	print("Player Stats Loaded:")
-	#print("Player Name: %s" % stats.player_name)
-	print("Level: %s" % stats.level)
-	#print("Max HP: %s" % stats.max_HP)
-	#print("Current HP: %s" % stats.current_hp)
-	#print("Attack: %s" % stats.attack)
-	#print("Defense: %s" % stats.defense)
-	#print("Speed: %s" % stats.speed)
-	print("Luck: %s" % stats.luck)
-
 
 func _physics_process(delta):
 	# TODO: final code is going to be much more sophisticated than this
@@ -40,6 +30,8 @@ func _physics_process(delta):
 		State.MOVEMENT:
 			handle_movement(delta)
 		State.ATTACK:
+			pass
+		State.BATTLE:
 			pass
 
 
@@ -84,3 +76,9 @@ func handle_attack():
 # This will likely get obsolete with an anim player
 func exit_attack_state():
 	player_state = State.MOVEMENT
+
+func set_battle_state(in_battle: bool) -> void:
+	if in_battle:
+		player_state = State.BATTLE
+	else:
+		player_state = State.MOVEMENT

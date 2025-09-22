@@ -1,14 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://k126qihwv8y"]
+[gd_scene load_steps=5 format=3 uid="uid://k126qihwv8y"]
 
 [ext_resource type="Script" uid="uid://ckeeoresabf6t" path="res://game/battle/battle_manager.gd" id="1_2a4vk"]
 
-[node name="Battle" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2a4vk"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2a4vk"]
+size = Vector2(32, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iyig8"]
+size = Vector3(32, 0.1, 6)
+
+[node name="Battle" type="Node3D"]
 script = ExtResource("1_2a4vk")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_2a4vk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("PlaneMesh_2a4vk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_iyig8")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.70671177, -0.70750165, 0, 0.70750165, 0.70671177, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1570344, 1.3776088, 3.8576064)
+fov = 127.230545

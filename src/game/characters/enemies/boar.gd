@@ -1,6 +1,6 @@
 class_name Enemy extends CharacterBody3D
 
-enum State { WANDER, ALERT, CHASE }
+enum State { WANDER, ALERT, CHASE, BATTLE }
 
 const STATS = preload("res://game/resources/stats.tres")
 
@@ -42,6 +42,8 @@ func _physics_process(delta):
 			alert()
 		State.CHASE:
 			chase()
+		State.BATTLE:
+			pass
 
 
 func wander():
@@ -82,3 +84,11 @@ func on_detection_bubble_body_entered(body):
 		debug_excla_mark.text = "!!"
 		target = body
 		alert_timer.start()
+		
+func set_battle_state(in_battle: bool) -> void:
+	if in_battle:
+		state = State.BATTLE
+		print("BOAR state changed to BATTLE")
+	else:
+		state = State.WANDER
+		print("BOAR state changed to WANDER")

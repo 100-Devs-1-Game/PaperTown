@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca65elqv0fxhy"]
+
+[ext_resource type="Script" uid="uid://ovpgatviv4uj" path="res://game/battle/action_menu.gd" id="1_1lwqo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1lwqo"]
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[node name="ActionMenu" type="Container"]
+custom_minimum_size = Vector2(650, 164)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -325.0
+offset_top = -164.0
+offset_right = 325.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_1lwqo")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
+
+[node name="Actions" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Tongue" type="Button" parent="MarginContainer/Actions"]
+custom_minimum_size = Vector2(200, 164)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_1lwqo")
+text = "Tongue Slap"
+flat = true
+autowrap_mode = 2
+
+[node name="Tail" type="Button" parent="MarginContainer/Actions"]
+custom_minimum_size = Vector2(200, 164)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
+text = "Tail Whip"
+flat = true
+autowrap_mode = 2
+
+[node name="Run" type="Button" parent="MarginContainer/Actions"]
+custom_minimum_size = Vector2(200, 164)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
+text = "Run Away"
+flat = true
+autowrap_mode = 2

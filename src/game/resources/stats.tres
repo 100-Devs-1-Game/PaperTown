@@ -4,9 +4,5 @@
 
 [resource]
 script = ExtResource("1_2j5wb")
-level = 1
-hit_counter = 0
-attack = 5
-luck = 1
-health = 15
+luck = 5
 metadata/_custom_type_script = "uid://bvd4lnuwuqrhc"
