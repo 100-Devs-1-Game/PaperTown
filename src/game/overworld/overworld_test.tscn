@@ -22,7 +22,7 @@ ambient_light_color = Color(0.462745, 0.776471, 0.823529, 1)
 [node name="OverworldTest" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_n3xei")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7997425, 5.567525)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7997425, -8.898085)
 
 [node name="Boar" parent="." instance=ExtResource("2_vssvh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7184334, 2.708621, -9.601168)
