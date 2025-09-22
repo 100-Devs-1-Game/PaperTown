@@ -77,6 +77,7 @@ func handle_attack():
 func exit_attack_state():
 	player_state = State.MOVEMENT
 
+
 func set_battle_state(in_battle: bool) -> void:
 	if in_battle:
 		player_state = State.BATTLE

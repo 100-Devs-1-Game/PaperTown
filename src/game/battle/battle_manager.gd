@@ -7,7 +7,6 @@ const BOAR = preload("uid://c8x3kcryc0xtb")
 const BATTLE_UI = preload("uid://du3tajtsd7up4")
 const ACTION_MENU = preload("uid://ca65elqv0fxhy")
 
-
 @onready var player_character := PLAYER.instantiate()
 @onready var enemy_character := BOAR.instantiate()
 
@@ -26,8 +25,10 @@ var player_action: BattleEnums.ActionType
 var battle_ui_instance: Control
 var action_menu_instance: Control
 
+
 func _ready() -> void:
 	setup_battle()
+
 
 # Initialize the battle scene
 func setup_battle() -> void:
@@ -55,10 +56,12 @@ func setup_battle() -> void:
 	battle_state_changed.emit(current_state)
 	start_battle()
 
+
 # Start the Battle
 func start_battle() -> void:
 	player_character.stats.hit_counter = 0
 	start_player_turn()
+
 
 func start_player_turn() -> void:
 	current_state = BattleEnums.BattleState.PLAYER_TURN
@@ -67,6 +70,7 @@ func start_player_turn() -> void:
 	action_menu_instance.show()
 	action_menu_instance.move_to_front()
 	action_menu_instance.mouse_filter = Control.MOUSE_FILTER_PASS
+
 
 func handle_action_selected(action_type: BattleEnums.ActionType) -> void:
 	var damage := 0
@@ -91,6 +95,7 @@ func handle_action_selected(action_type: BattleEnums.ActionType) -> void:
 	else:
 		start_enemy_turn()
 
+
 func execute_run_attempt() -> void:
 	var run_chance := randi() % 100
 	if run_chance < 50:
@@ -99,6 +104,7 @@ func execute_run_attempt() -> void:
 	else:
 		print("Failed to run away!")
 		start_enemy_turn()
+
 
 func start_enemy_turn() -> void:
 	current_state = BattleEnums.BattleState.ENEMY_TURN
@@ -114,6 +120,7 @@ func start_enemy_turn() -> void:
 		# Wait a moment then start next player turn
 		await get_tree().create_timer(2.0).timeout
 		start_player_turn()
+
 
 func end_battle(player_won: bool) -> void:
 	if player_won:

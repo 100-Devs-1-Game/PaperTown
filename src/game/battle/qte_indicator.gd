@@ -10,15 +10,18 @@ signal qte_failure
 var is_active = false
 var required_input = "ui_accept"
 
+
 func _ready() -> void:
 	hide()
 	timer.timeout.connect(_on_timer_timeout)
+
 
 func start_qte() -> void:
 	is_active = true
 	show()
 	qte_bar.size.x = 200
 	timer.start()
+
 
 func _process(delta: float) -> void:
 	if is_active:
@@ -33,6 +36,7 @@ func _process(delta: float) -> void:
 				is_active = false
 				timer.stop()
 				hide()
+
 
 func check_for_success():
 	var bar_end_x = qte_bar.global_position.x + qte_bar.size.x
@@ -49,6 +53,7 @@ func check_for_success():
 		is_active = false
 		timer.stop()
 		hide()
+
 
 func _on_timer_timeout() -> void:
 	qte_failure.emit()

@@ -84,7 +84,8 @@ func on_detection_bubble_body_entered(body):
 		debug_excla_mark.text = "!!"
 		target = body
 		alert_timer.start()
-		
+
+
 func set_battle_state(in_battle: bool) -> void:
 	if in_battle:
 		state = State.BATTLE
