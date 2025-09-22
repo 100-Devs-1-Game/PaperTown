@@ -145,6 +145,7 @@ autowrap_mode = 0
 
 [node name="Settings" type="Button" parent="PanelContainer/VBoxContainer/VBoxContainer | Buttons"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = " "
 

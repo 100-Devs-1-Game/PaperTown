@@ -81,10 +81,11 @@ func animate(button_pressed: Button) -> void:
 	$PanelContainer/VBoxContainer/VBoxContainer/Control.add_child(physcomp3)
 	physcomp3.tree_exited.connect(func(): count.append(0))
 
-	finished.emit(button_pressed)
+	if !quitting:
+		finished.emit(button_pressed)
+		return
 
 	while count.size() < button_container.get_child_count() + 2:
 		await get_tree().process_frame
 
-	if quitting:
-		get_tree().quit()
+	get_tree().quit()
