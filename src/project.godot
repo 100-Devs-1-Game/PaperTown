@@ -21,7 +21,7 @@ Signals="*res://autoloads/signals.gd"
 Tags="*res://autoloads/tags.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 FloatingText="*res://autoloads/floating_text.gd"
-BattleEnums="*res://game/battle/battle enums.gd"
+BattleEnums="*res://game/battle/battle_enums.gd"
 
 [debug_draw_3d]
 
