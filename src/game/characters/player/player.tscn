@@ -53,17 +53,22 @@ collision_layer = 3
 script = ExtResource("1_yjtv7")
 
 [node name="MovementComponent" parent="." instance=ExtResource("2_mnys6")]
+unique_name_in_owner = true
 
 [node name="OverworldAttackComponent" parent="." instance=ExtResource("3_65114")]
+unique_name_in_owner = true
 overworld_attack = ExtResource("4_65114")
 
-[node name="Overworld3D" type="Node3D" parent="."]
+[node name="Visuals" type="Node3D" parent="."]
+unique_name_in_owner = true
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Overworld3D"]
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Visuals"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 pixel_size = 0.002
 sprite_frames = SubResource("SpriteFrames_aps11")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.859177, 0)
 shape = SubResource("CapsuleShape3D_5hw72")

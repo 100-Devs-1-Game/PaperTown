@@ -9,10 +9,14 @@ var attack_distance := 1.5
 var attack_time = 1.0
 var player_state: State
 var stats = STATS
+var flip_speed: float = 720.0  # angle per second
 
-@onready var movement_component = $MovementComponent
-@onready var overworld_attack_component = $OverworldAttackComponent
-@onready var collision_shape_3d = $CollisionShape3D
+@onready var visuals: Node3D = %Visuals
+@onready var animated_sprite_3d: AnimatedSprite3D = %AnimatedSprite3D
+
+@onready var movement_component = %MovementComponent
+@onready var overworld_attack_component = %OverworldAttackComponent
+@onready var collision_shape_3d = %CollisionShape3D
 
 
 func _ready():
@@ -21,6 +25,12 @@ func _ready():
 	if stats == null:
 		push_error("Player stats not loaded!")
 		return
+
+
+func _process(delta: float) -> void:
+	# Update the visuals so it flips around slowly
+	var angle := 0.0 if movement_component.facing_right else 180.0
+	visuals.rotation_degrees.y = move_toward(visuals.rotation_degrees.y, angle, flip_speed * delta)
 
 
 func _physics_process(delta):
