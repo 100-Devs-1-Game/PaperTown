@@ -62,21 +62,22 @@ func animate(button_pressed: Button) -> void:
 		btn.mouse_filter = MOUSE_FILTER_IGNORE
 
 		var physcomp := preload("res://game/ui/components/physics_ui.gd").new()
+		physcomp.gravity = 0
 		if btn == button_pressed:
-			physcomp.velocity = Vector2(1000, randf_range(-600, -2000))
+			physcomp.velocity = Vector2(1000, 0)
 		else:
-			physcomp.velocity = Vector2(-1000, randf_range(-600, -2000))
+			physcomp.velocity = Vector2(-1000, 0)
 		btn.add_child(physcomp)
 		physcomp.tree_exited.connect(func(): count.append(0))
 
 	var physcomp2 := preload("res://game/ui/components/physics_ui.gd").new()
-	physcomp2.velocity = Vector2(0, 1400)
+	#physcomp2.velocity = Vector2(0, 1400)
 	physcomp2.gravity *= -1
 	$PanelContainer/VBoxContainer/VBoxContainer/FloatingText.add_child(physcomp2)
 	physcomp2.tree_exited.connect(func(): count.append(0))
 
 	var physcomp3 := preload("res://game/ui/components/physics_ui.gd").new()
-	physcomp3.velocity = Vector2(0, 1600)
+	#physcomp3.velocity = Vector2(0, 1600)
 	physcomp3.gravity *= -1
 	$PanelContainer/VBoxContainer/VBoxContainer/Control.add_child(physcomp3)
 	physcomp3.tree_exited.connect(func(): count.append(0))
