@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dht78keg8oi7q"]
+
+[ext_resource type="ArrayMesh" uid="uid://cojg4xjqnuag2" path="res://assets/100devs/assets/data/assets_fence.mesh.tres" id="1_8jwkm"]
+
+[node name="Fence" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.333, 0, 0, 0, -1.45558925e-08, -1, 0, 0.333, -4.371139e-08, -1, 1, 0)
+mesh = ExtResource("1_8jwkm")
