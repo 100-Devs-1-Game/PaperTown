@@ -1,8 +1,7 @@
 [gd_resource type="ArrayMesh" load_steps=3 format=4 uid="uid://b63emypwmsmu0"]
 
 [ext_resource type="ArrayMesh" uid="uid://kh8mylj8cxtj" path="res://assets/100devs/assets/data/assets_road.mesh.shadow.tres" id="1_dupd2"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dupd2"]
+[ext_resource type="Material" uid="uid://dhhg3hgkfvxd2" path="res://assets/100devs/assets/data/assets-material_blank.tres" id="1_qp2qs"]
 
 [resource]
 resource_name = "assets_road_plane-029.mesh"
@@ -12,7 +11,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 246,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIABAACAAUABgAEAAUABgAFAAcACAAGAAcACAAHAAkACgAIAAkACgAJAAsADAAKAAsADAALAA0ADgAMAA0ADgANAA8AEAAOAA8AEAAPABEAEgAQABEAEgARABMAFAASABMAFAATABUAFgAUABUAFgAVABcAGAAWABcAGAAXABkAGgAYABkAGgAZABsAHAAaABsAHAAbAB0AHgAcAB0AHgAdAB8AIAAeAB8AIAAfACEAIgAgACEAIgAhACMAJAAiACMAJAAjACUAJgAkACUAJgAlACcAKAAmACcAKAAnACkAKgAoACkAKgApACsALAAqACsALAArAC0ALgAsAC0ALgAtAC8AMAAuAC8AMAAvADEAMgAwADEAMgAxADMANAAyADMANAAzADUANgA0ADUANgA1ADcAOAA2ADcAOAA3ADkAOgA4ADkAOgA5ADsAPAA6ADsAPAA7AD0APgA8AD0APgA9AD8AQAA+AD8AQAA/AEEAQgBAAEEAQgBBAEMARABCAEMARABDAEUARgBEAEUARgBFAEcASABGAEcASABHAEkASgBIAEkASgBJAEsATABKAEsATABLAE0ATgBMAE0ATgBNAE8AUABOAE8AUABPAFEAUgBQAFEAUgBRAFMA"),
-"material": SubResource("StandardMaterial3D_dupd2"),
+"material": ExtResource("1_qp2qs"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 84,
