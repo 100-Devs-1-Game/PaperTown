@@ -21,7 +21,7 @@ var save_collision_shapes := true
 var save_materials := true
 
 # if we change them in godot, we should set this to false, but for now it's okay
-var overwrite_materials := true
+var overwrite_materials := false
 
 # sometimes there are duplicates with just a number different
 # if turned on, be careful, it doesn't check if the different numbered objects are different!
@@ -122,7 +122,9 @@ func save_mesh(
 	# TODO - autogenerate scenes?
 
 
-func save_user_materials(mesh_instance: MeshInstance3D, folder: String, file_base: String) -> void:
+func save_user_materials(
+	_root: Node, mesh_instance: MeshInstance3D, folder: String, file_base: String
+) -> void:
 	if not mesh_instance or not mesh_instance.mesh:
 		push_error("invalid mesh instance when trying to save material")
 		return
@@ -181,19 +183,25 @@ func save_user_materials(mesh_instance: MeshInstance3D, folder: String, file_bas
 					"failed to save material '%s' with error code '%s'" % [mat_save_path, mat_err]
 				)
 				return
+		#else:
+		#var node_path_as_name := fix_name(root.get_path_to(mesh_instance), true)
+		#print(
+		#(
+		#"'%s' uses material '%s' and we will not overwrite it"
+		#% [node_path_as_name, mat_save_path]
+		#)
+		#)
 
-			var reloaded_material := ResourceLoader.load(
-				mat_save_path, "", ResourceLoader.CACHE_MODE_REPLACE
+		var reloaded_material := ResourceLoader.load(
+			mat_save_path, "", ResourceLoader.CACHE_MODE_REPLACE
+		)
+		if not reloaded_material:
+			push_error(
+				"failed to reload material '%s', got '%s'" % [mat_save_path, reloaded_material]
 			)
-			if not reloaded_material:
-				push_error(
-					"failed to reload material '%s', got '%s'" % [mat_save_path, reloaded_material]
-				)
-				return
+			return
 
-			mesh.surface_set_material(i, reloaded_material)
-		else:
-			print("not overwriting '%s'" % mat_save_path)
+		mesh.surface_set_material(i, reloaded_material)
 
 
 func save_collision_shape(
@@ -276,7 +284,7 @@ func _post_import(scene: Node):
 	# Save only user-created materials
 	if save_materials:
 		for mesh_instance in mesh_instances:
-			save_user_materials(mesh_instance, folder, file_base)
+			save_user_materials(scene, mesh_instance, folder, file_base)
 
 	# Save collision shapes
 	if save_collision_shapes:
