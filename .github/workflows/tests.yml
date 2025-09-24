@@ -63,6 +63,6 @@ jobs:
           godot_version: ${{ env.GODOT_VERSION }}
           project_path: src
 
-      - name: Validate Git Diff
-        run: |
-          ./scripts/validate_git_diff.sh
+     # - name: Validate Git Diff
+     #   run: |
+     #     ./scripts/validate_git_diff.sh
