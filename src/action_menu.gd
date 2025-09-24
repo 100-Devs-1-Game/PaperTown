@@ -3,9 +3,8 @@ extends Container
 @onready var tongue_button: Button = $MarginContainer/HBoxContainer/Tongue
 @onready var tail_button: Button = $MarginContainer/HBoxContainer/Tail
 @onready var run_button: Button = $MarginContainer/HBoxContainer/Run
-const BattleManager = preload("uid://ckeeoresabf6t")
 
-signal action_selected(action_type: BattleManager.ActionType)
+signal action_selected(action_type: BattleEnums.ActionType)
 
 
 func _ready() -> void:
