@@ -216,7 +216,7 @@ func save_user_materials(
 		print(
 			(
 				"reloaded material '%s' and set it on mesh '%s'"
-				% [reloaded_material.resource_path, mesh.resource_path]
+				% [reloaded_material.resource_path, root.get_path_to(mesh_instance)]
 			)
 		)
 
