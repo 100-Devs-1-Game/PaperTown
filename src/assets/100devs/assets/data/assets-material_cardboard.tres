@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://mi14epe54g6y"]
+
+[ext_resource type="Texture2D" uid="uid://bqv461c85yd7f" path="res://assets/100devs/assets/_albedo.png" id="1_qerln"]
+[ext_resource type="Texture2D" uid="uid://bmd6oe57phrg3" path="res://assets/100devs/assets/_normal.png" id="2_wf5nn"]
+
+[resource]
+resource_name = "cardboard"
+cull_mode = 2
+albedo_texture = ExtResource("1_qerln")
+normal_enabled = true
+normal_texture = ExtResource("2_wf5nn")

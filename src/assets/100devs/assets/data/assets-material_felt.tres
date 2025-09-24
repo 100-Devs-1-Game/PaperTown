@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://b8uhc1v38v4tn"]
+
+[ext_resource type="Texture2D" uid="uid://b40ns2d07lgyg" path="res://assets/100devs/assets/felt_albedo.png" id="1_635oy"]
+[ext_resource type="Texture2D" uid="uid://k487tpcnecjb" path="res://assets/100devs/assets/felt_normal.png" id="2_7ojnv"]
+
+[resource]
+resource_name = "felt"
+cull_mode = 2
+albedo_texture = ExtResource("1_635oy")
+normal_enabled = true
+normal_texture = ExtResource("2_7ojnv")

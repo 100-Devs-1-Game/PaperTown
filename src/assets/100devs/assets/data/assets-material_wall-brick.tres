@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cx2gd1347xaw0"]
+
+[ext_resource type="Texture2D" uid="uid://bbncs141ujglo" path="res://assets/100devs/assets/wall_bricks.webp.webp" id="1_a1vl3"]
+[ext_resource type="Texture2D" uid="uid://bmd6oe57phrg3" path="res://assets/100devs/assets/_normal.png" id="2_2igot"]
+
+[resource]
+resource_name = "wall_brick"
+cull_mode = 2
+albedo_texture = ExtResource("1_a1vl3")
+roughness = 0.5
+normal_enabled = true
+normal_texture = ExtResource("2_2igot")

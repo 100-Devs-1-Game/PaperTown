@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://c82kl5mylpuj7"]
+
+[ext_resource type="Texture2D" uid="uid://c5hqlxqaqalcf" path="res://assets/100devs/assets/grass.png" id="1_xlarh"]
+[ext_resource type="Texture2D" uid="uid://bmd6oe57phrg3" path="res://assets/100devs/assets/_normal.png" id="2_2wqkg"]
+
+[resource]
+resource_name = "grass"
+cull_mode = 2
+albedo_texture = ExtResource("1_xlarh")
+roughness = 0.5
+normal_enabled = true
+normal_scale = 0.8000001
+normal_texture = ExtResource("2_2wqkg")

@@ -1,0 +1,35 @@
+[gd_resource type="ArrayMesh" load_steps=3 format=4 uid="uid://cojg4xjqnuag2"]
+
+[ext_resource type="Material" uid="uid://hauupkdjqmhb" path="res://assets/100devs/assets/data/assets-material_house.tres" id="1_kqb06"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dsx8d"]
+_surfaces = [{
+"aabb": AABB(-3.5886028, -0.076470144, -1.1013813, 12.674945, 0.0931138, 2.1013813),
+"format": 34896613377,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkACQAMAAoACQANAAwADQAOAAwADQAPAA4A"),
+"name": "house",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("SDQ80v//AAAYcTzS/AcAAK1cPNL//wAAyzc80nYaAADljP7/6ewAACvf//8AAAAAo7T+/6X6AAAEpv7/SQwAABUEAAAzlQAAZWsAAMI3AAAFYQAAmX4AAAAAAAAVTAAAycQAADmEAAApzwAAYj0AAA3xkBzKggAA//+QHPQ+AAA=")
+}]
+blend_shape_mode = 0
+
+[resource]
+resource_name = "assets_fence_plane-009.mesh"
+_surfaces = [{
+"aabb": AABB(-3.5886028, -0.076470144, -1.1013813, 12.674945, 0.0931138, 2.1013813),
+"attribute_data": PackedByteArray("VUAK+tNXRM/wTwr6sUF00kco1fvFPxDR4jfV+6MpQNTRWv6uG2mlzptc2srfZ1SuKVlF6c1lRu3NZUbtSlgT9ylZRelbZJj8"),
+"format": 34896613399,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkACQAMAAoACQANAAwADgAPABAADgARAA8A"),
+"material": ExtResource("1_kqb06"),
+"name": "house",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("SDQ80v///78YcTzS/Af/v61cPNL///+/yzc80nYa/7/ljP7/6ewCwCvf//8AAALAo7T+/6X6B8AEpv7/SQwAwBUEAAAzlRPZZWsAAMI3rNkFYQAAmX782QAAAAAVTAHZycQAADmEp9opzwAAYj252inPAABiPa7aDfGQHMqCD9vJxAAAOYSb2v//kBz0PiDb////f////3////9//v//f3T7RIKm+yuCEPl2g839GIEs01km2NKxJazSWyU102wmUNKjJEbSjyR00vkkP9KRJH7SDSU20n4k")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_dsx8d")
