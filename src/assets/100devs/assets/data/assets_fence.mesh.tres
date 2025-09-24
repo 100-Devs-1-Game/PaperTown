@@ -1,7 +1,7 @@
 [gd_resource type="ArrayMesh" load_steps=3 format=4 uid="uid://cojg4xjqnuag2"]
 
 [ext_resource type="Material" uid="uid://hauupkdjqmhb" path="res://assets/100devs/assets/data/assets-material_house.tres" id="1_t1eu7"]
-[ext_resource type="ArrayMesh" uid="uid://duod01hi6qcmg" path="res://assets/100devs/assets/data/assets_fence.mesh.shadow.res" id="2_t1eu7"]
+[ext_resource type="ArrayMesh" uid="uid://duod01hi6qcmg" path="res://assets/100devs/assets/data/assets_fence.mesh.shadow.res" id="2_dsx8d"]
 
 [resource]
 resource_name = "assets_fence_plane-009.mesh"
@@ -19,4 +19,4 @@ _surfaces = [{
 "vertex_data": PackedByteArray("SDQ80v///78YcTzS/Af/v61cPNL///+/yzc80nYa/7/ljP7/6ewCwCvf//8AAALAo7T+/6X6B8AEpv7/SQwAwBUEAAAzlRPZZWsAAMI3rNkFYQAAmX782QAAAAAVTAHZycQAADmEp9opzwAAYj252inPAABiPa7aDfGQHMqCD9vJxAAAOYSb2v//kBz0PiDb////f////3////9//v//f3T7RIKm+yuCEPl2g839GIEs01km2NKxJazSWyU102wmUNKjJEbSjyR00vkkP9KRJH7SDSU20n4k")
 }]
 blend_shape_mode = 0
-shadow_mesh = ExtResource("2_t1eu7")
+shadow_mesh = ExtResource("2_dsx8d")

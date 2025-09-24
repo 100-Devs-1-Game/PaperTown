@@ -1,7 +1,7 @@
 [gd_resource type="ArrayMesh" load_steps=3 format=3 uid="uid://8yv62ro7yqf6"]
 
 [ext_resource type="Material" uid="uid://c82kl5mylpuj7" path="res://assets/100devs/assets/data/assets-material_grass.tres" id="1_o4k63"]
-[ext_resource type="ArrayMesh" uid="uid://shxp7m075yj" path="res://assets/100devs/assets/data/assets_floor-middle.mesh.shadow.res" id="2_o4k63"]
+[ext_resource type="ArrayMesh" uid="uid://shxp7m075yj" path="res://assets/100devs/assets/data/assets_floor-middle.mesh.shadow.res" id="2_qsq3l"]
 
 [resource]
 resource_name = "assets_floor-middle_plane-020.mesh"
@@ -19,4 +19,4 @@ _surfaces = [{
 "vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
 }]
 blend_shape_mode = 0
-shadow_mesh = ExtResource("2_o4k63")
+shadow_mesh = ExtResource("2_qsq3l")

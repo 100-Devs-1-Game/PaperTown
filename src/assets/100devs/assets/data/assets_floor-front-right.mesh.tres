@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://c82kl5mylpuj7" path="res://assets/100devs/assets/data/assets-material_grass.tres" id="1_fdrup"]
 [ext_resource type="Material" uid="uid://mi14epe54g6y" path="res://assets/100devs/assets/data/assets-material_cardboard.tres" id="2_nd4u7"]
-[ext_resource type="ArrayMesh" uid="uid://b81xfnmv63uk8" path="res://assets/100devs/assets/data/assets_floor-front-right.mesh.shadow.res" id="3_fdrup"]
+[ext_resource type="ArrayMesh" uid="uid://b81xfnmv63uk8" path="res://assets/100devs/assets/data/assets_floor-front-right.mesh.shadow.res" id="3_pi123"]
 
 [resource]
 resource_name = "assets_floor-front-right_cube-003.mesh"
@@ -32,4 +32,4 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AAD/////AAAjFQAAH/8AAAAAAAD//wAAIxX//x//AAAiKgAAgfwAACIq//+B/AAA1z4AACn4AADXPv//KfgAAB9TAAAg8gAAH1P//yDyAADVZgAAb+oAANVm//9v6gAA13kAACThAADXef//JOEAAASMAABP1gAABIz//0/WAAA8nQAABMoAADyd//8EygAAYa0AAFe8AABhrf//V7wAAFe8AABhrQAAV7z//2GtAAAEygAAPJ0AAATK//88nQAAT9YAAASMAABP1v//BIwAACThAADXeQAAJOH//9d5AABv6gAA1WYAAG/q///VZgAAIPIAAB9TAAAg8v//H1MAACn4AADXPgAAKfj//9c+AACB/AAAIioAAIH8//8iKgAAH/8AACMVAAAf////IxUAAP//AAAAAAAA/////wAAAACWgv9/FYX/f5aC/38Vhf9/yon/f8qJ/38vjv9/L47/f02S/39Nkv9/L5b/fy+W/3/cmf9/3Jn/f1yd/39cnf9/taD/f7Wg/3/so/9/7KP/fwan/38Gp/9/Bqr/fwaq/3/yrP9/8qz/f8qv/3/Kr/9/k7L/f5Oy/39Rtf9/UbX/fwS4/38EuP9/sbr/f7G6/39Zvf9/Wb3/f6y+/3+svv9/")
 }]
 blend_shape_mode = 0
-shadow_mesh = ExtResource("3_fdrup")
+shadow_mesh = ExtResource("3_pi123")
