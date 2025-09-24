@@ -3,7 +3,7 @@ import sys
 import os
 import re
 
-SNAKE_CASE_REGEX = re.compile(r'^[\.a-z0-9_]+$')
+SNAKE_CASE_REGEX = re.compile(r'^[\.a-z0-9_-]+$')
 
 def is_snake_case(name):
     return bool(SNAKE_CASE_REGEX.fullmatch(name))
