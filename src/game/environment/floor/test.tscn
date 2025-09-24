@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://crtm3xevyq3w6"]
+[gd_scene load_steps=11 format=3 uid="uid://crtm3xevyq3w6"]
 
 [ext_resource type="PackedScene" uid="uid://bxf2iw36fhu4j" path="res://game/environment/floor/floor_middle.tscn" id="1_4es23"]
 [ext_resource type="PackedScene" uid="uid://cvyfwbeb4j5yl" path="res://game/environment/floor/floor_corner_back_left.tscn" id="1_p7n3r"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://1xffej8rych6" path="res://game/environment/floor/floor_corner_front_right.tscn" id="4_34igb"]
 [ext_resource type="PackedScene" uid="uid://dpj20m70q42wj" path="res://game/environment/floor/floor_front.tscn" id="7_a57iy"]
 [ext_resource type="PackedScene" uid="uid://cpsr21ixm0kel" path="res://game/environment/floor/floor_right.tscn" id="8_uttm4"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_81njp"]
 
 [node name="Test" type="Node3D"]
 
@@ -37,3 +39,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 
 [node name="FloorRight" parent="." instance=ExtResource("8_uttm4")]
 transform = Transform3D(1, 0, 1.1920929e-07, 0, 1, 0, -1.1920929e-07, 0, 1, 4, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_81njp")

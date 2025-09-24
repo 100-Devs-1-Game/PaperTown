@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=4 uid="uid://romkf60q2s4o"]
+
+[ext_resource type="ArrayMesh" uid="uid://kq0eiu0utmmi" path="res://assets/100devs/assets/data/assets_roof.mesh.tres" id="1_8titt"]
+[ext_resource type="Texture2D" uid="uid://ck7d1byj8ivx2" path="res://assets/100devs/assets/house_acorn.png" id="2_q72dr"]
+[ext_resource type="ArrayMesh" uid="uid://cjotv8w105dto" path="res://assets/100devs/assets/data/assets_roof_timber.mesh.tres" id="3_8jwmm"]
+[ext_resource type="ArrayMesh" uid="uid://d3xmm3wrfaiaj" path="res://assets/100devs/assets/data/assets_roof_wall-stone.mesh.tres" id="4_q6j7i"]
+[ext_resource type="ArrayMesh" uid="uid://dob13lt75g4k7" path="res://assets/100devs/assets/data/assets_wall.mesh.tres" id="5_l1nv0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_isgqx"]
+resource_name = "house_acorn"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("2_q72dr")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_104js"]
+_surfaces = [{
+"aabb": AABB(-0.8813731, -0.0010473728, -2.5946338, 1.7627466, 1.5795047, 5.1892676),
+"format": 34896613377,
+"index_count": 126,
+"index_data": PackedByteArray("AAABAAIAAwABAAAAAQAEAAUAAQAGAAQAAwAGAAEABAAGAAcACAADAAkACgADAAgACgAIAAsABgADAAwADAADAAoADQAKAA4ADAAKAA0ADAANAA8ABgAQABEABgASABAABgAMABIAEAASABMAEgAMABQAFAAMABUAEgAUABYAFwAYABkAGgAYABcAGAAbABwAGAAdABsAGgAdABgAGwAdAB4AHwAaACAAIQAaAB8AIQAfACIAHQAaACMAIwAaACEAJAAhACUAIwAhACQAIwAkACYAHQAnACgAHQApACcAHQAjACkAJwApACoAKQAjACsAKwAjACwAKQArAC0A"),
+"name": "house_acorn",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 46,
+"vertex_data": PackedByteArray("KXmb//r/AAC9TdL1ff8AAGNlhP3f/wAA/3//////AAD6JJ3YCP4AAP03Wene/gAA5gknrd77AABsFUjEBf0AAJuahP3f/wAA1Yab//r/AAAByFnp3v4AAEGy0vV9/wAALf0clJ76AACS6kjEBf0AAATbndgI/gAAGPYnrd77AABIAIZ4PvkAANECHJSe+gAAAAAAAOTzAAAAAF5kPfgAAP//XmQ9+AAAtv+GeD75AAD//wAA5PMAAL1N0vWBAAAAKXmb/wQAAABjZYT9HwAAAP03WekgAQAA1Yab/wQAAAD/f///AAAAAEGy0vWBAAAAm5qE/R8AAABsFUjE+QIAAPokndj2AQAA0QIclGAFAADmCSetIAQAAP//AAAaDAAAAABeZMEHAABIAIZ4wAYAAAAAAAAaDAAABNud2PYBAAAByFnpIAEAABj2J60gBAAAkupIxPkCAAC2/4Z4wAYAAP//XmTBBwAALf0clGAFAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_q2wvg"]
+resource_name = "assets_Plane_014"
+_surfaces = [{
+"aabb": AABB(-0.8813731, -0.0010473728, -2.5946338, 1.7627466, 1.5795047, 5.1892676),
+"attribute_data": PackedByteArray("EOaytwPnVLxE5s+5B+b4ttfprsA46Ke+De6Rw9DrV8JE5iG0EOY9tjjoSa8D55uxevCdqdDrmavX6UKtDe5eqibzmMR68FPEy/6gxBr1oMQa9VCpJvNYqcv+UKkD51S8EOayt0Tmz7k46Ke+EOY9tgfm+LYD55uxROYhtNDrV8LX6a7AevBTxA3ukcPL/lCpGvWgxCbzmMTL/qDE1+lCrTjoSa8N7l6q0OuZqybzWKka9VCpevCdqQ=="),
+"format": 34896613399,
+"index_count": 126,
+"index_data": PackedByteArray("AAABAAIAAwABAAAAAQAEAAUAAQAGAAQAAwAGAAEABAAGAAcACAADAAkACgADAAgACgAIAAsABgADAAwADAADAAoADQAKAA4ADAAKAA0ADAANAA8ABgAQABEABgASABAABgAMABIAEAASABMAEgAMABQAFAAMABUAEgAUABYAFwAYABkAGgAYABcAGAAbABwAGAAdABsAGgAdABgAGwAdAB4AHwAaACAAIQAaAB8AIQAfACIAHQAaACMAIwAaACEAJAAhACUAIwAhACQAIwAkACYAHQAnACgAHQApACcAHQAjACkAJwApACoAKQAjACsAKwAjACwAKQArAC0A"),
+"material": SubResource("StandardMaterial3D_isgqx"),
+"name": "house_acorn",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 46,
+"vertex_data": PackedByteArray("KXmb//r/PMC9TdL1ff88wGNlhP3f/zvA/3//////PMD6JJ3YCP48wP03Wene/jzA5gknrd77PMBsFUjEBf08wJuahP3f/zzA1Yab//r/P8AByFnp3v48wEGy0vV9/zzALf0clJ76PMCS6kjEBf08wATbndgI/jzAGPYnrd77PMBIAIZ4Pvk8wNECHJSe+jzAAAAAAOTzPMAAAF5kPfg8wP//XmQ9+DzAtv+GeD75PMD//wAA5PM8wL1N0vWBAGgEKXmb/wQAaARjZYT9HwBoBP03WekgAWgE1Yab/wQAaAT/f///AABoBEGy0vWBAGgEm5qE/R8AaARsFUjE+QJoBPokndj2AWgE0QIclGAFaATmCSetIARoBP//AAAaDGgEAABeZMEHaARIAIZ4wAZoBAAAAAAaDGgEBNud2PYBaAQByFnpIAFoBBj2J60gBGgEkupIxPkCaAS2/4Z4wAZoBP//XmTBB2gELf0clGAFaAR8d3x3fHd8d3x3fHd8d3x3fHd8d3x3fHd8d3x3fHd8d3x3fHd9d3x3fHd8d3x3fHd8d3x3fHd8d3x3fHd8d3x3fHd8d3x3fHd8d3x3fHd8d3x3fHd8d3x3fHd8d6I9XMKiPVzCoj1bwqI9XMKiPVzCoT1awqI9XMKiPVzCoj1cwqI9XMKiPVzCoj1cwqI9XMKiPVzCoj1cwqI9XMKiPVzCoj1cwqI9XMKiPVzCoj1cwqI9XMKiPVzC")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_104js")
+
+[node name="HouseAcorn" type="Node3D"]
+
+[node name="roof" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_8titt")
+skeleton = NodePath("")
+
+[node name="door_TEMP" type="MeshInstance3D" parent="roof"]
+mesh = SubResource("ArrayMesh_q2wvg")
+skeleton = NodePath("")
+
+[node name="timber" type="MeshInstance3D" parent="roof"]
+mesh = ExtResource("3_8jwmm")
+skeleton = NodePath("")
+
+[node name="wall_stone" type="MeshInstance3D" parent="roof"]
+mesh = ExtResource("4_q6j7i")
+skeleton = NodePath("")
+
+[node name="wall" type="MeshInstance3D" parent="."]
+mesh = ExtResource("5_l1nv0")
+skeleton = NodePath("")

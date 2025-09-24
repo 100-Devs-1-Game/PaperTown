@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgx421x0ucraq"]
+
+[ext_resource type="PackedScene" uid="uid://px8n52y05giq" path="res://game/characters/player/player.tscn" id="1_3yk8p"]
+[ext_resource type="PackedScene" uid="uid://romkf60q2s4o" path="res://game/environment/house/house_acorn.tscn" id="1_bhkk5"]
+[ext_resource type="PackedScene" uid="uid://crtm3xevyq3w6" path="res://game/environment/floor/test.tscn" id="2_3yk8p"]
+
+[sub_resource type="Environment" id="Environment_pix3n"]
+ambient_light_source = 2
+ambient_light_color = Color(0.3724575, 0.56774753, 1, 1)
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_a3ahp"]
+
+[node name="Test" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_3yk8p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.5514998)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pix3n")
+camera_attributes = SubResource("CameraAttributesPractical_a3ahp")
+
+[node name="HouseAcorn" parent="." instance=ExtResource("1_bhkk5")]
+
+[node name="Test" parent="." instance=ExtResource("2_3yk8p")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 4, 4.082719, 9.580009)
+light_energy = 0.5
+shadow_enabled = true
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.48045313, 0.4385103, -0.75952196, 0.75952196, 0.22497039, 0.61033994, 0.4385102, -0.87011325, -0.22497045, 0, 4.082719, 9.454137)
+light_energy = 0.03
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 4.798962, 8.798117)
