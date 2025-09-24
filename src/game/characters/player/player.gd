@@ -29,7 +29,7 @@ func _ready():
 
 func _process(delta: float) -> void:
 	# Update the visuals so it flips around slowly
-	var angle := 0.0 if movement_component.facing_right else 180.0
+	var angle := -180.0 if movement_component.facing_right else 0.0
 	visuals.rotation_degrees.y = move_toward(visuals.rotation_degrees.y, angle, flip_speed * delta)
 
 
