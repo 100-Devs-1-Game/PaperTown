@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dht78keg8oi7q"]
 
-[ext_resource type="ArrayMesh" uid="uid://cojg4xjqnuag2" path="res://assets/100devs/assets/data/assets_fence.mesh.res" id="1_8jwkm"]
+[ext_resource type="ArrayMesh" uid="uid://cpufabwg0nfdk" path="res://assets/100devs/assets/data/assets_fence.mesh.res" id="1_8jwkm"]
 
 [node name="Fence" type="Node3D"]
 

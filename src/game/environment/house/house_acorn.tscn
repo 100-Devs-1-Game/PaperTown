@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=4 uid="uid://romkf60q2s4o"]
 
-[ext_resource type="ArrayMesh" uid="uid://kq0eiu0utmmi" path="res://assets/100devs/assets/data/assets_roof.mesh.res" id="1_8titt"]
+[ext_resource type="ArrayMesh" uid="uid://rl0x6vpvwcta" path="res://assets/100devs/assets/data/assets_roof.mesh.res" id="1_8titt"]
 [ext_resource type="Texture2D" uid="uid://ck7d1byj8ivx2" path="res://assets/100devs/assets/house_acorn.png" id="2_q72dr"]
-[ext_resource type="ArrayMesh" uid="uid://cjotv8w105dto" path="res://assets/100devs/assets/data/assets_roof_timber.mesh.res" id="3_8jwmm"]
-[ext_resource type="ArrayMesh" uid="uid://d3xmm3wrfaiaj" path="res://assets/100devs/assets/data/assets_roof_wall-stone.mesh.res" id="4_q6j7i"]
-[ext_resource type="ArrayMesh" uid="uid://dob13lt75g4k7" path="res://assets/100devs/assets/data/assets_wall.mesh.res" id="5_l1nv0"]
+[ext_resource type="ArrayMesh" uid="uid://gcc5ku0wloaj" path="res://assets/100devs/assets/data/assets_roof_timber.mesh.res" id="3_8jwmm"]
+[ext_resource type="ArrayMesh" uid="uid://crcfb8pcli3gp" path="res://assets/100devs/assets/data/assets_roof_wall-stone.mesh.res" id="4_q6j7i"]
+[ext_resource type="ArrayMesh" uid="uid://du0vqhvjicjj6" path="res://assets/100devs/assets/data/assets_wall.mesh.res" id="5_l1nv0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_isgqx"]
 resource_name = "house_acorn"
