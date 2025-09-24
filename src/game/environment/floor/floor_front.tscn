@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dpj20m70q42wj"]
 
-[ext_resource type="ArrayMesh" uid="uid://dcn1hys42n87y" path="res://assets/100devs/assets/data/assets_floor-front.mesh.tres" id="1_diiww"]
+[ext_resource type="ArrayMesh" uid="uid://dcn1hys42n87y" path="res://assets/100devs/assets/data/assets_floor-front.mesh.res" id="1_diiww"]
 
 [node name="FloorFront" type="Node3D"]
 

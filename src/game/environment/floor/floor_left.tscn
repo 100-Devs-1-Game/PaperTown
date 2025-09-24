@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cjq7ym6xn2pqo"]
 
-[ext_resource type="ArrayMesh" uid="uid://qwhq6gui5yb7" path="res://assets/100devs/assets/data/assets_floor-left.mesh.tres" id="1_bxbdj"]
+[ext_resource type="ArrayMesh" uid="uid://qwhq6gui5yb7" path="res://assets/100devs/assets/data/assets_floor-left.mesh.res" id="1_bxbdj"]
 
 [node name="FloorLeft" type="Node3D"]
 

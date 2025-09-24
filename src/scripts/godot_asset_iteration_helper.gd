@@ -44,10 +44,10 @@ var collision_suffix := ".col"
 var material_suffix := ""  # not needed, we have prefix
 
 # keep everything as text so we can easily check git diffs, for now
-var mesh_extension := "tres"  # or res
-var shadow_mesh_extension := "res"  # or res
-var collision_extension := "tres"  # or res
-var material_extension := "tres"  # or material
+var mesh_extension := "res"  # tres/res - git diff struggling with tres?
+var shadow_mesh_extension := "res"  # tres/res - git diff struggling with tres?
+var collision_extension := "tres"  # tres/res
+var material_extension := "tres"  # tres/res/material
 
 
 func fix_name(name: String, strip_autonumbers: bool) -> String:
