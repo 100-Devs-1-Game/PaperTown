@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjq7ym6xn2pqo"]
+
+[ext_resource type="ArrayMesh" uid="uid://qwhq6gui5yb7" path="res://assets/100devs/assets/data/assets_floor-left.mesh.tres" id="1_bxbdj"]
+
+[node name="FloorLeft" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2, 0, -2)
+mesh = ExtResource("1_bxbdj")

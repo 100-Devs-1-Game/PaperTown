@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctkb2uf230c4s"]
+
+[ext_resource type="ArrayMesh" uid="uid://b1y2pxwl30sad" path="res://assets/100devs/assets/data/assets_floor-back.mesh.tres" id="1_ancwk"]
+
+[node name="FloorBack" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+mesh = ExtResource("1_ancwk")

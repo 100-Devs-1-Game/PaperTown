@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxf2iw36fhu4j"]
+
+[ext_resource type="ArrayMesh" uid="uid://8yv62ro7yqf6" path="res://assets/100devs/assets/data/assets_floor-middle.mesh.tres" id="1_ccg7a"]
+
+[node name="FloorMiddle" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+mesh = ExtResource("1_ccg7a")

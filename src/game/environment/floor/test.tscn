@@ -1,0 +1,39 @@
+[gd_scene load_steps=10 format=3 uid="uid://crtm3xevyq3w6"]
+
+[ext_resource type="PackedScene" uid="uid://bxf2iw36fhu4j" path="res://game/environment/floor/floor_middle.tscn" id="1_4es23"]
+[ext_resource type="PackedScene" uid="uid://cvyfwbeb4j5yl" path="res://game/environment/floor/floor_corner_back_left.tscn" id="1_p7n3r"]
+[ext_resource type="PackedScene" uid="uid://cjq7ym6xn2pqo" path="res://game/environment/floor/floor_left.tscn" id="1_wbvp8"]
+[ext_resource type="PackedScene" uid="uid://ctkb2uf230c4s" path="res://game/environment/floor/floor_back.tscn" id="2_4es23"]
+[ext_resource type="PackedScene" uid="uid://bwyvbkecmta7b" path="res://game/environment/floor/floor_corner_back_right.tscn" id="2_c63y4"]
+[ext_resource type="PackedScene" uid="uid://cktqdkpjnljbb" path="res://game/environment/floor/floor_corner_front_left.tscn" id="3_rbrg6"]
+[ext_resource type="PackedScene" uid="uid://1xffej8rych6" path="res://game/environment/floor/floor_corner_front_right.tscn" id="4_34igb"]
+[ext_resource type="PackedScene" uid="uid://dpj20m70q42wj" path="res://game/environment/floor/floor_front.tscn" id="7_a57iy"]
+[ext_resource type="PackedScene" uid="uid://cpsr21ixm0kel" path="res://game/environment/floor/floor_right.tscn" id="8_uttm4"]
+
+[node name="Test" type="Node3D"]
+
+[node name="FloorMiddle" parent="." instance=ExtResource("1_4es23")]
+
+[node name="FloorLeft" parent="." instance=ExtResource("1_wbvp8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="FloorBack" parent="." instance=ExtResource("2_4es23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="FloorCornerBackLeft" parent="." instance=ExtResource("1_p7n3r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4)
+
+[node name="FloorCornerBackRight" parent="." instance=ExtResource("2_c63y4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
+
+[node name="FloorCornerFrontLeft" parent="." instance=ExtResource("3_rbrg6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 4)
+
+[node name="FloorCornerFrontRight" parent="." instance=ExtResource("4_34igb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4)
+
+[node name="FloorFront" parent="." instance=ExtResource("7_a57iy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="FloorRight" parent="." instance=ExtResource("8_uttm4")]
+transform = Transform3D(1, 0, 1.1920929e-07, 0, 1, 0, -1.1920929e-07, 0, 1, 4, 0, 0)
