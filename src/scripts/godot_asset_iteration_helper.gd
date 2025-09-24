@@ -9,172 +9,328 @@
 # Documentation: https://codingcreature.com/addons/asset-iteration-helper/
 # Follow on X: @CodingCreature
 # ==============================================================================
+
+# P.S I changed it a bit UwU
+
 @tool
 extends EditorScenePostImport
 
-var save_meshes = true
-var save_collision_shapes = true
-var save_materials = true
-var overwrite_materials = false  # This option by default reimported materials are not overwritten
+# CHANGE THESE TO CONFIGURE THE SCRIPT
+var save_meshes := true
+var save_collision_shapes := true
+var save_materials := true
 
-var always_use_mesh_suffix = false  # If true, mesh will always be saved with suffix
+# if we change them in godot, we should set this to false, but for now it's okay
+var overwrite_materials := true
 
-var mesh_suffix = "_mesh"
-var collision_suffix = "_collision"
-var material_suffix = "_material"
+# sometimes there are duplicates with just a number different
+# if turned on, be careful, it doesn't check if the different numbered objects are different!
+var can_trimoff_numbers := false  # e.g 'plane.003' becomes 'plane'
 
-var mesh_extension = "tres"  # Used to be .tres but .res files are more performant
-var collision_extension = "tres"  # Same as mesh
-var material_extension = "tres"  # Used to be .tres but .material files are more performant
+# don't save the data when it contains a number
+# this way, artists can keep numbers for things to exclude... I guess :b
+# note: this doesn't skip if the "data" (green triangle in blender) has a number
+var skip_if_has_numbers := true
+
+# this surfaces materials to the top alphabetically
+# materials are often shared so it wouldn't make sense to keep them relative to
+#    whoever found it first
+var material_prefix := "-material"
+
+# this lets the same object keep relevant data together
+var mesh_suffix := ".mesh"
+var collision_suffix := ".col"
+var material_suffix := ""  # not needed, we have prefix
+
+# keep everything as text so we can easily check git diffs, for now
+var mesh_extension := "tres"  # or res
+var collision_extension := "tres"  # or res
+var material_extension := "tres"  # or material
 
 
-func _post_import(scene):
-	var mesh_instances = _find_all_mesh_instances(scene)
-	var collision_shapes = _find_all_collision_shapes(scene)
-	var import_path = get_source_file()
+func fix_name(name: String, strip_autonumbers: bool) -> String:
+	name = (
+		name
+		. trim_prefix("_")
+		. to_lower()
+		. replace(" ", "-")
+		. replace(".", "-")
+		. replace("_", "-")
+		. replace("/", "_")
+	)
+
+	if not strip_autonumbers or not can_trimoff_numbers:
+		return name
+
+	#var orig = name
+
+	# thx chatgpt
+	# Remove all occurrences of -### (Blender-style autonumbers)
+	# Regex: "-\d+" = dash + one or more digits
+	name = RegEx.create_from_string("-\\d+").sub(name, "", true)
+
+	# Optionally clean up double dashes (---) from stripping
+	while "--" in name:
+		name = name.replace("--", "-")
+
+	# Trim trailing dash if left hanging
+	if name.ends_with("-"):
+		name = name.substr(0, name.length() - 1)
+
+	#print("converted %s -> %s" % [orig, name])
+	return name
+
+
+func save_mesh(
+	root: Node, mesh_instance: MeshInstance3D, folder: String, file_base: String
+) -> void:
+	if not mesh_instance or not mesh_instance.mesh:
+		push_error("invalid mesh instance when trying to save mesh")
+		return
+
+	var mesh := mesh_instance.mesh
+	var valid := (
+		mesh is Resource and mesh.get_class() == "ArrayMesh" and mesh.get_surface_count() > 0
+	)
+
+	if not valid:
+		push_error("invalid mesh of instance '%s' when trying to save mesh" % mesh_instance.name)
+		return
+
+	var node_path_as_name := fix_name(root.get_path_to(mesh_instance), true)
+	#print(
+	#	"saving mesh instance '%s' with mesh of type '%s'" % [node_path_as_name, mesh.resource_name]
+	#)
+
+	var new_name := file_base + "_" + node_path_as_name
+
+	mesh.resource_name = (
+		new_name + "_" + fix_name(mesh.resource_name.trim_prefix(file_base), false) + mesh_suffix
+	)
+	var save_path_str := folder + "/" + new_name + mesh_suffix + "." + mesh_extension
+
+	var err = ResourceSaver.save(mesh, save_path_str)
+	if err != OK:
+		push_error("?????", err)
+		return
+
+	var reloaded_mesh = ResourceLoader.load(save_path_str, "", ResourceLoader.CACHE_MODE_REPLACE)
+
+	if reloaded_mesh:
+		mesh_instance.mesh = reloaded_mesh
+
+	# TODO - autogenerate scenes?
+
+
+func save_user_materials(mesh_instance: MeshInstance3D, folder: String, file_base: String) -> void:
+	if not mesh_instance or not mesh_instance.mesh:
+		push_error("invalid mesh instance when trying to save material")
+		return
+
+	var mesh := mesh_instance.mesh
+	var valid := (
+		mesh is Resource and mesh.get_class() == "ArrayMesh" and mesh.get_surface_count() > 0
+	)
+
+	if not valid:
+		push_error("invalid mesh when trying to save material")
+		return
+
+	var surface_count := mesh.get_surface_count()
+	for i in range(surface_count):
+		var material := mesh.surface_get_material(i)
+
+		if not material:
+			push_error("missing material for mesh '%s'" % mesh.resource_name)
+			return
+
+		# Check for user-created material
+		var mat_name := material.resource_name
+
+		if mat_name == "":
+			print("material for mesh '%s' has an empty name - skipping" % mesh.resource_name)
+			return
+
+		if _is_auto_generated_name(mat_name):
+			print(
+				(
+					"found autogenerated name '%s' of material belonging to mesh '%s' - skipping"
+					% [mat_name, mesh.resource_name]
+				)
+			)
+			return
+
+		mat_name = fix_name(mat_name, false)
+
+		var mat_save_path := (
+			folder
+			+ "/"
+			+ file_base
+			+ material_prefix
+			+ "_"
+			+ mat_name
+			+ material_suffix
+			+ "."
+			+ material_extension
+		)
+
+		if overwrite_materials or not ResourceLoader.exists(mat_save_path):
+			var mat_err := ResourceSaver.save(material, mat_save_path)
+			if mat_err != OK:
+				push_error(
+					"failed to save material '%s' with error code '%s'" % [mat_save_path, mat_err]
+				)
+				return
+
+			var reloaded_material := ResourceLoader.load(
+				mat_save_path, "", ResourceLoader.CACHE_MODE_REPLACE
+			)
+			if not reloaded_material:
+				push_error(
+					"failed to reload material '%s', got '%s'" % [mat_save_path, reloaded_material]
+				)
+				return
+
+			mesh.surface_set_material(i, reloaded_material)
+		else:
+			print("not overwriting '%s'" % mat_save_path)
+
+
+func save_collision_shape(
+	root: Node, shape_node: CollisionShape3D, folder: String, file_base: String
+) -> void:
+	if (
+		not shape_node
+		or not shape_node.shape
+		or not shape_node.get_parent()
+		or not shape_node.get_parent().get_parent()
+	):
+		push_error("invalid collision shape: '%s' @ '%s/%s'" % [shape_node, folder, file_base])
+		return
+
+	var grandparent := shape_node.get_parent().get_parent()
+
+	var shape := shape_node.shape
+	var node_path_as_name := fix_name(root.get_path_to(grandparent), true)
+
+	var new_name := file_base + "_" + node_path_as_name
+
+	shape.resource_name = (
+		new_name
+		+ "_"
+		+ fix_name(shape.resource_name.trim_prefix(file_base), false)
+		+ collision_suffix
+	)
+	var save_path_str := folder + "/" + new_name + collision_suffix + "." + collision_extension
+
+	var err := ResourceSaver.save(shape, save_path_str)
+	if err != OK:
+		push_error(
+			"failed to save collision shape '%s' with error code '%s'" % [save_path_str, err]
+		)
+		return
+
+	var reloaded_shape := ResourceLoader.load(save_path_str, "", ResourceLoader.CACHE_MODE_REPLACE)
+
+	if not reloaded_shape:
+		push_error(
+			"failed to reload collision shape '%s', got '%s'" % [save_path_str, reloaded_shape]
+		)
+		return
+
+	shape_node.shape = reloaded_shape
+
+
+func _post_import(scene: Node):
+	var mesh_instances := _find_all_mesh_instances(scene)
+	var collision_shapes := _find_all_collision_shapes(scene)
+	var import_path := get_source_file()
+
 	if not import_path or import_path == "":
 		import_path = scene.get_filename()
+
 	if not import_path or import_path == "":
 		import_path = "res://"
-	var folder = ""
+
+	var folder := ""
 	if typeof(import_path) == TYPE_STRING and import_path.find("/") != -1:
 		folder = import_path.substr(0, import_path.rfind("/"))
 	else:
 		folder = "res://"
-	var file_base = "imported"
+
+	var file_base := "imported"
 	if typeof(import_path) == TYPE_STRING:
-		var file_name = import_path.substr(import_path.rfind("/") + 1)
+		var file_name := import_path.substr(import_path.rfind("/") + 1)
 		if file_name.find(".") != -1:
 			file_base = file_name.substr(0, file_name.find("."))
 		else:
 			file_base = file_name
 
-	# Save meshes
+	folder += "/data"
+	DirAccess.make_dir_recursive_absolute(folder)
+
 	if save_meshes:
 		for mesh_instance in mesh_instances:
-			if mesh_instance and mesh_instance.mesh:
-				var mesh = mesh_instance.mesh
-				if (
-					mesh is Resource
-					and mesh.get_class() == "ArrayMesh"
-					and mesh.get_surface_count() > 0
-				):
-					var mesh_name_str = str(mesh_instance.name)
-					var save_path_str = ""
-					if always_use_mesh_suffix or mesh_name_str == file_base:
-						save_path_str = (
-							str(folder) + "/" + file_base + mesh_suffix + "." + mesh_extension
-						)
-					else:
-						save_path_str = (
-							str(folder)
-							+ "/"
-							+ file_base
-							+ "_"
-							+ mesh_name_str
-							+ "."
-							+ mesh_extension
-						)
-					mesh.resource_name = mesh_name_str
-					var err = ResourceSaver.save(mesh, save_path_str)
-					if err == OK:
-						var reloaded_mesh = ResourceLoader.load(
-							save_path_str, "", ResourceLoader.CACHE_MODE_REPLACE
-						)
-						if reloaded_mesh:
-							mesh_instance.mesh = reloaded_mesh
+			save_mesh(scene, mesh_instance, folder, file_base)
 
 	# Save only user-created materials
 	if save_materials:
 		for mesh_instance in mesh_instances:
-			if mesh_instance and mesh_instance.mesh:
-				var mesh = mesh_instance.mesh
-				if (
-					mesh is Resource
-					and mesh.get_class() == "ArrayMesh"
-					and mesh.get_surface_count() > 0
-				):
-					var surface_count = mesh.get_surface_count()
-					for i in range(surface_count):
-						var material = mesh.surface_get_material(i)
-						# Check for user-created material
-						var mat_name = str(material.resource_name)
-						if (
-							material
-							and mat_name != ""
-							and mat_name != "unnamed material"
-							and not _is_auto_generated_name(mat_name)
-						):
-							var material_name_str = str(material.resource_name)
-							var mat_save_path = (
-								str(folder)
-								+ "/"
-								+ file_base
-								+ "_"
-								+ material_name_str
-								+ material_suffix
-								+ ".tres"
-							)
-							material.resource_name = material_name_str
-							if overwrite_materials or not ResourceLoader.exists(mat_save_path):
-								var mat_err = ResourceSaver.save(material, mat_save_path)
-								if mat_err == OK:
-									var reloaded_material = ResourceLoader.load(
-										mat_save_path, "", ResourceLoader.CACHE_MODE_REPLACE
-									)
-									if reloaded_material:
-										mesh.surface_set_material(i, reloaded_material)
+			save_user_materials(mesh_instance, folder, file_base)
 
 	# Save collision shapes
 	if save_collision_shapes:
 		for shape_node in collision_shapes:
-			if shape_node and shape_node.shape:
-				var shape = shape_node.shape
-				var shape_name_str = str(shape_node.name)
-				var save_path_str = (
-					str(folder)
-					+ "/"
-					+ file_base
-					+ "_"
-					+ shape_name_str
-					+ collision_suffix
-					+ "."
-					+ collision_extension
-				)
-				shape.resource_name = shape_name_str + collision_suffix
-				var err = ResourceSaver.save(shape, save_path_str)
-				if err == OK:
-					var reloaded_shape = ResourceLoader.load(
-						save_path_str, "", ResourceLoader.CACHE_MODE_REPLACE
-					)
-					if reloaded_shape:
-						shape_node.shape = reloaded_shape
+			save_collision_shape(scene, shape_node, folder, file_base)
 
 	return scene
 
 
 func _is_auto_generated_name(name: String) -> bool:
 	# Check if name follows pattern: ObjectName_mat + number
-	var parts = name.split("_mat")
+	var parts := name.split("_mat")
 	if parts.size() == 2:
-		var suffix = parts[1]
+		var suffix := parts[1]
 		return suffix.is_valid_int()
 	return false
 
 
-func _find_all_mesh_instances(node):
-	var result = []
+# we don't check every number, because 2D/3D is common in node names
+# but most numbers start with 0, at least from blender...
+func should_skip_node(name: String) -> bool:
+	if not skip_if_has_numbers:
+		return false
+
+	for c in name:
+		if c == "0":
+			return true
+
+	return false
+
+
+func _find_all_mesh_instances(node: Node) -> Array[MeshInstance3D]:
+	var result: Array[MeshInstance3D] = []
+	if should_skip_node(node.name):
+		return result
+
 	if node is MeshInstance3D:
 		result.append(node)
+
 	for child in node.get_children():
 		result += _find_all_mesh_instances(child)
+
 	return result
 
 
-func _find_all_collision_shapes(node):
-	var result = []
+func _find_all_collision_shapes(node: Node) -> Array[CollisionShape3D]:
+	var result: Array[CollisionShape3D] = []
+	if should_skip_node(node.name):
+		return result
+
 	if node is CollisionShape3D:
 		result.append(node)
+
 	for child in node.get_children():
 		result += _find_all_collision_shapes(child)
+
 	return result
