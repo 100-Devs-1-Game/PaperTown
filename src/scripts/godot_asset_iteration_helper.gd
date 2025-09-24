@@ -112,7 +112,7 @@ func save_mesh(
 	# the shadow mesh subresource ID's keep changing, so.. let's also save these to disk lmao
 	if mesh.shadow_mesh:
 		var path := folder + "/" + new_name + mesh_suffix + ".shadow" + "." + mesh_extension
-		ResourceSaver.save(mesh, path)
+		ResourceSaver.save(mesh.shadow_mesh, path)
 		mesh.shadow_mesh = ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_REPLACE)
 
 	var err = ResourceSaver.save(mesh, save_path_str)

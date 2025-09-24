@@ -1,58 +1,25 @@
-[gd_resource type="ArrayMesh" load_steps=4 format=4 uid="uid://bbmfk4vg83ut2"]
+[gd_resource type="ArrayMesh" format=3 uid="uid://bbmfk4vg83ut2"]
 
-[ext_resource type="Material" uid="uid://c82kl5mylpuj7" path="res://assets/100devs/assets/data/assets-material_grass.tres" id="1_ff3o7"]
-[ext_resource type="Material" uid="uid://mi14epe54g6y" path="res://assets/100devs/assets/data/assets-material_cardboard.tres" id="2_6qy3k"]
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_i7e7n"]
+[resource]
 _surfaces = [{
 "aabb": AABB(0, 0, 0, 4, 1e-05, 4),
 "format": 34896613377,
 "index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
 "name": "grass",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray("AAAAAAAAAAD//wAA//8AAAAAAAD//wAA//8AAAAAAAA=")
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0)
 }, {
 "aabb": AABB(0, -1, 0, 4, 1, 1e-05),
 "format": 34359742465,
 "index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
 "name": "cardboard",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray("AACAQAAAAAAAAACAAAAAAAAAgL8AAACAAACAQAAAgL8AAACAAAAAAAAAAAAAAACA")
+"vertex_data": PackedByteArray(0, 0, 128, 64, 0, 0, 0, 0, 0, 0, 0, 128, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 0, 128, 0, 0, 128, 64, 0, 0, 128, 191, 0, 0, 0, 128, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128)
 }]
 blend_shape_mode = 0
-
-[resource]
-resource_name = "assets_floor-back_plane-002.mesh"
-_surfaces = [{
-"aabb": AABB(0, 0, 0, 4, 1e-05, 4),
-"attribute_data": PackedByteArray("t0pANsJyrlq3Sq5awnJANg=="),
-"format": 34896613399,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
-"material": ExtResource("1_ff3o7"),
-"name": "grass",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray("AAAAAAAA/7///wAA////vwAAAAD///+///8AAAAA/7////9/////f////3////9/")
-}, {
-"aabb": AABB(0, -1, 0, 4, 1, 1e-05),
-"attribute_data": PackedByteArray("pD0yPhY+aj9gJcQ+X0JzP6Q9Mj5fQnM/YCXEPhY+aj8="),
-"format": 34359742487,
-"index_count": 6,
-"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
-"material": ExtResource("2_6qy3k"),
-"name": "cardboard",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray("AACAQAAAAAAAAACAAAAAAAAAgL8AAACAAACAQAAAgL8AAACAAAAAAAAAAAAAAACA/////wAA/7//////AAD/v/////8AAP+//////wAA/78=")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_i7e7n")
