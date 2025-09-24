@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://px8n52y05giq" path="res://game/characters/player/player.tscn" id="1_pbnk2"]
 [ext_resource type="PackedScene" uid="uid://c8x3kcryc0xtb" path="res://game/characters/enemies/boar.tscn" id="2_yqhvd"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_vssvh"]
-size = Vector2(50, 50)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pbnk2"]
+data = PackedVector3Array(-25, -0.5, 25, -25, -0.5, -25, -25, 0.5, -25, 25, -0.5, -25, -25, -0.5, -25, -25, -0.5, 25, -25, 0.5, -25, -25, -0.5, -25, 25, -0.5, -25, -25, 0.5, -25, -25, 0.5, 25, -25, -0.5, 25, -25, -0.5, 25, -25, 0.5, 25, 25, 0.5, 25, 25, 0.5, 25, -25, 0.5, 25, -25, 0.5, -25, -25, -0.5, 25, 25, -0.5, 25, 25, -0.5, -25, 25, 0.5, 25, 25, -0.5, 25, -25, -0.5, 25, 25, -0.5, -25, 25, -0.5, 25, 25, 0.5, 25, 25, -0.5, -25, 25, 0.5, -25, -25, 0.5, -25, -25, 0.5, -25, 25, 0.5, -25, 25, 0.5, 25, 25, 0.5, 25, 25, 0.5, -25, 25, -0.5, -25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ahblj"]
 size = Vector3(50, 1, 50)
@@ -22,17 +22,15 @@ ambient_light_color = Color(0.462745, 0.776471, 0.823529, 1)
 [node name="OverworldTest" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_pbnk2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.83654, 0.79974246, -8.898085)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.83654, 1.8259447, -8.898085)
 
 [node name="Boar" parent="." instance=ExtResource("2_yqhvd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.718433, 1.5161047, -9.601168)
 
 [node name="floortest" type="StaticBody3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="floortest"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.016326308, 0)
-mesh = SubResource("PlaneMesh_vssvh")
-skeleton = NodePath("")
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="floortest"]
+shape = SubResource("ConcavePolygonShape3D_pbnk2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floortest"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.47473073, 0)
@@ -50,7 +48,9 @@ environment = SubResource("Environment_fargr")
 camera_attributes = SubResource("CameraAttributesPractical_srvkv")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, -4.6461184e-15, 5.375939e-15, 0, 0.75659585, 0.6538828, -7.10543e-15, -0.6538828, 0.75659585, -1.99299, 8.538815, 5.35884)
+transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 2.857727, 4.923938, -1.2855949)
+current = true
+fov = 60.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.800397, 0.599471, 0, -0.599471, 0.800397, 0, 6.63982, -16.166)

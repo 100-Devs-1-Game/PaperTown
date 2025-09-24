@@ -54,15 +54,18 @@ func handle_movement(delta):
 
 
 func get_movement_vector():
-	var input_dir := (
-		Vector2(Input.get_axis(&"left", &"right"), Input.get_axis(&"up", &"down")).normalized()
-	)
+	var input_dir := Vector2(Input.get_axis(&"left", &"right"), Input.get_axis(&"up", &"down"))
 
 	if (
 		(movement_component.facing_right == true and input_dir.x < 0.0)
 		or (movement_component.facing_right == false and input_dir.x > 0.0)
 	):
 		movement_component.swap_facing_direction()
+
+	if input_dir.length() > 0.0:
+		animated_sprite_3d.play(&"walk")
+	else:
+		animated_sprite_3d.play(&"idle")
 
 	return Vector3(input_dir.x, velocity.y, input_dir.y)
 

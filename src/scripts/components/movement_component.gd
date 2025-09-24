@@ -16,7 +16,9 @@ var reached_destination := false
 
 func accelerate_in_direction(direction: Vector3):
 	velocity = direction * max_movement_speed
-	facing_right = velocity.x > 0
+
+	if (facing_right == true and velocity.x < 0.0) or (facing_right == false and velocity.x > 0.0):
+		swap_facing_direction()
 
 
 func update_target_location(nav_agent, target_location):
