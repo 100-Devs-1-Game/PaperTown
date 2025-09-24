@@ -1,7 +1,7 @@
 [gd_resource type="ArrayMesh" load_steps=3 format=4 uid="uid://d3xmm3wrfaiaj"]
 
 [ext_resource type="Material" uid="uid://041rmfvj1hde" path="res://assets/100devs/assets/data/assets-material_house-acorn.tres" id="1_20au4"]
-[ext_resource type="ArrayMesh" uid="uid://ht7bxauupd2x" path="res://assets/100devs/assets/data/assets_roof_wall-stone.mesh.shadow.tres" id="2_r4rs3"]
+[ext_resource type="ArrayMesh" uid="uid://dhtdwd4g7qhkg" path="res://assets/100devs/assets/data/assets_roof_wall-stone.mesh.shadow.res" id="2_20au4"]
 
 [resource]
 resource_name = "assets_roof_wall-stone_cylinder-001.mesh"
@@ -20,4 +20,4 @@ _surfaces = [{
 "vertex_data": PackedByteArray("m/2mAC33073noQAALfdpvx6iN1Ud+n6/VaJuqg79fr/////////9vYyipf///5O/m/2mAC33G9f///////9y1/7/////f2Usm/2mAP9/Dyyb/aYA0QgUL/////8AAGIvm/2mANEIaQQeojdV4QVTBOehAADRCFQEVaJuqvACUwT/////AABnBIyipf8AAFEEAAD/////ij0XXgAALff3PmMCpgAt92A94F03VR36DD+pXW6qDv0MP3Jdpf///yA/YwKmAC33ZixjAqYA/3/A1gAA/////7gsYwKmANEICtoAAP///38a1wAA//8AAGTaYwKmANEI2PsXXgAA0QjC++BdN1XhBcH7AAD//wAA1fupXW6q8ALB+3Jdpf8AAMD7Z/7DVR36570z/+GqDv3nvTP/4aoO/UXXM//hqv9/Oyxn/sNVHfpE1zP/4arwAjkvZ/7DVeEFOC9n/sNV/388LGf+w1XhBWgEM//hqvACaASXAcNVHfp1PcsA4aoO/XQ9ywDhqg79jSzLAOGq/3/u1pcBw1Ud+owsywDhqvACNdqXAcNV4QU02pcBw1X/f+/WlwHDVeEF1/vLAOGq8ALX+0EINvdHCIf3SAiM90gIjPdDCED3SQiQ9/slLy6WJV4uOyovLM4pYizNLYEqOy5NKmZADkS5QdRCqEHjQrlB1EKIQO9DyUHFQlUIHvhSCNz3Vwgn+FAI1vdQCNb3UAjT96TQDdl81ATXOtBG2SjYEdXl1MzWidje1DBEikDwQrVB30LEQQ5EqUDfQsRBz0LTQUMIPPdDCDz3yyVGLgYqSCzMJUUuAi5oKgAuaSoHKkcsd0D/Q3dA/0NVCCL4VQgi+HLQKNmy1OfWc9Ao2VbY+dRV2PnUs9Tm1h9EmUAfRJlA")
 }]
 blend_shape_mode = 0
-shadow_mesh = ExtResource("2_r4rs3")
+shadow_mesh = ExtResource("2_20au4")

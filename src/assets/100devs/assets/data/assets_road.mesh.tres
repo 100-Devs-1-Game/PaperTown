@@ -1,7 +1,7 @@
 [gd_resource type="ArrayMesh" load_steps=3 format=4 uid="uid://b63emypwmsmu0"]
 
 [ext_resource type="Material" uid="uid://dhhg3hgkfvxd2" path="res://assets/100devs/assets/data/assets-material_blank.tres" id="1_qp2qs"]
-[ext_resource type="ArrayMesh" uid="uid://kh8mylj8cxtj" path="res://assets/100devs/assets/data/assets_road.mesh.shadow.tres" id="2_qfse8"]
+[ext_resource type="ArrayMesh" uid="uid://b88ukowj6toet" path="res://assets/100devs/assets/data/assets_road.mesh.shadow.res" id="2_qp2qs"]
 
 [resource]
 resource_name = "assets_road_plane-029.mesh"
@@ -18,4 +18,4 @@ _surfaces = [{
 "vertex_data": PackedByteArray("PRYAAD4G/7+w5AAAAAD/v8jhAAA+Bv+/gx8AAAAA/7/zGAAAfAz/v4jmAAB8DP+/7RcAALsS/78T4QAAuxL/vzQTAAD5GP+/ROIAAPkY/7/LDQAAOB//v47eAAA4H/+/6AgAAHYl/79m1wAAdiX/v1wFAAC0K/+/u9cAALQr/7+zCQAA8zH/v2HZAADzMf+/hwQAADE4/7+T0AAAMTj/v8MDAABwPv+/lNYAAHA+/78hCQAArkT/v9zNAACuRP+/AAAAAOxK/78YzwAA7Er/vysJAAArUf+/eNYAACtR/79KBwAAaVf/v/rRAABpV/+/DwwAAKhd/7/y2AAAqF3/vykOAADmY/+/UNIAAOZj/78hCAAAJWr/v5raAAAlav+/ohMAAGNw/78v2QAAY3D/v+oXAAChdv+/NOUAAKF2/7/3FAAA4Hz/vxzmAADgfP+/gCAAAB6D/7+P6wAAHoP/v1IgAABdif+/TvEAAF2J/7+2JwAAm4//v9LrAACbj/+/QSMAANmV/79i7wAA2ZX/v9AtAAAYnP+/afIAABic/796LgAAVqL/v4/8AABWov+//y8AAJWo/78N/gAAlaj/v0ozAADTrv+/MfgAANOu/7+cNAAAErX/v///AAAStf+/wiwAAFC7/7+F+QAAULv/vyktAACOwf+/mfkAAI7B/7+EKwAAzcf/v1v+AADNx/+/ASwAAAvO/7/l/wAAC87/v3AwAABK1P+/HPYAAErU/799KAAAiNr/v1T7AACI2v+/ESYAAMbg/7+h8gAAxuD/v2QgAAAF5/+/vu0AAAXn/7+JHgAAQ+3/v4vzAABD7f+/YhsAAILz/79W6gAAgvP/v7IfAADA+f+/LOYAAMD5/7+tFgAA////v3DmAAD///+/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9//v//f/7//3/+//9//v//f/7//3/+//9//v//f////3////9/////f////3/+//9//v//f/7//3/+//9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/")
 }]
 blend_shape_mode = 0
-shadow_mesh = ExtResource("2_qfse8")
+shadow_mesh = ExtResource("2_qp2qs")

@@ -39,11 +39,13 @@ var material_prefix := "-material"
 
 # this lets the same object keep relevant data together
 var mesh_suffix := ".mesh"
+var shadow_mesh_suffix := ".mesh.shadow"
 var collision_suffix := ".col"
 var material_suffix := ""  # not needed, we have prefix
 
 # keep everything as text so we can easily check git diffs, for now
 var mesh_extension := "tres"  # or res
+var shadow_mesh_extension := "res"  # or res
 var collision_extension := "tres"  # or res
 var material_extension := "tres"  # or material
 
@@ -111,7 +113,7 @@ func save_mesh(
 
 	# the shadow mesh subresource ID's keep changing, so.. let's also save these to disk lmao
 	if mesh.shadow_mesh:
-		var path := folder + "/" + new_name + mesh_suffix + ".shadow" + "." + mesh_extension
+		var path := folder + "/" + new_name + shadow_mesh_suffix + "." + shadow_mesh_extension
 		ResourceSaver.save(mesh.shadow_mesh, path)
 		mesh.shadow_mesh = ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_REPLACE)
 

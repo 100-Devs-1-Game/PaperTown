@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://c82kl5mylpuj7" path="res://assets/100devs/assets/data/assets-material_grass.tres" id="1_hf01w"]
 [ext_resource type="Material" uid="uid://mi14epe54g6y" path="res://assets/100devs/assets/data/assets-material_cardboard.tres" id="2_6osyt"]
-[ext_resource type="ArrayMesh" uid="uid://bi3b0qyamv7ex" path="res://assets/100devs/assets/data/assets_floor-left.mesh.shadow.tres" id="3_m0udx"]
+[ext_resource type="ArrayMesh" uid="uid://b0wujud1o6d0q" path="res://assets/100devs/assets/data/assets_floor-left.mesh.shadow.res" id="3_hf01w"]
 
 [resource]
 resource_name = "assets_floor-left_plane-019.mesh"
@@ -32,4 +32,4 @@ _surfaces = [{
 "vertex_data": PackedByteArray(255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 127, 255, 127, 255, 127, 255, 127, 255, 127, 255, 127, 255, 127, 255, 127)
 }]
 blend_shape_mode = 0
-shadow_mesh = ExtResource("3_m0udx")
+shadow_mesh = ExtResource("3_hf01w")

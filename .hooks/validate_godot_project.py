@@ -90,7 +90,7 @@ class GodotValidator:
     def _collect_uid_mappings(self, files: List[Path]):
         """Collect all UID to path mappings from the project."""
         for file_path in files:
-            if file_path.suffix in ['.mesh']:
+            if file_path.suffix in ['.mesh', '.res']:
                 try:
                     self._process_binary_file(file_path)
                 except Exception as e:
@@ -219,7 +219,7 @@ class GodotValidator:
             # hack... can't read compressed binary file
             # so if there's a mesh path with a uid, register and trust it
             # at least we can get uid mismatches
-            if uid and os.path.splitext(path)[-1] in ['.mesh']:
+            if uid and os.path.splitext(path)[-1] in ['.mesh', '.res']:
                 self._add_uid_mapping(uid, path, str(file_path.as_posix()))
 
             # Validate that the UID->path mapping is consistent
@@ -250,7 +250,7 @@ class GodotValidator:
             #if file_path.suffix in ['.uid', '.import']:
             #    continue
 
-            if file_path.suffix in ['.mesh']:
+            if file_path.suffix in ['.mesh', '.res']:
                 continue
 
             try:
@@ -408,7 +408,7 @@ class GodotValidator:
     def _get_godot_files(self) -> List[Path]:
         """Get all relevant Godot files in the project."""
         # Include more file types that can contain UIDs and resource references
-        extensions = {'.tscn', '.tres', '.gd', '.cs', '.uid', '.json', '.cfg', '.import', '.godot', '.mesh'}
+        extensions = {'.tscn', '.tres', '.gd', '.cs', '.uid', '.json', '.cfg', '.import', '.godot', '.mesh', '.res'}
         files = []
 
         for ext in extensions:
