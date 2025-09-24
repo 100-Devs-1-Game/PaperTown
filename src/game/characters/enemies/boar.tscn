@@ -33,7 +33,7 @@ speed = 720.0
 wait_time = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0158945, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0987381, 0)
 shape = SubResource("CapsuleShape3D_lfbaa")
 
 [node name="DetectionBubble" type="Area3D" parent="."]
@@ -53,6 +53,7 @@ text = "!!"
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Visuals"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.4, 0)
 pixel_size = 0.002
+shaded = true
 sprite_frames = ExtResource("5_i8rah")
 animation = &"idle"
 frame_progress = 0.30359858
