@@ -1,0 +1,84 @@
+[gd_resource type="SpriteFrames" load_steps=17 format=3 uid="uid://1stbc7bssfw8"]
+
+[ext_resource type="Texture2D" uid="uid://eer11p4vg8ep" path="res://assets/100devs/characters/rudolph_heal/00.png" id="1_c0npf"]
+[ext_resource type="Texture2D" uid="uid://o2v62ggkr26b" path="res://assets/100devs/characters/rudolph_heal/01.png" id="2_hrpf8"]
+[ext_resource type="Texture2D" uid="uid://j8nitcmtu6bm" path="res://assets/100devs/characters/rudolph_heal/02.png" id="3_bytar"]
+[ext_resource type="Texture2D" uid="uid://3frmkp3pru42" path="res://assets/100devs/characters/rudolph_heal/03.png" id="4_mrt2s"]
+[ext_resource type="Texture2D" uid="uid://05w7y34386uo" path="res://assets/100devs/characters/rudolph_heal/04.png" id="5_d7f5i"]
+[ext_resource type="Texture2D" uid="uid://cc28mvgx4txeo" path="res://assets/100devs/characters/rudolph_heal/05.png" id="6_rjcjh"]
+[ext_resource type="Texture2D" uid="uid://cgjkdmbuykx6o" path="res://assets/100devs/characters/rudolph_heal/06.png" id="7_8buyq"]
+[ext_resource type="Texture2D" uid="uid://rsnemmj0lexv" path="res://assets/100devs/characters/rudolph_heal/07.png" id="8_prio6"]
+[ext_resource type="Texture2D" uid="uid://o3avcdv775fx" path="res://assets/100devs/characters/rudolph_walk/00.png" id="9_8o8cp"]
+[ext_resource type="Texture2D" uid="uid://d0xjt8vurnoai" path="res://assets/100devs/characters/rudolph_walk/01.png" id="10_cxmwh"]
+[ext_resource type="Texture2D" uid="uid://osmmrxyb6ct6" path="res://assets/100devs/characters/rudolph_walk/02.png" id="11_44sx0"]
+[ext_resource type="Texture2D" uid="uid://bft7nv0v7mtsk" path="res://assets/100devs/characters/rudolph_walk/03.png" id="12_qtxub"]
+[ext_resource type="Texture2D" uid="uid://bfm6abebk2sdj" path="res://assets/100devs/characters/rudolph_walk/04.png" id="13_5nfj4"]
+[ext_resource type="Texture2D" uid="uid://cy0kp66o3ujbb" path="res://assets/100devs/characters/rudolph_walk/05.png" id="14_sfpby"]
+[ext_resource type="Texture2D" uid="uid://ba234vdjpovbs" path="res://assets/100devs/characters/rudolph_walk/06.png" id="15_h3jup"]
+[ext_resource type="Texture2D" uid="uid://dx8qy61e6f4w8" path="res://assets/100devs/characters/rudolph_walk/07.png" id="16_6h4d4"]
+
+[resource]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_c0npf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hrpf8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bytar")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mrt2s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_d7f5i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_rjcjh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8buyq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_prio6")
+}],
+"loop": true,
+"name": &"heal",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_8o8cp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_cxmwh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_44sx0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_qtxub")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_5nfj4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_sfpby")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_h3jup")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_6h4d4")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]

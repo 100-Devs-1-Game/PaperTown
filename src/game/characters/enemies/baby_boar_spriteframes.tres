@@ -1,0 +1,31 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://ciudp36yslewt"]
+
+[ext_resource type="Texture2D" uid="uid://braxvcsbux8ml" path="res://assets/100devs/characters/baby_boar/000.png" id="1_frm3k"]
+[ext_resource type="Texture2D" uid="uid://crcfsfynrp4x0" path="res://assets/100devs/characters/baby_boar/001.png" id="2_mirki"]
+[ext_resource type="Texture2D" uid="uid://dyiorclve811" path="res://assets/100devs/characters/baby_boar/003.png" id="3_2ci03"]
+[ext_resource type="Texture2D" uid="uid://dkyypd1jyre2o" path="res://assets/100devs/characters/baby_boar/002.png" id="4_nu3u5"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_frm3k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mirki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2ci03")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_nu3u5")
+}],
+"loop": true,
+"name": &"sleeping",
+"speed": 5.0
+}]

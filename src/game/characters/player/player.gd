@@ -9,7 +9,6 @@ var attack_distance := 1.5
 var attack_time = 1.0
 var player_state: State
 var stats = STATS
-var flip_speed: float = 720.0  # angle per second
 
 @onready var visuals: Node3D = %Visuals
 @onready var animated_sprite_3d: AnimatedSprite3D = %AnimatedSprite3D
@@ -25,12 +24,6 @@ func _ready():
 	if stats == null:
 		push_error("Player stats not loaded!")
 		return
-
-
-func _process(delta: float) -> void:
-	# Update the visuals so it flips around slowly
-	var angle := -180.0 if movement_component.facing_right else 0.0
-	visuals.rotation_degrees.y = move_toward(visuals.rotation_degrees.y, angle, flip_speed * delta)
 
 
 func _physics_process(delta):
@@ -61,16 +54,17 @@ func handle_movement(delta):
 
 
 func get_movement_vector():
-	var x_movement := Input.get_action_strength("right") - Input.get_action_strength("left")
-	var z_movement := Input.get_action_strength("down") - Input.get_action_strength("up")
+	var input_dir := (
+		Vector2(Input.get_axis(&"left", &"right"), Input.get_axis(&"up", &"down")).normalized()
+	)
 
 	if (
-		(movement_component.facing_right == true and x_movement < 0.0)
-		or (movement_component.facing_right == false and x_movement > 0.0)
+		(movement_component.facing_right == true and input_dir.x < 0.0)
+		or (movement_component.facing_right == false and input_dir.x > 0.0)
 	):
 		movement_component.swap_facing_direction()
 
-	return Vector3(x_movement, velocity.y, z_movement)
+	return Vector3(input_dir.x, velocity.y, input_dir.y)
 
 
 # TODO: This should be handled by anim player

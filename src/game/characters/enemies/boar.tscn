@@ -4,23 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://civbj3kypuvdw" path="res://game/characters/components/overworld_attack_component.tscn" id="2_lfbaa"]
 [ext_resource type="PackedScene" uid="uid://cup8w5o8dum5r" path="res://game/characters/attacks/overworld/player_overworld_attack.tscn" id="3_i8rah"]
 [ext_resource type="PackedScene" uid="uid://c3yxi66r1gr3e" path="res://game/characters/components/movement_component.tscn" id="4_xarcl"]
-[ext_resource type="Texture2D" uid="uid://braxvcsbux8ml" path="res://assets/100devs/characters/baby_boar/000.png" id="5_i8rah"]
+[ext_resource type="SpriteFrames" uid="uid://b4bg17ng5oeu" path="res://game/characters/enemies/boar_spriteframes.tres" id="5_i8rah"]
+[ext_resource type="PackedScene" uid="uid://dmbdhufmkkvci" path="res://game/characters/components/flipper_component.tscn" id="5_xarcl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lfbaa"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_i8rah"]
 radius = 8.119
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_i8rah"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_i8rah")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [node name="Boar" type="CharacterBody3D"]
 script = ExtResource("1_qqv8h")
@@ -29,7 +19,13 @@ script = ExtResource("1_qqv8h")
 overworld_attack = ExtResource("3_i8rah")
 
 [node name="MovementComponent" parent="." instance=ExtResource("4_xarcl")]
+max_movement_speed = 4.0
 unit_travel = 2.0
+
+[node name="FlipperComponent" parent="." node_paths=PackedStringArray("target", "movement_component") instance=ExtResource("5_xarcl")]
+target = NodePath("../Visuals")
+movement_component = NodePath("../MovementComponent")
+speed = 720.0
 
 [node name="AlertTimer" type="Timer" parent="."]
 
@@ -49,15 +45,17 @@ shape = SubResource("SphereShape3D_i8rah")
 [node name="Visuals" type="Node3D" parent="."]
 
 [node name="debug_excla_mark" type="Label3D" parent="Visuals"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08039838, 1.6438506, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08039838, 3.2466462, 0)
 pixel_size = 0.02
 modulate = Color(0.627451, 0, 0.19607843, 1)
 text = "!!"
 
-[node name="temp_baby_boar" type="AnimatedSprite3D" parent="Visuals"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.6021412, 0)
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Visuals"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.4, 0)
 pixel_size = 0.002
-sprite_frames = SubResource("SpriteFrames_i8rah")
+sprite_frames = ExtResource("5_i8rah")
+animation = &"idle"
+frame_progress = 0.30359858
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 target_desired_distance = 0.5

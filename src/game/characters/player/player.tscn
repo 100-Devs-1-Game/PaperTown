@@ -1,49 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://px8n52y05giq"]
+[gd_scene load_steps=8 format=3 uid="uid://px8n52y05giq"]
 
 [ext_resource type="Script" uid="uid://xg6jnmm42eih" path="res://game/characters/player/player.gd" id="1_yjtv7"]
 [ext_resource type="PackedScene" uid="uid://c3yxi66r1gr3e" path="res://game/characters/components/movement_component.tscn" id="2_mnys6"]
 [ext_resource type="PackedScene" uid="uid://civbj3kypuvdw" path="res://game/characters/components/overworld_attack_component.tscn" id="3_65114"]
 [ext_resource type="PackedScene" uid="uid://cup8w5o8dum5r" path="res://game/characters/attacks/overworld/player_overworld_attack.tscn" id="4_65114"]
-[ext_resource type="Texture2D" uid="uid://bg5yrc0nycok5" path="res://assets/100devs/characters/mc_walk/walk01.png" id="6_l8uo5"]
-[ext_resource type="Texture2D" uid="uid://bjjnqn2ccoq4e" path="res://assets/100devs/characters/mc_walk/walk02.png" id="7_m2bqk"]
-[ext_resource type="Texture2D" uid="uid://dop3yw65rkihe" path="res://assets/100devs/characters/mc_walk/walk03.png" id="8_2lnxg"]
-[ext_resource type="Texture2D" uid="uid://dd7tna4idjsaj" path="res://assets/100devs/characters/mc_walk/walk04.png" id="9_bfpdl"]
-[ext_resource type="Texture2D" uid="uid://cmr3q5lqojjp6" path="res://assets/100devs/characters/mc_walk/walk05.png" id="10_eeksw"]
-[ext_resource type="Texture2D" uid="uid://fwangnjska3i" path="res://assets/100devs/characters/mc_walk/walk06.png" id="11_v4yks"]
-[ext_resource type="Texture2D" uid="uid://qilfclfy01qr" path="res://assets/100devs/characters/mc_walk/walk07.png" id="12_lr1oa"]
-[ext_resource type="Texture2D" uid="uid://ccjc1ko3yfk37" path="res://assets/100devs/characters/mc_walk/walk08.png" id="13_6vmqx"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_aps11"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_l8uo5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_m2bqk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_2lnxg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_bfpdl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_eeksw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_v4yks")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_lr1oa")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_6vmqx")
-}],
-"loop": true,
-"name": &"default",
-"speed": 8.0
-}]
+[ext_resource type="PackedScene" uid="uid://dmbdhufmkkvci" path="res://game/characters/components/flipper_component.tscn" id="5_3qf5w"]
+[ext_resource type="SpriteFrames" uid="uid://bflf2b3aevj2b" path="res://game/characters/player/player_spriteframes.tres" id="5_65114"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5hw72"]
 height = 1.71633
@@ -52,8 +14,13 @@ height = 1.71633
 collision_layer = 3
 script = ExtResource("1_yjtv7")
 
+[node name="FlipperComponent" parent="." node_paths=PackedStringArray("target", "movement_component") instance=ExtResource("5_3qf5w")]
+target = NodePath("../Visuals")
+movement_component = NodePath("../MovementComponent")
+
 [node name="MovementComponent" parent="." instance=ExtResource("2_mnys6")]
 unique_name_in_owner = true
+max_movement_speed = 6.0
 
 [node name="OverworldAttackComponent" parent="." instance=ExtResource("3_65114")]
 unique_name_in_owner = true
@@ -66,7 +33,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 pixel_size = 0.002
-sprite_frames = SubResource("SpriteFrames_aps11")
+sprite_frames = ExtResource("5_65114")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 unique_name_in_owner = true

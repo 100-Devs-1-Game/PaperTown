@@ -1,3 +1,4 @@
+class_name MovementComponent
 extends Node
 
 @export var max_movement_speed: float = 5.0
@@ -15,6 +16,7 @@ var reached_destination := false
 
 func accelerate_in_direction(direction: Vector3):
 	velocity = direction * max_movement_speed
+	facing_right = velocity.x > 0
 
 
 func update_target_location(nav_agent, target_location):
@@ -30,9 +32,8 @@ func move_to_target(nav_agent: NavigationAgent3D, character_body: CharacterBody3
 	var local_location = next_location - character_body.global_position
 
 	var direction = local_location.normalized()
-
-	character_body.velocity = direction * max_movement_speed
-	character_body.move_and_slide()
+	accelerate_in_direction(direction)
+	move(character_body)
 
 	if nav_agent.is_navigation_finished():
 		reached_destination = true

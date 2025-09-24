@@ -17,6 +17,7 @@ var wander_cooldown := false
 @onready var walk_timer = $WalkTimer
 @onready var navigation_agent_3d = $NavigationAgent3D
 @onready var debug_excla_mark = $Visuals/debug_excla_mark
+@onready var animated_sprite_3d: AnimatedSprite3D = $Visuals/AnimatedSprite3D
 
 
 func _ready():
@@ -48,6 +49,10 @@ func _physics_process(delta):
 
 func wander():
 	movement_component.move_to_target(navigation_agent_3d, self)
+	if movement_component.reached_destination:
+		animated_sprite_3d.play(&"idle")
+	else:
+		animated_sprite_3d.play(&"walk")
 
 
 func alert():
@@ -57,6 +62,7 @@ func alert():
 func chase():
 	movement_component.update_target_location(navigation_agent_3d, target.global_position)
 	movement_component.move_to_target(navigation_agent_3d, self)
+	animated_sprite_3d.play(&"charge")
 
 
 func on_alert_timeout():
