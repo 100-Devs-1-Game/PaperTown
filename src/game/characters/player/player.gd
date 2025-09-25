@@ -6,7 +6,7 @@ const STATS = preload("res://game/resources/stats.tres")
 
 var direction
 var attack_distance := 1.5
-var attack_time = 1.0
+var attack_time = 0.3
 var player_state: State
 var stats = STATS
 
@@ -45,6 +45,12 @@ func handle_movement(delta):
 
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		movement_component.jump(self)
+		var ft3d := FloatingText.spawn(global_position + Vector3(0, 2, 0), "oop")
+		ft3d.scale *= 0.25
+		ft3d.randomize_position(Vector3(1, 0.5, 0))
+		FloatingText.animate_towards(
+			ft3d, ft3d.global_position + (Vector3(randf_range(-2, 2), 2, 0).normalized() * 2), 1
+		)
 
 	movement_component.accelerate_in_direction(direction)
 	movement_component.move(self)
@@ -76,8 +82,15 @@ func handle_attack():
 		return
 
 	player_state = State.ATTACK
-	var dir = 1.0 if movement_component.facing_right else -1.0
+	var dir := 1.0 if movement_component.facing_right else -1.0
 	overworld_attack_component.generate_attack(self, dir, attack_distance, attack_time)
+
+	var ft3d := FloatingText.spawn(global_position + (Vector3.UP * 0.5), "boop")
+	ft3d.scale *= 0.5
+	ft3d.randomize_position(Vector3(0.25, 0.25, 0))
+	FloatingText.animate_towards(
+		ft3d, ft3d.position + (Vector3.RIGHT * dir * attack_distance) + Vector3.UP, 1
+	)
 
 
 # This will likely get obsolete with an anim player
