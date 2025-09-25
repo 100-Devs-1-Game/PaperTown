@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://st33vqt62ouy"]
+
+[ext_resource type="PackedScene" uid="uid://c3yxi66r1gr3e" path="res://game/characters/components/movement_component.tscn" id="1_acjnw"]
+[ext_resource type="Script" uid="uid://bi3dgm5c2ca75" path="res://game/characters/npcs/pet_boar.gd" id="1_y76up"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y76up"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y76up"]
+albedo_color = Color(0.49803922, 1, 0.4509804, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3hrs8"]
+material = SubResource("StandardMaterial3D_y76up")
+height = 1.0
+
+[node name="PetBoar" type="CharacterBody3D" groups=["companions"]]
+collision_layer = 5
+script = ExtResource("1_y76up")
+
+[node name="MovementComponent" parent="." instance=ExtResource("1_acjnw")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["companions"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0158945, 0)
+shape = SubResource("CapsuleShape3D_y76up")
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="temp_boar_mesh" type="MeshInstance3D" parent="Visuals"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.565624, 0)
+mesh = SubResource("CapsuleMesh_3hrs8")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 3.0
+target_desired_distance = 3.0
+debug_enabled = true

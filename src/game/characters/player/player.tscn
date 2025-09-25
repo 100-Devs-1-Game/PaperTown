@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://px8n52y05giq"]
+[gd_scene load_steps=8 format=3 uid="uid://px8n52y05giq"]
 
 [ext_resource type="Script" uid="uid://xg6jnmm42eih" path="res://game/characters/player/player.gd" id="1_yjtv7"]
 [ext_resource type="Texture2D" uid="uid://beo0ugbdfe0j1" path="res://assets/100devs/characters/corn_cowboy.png" id="2_5hw72"]
@@ -8,6 +8,9 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5hw72"]
 height = 1.71633
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_65114"]
+radius = 8.119
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 collision_layer = 3
@@ -28,3 +31,11 @@ texture = ExtResource("2_5hw72")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.859177, 0)
 shape = SubResource("CapsuleShape3D_5hw72")
+
+[node name="PersonalSpaceBubble" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PersonalSpaceBubble"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+shape = SubResource("SphereShape3D_65114")

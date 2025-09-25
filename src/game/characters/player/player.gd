@@ -4,6 +4,9 @@ enum State { MOVEMENT, ATTACK }
 
 const STATS = preload("res://game/resources/stats.tres")
 
+signal stop_moving_companion
+signal start_moving_companion
+
 var direction
 var attack_distance := 1.5
 var attack_time = 1.0
@@ -13,10 +16,14 @@ var stats = STATS
 @onready var movement_component = $MovementComponent
 @onready var overworld_attack_component = $OverworldAttackComponent
 @onready var collision_shape_3d = $CollisionShape3D
+@onready var personal_space_bubble = $PersonalSpaceBubble
 
 
 func _ready():
 	player_state = State.MOVEMENT
+
+	personal_space_bubble.body_entered.connect(on_personal_space_entered)
+	personal_space_bubble.body_exited.connect(on_personal_space_exited)
 
 	if stats == null:
 		push_error("Player stats not loaded!")
@@ -69,6 +76,18 @@ func get_movement_vector():
 		movement_component.swap_facing_direction()
 
 	return Vector3(x_movement, velocity.y, z_movement)
+
+
+func on_personal_space_entered(body):
+	print("I want space!!")
+	if body in get_tree().get_nodes_in_group("companions"):
+		print("NOW!!")
+		stop_moving_companion.emit()
+
+
+func on_personal_space_exited(body):
+	if body in get_tree().get_nodes_in_group("companions"):
+		start_moving_companion.emit()
 
 
 # TODO: This should be handled by anim player

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bur7gpdci0aj7"]
+[gd_scene load_steps=9 format=3 uid="uid://bur7gpdci0aj7"]
 
 [ext_resource type="PackedScene" uid="uid://px8n52y05giq" path="res://game/characters/player/player.tscn" id="1_n3xei"]
 [ext_resource type="PackedScene" uid="uid://c8x3kcryc0xtb" path="res://game/characters/enemies/boar.tscn" id="2_vssvh"]
+[ext_resource type="PackedScene" uid="uid://st33vqt62ouy" path="res://game/characters/npcs/pet_boar.tscn" id="3_ahblj"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vssvh"]
 size = Vector2(50, 50)
@@ -25,7 +26,11 @@ ambient_light_color = Color(0.462745, 0.776471, 0.823529, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7997425, 5.567525)
 
 [node name="Boar" parent="." instance=ExtResource("2_vssvh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7184334, 2.708621, -9.601168)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7184334, 8.218045, -0.80293083)
+
+[node name="PetBoar" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_ahblj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.408398, 1.9832888, 5.831682)
+player = NodePath("../Player")
 
 [node name="floortest" type="StaticBody3D" parent="."]
 
