@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://blkjapuvymat6"]
+
+[ext_resource type="Environment" uid="uid://dg5o6xnpgurbv" path="res://game/environment/world_environment.tres" id="1_7233l"]
+[ext_resource type="CameraAttributesPractical" uid="uid://cm5rcvo256osi" path="res://game/environment/world_environment_camera_attributes.tres" id="2_pdkw0"]
+[ext_resource type="Compositor" uid="uid://culqiwrg3fjcw" path="res://game/environment/world_environment_compositor.tres" id="3_pdkw0"]
+
+[node name="SharedWorldEnvironment" type="WorldEnvironment"]
+environment = ExtResource("1_7233l")
+camera_attributes = ExtResource("2_pdkw0")
+compositor = ExtResource("3_pdkw0")
