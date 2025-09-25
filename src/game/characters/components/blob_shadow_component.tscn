@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://cgxflu740say5" path="res://game/characters/components/blob_shadow.gd" id="3_rg4sd"]
 
 [node name="BlobShadowComponent" type="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 layers = 8
 material_override = ExtResource("1_vq85m")
 cast_shadow = 0
