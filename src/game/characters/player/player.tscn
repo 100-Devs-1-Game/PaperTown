@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://c3yxi66r1gr3e" path="res://game/characters/components/movement_component.tscn" id="2_mnys6"]
 [ext_resource type="PackedScene" uid="uid://civbj3kypuvdw" path="res://game/characters/components/overworld_attack_component.tscn" id="3_65114"]
 [ext_resource type="PackedScene" uid="uid://cup8w5o8dum5r" path="res://game/characters/attacks/overworld/player_overworld_attack.tscn" id="4_65114"]
-[ext_resource type="PackedScene" uid="uid://dmbdhufmkkvci" path="res://game/characters/components/flipper_component.tscn" id="5_3qf5w"]
-[ext_resource type="SpriteFrames" uid="uid://bflf2b3aevj2b" path="res://game/characters/player/player_spriteframes.tres" id="5_65114"]
-[ext_resource type="PackedScene" uid="uid://b74k55iexdo5x" path="res://game/characters/components/blob_shadow_component.tscn" id="7_btbyc"]
+[ext_resource type="PackedScene" path="res://game/characters/components/flipper_component.tscn" id="5_3qf5w"]
+[ext_resource type="SpriteFrames" path="res://game/characters/player/player_spriteframes.tres" id="5_65114"]
+[ext_resource type="PackedScene" path="res://game/characters/components/blob_shadow_component.tscn" id="7_btbyc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5hw72"]
 height = 1.6

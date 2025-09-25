@@ -65,7 +65,8 @@ func start_player_turn() -> void:
 
 func handle_action_selected(selected_action: GlobalUtils.PlayerAction) -> void:
 	player_action = selected_action
-	if player_action: change_state(GlobalUtils.BattleState.PLAYER_EXECUTING_ACTION)
+	change_state(GlobalUtils.BattleState.PLAYER_EXECUTING_ACTION)
+	execute_player_action()
 
 func execute_player_action() -> void:
 	var damage: int
@@ -76,7 +77,6 @@ func execute_player_action() -> void:
 				print("Player attacked with Tongue Slap!")
 			GlobalUtils.PlayerAction.TAIL_WHIP:
 				damage = player_character.stats.attack * 2
-				enemy_character.stats.current_hp -= damage
 				print("Player attacked with Tail Whip!")
 			GlobalUtils.PlayerAction.RUN_AWAY:
 				execute_run_attempt()

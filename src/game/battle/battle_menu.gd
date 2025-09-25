@@ -14,7 +14,6 @@ func _ready() -> void:
 	tongue_button.pressed.connect(_on_tongue_pressed)
 	tail_button.pressed.connect(_on_tail_pressed)
 	run_button.pressed.connect(_on_run_pressed)
-
 	hide_menu()
 
 func _on_tongue_pressed() -> void:
