@@ -73,7 +73,7 @@ func get_movement_vector():
 	else:
 		animated_sprite_3d.play(&"idle")
 
-	return Vector3(input_dir.x, velocity.y, input_dir.y)
+	return Vector3(input_dir.x, 0.0, input_dir.y)
 
 
 # TODO: This should be handled by anim player
