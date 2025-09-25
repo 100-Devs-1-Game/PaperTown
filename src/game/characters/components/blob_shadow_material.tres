@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://df67slwihsrtm"]
+
+[ext_resource type="Shader" uid="uid://dajcvxfy6k0yo" path="res://game/characters/components/blob_shadow_material.gdshader" id="1_4baw0"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_4baw0")
+shader_parameter/shadow_color = Vector4(0, 0.1, 0.2, 0.5)
+shader_parameter/radius = 0.5
+shader_parameter/softness = 0.1

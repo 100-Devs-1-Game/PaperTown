@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://b74k55iexdo5x"]
+
+[ext_resource type="Material" uid="uid://df67slwihsrtm" path="res://game/characters/components/blob_shadow_material.tres" id="1_vq85m"]
+[ext_resource type="QuadMesh" uid="uid://d1x7tax03oktl" path="res://game/characters/components/blob_shadow_mesh.tres" id="2_bcwin"]
+[ext_resource type="Script" uid="uid://cgxflu740say5" path="res://game/characters/components/blob_shadow.gd" id="3_rg4sd"]
+
+[node name="BlobShadowComponent" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0.1, 0)
+layers = 8
+material_override = ExtResource("1_vq85m")
+cast_shadow = 0
+mesh = ExtResource("2_bcwin")
+script = ExtResource("3_rg4sd")
+metadata/_custom_type_script = "uid://cgxflu740say5"
