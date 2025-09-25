@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccjc1ko3yfk37"
-path.s3tc="res://.godot/imported/walk08.png-a9ad117ed8fac05516733cfb4aa44ea9.s3tc.ctex"
+uid="uid://dqbps5s6j3bee"
+path.s3tc="res://.godot/imported/04.png-e19f9536a72af97ea7e3f05f5b3bbeb5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/100devs/characters/mc_walk/walk08.png"
-dest_files=["res://.godot/imported/walk08.png-a9ad117ed8fac05516733cfb4aa44ea9.s3tc.ctex"]
+source_file="res://assets/100devs/characters/mc_walk/04.png"
+dest_files=["res://.godot/imported/04.png-e19f9536a72af97ea7e3f05f5b3bbeb5.s3tc.ctex"]
 
 [params]
 
@@ -24,7 +24,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

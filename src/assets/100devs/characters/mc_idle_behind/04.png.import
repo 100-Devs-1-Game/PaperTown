@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qilfclfy01qr"
-path.s3tc="res://.godot/imported/walk07.png-11f330962761d346e7a733fdf2c5357d.s3tc.ctex"
+uid="uid://cump0oy4bvkqu"
+path="res://.godot/imported/04.png-7c0e860620cf0b55c8b55af98422bc1a.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/100devs/characters/mc_walk/walk07.png"
-dest_files=["res://.godot/imported/walk07.png-11f330962761d346e7a733fdf2c5357d.s3tc.ctex"]
+source_file="res://assets/100devs/characters/mc_idle_behind/04.png"
+dest_files=["res://.godot/imported/04.png-7c0e860620cf0b55c8b55af98422bc1a.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -38,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=2048
-detect_3d/compress_to=0
+detect_3d/compress_to=1
