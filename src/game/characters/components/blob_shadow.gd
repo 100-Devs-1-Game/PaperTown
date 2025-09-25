@@ -35,7 +35,7 @@ func _physics_process(_delta: float):
 		transform.origin.x = default_offset.x
 		transform.origin.z = default_offset.z
 
-		look_at(hit_position + hit_normal, Vector3.LEFT)
+		look_at(hit_position + hit_normal, Vector3.FORWARD)
 		rotation.x = 0
 		rotation.z = 0
 
