@@ -1,47 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://k2fu5rlm10mf"]
+[gd_scene load_steps=4 format=3 uid="uid://k2fu5rlm10mf"]
 
 [ext_resource type="Script" uid="uid://k6aj6arqkwvw" path="res://game/battle/qte_indicator.gd" id="1_ev6d5"]
+[ext_resource type="Texture2D" uid="uid://bg4k62voyon3y" path="res://assets/external/qte/qte_ring.png" id="2_f8vo6"]
+[ext_resource type="Texture2D" uid="uid://5kftnojlipvm" path="res://assets/external/qte/sweet_spot.png" id="2_w4hbe"]
 
 [node name="QTE Indicator" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ev6d5")
 
-[node name="QTEBar" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0, 0.003921569, 1)
+[node name="QTERing" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_f8vo6")
 
-[node name="SweetSpot" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 1, 0, 1)
+[node name="SweetSpot" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_w4hbe")
 
 [node name="Timer" type="Timer" parent="."]
+process_callback = 0
 wait_time = 2.0
 one_shot = true
-autostart = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Tap"
+flat = true
+autowrap_mode = 2

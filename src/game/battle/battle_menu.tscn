@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ca65elqv0fxhy"]
 
-[ext_resource type="Script" uid="uid://ovpgatviv4uj" path="res://game/battle/action_menu.gd" id="1_1lwqo"]
+[ext_resource type="Script" uid="uid://ovpgatviv4uj" path="res://game/battle/battle_menu.gd" id="1_f1ncp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1lwqo"]
 border_width_left = 1
@@ -8,30 +8,24 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 
-[node name="ActionMenu" type="Container"]
-custom_minimum_size = Vector2(650, 164)
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+[node name="BattleMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -325.0
-offset_top = -164.0
-offset_right = 325.0
 grow_horizontal = 2
-grow_vertical = 0
-script = ExtResource("1_1lwqo")
+grow_vertical = 2
+script = ExtResource("1_f1ncp")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_right = 15
-
-[node name="Actions" type="HBoxContainer" parent="MarginContainer"]
-layout_mode = 2
+[node name="ButtonContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 330.0
+offset_top = 556.0
+offset_right = 950.0
+offset_bottom = 720.0
 theme_override_constants/separation = 10
 
-[node name="Tongue" type="Button" parent="MarginContainer/Actions"]
+[node name="TongueButton" type="Button" parent="ButtonContainer"]
 custom_minimum_size = Vector2(200, 164)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -41,7 +35,7 @@ text = "Tongue Slap"
 flat = true
 autowrap_mode = 2
 
-[node name="Tail" type="Button" parent="MarginContainer/Actions"]
+[node name="TailButton" type="Button" parent="ButtonContainer"]
 custom_minimum_size = Vector2(200, 164)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -50,7 +44,7 @@ text = "Tail Whip"
 flat = true
 autowrap_mode = 2
 
-[node name="Run" type="Button" parent="MarginContainer/Actions"]
+[node name="RunButton" type="Button" parent="ButtonContainer"]
 custom_minimum_size = Vector2(200, 164)
 layout_mode = 2
 size_flags_horizontal = 3

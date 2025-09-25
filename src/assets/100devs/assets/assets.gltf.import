@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://xjusxj6ruor8"
-path="res://.godot/imported/assets.gltf-7a950ec360973739d6540024656652ef.scn"
+valid=false
 
 [deps]
 
 source_file="res://assets/100devs/assets/assets.gltf"
-dest_files=["res://.godot/imported/assets.gltf-7a950ec360973739d6540024656652ef.scn"]
 
 [params]
 

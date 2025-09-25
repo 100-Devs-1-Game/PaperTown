@@ -5,7 +5,7 @@ enum State { WANDER, ALERT, CHASE, BATTLE }
 const STATS = preload("res://game/resources/stats.tres")
 
 var stats = STATS.duplicate(true)
-var state: State
+var current_state: State
 var target: CharacterBody3D = null
 var chase_time := -1.0
 var wander_cooldown := false
@@ -19,6 +19,7 @@ var wander_cooldown := false
 @onready var debug_excla_mark = $Visuals/debug_excla_mark
 @onready var animated_sprite_3d: AnimatedSprite3D = $Visuals/AnimatedSprite3D
 
+signal enemy_state_changed(new_state: State)
 
 func _ready():
 	detection_bubble.body_entered.connect(on_detection_bubble_body_entered)
@@ -27,7 +28,7 @@ func _ready():
 
 	debug_excla_mark.text = ""
 
-	state = State.WANDER
+	change_state(State.WANDER)
 
 	movement_component.get_random_spot(navigation_agent_3d, self)
 	walk_timer.start()
@@ -36,15 +37,13 @@ func _ready():
 func _physics_process(delta):
 	movement_component.apply_gravity(delta, self)
 
-	match state:
+	match current_state:
 		State.WANDER:
 			wander()
 		State.ALERT:
 			alert()
 		State.CHASE:
 			chase()
-		State.BATTLE:
-			pass
 
 
 func wander():
@@ -66,13 +65,13 @@ func chase():
 
 
 func on_alert_timeout():
-	state = State.CHASE
+	change_state(State.CHASE)
 	debug_excla_mark.text = ""
 	overworld_attack_component.generate_attack(self, 0.0, 0.0, -1.0)
 
 
 func on_walk_timeout():
-	if state != State.WANDER:
+	if current_state != State.WANDER:
 		return
 
 	movement_component.get_random_spot(navigation_agent_3d, self)
@@ -83,19 +82,16 @@ func on_walk_timeout():
 func on_detection_bubble_body_entered(body):
 	if (
 		body in get_tree().get_nodes_in_group("player")
-		and state != State.ALERT
-		and state != State.CHASE
+		and current_state == State.WANDER
 	):
-		state = State.ALERT
+		change_state(State.ALERT)
 		debug_excla_mark.text = "!!"
 		target = body
 		alert_timer.start()
 
 
-func set_battle_state(in_battle: bool) -> void:
-	if in_battle:
-		state = State.BATTLE
-		print("BOAR state changed to BATTLE")
-	else:
-		state = State.WANDER
-		print("BOAR state changed to WANDER")
+func change_state(new_state: State) -> void:
+	if current_state == new_state:
+		return
+	current_state = new_state
+	enemy_state_changed.emit(current_state)

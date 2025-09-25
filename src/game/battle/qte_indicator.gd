@@ -1,62 +1,63 @@
-class_name TimedInputEvent extends Control
+class_name QuickTimeEvent extends Control
 
-signal qte_success
-signal qte_failure
+signal qte_result(qte_success: bool)
 
-@onready var qte_bar: ColorRect = $"QTE Bar"
-@onready var sweet_spot: ColorRect = $"sweet spot"
+@onready var qte_ring: Sprite2D = $QTERing
+@onready var sweet_spot: Sprite2D = $SweetSpot
 @onready var timer: Timer = $Timer
+@onready var button: Button = $Button
 
-var is_active = false
+var is_active: bool
 var required_input = "ui_accept"
-
+var initial_ring_scale: Vector2 = Vector2(.7, .7)
+var current_ring_scale: Vector2
 
 func _ready() -> void:
-	hide()
 	timer.timeout.connect(_on_timer_timeout)
-
-
-func start_qte() -> void:
-	is_active = true
-	show()
-	qte_bar.size.x = 200
-	timer.start()
-
+	button.pressed.connect(_on_button_pressed)
+	is_active = false
+	hide()
 
 func _process(delta: float) -> void:
 	if is_active:
-		var shrink_rate = 200 / timer.wait_time
-		qte_bar.size.x -= max(0, qte_bar.size.x - shrink_rate * delta)
+		var shrink_rate = .7 / timer.wait_time
+		qte_ring.scale.x -= shrink_rate * delta
+		qte_ring.scale.y -= shrink_rate * delta
+		if qte_ring.scale.x <= 0.01 or qte_ring.scale.y <= 0.01:
+			qte_result.emit(false)
+			is_active = false
+			timer.stop()
+			return
 
-		if Input.is_action_just_pressed(required_input):
-			if qte_bar.get_global_rect().intersects(sweet_spot.get_global_rect()):
-				check_for_success()
-			else:
-				qte_failure.emit()
-				is_active = false
-				timer.stop()
-				hide()
-
+func start_qte() -> void:
+	show()
+	is_active = true
+	qte_ring.scale = initial_ring_scale
+	timer.start()
 
 func check_for_success():
-	var bar_end_x = qte_bar.global_position.x + qte_bar.size.x
-	var zone_start_x = sweet_spot.global_position.x
-	var zone_end_x = sweet_spot.global_position.x + sweet_spot.size.x
-
-	if bar_end_x >= zone_start_x and bar_end_x <= zone_end_x:
-		qte_success.emit()
+	print("Current Ring Size: %s" % current_ring_scale)
+	print("Sweet Spot Size: %s" % sweet_spot.scale)
+	if current_ring_scale <= sweet_spot.scale:
+		qte_result.emit(true)
+		print(qte_result)
 		is_active = false
-		timer.stop()
-		hide()
 	else:
-		qte_failure.emit()
+		qte_result.emit(false)
+		print(qte_result)
 		is_active = false
-		timer.stop()
-		hide()
 
 
 func _on_timer_timeout() -> void:
-	qte_failure.emit()
+	qte_result.emit(false)
 	is_active = false
 	timer.stop()
-	hide()
+	return
+
+func _on_button_pressed() -> void:
+	if is_active:
+		current_ring_scale = qte_ring.get_scale()
+		if current_ring_scale.length() > sweet_spot.scale.length():
+			qte_ring.scale = current_ring_scale
+			timer.stop()
+			check_for_success()

@@ -7,7 +7,7 @@ const STATS = preload("res://game/resources/stats.tres")
 var direction
 var attack_distance := 1.5
 var attack_time = 0.3
-var player_state: State
+var current_state: State
 var stats = STATS
 
 @onready var visuals: Node3D = %Visuals
@@ -17,9 +17,10 @@ var stats = STATS
 @onready var overworld_attack_component = %OverworldAttackComponent
 @onready var collision_shape_3d = %CollisionShape3D
 
+signal player_state_changed(new_state: State)
 
 func _ready():
-	player_state = State.MOVEMENT
+	change_state(State.MOVEMENT)
 
 	if stats == null:
 		push_error("Player stats not loaded!")
@@ -29,7 +30,7 @@ func _ready():
 func _physics_process(delta):
 	# TODO: final code is going to be much more sophisticated than this
 
-	match player_state:
+	match current_state:
 		State.MOVEMENT:
 			handle_movement(delta)
 		State.ATTACK:
@@ -81,7 +82,7 @@ func handle_attack():
 	if not is_on_floor():
 		return
 
-	player_state = State.ATTACK
+	change_state(State.ATTACK)
 	var dir := 1.0 if movement_component.facing_right else -1.0
 	overworld_attack_component.generate_attack(self, dir, attack_distance, attack_time)
 
@@ -95,11 +96,11 @@ func handle_attack():
 
 # This will likely get obsolete with an anim player
 func exit_attack_state():
-	player_state = State.MOVEMENT
+	change_state(State.MOVEMENT)
 
 
-func set_battle_state(in_battle: bool) -> void:
-	if in_battle:
-		player_state = State.BATTLE
-	else:
-		player_state = State.MOVEMENT
+func change_state(new_state: State) -> void:
+	if current_state == new_state:
+		return
+	current_state = new_state
+	player_state_changed.emit(current_state)
