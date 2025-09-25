@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b74k55iexdo5x" path="res://game/characters/components/blob_shadow_component.tscn" id="7_btbyc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5hw72"]
-height = 1.71633
+height = 1.6
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 collision_layer = 2
@@ -28,22 +28,26 @@ max_movement_speed = 6.0
 unique_name_in_owner = true
 overworld_attack = ExtResource("4_65114")
 
+[node name="BlobShadowComponent" parent="." instance=ExtResource("7_btbyc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.4, 0, 0, -0.15130253)
+skeleton = NodePath("../Visuals")
+
 [node name="Visuals" type="Node3D" parent="."]
 unique_name_in_owner = true
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Visuals"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.89171267, 0)
 layers = 2
 cast_shadow = 0
 pixel_size = 0.002
 alpha_cut = 2
 sprite_frames = ExtResource("5_65114")
 animation = &"walk"
-
-[node name="BlobShadowComponent" parent="Visuals" instance=ExtResource("7_btbyc")]
+frame = 6
+frame_progress = 0.13388003
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.859177, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8040136, 0)
 shape = SubResource("CapsuleShape3D_5hw72")
