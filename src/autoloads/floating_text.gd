@@ -5,6 +5,7 @@ const FLOATING_TEXT_3D_SCENE = preload("res://game/other/floating_text/floating_
 
 # make sure you pass global position! not local!
 func spawn(pos: Vector3, text: String) -> FloatingText3D:
+	pos.z += 0.5  # try to avoid z fighting
 	var floating_text_3d: FloatingText3D = FLOATING_TEXT_3D_SCENE.instantiate()
 	add_child(floating_text_3d)
 
@@ -23,6 +24,20 @@ func animate(ft3d: FloatingText3D, distance: float, duration: float) -> Floating
 	tween.set_parallel(true)
 	tween.tween_property(ft3d, "modulate:a", 1.0, 0.3)
 	tween.tween_property(ft3d, "position:y", ft3d.position.y + distance, duration)
+	tween.tween_property(ft3d, "modulate:a", 0.0, duration - 0.6).set_delay(0.6)
+	tween.finished.connect(ft3d.queue_free)
+	return ft3d
+
+
+func animate_towards(ft3d: FloatingText3D, target: Vector3, duration: float) -> FloatingText3D:
+	ft3d.modulate.a = 0.0
+
+	var tween := ft3d.create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(ft3d, "modulate:a", 1.0, 0.3)
+
+	tween.tween_property(ft3d, "position", target, duration)
+
 	tween.tween_property(ft3d, "modulate:a", 0.0, duration - 0.6).set_delay(0.6)
 	tween.finished.connect(ft3d.queue_free)
 	return ft3d
