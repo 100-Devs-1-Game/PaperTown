@@ -39,21 +39,8 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 [node name="Player" parent="." instance=ExtResource("1_vg6ia")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7986183, 0, 5.3761234)
 
-[node name="wipshadow" type="CSGCylinder3D" parent="Player/Visuals" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.90641993, 0)
-cast_shadow = 3
-sides = 16
-
 [node name="Boar" parent="." instance=ExtResource("2_v7ciq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.261799, 0.2645085, 5.4858446)
-
-[node name="CollisionShape3D" parent="Boar" index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0791532, 0)
-
-[node name="wipshadow" type="CSGCylinder3D" parent="Boar/Visuals" index="2"]
-transform = Transform3D(2.0186992, 0, 0, 0, 1, 0, 0, 0, 2.0186992, 0, -0.8500467, 0)
-cast_shadow = 3
-sides = 16
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pix3n")
@@ -177,12 +164,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.47473073, 0)
 shape = SubResource("BoxShape3D_so8dt")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="floortest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.059221268, 9.536743e-07, -0.0014448166)
 navigation_mesh = SubResource("NavigationMesh_rf2vp")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="floortest/NavigationRegion3D"]
 visible = false
 use_collision = true
 size = Vector3(50, 1, 50)
-
-[editable path="Player"]
-[editable path="Boar"]
