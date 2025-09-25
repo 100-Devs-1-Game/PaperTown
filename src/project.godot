@@ -107,6 +107,20 @@ attack_overworld={
 
 locale/translations_pot_files=PackedStringArray("res://game/dialogue/test_dialogue_01.dialogue")
 
+[layer_names]
+
+3d_render/layer_1="World"
+3d_render/layer_2="Player"
+3d_render/layer_3="NPC"
+3d_render/layer_4="Misc"
+3d_physics/layer_1="World"
+3d_navigation/layer_1="Player"
+3d_physics/layer_2="Player"
+3d_navigation/layer_2="NPC"
+3d_physics/layer_3="NPC"
+3d_physics/layer_4="Misc"
+3d_physics/layer_5="Combat"
+
 [physics]
 
 common/physics_ticks_per_second=10
