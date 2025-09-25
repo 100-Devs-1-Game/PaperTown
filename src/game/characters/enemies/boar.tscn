@@ -69,7 +69,6 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 target_desired_distance = 0.5
-navigation_layers = 2
 debug_enabled = true
 
 [connection signal="body_entered" from="DetectionBubble" to="." method="_on_detection_bubble_body_entered"]
