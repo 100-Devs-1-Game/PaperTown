@@ -16,10 +16,7 @@ func _ready() -> void:
 			continue
 
 		var ft3d := FloatingText.spawn($FloatingText3D.global_position, "+%s" % randi_range(0, 99))
-		ft3d.position.x += randf_range(-10, 10)
-		ft3d.position.y += randf_range(-1, 1)
-		ft3d.position.z += randf_range(-1, 1)
-		ft3d.reset_physics_interpolation()
+		ft3d.randomize_position(Vector3(10, 1, 1))
 		FloatingText.animate(ft3d, 2, 1.2)
 
 

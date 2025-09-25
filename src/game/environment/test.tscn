@@ -1,24 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://nufmugt8xc4t"]
+[gd_scene load_steps=5 format=3 uid="uid://nufmugt8xc4t"]
 
 [ext_resource type="PackedScene" uid="uid://px8n52y05giq" path="res://game/characters/player/player.tscn" id="1_3yk8p"]
 [ext_resource type="PackedScene" uid="uid://romkf60q2s4o" path="res://game/environment/house/house_acorn.tscn" id="1_bhkk5"]
+[ext_resource type="PackedScene" uid="uid://blkjapuvymat6" path="res://game/environment/world_environment.tscn" id="1_pix3n"]
 [ext_resource type="PackedScene" uid="uid://crtm3xevyq3w6" path="res://game/environment/floor/test.tscn" id="2_3yk8p"]
-
-[sub_resource type="Environment" id="Environment_pix3n"]
-background_mode = 2
-ambient_light_source = 2
-ambient_light_color = Color(0.3724575, 0.56774753, 1, 1)
-
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_a3ahp"]
 
 [node name="Test" type="Node3D"]
 
+[node name="SharedWorldEnvironment" parent="." instance=ExtResource("1_pix3n")]
+
 [node name="Player" parent="." instance=ExtResource("1_3yk8p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.5514998)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_pix3n")
-camera_attributes = SubResource("CameraAttributesPractical_a3ahp")
 
 [node name="HouseAcorn" parent="." instance=ExtResource("1_bhkk5")]
 

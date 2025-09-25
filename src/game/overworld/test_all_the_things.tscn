@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://cgx421x0ucraq"]
+[gd_scene load_steps=18 format=3 uid="uid://cgx421x0ucraq"]
 
 [ext_resource type="PackedScene" uid="uid://px8n52y05giq" path="res://game/characters/player/player.tscn" id="1_vg6ia"]
 [ext_resource type="PackedScene" uid="uid://romkf60q2s4o" path="res://game/environment/house/house_acorn.tscn" id="2_r6krj"]
 [ext_resource type="PackedScene" uid="uid://c8x3kcryc0xtb" path="res://game/characters/enemies/boar.tscn" id="2_v7ciq"]
+[ext_resource type="PackedScene" uid="uid://blkjapuvymat6" path="res://game/environment/world_environment.tscn" id="3_r4aja"]
 [ext_resource type="PackedScene" uid="uid://bxf2iw36fhu4j" path="res://game/environment/floor/floor_middle.tscn" id="4_r4aja"]
 [ext_resource type="PackedScene" uid="uid://cjq7ym6xn2pqo" path="res://game/environment/floor/floor_left.tscn" id="5_wnwvp"]
 [ext_resource type="PackedScene" uid="uid://ctkb2uf230c4s" path="res://game/environment/floor/floor_back.tscn" id="6_l2ker"]
@@ -12,15 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://1xffej8rych6" path="res://game/environment/floor/floor_corner_front_right.tscn" id="10_44ytm"]
 [ext_resource type="PackedScene" uid="uid://dpj20m70q42wj" path="res://game/environment/floor/floor_front.tscn" id="11_g0cmb"]
 [ext_resource type="PackedScene" uid="uid://cpsr21ixm0kel" path="res://game/environment/floor/floor_right.tscn" id="12_w6jde"]
-
-[sub_resource type="Environment" id="Environment_pix3n"]
-background_mode = 1
-background_color = Color(0.40029848, 0.57189727, 0.9847682, 1)
-ambient_light_source = 2
-ambient_light_color = Color(0.73535323, 0.8240617, 1, 1)
-ambient_light_energy = 0.1
-
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_a3ahp"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_81njp"]
 
@@ -42,9 +34,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7986183, 0, 5.3761234)
 [node name="Boar" parent="." instance=ExtResource("2_v7ciq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.261799, 0.2645085, 5.4858446)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_pix3n")
-camera_attributes = SubResource("CameraAttributesPractical_a3ahp")
+[node name="SharedWorldEnvironment" parent="." instance=ExtResource("3_r4aja")]
 
 [node name="HouseAcorn" parent="." instance=ExtResource("2_r6krj")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, -3)
