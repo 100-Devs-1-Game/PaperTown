@@ -1,5 +1,10 @@
 // https://docs.godotengine.org/en/latest/tutorials/shaders/advanced_postprocessing.html
 
+// warning: could not get this working nicely for compatibility renderers
+// because of transparent things turning invisible... :/
+
+// p.s also has fog, too lazy to rename now though
+
 shader_type spatial;
 render_mode unshaded, cull_disabled, depth_draw_always;
 
@@ -10,6 +15,13 @@ uniform float focus_target = 10.0; // how far away the thing "in focus" is
 uniform float focus_range = 5.0; // how far the stuff around target is "focused"
 uniform float max_blur = 4.0; // lower numbers work better
 uniform float debug_red = 0.0; //set to 1.0 to make the blur red for debugging
+
+// from https://godotshaders.com/shader/distance-gradient-fog-4-3/
+uniform sampler2D fog_gradient;
+uniform float fog_strength : hint_range(0.0, 1.0) = 1.0;
+uniform float fog_amount : hint_range(0.0, 1.0) = 0.15;
+uniform float fog_near = 1.0;
+uniform float fog_far = 150.0;
 
 void vertex() {
 	// force it to cover entire viewport (even in editor)
@@ -51,7 +63,12 @@ void fragment() {
  	// average center + 4 neighbours
     col /= 5.0;
 
-    ALBEDO = col.rgb;
+	// from https://godotshaders.com/shader/distance-gradient-fog-4-3/
+    float fog_factor = clamp((linear_depth - fog_near) / (fog_far - fog_near), 0.0, 1.0);
+    fog_factor *= fog_amount;
+    vec4 fog_color = texture(fog_gradient, vec2(fog_factor, 0.0));
+
+    ALBEDO = mix(col.rgb, fog_color.rgb, fog_color.a * fog_strength);
 	ALBEDO.r += clamp(debug_red, 0.0, 1.0) * blur_strength;
 	ALBEDO.g -= clamp(debug_red, 0.0, 1.0) * blur_strength;
 	ALBEDO.b -= clamp(debug_red, 0.0, 1.0) * blur_strength;

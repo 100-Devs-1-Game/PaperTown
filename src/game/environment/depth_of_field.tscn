@@ -13,6 +13,10 @@ shader_parameter/focus_target = 10.0
 shader_parameter/focus_range = 2.0
 shader_parameter/max_blur = 4.0
 shader_parameter/debug_red = 0.0
+shader_parameter/fog_strength = 1.0
+shader_parameter/fog_amount = 0.15
+shader_parameter/fog_near = 1.0
+shader_parameter/fog_far = 150.0
 
 [node name="DepthOfField" type="MeshInstance3D"]
 mesh = SubResource("QuadMesh_6uxp6")
