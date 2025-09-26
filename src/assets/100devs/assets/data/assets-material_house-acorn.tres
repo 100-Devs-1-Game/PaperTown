@@ -4,6 +4,8 @@
 
 [resource]
 resource_name = "house_acorn"
-transparency = 4
+transparency = 2
+alpha_scissor_threshold = 1.0
+alpha_antialiasing_mode = 0
 cull_mode = 2
 albedo_texture = ExtResource("1_s27l4")

@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgpky5o0hiqf0"]
+
+[ext_resource type="PackedScene" uid="uid://blkjapuvymat6" path="res://game/environment/world_environment.tscn" id="1_cjouw"]
+[ext_resource type="PackedScene" uid="uid://chvquxgscxaoj" path="res://game/environment/depth_of_field.tscn" id="2_dlayk"]
+[ext_resource type="Shader" uid="uid://r583k12fgwm3" path="res://game/environment/depth_of_field.gdshader" id="3_2gnjx"]
+[ext_resource type="Script" uid="uid://r5cu5vu3o4bs" path="res://game/environment/depth_of_field.gd" id="4_enpeh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o0y16"]
+render_priority = 0
+shader = ExtResource("3_2gnjx")
+shader_parameter/focus_target = 10.0
+shader_parameter/focus_range = 5.0
+shader_parameter/max_blur = 4.0
+shader_parameter/debug_red = 1.0
+
+[node name="TestDof" type="Node3D"]
+
+[node name="SharedWorldEnvironment" parent="." instance=ExtResource("1_cjouw")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2311871, 2.661489)
+near = 0.833
+
+[node name="DepthOfField" parent="Camera3D" instance=ExtResource("2_dlayk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+surface_material_override/0 = SubResource("ShaderMaterial_o0y16")
+script = ExtResource("4_enpeh")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(15.349484, 0, 0, 0, 1, 0, 0, 0, 15.349484, 0, -1.4441428, -1.6629146)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.29478097, 0.8319062)
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8348794, -0.6003649, 0.8319062)
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.69926107, -0.9407126, 0.8319062)
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7110529, -0.6653396, 0.8319062)
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="."]
+transform = Transform3D(2.9754295, 0, 0, 0, 2.0077403, 0, 0, 0, 1, -5.1951904, -0.6653396, -4.6878986)
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="."]
+transform = Transform3D(2.9754295, 0, 0, 0, 2.0077403, 0, 0, 0, 1, -3.4444818, 0.5971106, -4.6878986)
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="."]
+transform = Transform3D(2.9754295, 0, 0, 0, 2.0077403, 0, 0, 0, 1, -1.5700678, -0.23253453, -5.3835897)
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="."]
+transform = Transform3D(2.9754295, 0, 0, 0, 2.0077403, 0, 0, 0, 1, -0.15927923, 0.7845987, -4.4935584)
+
+[node name="CSGCylinder3D9" type="CSGCylinder3D" parent="."]
+transform = Transform3D(2.9754295, 0, 0, 0, 2.0077403, 0, 0, 0, 1, 1.8088559, -0.74469364, -4.4935584)
+
+[node name="CSGCylinder3D10" type="CSGCylinder3D" parent="."]
+transform = Transform3D(2.9754295, 0, 0, 0, 2.0077403, 0, 0, 0, 1, 3.379611, -0.74469364, -5.0122967)
+
+[node name="CSGCylinder3D11" type="CSGCylinder3D" parent="."]
+transform = Transform3D(2.9754295, 0, 0, 0, 2.0077403, 0, 0, 0, 1, 5.2412777, 0.624529, -4.589918)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.508733, 0)
+omni_range = 100.0
