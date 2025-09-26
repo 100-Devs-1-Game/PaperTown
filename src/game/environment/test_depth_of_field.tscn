@@ -23,6 +23,7 @@ near = 0.833
 
 [node name="DepthOfField" parent="Camera3D" instance=ExtResource("2_dlayk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+visible = false
 surface_material_override/0 = SubResource("ShaderMaterial_o0y16")
 script = ExtResource("4_enpeh")
 
