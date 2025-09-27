@@ -21,6 +21,7 @@ var save_collision_shapes := true
 var save_materials := true
 
 # if we change them in godot, we should set this to false, but for now it's okay
+# good to toggle it once in a while and compare the differences
 var overwrite_materials := false
 
 # sometimes there are duplicates with just a number different
@@ -29,7 +30,9 @@ var can_trimoff_numbers := false  # e.g 'plane.003' becomes 'plane'
 
 # don't save the data when it contains a number
 # this way, artists can keep numbers for things to exclude... I guess :b
-# note: this doesn't skip if the "data" (green triangle in blender) has a number
+# note: this doesn't skip if the "data" (green triangle in blender) has a number.
+# even if skipped, the data is still there, just local to the GLTF scene and not on disk.
+# so references to them will break in the future, be careful.
 var skip_if_has_numbers := true
 
 # this surfaces materials to the top alphabetically

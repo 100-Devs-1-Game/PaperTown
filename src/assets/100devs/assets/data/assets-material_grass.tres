@@ -7,7 +7,7 @@
 resource_name = "grass"
 cull_mode = 2
 albedo_texture = ExtResource("1_xlarh")
-emission_enabled = true
+roughness = 0.5
 normal_enabled = true
 normal_scale = 0.8
 normal_texture = ExtResource("2_2wqkg")
