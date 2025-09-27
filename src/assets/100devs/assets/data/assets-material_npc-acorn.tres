@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dl23qc33f1pyq"]
+
+[ext_resource type="Texture2D" uid="uid://bpmdv4t414yqf" path="res://assets/100devs/assets/acorn.png" id="1_gymnu"]
+
+[resource]
+resource_name = "npc_acorn"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("1_gymnu")
+roughness = 0.5

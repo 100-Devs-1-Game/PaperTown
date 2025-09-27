@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bi38iqr3aj64q"]
+
+[ext_resource type="Texture2D" uid="uid://bqv461c85yd7f" path="res://assets/100devs/assets/_albedo.png" id="1_7qpsw"]
+
+[resource]
+resource_name = "wire"
+cull_mode = 2
+albedo_texture = ExtResource("1_7qpsw")
+metallic = 0.6727273
+roughness = 0.49999997

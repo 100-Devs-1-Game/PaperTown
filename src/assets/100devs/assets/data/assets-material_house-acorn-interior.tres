@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b7d5nri5v6v0r"]
+
+[ext_resource type="Texture2D" uid="uid://b4cby08lbsgls" path="res://assets/100devs/assets/house_interior.png" id="1_smp6m"]
+
+[resource]
+resource_name = "house_acorn_interior"
+cull_mode = 2
+albedo_texture = ExtResource("1_smp6m")
+roughness = 0.6818182
