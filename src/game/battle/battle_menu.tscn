@@ -18,7 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f1ncp")
 
-[node name="ButtonContainer" type="HBoxContainer" parent="."]
+[node name="ActionSelection" type="HBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 330.0
 offset_top = 556.0
@@ -26,7 +26,7 @@ offset_right = 950.0
 offset_bottom = 720.0
 theme_override_constants/separation = 10
 
-[node name="TongueButton" type="Button" parent="ButtonContainer"]
+[node name="TongueButton" type="Button" parent="ActionSelection"]
 custom_minimum_size = Vector2(200, 164)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -36,7 +36,7 @@ text = "Tongue Slap"
 flat = true
 autowrap_mode = 2
 
-[node name="TailButton" type="Button" parent="ButtonContainer"]
+[node name="TailButton" type="Button" parent="ActionSelection"]
 custom_minimum_size = Vector2(200, 164)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -45,7 +45,7 @@ text = "Tail Whip"
 flat = true
 autowrap_mode = 2
 
-[node name="RunButton" type="Button" parent="ButtonContainer"]
+[node name="RunButton" type="Button" parent="ActionSelection"]
 custom_minimum_size = Vector2(200, 164)
 layout_mode = 2
 size_flags_horizontal = 3

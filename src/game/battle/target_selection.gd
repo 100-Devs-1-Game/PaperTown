@@ -48,4 +48,14 @@ func handle_selection(target: int) -> void:
 
 
 func deactivate() -> void:
-	pass
+	for b in target_buttons.size():
+		target_buttons[b].disabled = true
+	
+	hide();
+
+
+func activate() -> void:
+	for b in target_buttons.size():
+		target_buttons[b].disabled = false
+	
+	show();

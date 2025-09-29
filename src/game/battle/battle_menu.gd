@@ -4,14 +4,13 @@ class_name BattleMenu extends Control
 signal action_selected(action_type: GlobalUtils.PlayerAction, target_index: int)
 signal menu_state_changed(menu_state: GlobalUtils.MenuState)
 
-@onready var tongue_button: Button = $ButtonContainer/TongueButton
-@onready var tail_button: Button = $ButtonContainer/TailButton
-@onready var run_button: Button = $ButtonContainer/RunButton
+@onready var tongue_button: Button = $ActionSelection/TongueButton
+@onready var tail_button: Button = $ActionSelection/TailButton
+@onready var run_button: Button = $ActionSelection/RunButton
 @onready var target_selection: Container = $TargetSelection
 
 var current_state: GlobalUtils.MenuState
 var selected_action: GlobalUtils.PlayerAction
-var target_selection_instance: Container
 
 
 func change_state(new_state: GlobalUtils.MenuState) -> void:
@@ -37,18 +36,14 @@ func _on_action_selected(action: GlobalUtils.PlayerAction) -> void:
 	else:
 		# Attack actions need target selection
 		selected_action = action
+		hide_menu()
 		show_target_selection()
 
 
 func show_target_selection() -> void:
 	change_state(GlobalUtils.MenuState.TARGET_SELECTION)
-	menu_state_changed.emit(current_state)
-	
-	# Hide action buttons
-	$ButtonContainer.hide()
-	
-	# Show target selection (assuming you have it as a child node)
 	target_selection.target_selected.connect(_on_target_selected)
+	target_selection.activate()
 
 
 func _on_target_selected(target_index: int) -> void:
@@ -64,19 +59,14 @@ func hide_target_selection() -> void:
 
 
 func show_menu() -> void:
-	if self.is_visible_in_tree():
+	if $ActionSelection.is_visible_in_tree():
 		pass
 	change_state(GlobalUtils.MenuState.ACTIVE)
-	self.show()
+	$ActionSelection.show()
 
 
 func hide_menu() -> void:
-	if not self.is_visible_in_tree():
+	if not $ActionSelection.is_visible_in_tree():
 		pass
 	change_state(GlobalUtils.MenuState.INACTIVE)
-	self.hide()
-
-
-func _handle_target_selection() -> void:
-	hide_menu()
-	pass
+	$ActionSelection.hide()
