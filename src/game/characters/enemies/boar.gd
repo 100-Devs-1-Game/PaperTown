@@ -21,6 +21,7 @@ var wander_cooldown := false
 
 signal enemy_state_changed(new_state: State)
 
+
 func _ready():
 	detection_bubble.body_entered.connect(on_detection_bubble_body_entered)
 	alert_timer.timeout.connect(on_alert_timeout)
@@ -80,10 +81,7 @@ func on_walk_timeout():
 
 
 func on_detection_bubble_body_entered(body):
-	if (
-		body in get_tree().get_nodes_in_group("player")
-		and current_state == State.WANDER
-	):
+	if body in get_tree().get_nodes_in_group("player") and current_state == State.WANDER:
 		change_state(State.ALERT)
 		debug_excla_mark.text = "!!"
 		target = body

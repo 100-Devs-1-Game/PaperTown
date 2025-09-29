@@ -12,11 +12,13 @@ var required_input = "ui_accept"
 var initial_ring_scale: Vector2 = Vector2(.7, .7)
 var current_ring_scale: Vector2
 
+
 func _ready() -> void:
 	timer.timeout.connect(_on_timer_timeout)
 	button.pressed.connect(_on_button_pressed)
 	is_active = false
 	hide()
+
 
 func _process(delta: float) -> void:
 	if is_active:
@@ -29,11 +31,13 @@ func _process(delta: float) -> void:
 			timer.stop()
 			return
 
+
 func start_qte() -> void:
 	show()
 	is_active = true
 	qte_ring.scale = initial_ring_scale
 	timer.start()
+
 
 func check_for_success():
 	print("Current Ring Size: %s" % current_ring_scale)
@@ -53,6 +57,7 @@ func _on_timer_timeout() -> void:
 	is_active = false
 	timer.stop()
 	return
+
 
 func _on_button_pressed() -> void:
 	if is_active:

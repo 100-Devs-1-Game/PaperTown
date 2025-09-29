@@ -19,6 +19,7 @@ var stats = STATS
 
 signal player_state_changed(new_state: State)
 
+
 func _ready():
 	change_state(State.MOVEMENT)
 

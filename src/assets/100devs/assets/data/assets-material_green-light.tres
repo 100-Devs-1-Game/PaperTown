@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bbatksqdjakxf"]
+
+[ext_resource type="Texture2D" uid="uid://b1x7rix1bc608" path="res://assets/100devs/assets/road.png" id="1_sibwo"]
+
+[resource]
+resource_name = "green_light"
+cull_mode = 2
+albedo_texture = ExtResource("1_sibwo")

@@ -23,6 +23,7 @@ var enemy_action: GlobalUtils.EnemyAction
 var battle_menu_instance: BattleMenu
 var qte_indicator_instance: QuickTimeEvent
 
+
 func _ready() -> void:
 	for i in range(3):
 		var boar = BOAR.instantiate()
@@ -30,11 +31,13 @@ func _ready() -> void:
 
 	setup_battle()
 
+
 func change_state(new_state: GlobalUtils.BattleState) -> void:
 	if current_state == new_state:
 		return
 	current_state = new_state
 	battle_state_changed.emit(current_state)
+
 
 # Initialize the battle scene
 func setup_battle() -> void:
@@ -46,7 +49,7 @@ func setup_battle() -> void:
 
 	# Position characters
 
-	
+
 	for e in enemy_character.size():
 		add_child(enemy_character[e])
 		enemy_character[e].position = enemy_spawn[e]
@@ -66,12 +69,14 @@ func setup_battle() -> void:
 	change_state(GlobalUtils.BattleState.START)
 	start_battle()
 
+
 # Start the Battle
 func start_battle() -> void:
 	if current_state == GlobalUtils.BattleState.START:
 		player_character.stats.hit_counter = 0
 		change_state(GlobalUtils.BattleState.PLAYER_TURN_START)
 		start_player_turn()
+
 
 func start_player_turn() -> void:
 	if current_state == GlobalUtils.BattleState.PLAYER_TURN_START:
@@ -104,12 +109,14 @@ func execute_attack(target: int) -> void:
 			print("Player used Tongue Slap! Dealt %d damage." % damage)
 			is_enemy_defeated(enemy_character[target])
 
+
 func is_enemy_defeated(enemy: Enemy):
 	if enemy.stats.current_hp <= 0:
 		enemy.queue_free()
 		end_battle(true)
 	else:
 		start_enemy_turn()
+
 
 func execute_run_attempt() -> void:
 	var run_chance := randi() % 100
@@ -120,6 +127,7 @@ func execute_run_attempt() -> void:
 		print("Failed to run away!")
 		start_enemy_turn()
 
+
 func start_enemy_turn() -> void:
 	change_state(GlobalUtils.BattleState.ENEMY_TURN_START)
 	# TODO: Move Enemy AI to separate script
@@ -129,11 +137,13 @@ func start_enemy_turn() -> void:
 	await get_tree().create_timer(2.0).timeout
 	start_player_turn()
 
+
 func handle_enemy_attack() -> void:
 	change_state(GlobalUtils.BattleState.ENEMY_ATTACKING)
 	print("The enemy attacks!")
 	# TODO: Enemy AI and attack animation
 	qte_indicator_instance.start_qte()
+
 
 func handle_player_dodge(result: bool) -> void:
 	if result:
@@ -145,6 +155,7 @@ func handle_player_dodge(result: bool) -> void:
 		print("Oh no! The enemy hit you!")
 		player_character.stats.hit_counter += 1
 
+
 func continue_battle() -> void:
 	# Check if player has been hit too many times
 	if player_character.stats.hit_counter >= 3:
@@ -154,9 +165,12 @@ func continue_battle() -> void:
 		await get_tree().create_timer(1.0).timeout
 		start_player_turn()
 
+
 func end_battle(player_won: bool) -> void:
-	if player_won: change_state(GlobalUtils.BattleState.WON)
-	else: change_state(GlobalUtils.BattleState.LOST)
+	if player_won:
+		change_state(GlobalUtils.BattleState.WON)
+	else:
+		change_state(GlobalUtils.BattleState.LOST)
 
 	# Wait a moment then return to overworld or show game over
 	# await get_tree().create_timer(3.0).timeout

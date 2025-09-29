@@ -5,6 +5,6 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_4baw0")
-shader_parameter/shadow_color = Vector4(0, 0.1, 0.2, 0.5)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.25490198)
 shader_parameter/radius = 0.5
-shader_parameter/softness = 0.1
+shader_parameter/softness = 0.2
