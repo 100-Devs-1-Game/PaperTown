@@ -3,19 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cump0oy4bvkqu"
-path="res://.godot/imported/04.png-7c0e860620cf0b55c8b55af98422bc1a.ctex"
+path.s3tc="res://.godot/imported/04.png-7c0e860620cf0b55c8b55af98422bc1a.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/100devs/characters/mc_idle_behind/04.png"
-dest_files=["res://.godot/imported/04.png-7c0e860620cf0b55c8b55af98422bc1a.ctex"]
+dest_files=["res://.godot/imported/04.png-7c0e860620cf0b55c8b55af98422bc1a.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
