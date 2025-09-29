@@ -1,5 +1,6 @@
 class_name BattleManager extends Node3D
 
+
 signal battle_state_changed(new_state: GlobalUtils.BattleState)
 
 const PLAYER = preload("uid://px8n52y05giq")
@@ -12,9 +13,10 @@ const QTE_INDICATOR = preload("uid://k2fu5rlm10mf")
 	$EnemySpawn2.global_position,
 	$EnemySpawn3.global_position
 ]
-
 @onready var player_character:= PLAYER.instantiate()
 @onready var enemy_character: Array[Enemy] = []
+@onready var camera_3d: Camera3D = $Camera3D
+
 
 # Battle State variables
 var current_state: GlobalUtils.BattleState
@@ -24,19 +26,20 @@ var battle_menu_instance: BattleMenu
 var qte_indicator_instance: QuickTimeEvent
 
 
-func _ready() -> void:
-	for i in range(3):
-		var boar = BOAR.instantiate()
-		enemy_character.append(boar)
-
-	setup_battle()
-
-
 func change_state(new_state: GlobalUtils.BattleState) -> void:
 	if current_state == new_state:
 		return
 	current_state = new_state
 	battle_state_changed.emit(current_state)
+
+
+func _ready() -> void:
+	#Generate boars
+	for i in range(3):
+		var boar = BOAR.instantiate()
+		enemy_character.append(boar)
+	#Set up the battle scene
+	setup_battle()
 
 
 # Initialize the battle scene
@@ -46,10 +49,7 @@ func setup_battle() -> void:
 	player_character.position = player_spawn
 	player_character.change_state(player_character.State.BATTLE)
 
-
-	# Position characters
-
-
+	# Initialize Enemy Character(s)
 	for e in enemy_character.size():
 		add_child(enemy_character[e])
 		enemy_character[e].position = enemy_spawn[e]
@@ -58,6 +58,7 @@ func setup_battle() -> void:
 	# Instantiate UI elements
 	battle_menu_instance = BATTLE_MENU.instantiate()
 	add_child(battle_menu_instance)
+	battle_menu_instance.target_selection.setup_target_buttons(enemy_character, camera_3d)
 	qte_indicator_instance = QTE_INDICATOR.instantiate()
 	battle_menu_instance.add_child(qte_indicator_instance)
 
@@ -83,6 +84,7 @@ func start_player_turn() -> void:
 		change_state(GlobalUtils.BattleState.PLAYER_SELECTING_ACTION)
 		battle_menu_instance.show_menu()
 
+
 func handle_player_action(selected_action: GlobalUtils.PlayerAction, selected_target: int) -> void:
 	player_action = selected_action
 	if player_action == GlobalUtils.PlayerAction.RUN_AWAY:
@@ -90,6 +92,7 @@ func handle_player_action(selected_action: GlobalUtils.PlayerAction, selected_ta
 	else:
 		change_state(GlobalUtils.BattleState.PLAYER_EXECUTING_ACTION)
 		execute_attack(selected_target)
+
 
 func execute_attack(target: int) -> void:
 	var damage: int
@@ -108,6 +111,14 @@ func execute_attack(target: int) -> void:
 			enemy_character[target].stats.current_hp -= damage
 			print("Player used Tongue Slap! Dealt %d damage." % damage)
 			is_enemy_defeated(enemy_character[target])
+		
+		end_player_turn()
+
+
+func end_player_turn() -> void:
+	if current_state == GlobalUtils.BattleState.PLAYER_EXECUTING_ACTION:
+		change_state(GlobalUtils.BattleState.ENEMY_TURN_START)
+		start_enemy_turn()
 
 
 func is_enemy_defeated(enemy: Enemy):
@@ -129,17 +140,18 @@ func execute_run_attempt() -> void:
 
 
 func start_enemy_turn() -> void:
-	change_state(GlobalUtils.BattleState.ENEMY_TURN_START)
-	# TODO: Move Enemy AI to separate script
-	handle_enemy_attack()
-	# Check if player has been hit 3 times (battle lost)
-	# Wait a moment then start next player turn
-	await get_tree().create_timer(2.0).timeout
-	start_player_turn()
+	if current_state == GlobalUtils.BattleState.ENEMY_TURN_START:
+		for enemy in enemy_character.size():
+			var enemy_ai = randi_range(0,2)
+			match enemy_ai:
+				0:
+					change_state(GlobalUtils.BattleState.ENEMY_ATTACKING)
+					handle_enemy_attack()
+				1: print("Enemy stares at you!")
+				2: print("Enemy flourishes weapon!")
 
 
 func handle_enemy_attack() -> void:
-	change_state(GlobalUtils.BattleState.ENEMY_ATTACKING)
 	print("The enemy attacks!")
 	# TODO: Enemy AI and attack animation
 	qte_indicator_instance.start_qte()

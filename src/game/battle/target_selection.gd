@@ -1,6 +1,6 @@
 extends Container
 
-const BattleManager = preload("uid://ckeeoresabf6t")
+signal target_selected (target_index: int)
 
 var target_buttons: Array[Button] = []
 var camera: Camera3D
@@ -27,7 +27,9 @@ func setup_target_buttons(enemies: Array[Enemy], battle_camera: Camera3D) -> voi
 			position_button_over_enemy(button, enemies[i])
 			
 			# Connect button to target selection
-			button.pressed.connect(BattleManager.handle_target_selection.bind(i))
+			button.pressed.connect(handle_selection.bind(i))
+	
+	deactivate()
 
 func position_button_over_enemy(button: Button, enemy: Enemy) -> void:
 	if not camera or not enemy:
@@ -39,3 +41,11 @@ func position_button_over_enemy(button: Button, enemy: Enemy) -> void:
 	
 	# Offset the button to be centered over the enemy
 	button.position = screen_pos - (button.size * 0.5)
+
+
+func handle_selection(target: int) -> void:
+	target_selected.emit(target)
+
+
+func deactivate() -> void:
+	pass
