@@ -313,6 +313,10 @@ class GodotValidator:
             if ".begins_with(" in line or line.startswith("#"):
                 continue
 
+            # skip code that is checking for invalid UIDs
+            if uid_path == "uid://<invalid>" and file_path.suffix == ".gd":
+                continue
+
             self.errors.append(
                 f"{file_path.relative_to(self.project_root).as_posix()}: "
                 f"The UID '{uid_path}' does not exist"
