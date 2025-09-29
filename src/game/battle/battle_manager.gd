@@ -6,9 +6,15 @@ const PLAYER = preload("uid://px8n52y05giq")
 const BOAR = preload("uid://c8x3kcryc0xtb")
 const BATTLE_MENU = preload("uid://ca65elqv0fxhy")
 const QTE_INDICATOR = preload("uid://k2fu5rlm10mf")
+@onready var player_spawn: Vector3 = $PlayerSpawn.global_position
+@onready var enemy_spawn: Array[Vector3] = [
+	$EnemySpawn1.global_position,
+	$EnemySpawn2.global_position,
+	$EnemySpawn3.global_position
+]
 
-@onready var player_character := PLAYER.instantiate()
-@onready var enemy_character := BOAR.instantiate()
+@onready var player_character:= PLAYER.instantiate()
+@onready var enemy_character: Array[Enemy] = []
 
 # Battle State variables
 var current_state: GlobalUtils.BattleState
@@ -18,6 +24,10 @@ var battle_menu_instance: BattleMenu
 var qte_indicator_instance: QuickTimeEvent
 
 func _ready() -> void:
+	for i in range(3):
+		var boar = BOAR.instantiate()
+		enemy_character.append(boar)
+
 	setup_battle()
 
 func change_state(new_state: GlobalUtils.BattleState) -> void:
@@ -28,14 +38,19 @@ func change_state(new_state: GlobalUtils.BattleState) -> void:
 
 # Initialize the battle scene
 func setup_battle() -> void:
+	# Initialize Player Character
 	add_child(player_character)
-	add_child(enemy_character)
+	player_character.position = player_spawn
 	player_character.change_state(player_character.State.BATTLE)
-	enemy_character.change_state(enemy_character.State.BATTLE)
+
 
 	# Position characters
-	player_character.position = Vector3(-3, 0, 0)
-	enemy_character.position = Vector3(3, 0, 0)
+
+	
+	for e in enemy_character.size():
+		add_child(enemy_character[e])
+		enemy_character[e].position = enemy_spawn[e]
+		enemy_character[e].change_state(enemy_character[e].State.BATTLE)
 
 	# Instantiate UI elements
 	battle_menu_instance = BATTLE_MENU.instantiate()
@@ -44,7 +59,7 @@ func setup_battle() -> void:
 	battle_menu_instance.add_child(qte_indicator_instance)
 
 	# Connect Signals
-	battle_menu_instance.action_selected.connect(handle_action_selected)
+	battle_menu_instance.action_selected.connect(handle_player_action)
 	qte_indicator_instance.qte_result.connect(handle_player_dodge)
 
 	# Start the battle
@@ -63,12 +78,15 @@ func start_player_turn() -> void:
 		change_state(GlobalUtils.BattleState.PLAYER_SELECTING_ACTION)
 		battle_menu_instance.show_menu()
 
-func handle_action_selected(selected_action: GlobalUtils.PlayerAction) -> void:
+func handle_player_action(selected_action: GlobalUtils.PlayerAction, selected_target: int) -> void:
 	player_action = selected_action
-	change_state(GlobalUtils.BattleState.PLAYER_EXECUTING_ACTION)
-	execute_player_action()
+	if player_action == GlobalUtils.PlayerAction.RUN_AWAY:
+		execute_run_attempt()
+	else:
+		change_state(GlobalUtils.BattleState.PLAYER_EXECUTING_ACTION)
+		execute_attack(selected_target)
 
-func execute_player_action() -> void:
+func execute_attack(target: int) -> void:
 	var damage: int
 	if current_state == GlobalUtils.BattleState.PLAYER_EXECUTING_ACTION:
 		match player_action:
@@ -82,9 +100,9 @@ func execute_player_action() -> void:
 				execute_run_attempt()
 
 		if damage > 0:
-			enemy_character.stats.current_hp -= damage
+			enemy_character[target].stats.current_hp -= damage
 			print("Player used Tongue Slap! Dealt %d damage." % damage)
-			is_enemy_defeated(enemy_character)
+			is_enemy_defeated(enemy_character[target])
 
 func is_enemy_defeated(enemy: Enemy):
 	if enemy.stats.current_hp <= 0:

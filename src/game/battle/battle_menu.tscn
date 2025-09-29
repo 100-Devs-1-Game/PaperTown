@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ca65elqv0fxhy"]
+[gd_scene load_steps=4 format=3 uid="uid://ca65elqv0fxhy"]
 
 [ext_resource type="Script" uid="uid://ovpgatviv4uj" path="res://game/battle/battle_menu.gd" id="1_f1ncp"]
+[ext_resource type="Script" uid="uid://dpem82885n1ga" path="res://game/battle/target_selection.gd" id="2_6xbtf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1lwqo"]
 border_width_left = 1
@@ -52,3 +53,9 @@ theme_override_font_sizes/font_size = 40
 text = "Run Away"
 flat = true
 autowrap_mode = 2
+
+[node name="TargetSelection" type="Container" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_6xbtf")

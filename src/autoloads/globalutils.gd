@@ -13,7 +13,7 @@ enum BattleState {
 	WON,
 	LOST
 }
-enum MenuState { ACTIVE, INACTIVE }
+enum MenuState { ACTIVE, TARGET_SELECTION, INACTIVE }
 
 # Actions
 enum PlayerAction { TONGUE_SLAP, TAIL_WHIP, RUN_AWAY }
