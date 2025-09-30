@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5x0v6bq8ijrr"]
+
+[ext_resource type="ArrayMesh" uid="uid://bv37v2oqlqwu6" path="res://assets/100devs/assets/data/assets_hill.mesh.res" id="1_quvdw"]
+
+[node name="Hill" type="Node3D"]
+
+[node name="hill" type="MeshInstance3D" parent="."]
+transform = Transform3D(0, 5.5073094, 0, -1.9227093, 0, 0, 0, 0, 5.5073094, 0, 1.502, 0)
+mesh = ExtResource("1_quvdw")
+skeleton = NodePath("")
