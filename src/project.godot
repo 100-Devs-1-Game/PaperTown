@@ -54,6 +54,8 @@ font_data_dynamic={
 &"multichannel_signed_distance_field": true
 }
 texture={
+&"compress/mode": 2,
+&"detect_3d/compress_to": 0,
 &"process/size_limit": 2048
 }
 scene={
