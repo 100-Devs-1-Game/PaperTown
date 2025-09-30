@@ -1,5 +1,0 @@
-[gd_resource type="ConcavePolygonShape3D" format=3 uid="uid://dg0w4ghc26cmp"]
-
-[resource]
-resource_name = "assets_floor-front_.col"
-data = PackedVector3Array(0, 0, 4, 4, 0, 0, 4, 0, 4, 0, 0, 4, 0, 0, 0, 4, 0, 0, 4, 0, 4, 0, -1, 4, 0, 0, 4, 4, 0, 4, 4, -1, 4, 0, -1, 4)

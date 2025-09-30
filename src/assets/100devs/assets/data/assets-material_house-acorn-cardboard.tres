@@ -1,9 +1,0 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bqdk1bd6yq5lo"]
-
-[ext_resource type="Texture2D" uid="uid://ck7d1byj8ivx2" path="res://assets/100devs/assets/house_acorn.png" id="1_a5me5"]
-
-[resource]
-resource_name = "house_acorn_cardboard"
-cull_mode = 2
-albedo_texture = ExtResource("1_a5me5")
-roughness = 0.6818182
