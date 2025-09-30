@@ -1,8 +1,6 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://j1484d8u102w"]
-
-[ext_resource type="Texture2D" uid="uid://b1x7rix1bc608" path="res://assets/100devs/assets/road.png" id="1_riltd"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://j1484d8u102w"]
 
 [resource]
 resource_name = "green_dark"
 cull_mode = 2
-albedo_texture = ExtResource("1_riltd")
+albedo_color = Color(0.18619896, 0.36708245, 0.17817639, 1)
