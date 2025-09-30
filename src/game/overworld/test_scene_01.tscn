@@ -8,14 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dpj20m70q42wj" path="res://game/environment/floor/floor_front.tscn" id="6_q7wix"]
 [ext_resource type="PackedScene" uid="uid://cpsr21ixm0kel" path="res://game/environment/floor/floor_right.tscn" id="7_jqrcp"]
 [ext_resource type="PackedScene" uid="uid://dxhii6l3t8ca" path="res://game/other/camera.tscn" id="8_e24px"]
-
-[sub_resource type="Environment" id="Environment_u73ws"]
-background_mode = 1
-background_color = Color(0.29038727, 0.6759722, 1.1801987, 1)
-ambient_light_source = 3
-ambient_light_color = Color(0.462745, 0.776471, 0.823529, 1)
-
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_e24px"]
+[ext_resource type="PackedScene" uid="uid://dapoyk6c1p3kc" path="res://game/environment/sunlight.tscn" id="9_q7wix"]
+[ext_resource type="PackedScene" uid="uid://blkjapuvymat6" path="res://game/environment/world_environment.tscn" id="10_jqrcp"]
 
 [node name="TestScene01" type="Node3D"]
 
@@ -73,11 +67,8 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 
 [node name="FloorFront4" parent="Level" instance=ExtResource("6_q7wix")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -4, 0, -8)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_u73ws")
-camera_attributes = SubResource("CameraAttributesPractical_e24px")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.800397, 0.599471, 0, -0.599471, 0.800397, 0, 6.63982, -16.166)
-
 [node name="Camera" parent="." instance=ExtResource("8_e24px")]
+
+[node name="Sunlight" parent="." instance=ExtResource("9_q7wix")]
+
+[node name="SharedWorldEnvironment" parent="." instance=ExtResource("10_jqrcp")]
