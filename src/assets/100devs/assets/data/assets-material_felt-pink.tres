@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ssjnfnwyi3ou"]
+
+[ext_resource type="Texture2D" uid="uid://k487tpcnecjb" path="res://assets/100devs/assets/felt_normal.png" id="1_toq34"]
+
+[resource]
+resource_name = "felt_pink"
+cull_mode = 2
+albedo_color = Color(0.9064302, 0.25066382, 0.5266633, 1)
+normal_enabled = true
+normal_texture = ExtResource("1_toq34")

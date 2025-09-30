@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bjwfu0xjrf0qb"]
+
+[ext_resource type="Texture2D" uid="uid://ck7d1byj8ivx2" path="res://assets/100devs/assets/house_acorn.png" id="1_0gssl"]
+[ext_resource type="Texture2D" uid="uid://danrnvlfatxnb" path="res://assets/100devs/assets/house_acorn_normal.png" id="2_c6pm3"]
+
+[resource]
+resource_name = "house_acorn_w_normals"
+cull_mode = 2
+albedo_texture = ExtResource("1_0gssl")
+normal_enabled = true
+normal_texture = ExtResource("2_c6pm3")

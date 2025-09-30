@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://y6b2clqanljx"]
+
+[resource]
+resource_name = "grass_middle"
+cull_mode = 2
+albedo_color = Color(0.3254885, 0.63921607, 0.30980408, 1)

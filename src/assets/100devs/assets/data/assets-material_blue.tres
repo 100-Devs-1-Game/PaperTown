@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bbx1r5eeab18j"]
+
+[ext_resource type="Texture2D" uid="uid://bhpu4301lxi01" path="res://assets/100devs/assets/cardboard_normal.png" id="1_2tomy"]
+
+[resource]
+resource_name = "blue"
+cull_mode = 2
+albedo_color = Color(0.22715256, 0.55441827, 0.6961853, 1)
+roughness = 0.5
+normal_enabled = true
+normal_texture = ExtResource("1_2tomy")

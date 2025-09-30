@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cr4fl1427pddl"]
+
+[resource]
+resource_name = "mc"
+transparency = 4
+cull_mode = 2
+roughness = 0.5

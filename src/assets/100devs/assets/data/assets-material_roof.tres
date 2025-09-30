@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://d15l4lbcgnhvx"]
+
+[ext_resource type="Texture2D" uid="uid://b24o0nvb1t1ve" path="res://assets/100devs/assets/roof.png" id="1_e1i62"]
+[ext_resource type="Texture2D" uid="uid://baqgsa1snhv5b" path="res://assets/100devs/assets/roof_normal_png.png" id="2_1nsdk"]
+
+[resource]
+resource_name = "roof"
+cull_mode = 2
+albedo_texture = ExtResource("1_e1i62")
+roughness = 0.53174603
+normal_enabled = true
+normal_texture = ExtResource("2_1nsdk")
