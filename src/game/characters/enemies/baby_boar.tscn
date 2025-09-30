@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://jvef32xe1ytl"]
+[gd_scene load_steps=7 format=3 uid="uid://jvef32xe1ytl"]
 
 [ext_resource type="Script" uid="uid://ca7axbox0vwo4" path="res://game/characters/enemies/baby_boar.gd" id="1_u324k"]
 [ext_resource type="PackedScene" uid="uid://c3yxi66r1gr3e" path="res://game/characters/components/movement_component.tscn" id="4_2sjd4"]
 [ext_resource type="PackedScene" uid="uid://dmbdhufmkkvci" path="res://game/characters/components/flipper_component.tscn" id="5_rg8xn"]
-[ext_resource type="PackedScene" uid="uid://b74k55iexdo5x" path="res://game/characters/components/blob_shadow_component.tscn" id="6_vjvhy"]
 [ext_resource type="SpriteFrames" uid="uid://ciudp36yslewt" path="res://game/characters/enemies/baby_boar_spriteframes.tres" id="7_t3fkb"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t3fkb"]
@@ -42,15 +41,12 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionBubble"]
 shape = SubResource("SphereShape3D_t3fkb")
 
-[node name="BlobShadowComponent" parent="." instance=ExtResource("6_vjvhy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.056859165, 0, -0.16390717)
-
 [node name="Visuals" type="Node3D" parent="."]
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Visuals"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.5266559, 0)
 layers = 4
-cast_shadow = 0
+cast_shadow = 2
 pixel_size = 0.002
 alpha_cut = 2
 sprite_frames = ExtResource("7_t3fkb")

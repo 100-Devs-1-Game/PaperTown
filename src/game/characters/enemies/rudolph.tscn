@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://daltrhtfxoebt"]
+[gd_scene load_steps=7 format=3 uid="uid://daltrhtfxoebt"]
 
 [ext_resource type="Script" uid="uid://c0dqti4wamj2m" path="res://game/characters/enemies/rudolph.gd" id="1_nec56"]
 [ext_resource type="PackedScene" uid="uid://c3yxi66r1gr3e" path="res://game/characters/components/movement_component.tscn" id="2_uohj4"]
 [ext_resource type="PackedScene" uid="uid://dmbdhufmkkvci" path="res://game/characters/components/flipper_component.tscn" id="3_l1yg8"]
-[ext_resource type="PackedScene" uid="uid://b74k55iexdo5x" path="res://game/characters/components/blob_shadow_component.tscn" id="4_pe82k"]
 [ext_resource type="SpriteFrames" uid="uid://1stbc7bssfw8" path="res://game/characters/enemies/rudolph_spriteframes.tres" id="5_uohj4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l1yg8"]
@@ -43,15 +42,12 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionBubble"]
 shape = SubResource("SphereShape3D_t3fkb")
 
-[node name="BlobShadowComponent" parent="." instance=ExtResource("4_pe82k")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.056859165, 0, -0.16390717)
-
 [node name="Visuals" type="Node3D" parent="."]
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Visuals"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2.33, 0)
 layers = 4
-cast_shadow = 0
+cast_shadow = 2
 pixel_size = 0.002
 alpha_cut = 2
 sprite_frames = ExtResource("5_uohj4")
