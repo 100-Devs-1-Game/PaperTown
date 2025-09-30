@@ -138,13 +138,15 @@ transform = Transform3D(1, 0, 1.1920929e-07, 0, 1, 0, -1.1920929e-07, 0, 1, 12, 
 shape = SubResource("WorldBoundaryShape3D_81njp")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 4, 4.082719, 9.580009)
+transform = Transform3D(0.7122466, 0.35096467, -0.60788864, 0, 0.8660254, 0.5, 0.70192933, -0.3561233, 0.6168236, 4, 4.082719, 9.580009)
+light_color = Color(1, 1, 0.8627451, 1)
+light_energy = 0.3
 shadow_enabled = true
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.48045313, 0.4385103, -0.75952196, 0.75952196, 0.22497039, 0.61033994, 0.4385102, -0.87011325, -0.22497045, 0, 4.082719, 9.454137)
-light_energy = 0.03
-shadow_enabled = true
+light_color = Color(1, 0.8627451, 0.8627451, 1)
+light_energy = 0.3
 
 [node name="floortest" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)

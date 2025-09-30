@@ -52,5 +52,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 0, 18.103601)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.41228, 0, 11.73401)
 
 [node name="Camera" parent="." instance=ExtResource("10_1rulx")]
-fov = 45.0
 offset = Vector3(0, 6, 18)

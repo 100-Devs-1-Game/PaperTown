@@ -1,8 +1,18 @@
-[gd_resource type="Environment" load_steps=0 format=3 uid="uid://dg5o6xnpgurbv"]
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://dg5o6xnpgurbv"]
+
+[sub_resource type="Gradient" id="Gradient_8cgs0"]
+colors = PackedColorArray(0.039215688, 0.039215688, 0, 1, 1.224127, 1.0244308, 1.005412, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6iqwe"]
+gradient = SubResource("Gradient_8cgs0")
+fill_to = Vector2(1, 0.008547009)
 
 [resource]
 background_mode = 1
 background_color = Color(0.40029848, 0.57189727, 0.9847682, 1)
 ambient_light_source = 2
-ambient_light_color = Color(0.73535323, 0.8240617, 1, 1)
-ambient_light_energy = 0.1
+ambient_light_color = Color(0.78431374, 1, 1, 1)
+ambient_light_energy = 0.5
+tonemap_mode = 4
+adjustment_enabled = true
+adjustment_color_correction = SubResource("GradientTexture2D_6iqwe")
