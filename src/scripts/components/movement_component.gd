@@ -3,7 +3,7 @@ extends Node
 
 @export var max_movement_speed: float = 5.0
 @export var jump_strength: float = 5.0
-@export var gravity: float = 5.0
+@export var gravity: float = 9.8
 @export var friction: float = 0.8
 @export var unit_travel := 30.0
 @export var target_position: Vector3
