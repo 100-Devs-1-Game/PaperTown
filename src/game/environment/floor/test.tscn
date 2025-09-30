@@ -19,6 +19,9 @@
 [node name="FloorLeft" parent="." instance=ExtResource("1_wbvp8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
 
+[node name="FloorLeft2" parent="." instance=ExtResource("1_wbvp8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
 [node name="FloorBack" parent="." instance=ExtResource("2_4es23")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
 
