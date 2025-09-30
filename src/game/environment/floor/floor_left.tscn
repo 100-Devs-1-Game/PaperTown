@@ -1,9 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjq7ym6xn2pqo"]
+[gd_scene load_steps=3 format=3 uid="uid://cjq7ym6xn2pqo"]
 
 [ext_resource type="ArrayMesh" uid="uid://3oa0xfd7wiw6" path="res://assets/100devs/assets/data/assets_floor-left.mesh.res" id="1_bxbdj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ijob8"]
+size = Vector3(4, 1, 4)
 
 [node name="FloorLeft" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2, 0, -2)
 mesh = ExtResource("1_bxbdj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_ijob8")

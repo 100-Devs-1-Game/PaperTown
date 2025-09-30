@@ -1,9 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpj20m70q42wj"]
+[gd_scene load_steps=3 format=3 uid="uid://dpj20m70q42wj"]
 
 [ext_resource type="ArrayMesh" uid="uid://bdr2y2fs2wvqf" path="res://assets/100devs/assets/data/assets_floor-front.mesh.res" id="1_diiww"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tsc2n"]
+size = Vector3(4, 1, 4)
 
 [node name="FloorFront" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
 mesh = ExtResource("1_diiww")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_tsc2n")

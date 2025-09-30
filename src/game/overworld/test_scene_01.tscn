@@ -54,6 +54,18 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4, 0, 
 [node name="FloorCornerRight2" parent="Level" instance=ExtResource("5_eurm5")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -8, 0, -8)
 
+[node name="FloorCornerLeft3" parent="Level" instance=ExtResource("4_e24px")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -8, 1, 0)
+
+[node name="FloorCornerRight3" parent="Level" instance=ExtResource("5_eurm5")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4, 1, 0)
+
+[node name="FloorCornerLeft4" parent="Level" instance=ExtResource("4_e24px")]
+transform = Transform3D(1, 0, -1.7484558e-07, 0, 1, 0, 1.7484558e-07, 0, 1, 4, 1, -8)
+
+[node name="FloorCornerRight4" parent="Level" instance=ExtResource("5_eurm5")]
+transform = Transform3D(1, 0, -1.7484558e-07, 0, 1, 0, 1.7484558e-07, 0, 1, -8, 1, -8)
+
 [node name="FloorFront3" parent="Level" instance=ExtResource("6_q7wix")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -8)
 
