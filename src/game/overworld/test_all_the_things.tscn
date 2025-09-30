@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cgx421x0ucraq"]
+[gd_scene load_steps=20 format=3 uid="uid://cgx421x0ucraq"]
 
 [ext_resource type="PackedScene" uid="uid://px8n52y05giq" path="res://game/characters/player/player.tscn" id="1_vg6ia"]
 [ext_resource type="PackedScene" uid="uid://dht78keg8oi7q" path="res://game/environment/object/fence.tscn" id="1_wnwvp"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://1xffej8rych6" path="res://game/environment/floor/floor_corner_front_right.tscn" id="10_44ytm"]
 [ext_resource type="PackedScene" uid="uid://dpj20m70q42wj" path="res://game/environment/floor/floor_front.tscn" id="11_g0cmb"]
 [ext_resource type="PackedScene" uid="uid://cpsr21ixm0kel" path="res://game/environment/floor/floor_right.tscn" id="12_w6jde"]
+[ext_resource type="PackedScene" uid="uid://dxhii6l3t8ca" path="res://game/other/camera.tscn" id="15_l2ker"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_81njp"]
 
@@ -145,10 +146,6 @@ transform = Transform3D(0.48045313, 0.4385103, -0.75952196, 0.75952196, 0.224970
 light_energy = 0.03
 shadow_enabled = true
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22128296, 5.220211, 18.48231)
-fov = 60.0
-
 [node name="floortest" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
@@ -167,3 +164,5 @@ navigation_mesh = SubResource("NavigationMesh_rf2vp")
 visible = false
 use_collision = true
 size = Vector3(50, 1, 50)
+
+[node name="Camera" parent="." instance=ExtResource("15_l2ker")]

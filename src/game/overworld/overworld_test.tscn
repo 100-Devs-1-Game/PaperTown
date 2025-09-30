@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bur7gpdci0aj7"]
+[gd_scene load_steps=9 format=3 uid="uid://bur7gpdci0aj7"]
 
 [ext_resource type="PackedScene" uid="uid://px8n52y05giq" path="res://game/characters/player/player.tscn" id="1_n3xei"]
 [ext_resource type="PackedScene" uid="uid://c8x3kcryc0xtb" path="res://game/characters/enemies/boar.tscn" id="2_vssvh"]
+[ext_resource type="PackedScene" uid="uid://dxhii6l3t8ca" path="res://game/other/camera.tscn" id="3_ahblj"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vssvh"]
 size = Vector2(50, 50)
@@ -49,8 +50,7 @@ size = Vector3(50, 1, 50)
 environment = SubResource("Environment_fargr")
 camera_attributes = SubResource("CameraAttributesPractical_srvkv")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, -4.6461184e-15, 5.375939e-15, 0, 0.75659585, 0.6538828, -7.10543e-15, -0.6538828, 0.75659585, -1.99299, 8.538815, 5.35884)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.800397, 0.599471, 0, -0.599471, 0.800397, 0, 6.63982, -16.166)
+
+[node name="Camera" parent="." instance=ExtResource("3_ahblj")]

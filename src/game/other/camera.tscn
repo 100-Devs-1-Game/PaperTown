@@ -1,0 +1,13 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxhii6l3t8ca"]
+
+[ext_resource type="Script" uid="uid://bnjoveslsecy0" path="res://game/other/camera.gd" id="1_4fc14"]
+[ext_resource type="Environment" uid="uid://dg5o6xnpgurbv" path="res://game/environment/world_environment.tres" id="1_k6dfb"]
+[ext_resource type="CameraAttributesPractical" uid="uid://cm5rcvo256osi" path="res://game/environment/world_environment_camera_attributes.tres" id="2_2if83"]
+[ext_resource type="Compositor" uid="uid://culqiwrg3fjcw" path="res://game/environment/world_environment_compositor.tres" id="3_spqv0"]
+
+[node name="Camera" type="Camera3D"]
+environment = ExtResource("1_k6dfb")
+attributes = ExtResource("2_2if83")
+compositor = ExtResource("3_spqv0")
+fov = 45.0
+script = ExtResource("1_4fc14")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cbah586chnhbp"]
+[gd_scene load_steps=11 format=3 uid="uid://cbah586chnhbp"]
 
 [ext_resource type="PackedScene" uid="uid://px8n52y05giq" path="res://game/characters/player/player.tscn" id="1_3bxco"]
 [ext_resource type="PackedScene" uid="uid://caykrn62k7r0i" path="res://game/characters/example_npc.tscn" id="2_dqqlc"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://1xffej8rych6" path="res://game/environment/floor/floor_corner_front_right.tscn" id="5_eurm5"]
 [ext_resource type="PackedScene" uid="uid://dpj20m70q42wj" path="res://game/environment/floor/floor_front.tscn" id="6_q7wix"]
 [ext_resource type="PackedScene" uid="uid://cpsr21ixm0kel" path="res://game/environment/floor/floor_right.tscn" id="7_jqrcp"]
+[ext_resource type="PackedScene" uid="uid://dxhii6l3t8ca" path="res://game/other/camera.tscn" id="8_e24px"]
 
 [sub_resource type="Environment" id="Environment_u73ws"]
 background_mode = 1
@@ -76,8 +77,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -4, 0,
 environment = SubResource("Environment_u73ws")
 camera_attributes = SubResource("CameraAttributesPractical_e24px")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, -4.64612e-15, 5.37594e-15, 0, 0.756596, 0.653883, -7.10543e-15, -0.653883, 0.756596, -1.99299, 4.1426, 5.35884)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.800397, 0.599471, 0, -0.599471, 0.800397, 0, 6.63982, -16.166)
+
+[node name="Camera" parent="." instance=ExtResource("8_e24px")]

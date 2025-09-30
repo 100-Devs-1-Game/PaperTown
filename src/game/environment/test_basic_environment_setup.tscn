@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://nufmugt8xc4t"]
+[gd_scene load_steps=11 format=3 uid="uid://nufmugt8xc4t"]
 
 [ext_resource type="PackedScene" uid="uid://px8n52y05giq" path="res://game/characters/player/player.tscn" id="1_3yk8p"]
 [ext_resource type="PackedScene" uid="uid://romkf60q2s4o" path="res://game/environment/house/house_acorn.tscn" id="1_bhkk5"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cxg8b1h8ngsgx" path="res://game/environment/floor_cardboard/test.tscn" id="7_1rulx"]
 [ext_resource type="PackedScene" uid="uid://csebr64v3tfhc" path="res://game/environment/object/test.tscn" id="8_365vt"]
 [ext_resource type="PackedScene" uid="uid://3u2vs06foq8n" path="res://game/environment/floor_other/test.tscn" id="8_kup0n"]
+[ext_resource type="PackedScene" uid="uid://dxhii6l3t8ca" path="res://game/other/camera.tscn" id="10_1rulx"]
 
 [node name="Test" type="Node3D"]
 
@@ -19,10 +20,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.5514998)
 
 [node name="HouseAcorn" parent="." instance=ExtResource("1_bhkk5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.2989497)
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 2.7039585, 24.830784)
-fov = 90.0
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.48045313, 0.43851027, -0.75952196, 0.75952196, 0.22497034, 0.6103399, 0.4385102, -0.87011325, -0.2249705, 0, 4.082719, 9.454137)
@@ -53,3 +50,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 0, 18.103601)
 
 [node name="TestObjects" parent="." instance=ExtResource("8_365vt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.41228, 0, 11.73401)
+
+[node name="Camera" parent="." instance=ExtResource("10_1rulx")]
+fov = 45.0
+offset = Vector3(0, 6, 18)
