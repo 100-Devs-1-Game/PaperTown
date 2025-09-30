@@ -71,7 +71,10 @@ func get_movement_vector():
 		movement_component.swap_facing_direction()
 
 	if input_dir.length() > 0.0:
-		animated_sprite_3d.play(&"walk")
+		if input_dir.y > 0.0:
+			animated_sprite_3d.play(&"walk")
+		else:
+			animated_sprite_3d.play(&"walk_behind")
 	else:
 		animated_sprite_3d.play(&"idle")
 

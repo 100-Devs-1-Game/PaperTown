@@ -1,0 +1,133 @@
+[gd_scene load_steps=3 format=3 uid="uid://m0r03ylurvhs"]
+
+[ext_resource type="PackedScene" uid="uid://dpj20m70q42wj" path="res://game/environment/floor/floor_front.tscn" id="1_qf1bb"]
+[ext_resource type="PackedScene" uid="uid://bxf2iw36fhu4j" path="res://game/environment/floor/floor_middle.tscn" id="2_xk6sk"]
+
+[node name="VillageEnvironment" type="Node3D"]
+
+[node name="Ground" type="Node3D" parent="."]
+
+[node name="FloorFront" parent="Ground" instance=ExtResource("1_qf1bb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="FloorFront2" parent="Ground" instance=ExtResource("1_qf1bb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 4)
+
+[node name="FloorFront3" parent="Ground" instance=ExtResource("1_qf1bb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4)
+
+[node name="FloorFront4" parent="Ground" instance=ExtResource("1_qf1bb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 4)
+
+[node name="FloorFront5" parent="Ground" instance=ExtResource("1_qf1bb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 4)
+
+[node name="FloorFront6" parent="Ground" instance=ExtResource("1_qf1bb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 4)
+
+[node name="FloorFront7" parent="Ground" instance=ExtResource("1_qf1bb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -12)
+
+[node name="FloorFront8" parent="Ground" instance=ExtResource("1_qf1bb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -12)
+
+[node name="FloorFront9" parent="Ground" instance=ExtResource("1_qf1bb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -12)
+
+[node name="FloorFront10" parent="Ground" instance=ExtResource("1_qf1bb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, -12)
+
+[node name="FloorFront11" parent="Ground" instance=ExtResource("1_qf1bb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -12)
+
+[node name="FloorFront12" parent="Ground" instance=ExtResource("1_qf1bb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 1, -12)
+
+[node name="FloorMiddle" parent="Ground" instance=ExtResource("2_xk6sk")]
+
+[node name="FloorMiddle2" parent="Ground" instance=ExtResource("2_xk6sk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="FloorMiddle3" parent="Ground" instance=ExtResource("2_xk6sk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="FloorMiddle4" parent="Ground" instance=ExtResource("2_xk6sk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="FloorMiddle5" parent="Ground" instance=ExtResource("2_xk6sk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+
+[node name="FloorMiddle6" parent="Ground" instance=ExtResource("2_xk6sk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0)
+
+[node name="FloorMiddle7" parent="Ground" instance=ExtResource("2_xk6sk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="FloorMiddle8" parent="Ground" instance=ExtResource("2_xk6sk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
+
+[node name="FloorMiddle9" parent="Ground" instance=ExtResource("2_xk6sk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -4)
+
+[node name="FloorMiddle10" parent="Ground" instance=ExtResource("2_xk6sk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4)
+
+[node name="FloorMiddle11" parent="Ground" instance=ExtResource("2_xk6sk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -4)
+
+[node name="FloorMiddle12" parent="Ground" instance=ExtResource("2_xk6sk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -4)
+
+[node name="FloorMiddle13" parent="Ground" instance=ExtResource("2_xk6sk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="FloorMiddle14" parent="Ground" instance=ExtResource("2_xk6sk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -8)
+
+[node name="FloorMiddle15" parent="Ground" instance=ExtResource("2_xk6sk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -8)
+
+[node name="FloorMiddle16" parent="Ground" instance=ExtResource("2_xk6sk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -8)
+
+[node name="FloorMiddle17" parent="Ground" instance=ExtResource("2_xk6sk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -8)
+
+[node name="FloorMiddle18" parent="Ground" instance=ExtResource("2_xk6sk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -8)
+
+[node name="FloorMiddle19" parent="Ground" instance=ExtResource("2_xk6sk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -16)
+
+[node name="FloorMiddle20" parent="Ground" instance=ExtResource("2_xk6sk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -16)
+
+[node name="FloorMiddle21" parent="Ground" instance=ExtResource("2_xk6sk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -16)
+
+[node name="FloorMiddle22" parent="Ground" instance=ExtResource("2_xk6sk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -16)
+
+[node name="FloorMiddle23" parent="Ground" instance=ExtResource("2_xk6sk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, -16)
+
+[node name="FloorMiddle24" parent="Ground" instance=ExtResource("2_xk6sk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 1, -16)
+
+[node name="FloorMiddle25" parent="Ground" instance=ExtResource("2_xk6sk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -20)
+
+[node name="FloorMiddle26" parent="Ground" instance=ExtResource("2_xk6sk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -20)
+
+[node name="FloorMiddle27" parent="Ground" instance=ExtResource("2_xk6sk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -20)
+
+[node name="FloorMiddle28" parent="Ground" instance=ExtResource("2_xk6sk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -20)
+
+[node name="FloorMiddle29" parent="Ground" instance=ExtResource("2_xk6sk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, -20)
+
+[node name="FloorMiddle30" parent="Ground" instance=ExtResource("2_xk6sk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 1, -20)

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqc2ife4plvvs"]
+
+[ext_resource type="PackedScene" uid="uid://ylks43jjdhjh" path="res://game/overworld/levels/forest_environment.tscn" id="1_ap1ji"]
+
+[node name="Forest" type="Node3D"]
+
+[node name="ForestEnvironment" parent="." instance=ExtResource("1_ap1ji")]

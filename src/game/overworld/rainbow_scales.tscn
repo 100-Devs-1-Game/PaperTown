@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbf2k0lf0owpy"]
+
+[ext_resource type="Script" uid="uid://ohaxnon7t2tj" path="res://game/overworld/rainbow_scales.gd" id="1_t88uo"]
+
+[node name="RainbowScales" type="Node3D"]
+script = ExtResource("1_t88uo")
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Visuals"]
+
+[node name="Area3D" type="Area3D" parent="."]
