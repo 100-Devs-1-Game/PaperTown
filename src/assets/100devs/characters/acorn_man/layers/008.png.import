@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://usbarm8dtox1"
-path.s3tc="res://.godot/imported/008.png-8bd6a84084f3774a029c442ffd1aca96.s3tc.ctex"
+path="res://.godot/imported/008.png-8bd6a84084f3774a029c442ffd1aca96.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/100devs/characters/acorn_man/layers/008.png"
-dest_files=["res://.godot/imported/008.png-8bd6a84084f3774a029c442ffd1aca96.s3tc.ctex"]
+dest_files=["res://.godot/imported/008.png-8bd6a84084f3774a029c442ffd1aca96.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=4
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

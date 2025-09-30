@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://djbwl2joxar7n"
-path.s3tc="res://.godot/imported/07.png-ad6d191de3cbfcbc7cd16324a8ff9ce9.s3tc.ctex"
+path="res://.godot/imported/07.png-ad6d191de3cbfcbc7cd16324a8ff9ce9.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/100devs/characters/big_boar_walk/07.png"
-dest_files=["res://.godot/imported/07.png-ad6d191de3cbfcbc7cd16324a8ff9ce9.s3tc.ctex"]
+dest_files=["res://.godot/imported/07.png-ad6d191de3cbfcbc7cd16324a8ff9ce9.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=4
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

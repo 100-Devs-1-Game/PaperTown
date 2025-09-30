@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://evlji4gbch57"
-path.s3tc="res://.godot/imported/07.png-206d8a70ee0160997e1f23b01b09b216.s3tc.ctex"
+path="res://.godot/imported/07.png-206d8a70ee0160997e1f23b01b09b216.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/100devs/characters/mc_walk_behind/07.png"
-dest_files=["res://.godot/imported/07.png-206d8a70ee0160997e1f23b01b09b216.s3tc.ctex"]
+dest_files=["res://.godot/imported/07.png-206d8a70ee0160997e1f23b01b09b216.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=4
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

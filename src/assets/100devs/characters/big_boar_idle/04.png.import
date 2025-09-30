@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://mwgs6phpwm1h"
-path.s3tc="res://.godot/imported/04.png-4d49d33c6d024e8b003c4e7647655ef1.s3tc.ctex"
+path="res://.godot/imported/04.png-4d49d33c6d024e8b003c4e7647655ef1.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/100devs/characters/big_boar_idle/04.png"
-dest_files=["res://.godot/imported/04.png-4d49d33c6d024e8b003c4e7647655ef1.s3tc.ctex"]
+dest_files=["res://.godot/imported/04.png-4d49d33c6d024e8b003c4e7647655ef1.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=4
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

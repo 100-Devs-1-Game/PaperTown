@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/00021.png-38143178a7064bf7b4bced1670e0a07a.ct
 
 [params]
 
-compress/mode=0
+compress/mode=4
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -36,5 +36,5 @@ process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=2048
+process/size_limit=1280
 detect_3d/compress_to=0

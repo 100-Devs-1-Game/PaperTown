@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ba234vdjpovbs"
-path.s3tc="res://.godot/imported/06.png-c9147ccc6fd2022ecf5596bae5066782.s3tc.ctex"
+path="res://.godot/imported/06.png-c9147ccc6fd2022ecf5596bae5066782.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/100devs/characters/rudolph_walk/06.png"
-dest_files=["res://.godot/imported/06.png-c9147ccc6fd2022ecf5596bae5066782.s3tc.ctex"]
+dest_files=["res://.godot/imported/06.png-c9147ccc6fd2022ecf5596bae5066782.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=4
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
