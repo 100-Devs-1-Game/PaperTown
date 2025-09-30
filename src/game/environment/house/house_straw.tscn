@@ -1,3 +1,34 @@
-[gd_scene format=3 uid="uid://chlijhxwcjsfp"]
+[gd_scene load_steps=6 format=3 uid="uid://chlijhxwcjsfp"]
+
+[ext_resource type="ArrayMesh" uid="uid://doesuj5bnk4tw" path="res://assets/100devs/assets/data/assets_house-straw.mesh.res" id="1_hx4g7"]
+[ext_resource type="ArrayMesh" uid="uid://c6yxdpmni33op" path="res://assets/100devs/assets/data/assets_house-straw_door-house-straw.mesh.res" id="2_re7xr"]
+[ext_resource type="ArrayMesh" uid="uid://vd8yerngnn5d" path="res://assets/100devs/assets/data/assets_house-straw_flowers-house-straw.mesh.res" id="3_524yu"]
+[ext_resource type="ArrayMesh" uid="uid://pkjpj2w0e2qh" path="res://assets/100devs/assets/data/assets_house-straw_roof-straw.mesh.res" id="4_62hyg"]
+[ext_resource type="ArrayMesh" uid="uid://ctyoct2uim3ct" path="res://assets/100devs/assets/data/assets_house-straw_window.mesh.res" id="5_75nb1"]
 
 [node name="HouseStraw" type="Node3D"]
+
+[node name="house_straw" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.61053115, 0, 0, 0, 0.61053115, 0, 0, 0, 0.61053115, 0, 1.923, 0)
+mesh = ExtResource("1_hx4g7")
+skeleton = NodePath("")
+
+[node name="door_house_straw" type="MeshInstance3D" parent="house_straw"]
+transform = Transform3D(1.095478, 0.31844628, -0.010325176, -8.282981e-09, -0.11302616, -1.0027423, -0.18935601, 1.8423018, -0.05973402, 1.4517727, -1.258491, 3.5743942)
+mesh = ExtResource("2_re7xr")
+skeleton = NodePath("")
+
+[node name="flowers_house_straw" type="MeshInstance3D" parent="house_straw"]
+transform = Transform3D(-0.6025816, 0, 0, 0, 0, -1, 0, 0.9923372, 0, -3.195961, -1.2036867, 3.9492683)
+mesh = ExtResource("3_524yu")
+skeleton = NodePath("")
+
+[node name="roof_straw" type="MeshInstance3D" parent="house_straw"]
+transform = Transform3D(1.0568677, 0, 0, 0, 1.0279914, 0, 0, 0, 1.1275921, 0, 0, -3.8146973e-06)
+mesh = ExtResource("4_62hyg")
+skeleton = NodePath("")
+
+[node name="window" type="MeshInstance3D" parent="house_straw"]
+transform = Transform3D(1.4471037, -0.39566782, 0.011436523, -2.201209e-08, -0.0772819, -1.4514533, 0.29669723, 1.9298204, -0.05578032, -2.5529213, 0.086339, 3.3426933)
+mesh = ExtResource("5_75nb1")
+skeleton = NodePath("")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://cgx421x0ucraq"]
+[gd_scene load_steps=21 format=3 uid="uid://cgx421x0ucraq"]
 
 [ext_resource type="PackedScene" uid="uid://px8n52y05giq" path="res://game/characters/player/player.tscn" id="1_vg6ia"]
 [ext_resource type="PackedScene" uid="uid://dht78keg8oi7q" path="res://game/environment/object/fence.tscn" id="1_wnwvp"]
 [ext_resource type="PackedScene" uid="uid://romkf60q2s4o" path="res://game/environment/house/house_acorn.tscn" id="2_r6krj"]
 [ext_resource type="PackedScene" uid="uid://c8x3kcryc0xtb" path="res://game/characters/enemies/boar.tscn" id="2_v7ciq"]
 [ext_resource type="PackedScene" uid="uid://blkjapuvymat6" path="res://game/environment/world_environment.tscn" id="3_r4aja"]
+[ext_resource type="PackedScene" uid="uid://dapoyk6c1p3kc" path="res://game/environment/sunlight.tscn" id="4_jpg88"]
 [ext_resource type="PackedScene" uid="uid://bxf2iw36fhu4j" path="res://game/environment/floor/floor_middle.tscn" id="4_r4aja"]
 [ext_resource type="PackedScene" uid="uid://cjq7ym6xn2pqo" path="res://game/environment/floor/floor_left.tscn" id="5_wnwvp"]
 [ext_resource type="PackedScene" uid="uid://ctkb2uf230c4s" path="res://game/environment/floor/floor_back.tscn" id="6_l2ker"]
@@ -41,6 +42,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7986183, 0, 5.3761234)
 
 [node name="Boar" parent="." instance=ExtResource("2_v7ciq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.261799, 0.2645085, 5.4858446)
+
+[node name="Sunlight" parent="." instance=ExtResource("4_jpg88")]
 
 [node name="SharedWorldEnvironment" parent="." instance=ExtResource("3_r4aja")]
 
@@ -136,17 +139,6 @@ transform = Transform3D(1, 0, 1.1920929e-07, 0, 1, 0, -1.1920929e-07, 0, 1, 12, 
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Test/StaticBody3D"]
 shape = SubResource("WorldBoundaryShape3D_81njp")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.7122466, 0.35096467, -0.60788864, 0, 0.8660254, 0.5, 0.70192933, -0.3561233, 0.6168236, 4, 4.082719, 9.580009)
-light_color = Color(1, 1, 0.8627451, 1)
-light_energy = 0.3
-shadow_enabled = true
-
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.48045313, 0.4385103, -0.75952196, 0.75952196, 0.22497039, 0.61033994, 0.4385102, -0.87011325, -0.22497045, 0, 4.082719, 9.454137)
-light_color = Color(1, 0.8627451, 0.8627451, 1)
-light_energy = 0.3
 
 [node name="floortest" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
