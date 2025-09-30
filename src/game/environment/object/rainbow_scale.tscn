@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d27ayow02eaoe"]
+
+[ext_resource type="ArrayMesh" uid="uid://d0poeqm5ecl8n" path="res://assets/100devs/assets/data/assets_scale.mesh.res" id="1_iq2uv"]
+
+[node name="RainbowScale" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.6177092, 0)
+mesh = ExtResource("1_iq2uv")

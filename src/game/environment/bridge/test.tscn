@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2ipx6gtee0fm"]
+
+[ext_resource type="PackedScene" uid="uid://dbhjo4f3ij4sb" path="res://game/environment/bridge/bridge_popsicle.tscn" id="1_obw40"]
+[ext_resource type="PackedScene" uid="uid://coum0bwlspw84" path="res://game/environment/bridge/bridge_stone.tscn" id="2_8hx2h"]
+
+[node name="TestBridges" type="Node3D"]
+
+[node name="BridgePopsicle" parent="." instance=ExtResource("1_obw40")]
+
+[node name="BridgeStone" parent="." instance=ExtResource("2_8hx2h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)

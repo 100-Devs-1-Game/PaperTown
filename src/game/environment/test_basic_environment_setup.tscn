@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://nufmugt8xc4t"]
+[gd_scene load_steps=10 format=3 uid="uid://nufmugt8xc4t"]
 
 [ext_resource type="PackedScene" uid="uid://px8n52y05giq" path="res://game/characters/player/player.tscn" id="1_3yk8p"]
 [ext_resource type="PackedScene" uid="uid://romkf60q2s4o" path="res://game/environment/house/house_acorn.tscn" id="1_bhkk5"]
 [ext_resource type="PackedScene" uid="uid://blkjapuvymat6" path="res://game/environment/world_environment.tscn" id="1_pix3n"]
 [ext_resource type="PackedScene" uid="uid://crtm3xevyq3w6" path="res://game/environment/floor/test.tscn" id="2_3yk8p"]
+[ext_resource type="PackedScene" uid="uid://b2ipx6gtee0fm" path="res://game/environment/bridge/test.tscn" id="5_vn24j"]
+[ext_resource type="PackedScene" uid="uid://dink6e32h8ho0" path="res://game/environment/decoration/test.tscn" id="6_kup0n"]
+[ext_resource type="PackedScene" uid="uid://cxg8b1h8ngsgx" path="res://game/environment/floor_cardboard/test.tscn" id="7_1rulx"]
+[ext_resource type="PackedScene" uid="uid://csebr64v3tfhc" path="res://game/environment/object/test.tscn" id="8_365vt"]
+[ext_resource type="PackedScene" uid="uid://3u2vs06foq8n" path="res://game/environment/floor_other/test.tscn" id="8_kup0n"]
 
 [node name="Test" type="Node3D"]
 
@@ -13,18 +18,38 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.5514998)
 
 [node name="HouseAcorn" parent="." instance=ExtResource("1_bhkk5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.2989497)
 
-[node name="Test" parent="." instance=ExtResource("2_3yk8p")]
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 2.7039585, 24.830784)
+fov = 90.0
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.48045313, 0.43851027, -0.75952196, 0.75952196, 0.22497034, 0.6103399, 0.4385102, -0.87011325, -0.2249705, 0, 4.082719, 9.454137)
+light_energy = 0.03
+shadow_enabled = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 4, 4.082719, 9.580009)
 light_energy = 0.5
 shadow_enabled = true
 
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.48045313, 0.4385103, -0.75952196, 0.75952196, 0.22497039, 0.61033994, 0.4385102, -0.87011325, -0.22497045, 0, 4.082719, 9.454137)
-light_energy = 0.03
-shadow_enabled = true
+[node name="TestFloor" parent="." instance=ExtResource("2_3yk8p")]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 4.798962, 8.798117)
+[node name="TestBridges" parent="." instance=ExtResource("5_vn24j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.149369, 0, -1.0559793)
+
+[node name="TestDecoration" parent="." instance=ExtResource("6_kup0n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.07139, 0, -0.22482681)
+
+[node name="TestFloor2" parent="." instance=ExtResource("2_3yk8p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.69879, 0, 10.6016865)
+
+[node name="TestFloorCardboard" parent="." instance=ExtResource("7_1rulx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.41228, 0, 0)
+
+[node name="TestFloorOther" parent="." instance=ExtResource("8_kup0n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 0, 18.103601)
+
+[node name="TestObjects" parent="." instance=ExtResource("8_365vt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.41228, 0, 11.73401)

@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://csebr64v3tfhc"]
+
+[ext_resource type="PackedScene" uid="uid://bdv4w5a651hhk" path="res://game/environment/object/tree_short.tscn" id="1_8k7un"]
+[ext_resource type="PackedScene" uid="uid://dht78keg8oi7q" path="res://game/environment/object/fence.tscn" id="1_n568i"]
+[ext_resource type="PackedScene" uid="uid://bmcjj4rkgknfa" path="res://game/environment/object/tree_striped.tscn" id="2_nhujq"]
+[ext_resource type="PackedScene" uid="uid://eira8cpx8g53" path="res://game/environment/object/picnic_table.tscn" id="2_uexe5"]
+[ext_resource type="PackedScene" uid="uid://dsin55s8mkxxm" path="res://game/environment/object/tree_tall.tscn" id="3_42hd6"]
+
+[node name="TestObjects" type="Node3D"]
+
+[node name="TreeShort" parent="." instance=ExtResource("1_8k7un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="TreeStriped" parent="." instance=ExtResource("2_nhujq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 3)
+
+[node name="TreeTall" parent="." instance=ExtResource("3_42hd6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="Fence" parent="." instance=ExtResource("1_n568i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="PicnicTable" parent="." instance=ExtResource("2_uexe5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)

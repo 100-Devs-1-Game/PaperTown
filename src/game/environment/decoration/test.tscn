@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://dink6e32h8ho0"]
+
+[ext_resource type="PackedScene" uid="uid://dngpr3iwnql7u" path="res://game/environment/decoration/ray.tscn" id="1_4o3nn"]
+[ext_resource type="PackedScene" uid="uid://dx4ulpnywy74r" path="res://game/environment/decoration/flower_blue.tscn" id="1_okfaa"]
+[ext_resource type="PackedScene" uid="uid://o50vffwet2vh" path="res://game/environment/decoration/flower_pink.tscn" id="2_xc11r"]
+[ext_resource type="PackedScene" uid="uid://bwlxmsj7n8qb3" path="res://game/environment/decoration/grass.tscn" id="3_u1umb"]
+[ext_resource type="PackedScene" uid="uid://cg8oi4aiby2yq" path="res://game/environment/decoration/stick_cloud.tscn" id="4_c8y3a"]
+
+[node name="TestDecorations" type="Node3D"]
+
+[node name="Ray" parent="." instance=ExtResource("1_4o3nn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="FlowerBlue" parent="." instance=ExtResource("1_okfaa")]
+
+[node name="FlowerPink" parent="." instance=ExtResource("2_xc11r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="Grass" parent="." instance=ExtResource("3_u1umb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="StickCloud" parent="." instance=ExtResource("4_c8y3a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy0xcvtq4a4y5"]
+
+[ext_resource type="ArrayMesh" uid="uid://irsj1qtye3vp" path="res://assets/100devs/assets/data/assets_floor-cardboard-front.mesh.res" id="1_cxjem"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cxjem"]
+size = Vector3(4, 1, 4)
+
+[node name="FloorCardboardLeft" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 0.8, -2, 0, -2)
+mesh = ExtResource("1_cxjem")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_cxjem")

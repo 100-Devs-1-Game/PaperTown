@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvccjq2hq0tgj"]
+
+[ext_resource type="ArrayMesh" uid="uid://de12nph4nwju5" path="res://assets/100devs/assets/data/assets_floor-plane.mesh.res" id="1_ttv3k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d3se3"]
+size = Vector3(20, 1, 20)
+
+[node name="FeltMiddle" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+mesh = ExtResource("1_ttv3k")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_d3se3")

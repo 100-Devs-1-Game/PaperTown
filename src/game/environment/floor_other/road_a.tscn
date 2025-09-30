@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdqm6h72sxpaa"]
+
+[ext_resource type="PackedScene" uid="uid://b4lfw3w43bbqf" path="res://game/environment/floor_other/road.tscn" id="1_cukux"]
+
+[node name="RoadFlipped" type="Node3D"]
+
+[node name="Road" parent="." instance=ExtResource("1_cukux")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)

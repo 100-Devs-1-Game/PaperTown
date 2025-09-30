@@ -12,7 +12,7 @@
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_81njp"]
 
-[node name="Test" type="Node3D"]
+[node name="TestFloor" type="Node3D"]
 
 [node name="FloorMiddle" parent="." instance=ExtResource("1_4es23")]
 

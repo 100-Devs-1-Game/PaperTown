@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdv4w5a651hhk"]
+
+[ext_resource type="ArrayMesh" uid="uid://bs5ouuueqqhnv" path="res://assets/100devs/assets/data/assets_tree-short.mesh.res" id="1_gxiwe"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_gxiwe"]
+height = 5.0
+
+[node name="TreeShort" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -0.698, 0, 1, -3.051055e-08, -0.061841816, -0.5, 0.08559471)
+mesh = ExtResource("1_gxiwe")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+shape = SubResource("CylinderShape3D_gxiwe")

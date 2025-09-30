@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://3u2vs06foq8n"]
+
+[ext_resource type="PackedScene" uid="uid://c6r5rf2r8u55m" path="res://game/environment/floor_other/wavy.tscn" id="1_loase"]
+[ext_resource type="PackedScene" uid="uid://bvccjq2hq0tgj" path="res://game/environment/floor_other/felt_middle.tscn" id="1_qcplu"]
+[ext_resource type="PackedScene" uid="uid://b4lfw3w43bbqf" path="res://game/environment/floor_other/road.tscn" id="2_loase"]
+[ext_resource type="PackedScene" uid="uid://bdqm6h72sxpaa" path="res://game/environment/floor_other/road_a.tscn" id="3_4cp3x"]
+
+[node name="TestFloorOther" type="Node3D"]
+
+[node name="Wavy" parent="." instance=ExtResource("1_loase")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.71173, 0, 0)
+
+[node name="FeltMiddle" parent="." instance=ExtResource("1_qcplu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="Road" parent="." instance=ExtResource("2_loase")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.022279501, -2)
+
+[node name="RoadFlipped" parent="." instance=ExtResource("3_4cp3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.022279501, 2)
