@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/corn_cowboy.png-2e6dc6f2e6ae95dadfb2a786c1647
 
 [params]
 
-compress/mode=4
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
