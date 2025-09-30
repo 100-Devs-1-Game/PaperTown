@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3q6ge6fpsocb"]
+
+[ext_resource type="PackedScene" uid="uid://dht78keg8oi7q" path="res://game/environment/object/fence.tscn" id="1_d2k71"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ktgd3"]
+size = Vector3(6, 20, 1)
+
+[node name="FenceTall" instance=ExtResource("1_d2k71")]
+
+[node name="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_ktgd3")

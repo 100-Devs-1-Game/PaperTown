@@ -1,9 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://vh1c5iw178fp"]
+[gd_scene load_steps=7 format=3 uid="uid://vh1c5iw178fp"]
 
 [ext_resource type="Script" uid="uid://cocfftsju044g" path="res://game/game.gd" id="1_l1rk1"]
-[ext_resource type="PackedScene" uid="uid://ddv2ylx4vrmf4" path="res://game/dialogue/test_dialogue_01.tscn" id="2_vasa2"]
+[ext_resource type="PackedScene" uid="uid://bqbacxkw7a4hp" path="res://game/overworld/levels/village.tscn" id="2_dxrkv"]
+[ext_resource type="PackedScene" uid="uid://px8n52y05giq" path="res://game/characters/player/player.tscn" id="3_dakft"]
+[ext_resource type="PackedScene" uid="uid://blkjapuvymat6" path="res://game/environment/world_environment.tscn" id="4_u5opy"]
+[ext_resource type="PackedScene" uid="uid://dapoyk6c1p3kc" path="res://game/environment/sunlight.tscn" id="5_y36n6"]
+[ext_resource type="PackedScene" uid="uid://dxhii6l3t8ca" path="res://game/other/camera.tscn" id="6_dakft"]
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_l1rk1")
 
-[node name="TestDialogue01" parent="." instance=ExtResource("2_vasa2")]
+[node name="Village" parent="." instance=ExtResource("2_dxrkv")]
+
+[node name="Player" parent="." instance=ExtResource("3_dakft")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, -4)
+
+[node name="SharedWorldEnvironment" parent="." instance=ExtResource("4_u5opy")]
+
+[node name="Sunlight" parent="." instance=ExtResource("5_y36n6")]
+
+[node name="Camera" parent="." instance=ExtResource("6_dakft")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.703594, 31.552109)
+offset = Vector3(0, 6, 18)

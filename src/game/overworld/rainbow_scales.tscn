@@ -1,12 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbf2k0lf0owpy"]
+[gd_scene load_steps=4 format=3 uid="uid://bbf2k0lf0owpy"]
 
 [ext_resource type="Script" uid="uid://ohaxnon7t2tj" path="res://game/overworld/rainbow_scales.gd" id="1_t88uo"]
+[ext_resource type="PackedScene" uid="uid://d27ayow02eaoe" path="res://game/environment/object/rainbow_scale.tscn" id="2_ipp1l"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ipp1l"]
+radius = 1.0
 
 [node name="RainbowScales" type="Node3D"]
 script = ExtResource("1_t88uo")
 
 [node name="Visuals" type="Node3D" parent="."]
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Visuals"]
+[node name="RainbowScale" parent="Visuals" instance=ExtResource("2_ipp1l")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_ipp1l")
