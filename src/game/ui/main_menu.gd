@@ -16,10 +16,6 @@ func get_rtl(btn: Button) -> RichTextLabel:
 
 
 func _ready() -> void:
-	book_front.frame = 0
-	book_front.play(&"front")
-	await book_front.animation_finished
-
 	play.pressed.connect(fadeout.bind(play))
 	quit.pressed.connect(fadeout.bind(quit))
 
@@ -31,6 +27,23 @@ func _ready() -> void:
 
 	mouse_exit(play)
 	mouse_exit(quit)
+
+	$Control/Book/BookBack.visible = false
+	book_front.modulate.a = 0
+
+	# don't ask... idk
+	# F5 vs F6 innit?
+	await get_tree().process_frame
+	await get_tree().process_frame
+
+	book_front.stop()
+	book_front.play(&"front")
+
+	var tween := create_tween()
+	tween.tween_property(book_front, ^"modulate:a", 1.0, 0.25)
+	tween.tween_property($Control/Book/BookBack, ^"visible", true, 0.0)
+
+	await book_front.animation_finished
 
 
 func mouse_enter(btn: Button) -> void:
@@ -56,8 +69,8 @@ func fadeout(button_pressed: Button) -> void:
 		finished.emit(button_pressed)
 
 		var tween := create_tween()
-		tween.tween_property($Control/Book/BookBack, ^"visible", false, 0.0).set_delay(0.25)
-		tween.tween_property(self, ^"modulate:a", 0.0, 0.25)
+		tween.tween_property($Control/Book/BookBack, ^"visible", false, 0.0).set_delay(0.5)
+		tween.tween_property(self, ^"modulate:a", 0.0, 0.25).set_delay(0.25)
 		tween.play()
 	else:
 		await %BookFront.animation_finished

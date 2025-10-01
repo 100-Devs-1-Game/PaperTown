@@ -3,19 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dlqo2vv16tq0f"
-path="res://.godot/imported/00007.png-d333c709f194f976306467f4e64a01a9.ctex"
+path.s3tc="res://.godot/imported/00007.png-d333c709f194f976306467f4e64a01a9.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/100devs/ui/book_cover_frames/00007.png"
-dest_files=["res://.godot/imported/00007.png-d333c709f194f976306467f4e64a01a9.ctex"]
+dest_files=["res://.godot/imported/00007.png-d333c709f194f976306467f4e64a01a9.s3tc.ctex"]
 
 [params]
 
-compress/mode=1
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

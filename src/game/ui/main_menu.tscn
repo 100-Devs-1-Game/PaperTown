@@ -11,6 +11,7 @@
 [ext_resource type="FontVariation" uid="uid://cs4y5cn70ghcn" path="res://game/ui/theme/base_theme_font.tres" id="11_7ecrl"]
 
 [node name="MainMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

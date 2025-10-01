@@ -3,19 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://1h3s20k1sje2"
-path="res://.godot/imported/027.png-0fc9b87ce76f9783ea242dc6e5de3016.ctex"
+path.s3tc="res://.godot/imported/027.png-0fc9b87ce76f9783ea242dc6e5de3016.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/100devs/ui/battle_start_frames/027.png"
-dest_files=["res://.godot/imported/027.png-0fc9b87ce76f9783ea242dc6e5de3016.ctex"]
+dest_files=["res://.godot/imported/027.png-0fc9b87ce76f9783ea242dc6e5de3016.s3tc.ctex"]
 
 [params]
 
-compress/mode=1
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

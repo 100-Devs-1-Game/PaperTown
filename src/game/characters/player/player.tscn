@@ -32,10 +32,10 @@ unique_name_in_owner = true
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Visuals"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.89171267, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.892, 0)
 layers = 2
 cast_shadow = 2
-pixel_size = 0.002
+pixel_size = 0.004
 alpha_cut = 2
 sprite_frames = ExtResource("5_65114")
 animation = &"walk"

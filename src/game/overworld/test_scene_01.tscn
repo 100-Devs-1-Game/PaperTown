@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://cbah586chnhbp"]
+[gd_scene load_steps=10 format=3 uid="uid://cbah586chnhbp"]
 
 [ext_resource type="PackedScene" uid="uid://px8n52y05giq" path="res://game/characters/player/player.tscn" id="1_3bxco"]
-[ext_resource type="PackedScene" uid="uid://caykrn62k7r0i" path="res://game/characters/example_npc.tscn" id="2_dqqlc"]
 [ext_resource type="PackedScene" uid="uid://bxf2iw36fhu4j" path="res://game/environment/floor/floor_middle.tscn" id="3_u73ws"]
 [ext_resource type="PackedScene" uid="uid://cktqdkpjnljbb" path="res://game/environment/floor/floor_corner_front_left.tscn" id="4_e24px"]
 [ext_resource type="PackedScene" uid="uid://1xffej8rych6" path="res://game/environment/floor/floor_corner_front_right.tscn" id="5_eurm5"]
@@ -15,8 +14,6 @@
 
 [node name="Player" parent="." instance=ExtResource("1_3bxco")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.30392, 0.5886705, -0.0552969)
-
-[node name="ExampleNpc" parent="." instance=ExtResource("2_dqqlc")]
 
 [node name="Level" type="Node3D" parent="."]
 

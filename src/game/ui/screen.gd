@@ -39,7 +39,7 @@ func fadeout(_btn: Button) -> void:
 	tweening = true
 
 	var tween := blur_backdrop.create_tween()
-	tween.tween_property(blur_backdrop, ^"modulate:a", 0.0, 0.5)
+	tween.tween_property(blur_backdrop, ^"modulate:a", 0.0, 1)
 	tween.tween_callback(
 		func(): mouse_filter.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_DISABLED
 	)
@@ -60,7 +60,7 @@ func fadein(_btn: Button) -> void:
 	var tween := blur_backdrop.create_tween()
 	tween.tween_property(blur_backdrop, ^"modulate:a", 1.0, 0.25)
 	tween.parallel()
-	tween.tween_callback(finished_fadein.emit).set_delay(0.25)
+	tween.tween_callback(finished_fadein.emit).set_delay(0.50)
 	tween.tween_callback(func(): tweening = false)
 	tween.play()
 
