@@ -9,12 +9,16 @@ var target_angle: float = -10.0
 var target_fov: float = 45.0
 var target: Node3D
 
-func _enter_tree() -> void:
+func _ready() -> void:
 	if offset == Vector3.ZERO:
 		offset = global_position
 
 	if global_position == Vector3.ZERO:
 		offset = Vector3(0, 6.0, 18.0)
+
+	global_rotation.x = deg_to_rad(target_angle)
+	reset_physics_interpolation()
+
 
 func _physics_process(delta: float) -> void:
 	if !target:
@@ -27,5 +31,5 @@ func _physics_process(delta: float) -> void:
 	var speed_mul := 4 * clampf(distance / 10.0, 0.0, 1.0)
 	#print(distance, " = ", speed_mul)
 	global_position = global_position.move_toward(target.global_position + offset, delta * speed * speed_mul)
-	global_rotation.x = move_toward(global_rotation.x, deg_to_rad(target_angle), delta)
+	global_rotation.x = deg_to_rad(target_angle)
 	fov = move_toward(fov, target_fov, delta)

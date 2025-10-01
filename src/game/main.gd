@@ -11,5 +11,15 @@ func _ready() -> void:
 	screen.process_mode = PROCESS_MODE_ALWAYS
 	get_tree().paused = true
 
-	screen.finished_fadeout.connect(func(): get_tree().paused = false)
-	screen.started_fadein.connect(func(): get_tree().paused = true)
+	screen.started_fadeout.connect(func():
+		get_viewport().get_camera_3d().process_mode = Node.PROCESS_MODE_ALWAYS
+	)
+
+	screen.finished_fadeout.connect(func():
+		get_tree().paused = false
+	)
+
+	screen.started_fadein.connect(
+		func():
+			get_tree().paused = true
+	)

@@ -4,10 +4,9 @@ extends Control
 
 const BUTTON_WIDTH = 400
 
-@onready var button_container: VBoxContainer = %"VBoxContainer | Buttons"
 @onready var play: Button = %Play
-@onready var settings: Button = %Settings
 @onready var quit: Button = %Quit
+@onready var book_front: AnimatedSprite2D = %BookFront
 
 signal finished(Button)
 
@@ -17,76 +16,49 @@ func get_rtl(btn: Button) -> RichTextLabel:
 
 
 func _ready() -> void:
-	# control the size of our buttons, if you change it and wanna see it, then...
-	# Scene -> Reload Saved Scene
-	button_container.custom_minimum_size.x = BUTTON_WIDTH
-	button_container.resized.connect(func(): button_container.custom_minimum_size.x = BUTTON_WIDTH)
+	book_front.frame = 0
+	book_front.play(&"front")
+	await book_front.animation_finished
 
-	play.pressed.connect(animate.bind(play))
-	settings.pressed.connect(animate.bind(settings))
-	quit.pressed.connect(animate.bind(quit))
+	play.pressed.connect(fadeout.bind(play))
+	quit.pressed.connect(fadeout.bind(quit))
 
 	play.mouse_entered.connect(mouse_enter.bind(play))
-	settings.mouse_entered.connect(mouse_enter.bind(settings))
 	quit.mouse_entered.connect(mouse_enter.bind(quit))
 
 	play.mouse_exited.connect(mouse_exit.bind(play))
-	settings.mouse_exited.connect(mouse_exit.bind(settings))
 	quit.mouse_exited.connect(mouse_exit.bind(quit))
 
 	mouse_exit(play)
-	mouse_exit(settings)
 	mouse_exit(quit)
-
-	get_rtl(play).clear()
-	get_rtl(play).append_text("[wave amp=50]" + play.name.to_upper())
-	get_rtl(settings).clear()
-	get_rtl(settings).append_text("[wave amp=50]" + settings.name.to_upper())
-	get_rtl(quit).clear()
-	get_rtl(quit).append_text("[wave amp=50]" + quit.name.to_upper())
 
 
 func mouse_enter(btn: Button) -> void:
-	get_rtl(btn).add_theme_color_override("font_outline_color", Color.hex(0xe55784ff))
+	var tween := create_tween()
+	tween.tween_property(btn, ^"position:y", btn.position.y - 4, 0.1)
+	tween.tween_property(btn, ^"position:y", btn.position.y, 0.1)
+	btn.get_child(0).add_theme_constant_override("outline_size", 16)
 
 
 func mouse_exit(btn: Button) -> void:
-	get_rtl(btn).add_theme_color_override("font_outline_color", Color.hex(0xf8aeccff))
+	btn.get_child(0).add_theme_constant_override("outline_size", 8)
 
 
-func animate(button_pressed: Button) -> void:
+func fadeout(button_pressed: Button) -> void:
 	var quitting: bool = button_pressed == quit
-	var count: Array = []
 
-	for btn: Control in button_container.get_children():
-		btn.mouse_filter = MOUSE_FILTER_IGNORE
+	play.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	quit.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
-		var physcomp := preload("res://game/ui/components/physics_ui.gd").new()
-		physcomp.gravity = 0
-		if btn == button_pressed:
-			physcomp.velocity = Vector2(1000, 0)
-		else:
-			physcomp.velocity = Vector2(-1000, 0)
-		btn.add_child(physcomp)
-		physcomp.tree_exited.connect(func(): count.append(0))
-
-	var physcomp2 := preload("res://game/ui/components/physics_ui.gd").new()
-	#physcomp2.velocity = Vector2(0, 1400)
-	physcomp2.gravity *= -1
-	$PanelContainer/VBoxContainer/VBoxContainer/FloatingText.add_child(physcomp2)
-	physcomp2.tree_exited.connect(func(): count.append(0))
-
-	var physcomp3 := preload("res://game/ui/components/physics_ui.gd").new()
-	#physcomp3.velocity = Vector2(0, 1600)
-	physcomp3.gravity *= -1
-	$PanelContainer/VBoxContainer/VBoxContainer/Control.add_child(physcomp3)
-	physcomp3.tree_exited.connect(func(): count.append(0))
+	book_front.play_backwards(&"front")
 
 	if !quitting:
 		finished.emit(button_pressed)
-		return
 
-	while count.size() < button_container.get_child_count() + 2:
-		await get_tree().process_frame
-
-	get_tree().quit()
+		var tween := create_tween()
+		tween.tween_property($Control/Book/BookBack, ^"visible", false, 0.0).set_delay(0.25)
+		tween.tween_property(self, ^"modulate:a", 0.0, 0.25)
+		tween.play()
+	else:
+		await %BookFront.animation_finished
+		get_tree().quit()

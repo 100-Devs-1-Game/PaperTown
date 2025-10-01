@@ -20,5 +20,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, -4)
 [node name="Sunlight" parent="." instance=ExtResource("5_y36n6")]
 
 [node name="Camera" parent="." instance=ExtResource("6_dakft")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.703594, 31.552109)
+transform = Transform3D(1, 0, 0, 0, 0.9848078, 0.1736482, 0, -0.1736482, 0.9848078, -28.128, 6, 46.652164)
 offset = Vector3(0, 6, 18)

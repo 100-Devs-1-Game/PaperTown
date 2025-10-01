@@ -1,16 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://blhwwgupnhdwy"]
+[gd_scene load_steps=10 format=3 uid="uid://blhwwgupnhdwy"]
 
 [ext_resource type="Theme" uid="uid://w46o85kkkof2" path="res://game/ui/theme/base_theme.tres" id="1_478ix"]
 [ext_resource type="Script" uid="uid://c83yg6jw4oq58" path="res://game/ui/main_menu.gd" id="1_spbnf"]
-[ext_resource type="PackedScene" uid="uid://cajrbf7ccprgv" path="res://game/other/floating_text/floating_text.tscn" id="3_hjbl3"]
-[ext_resource type="FontVariation" uid="uid://ditpur2fgahcx" path="res://game/ui/theme/font_variation.tres" id="4_3nuvx"]
-[ext_resource type="Shader" uid="uid://chhfhfvslvbio" path="res://game/other/floating_text/floating_text_gradient.gdshader" id="4_w7b7d"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3nlpe"]
-shader = ExtResource("4_w7b7d")
-shader_parameter/top_color = Color(0.62593067, 0.7492802, 1, 1)
-shader_parameter/bottom_color = Color(1, 1, 1, 1)
-shader_parameter/rect_height = 150.0
+[ext_resource type="SpriteFrames" uid="uid://cqi8e14qh3pc2" path="res://game/ui/main_menu_book_animated_frames.tres" id="6_3nlpe"]
+[ext_resource type="Texture2D" uid="uid://efuobkgepkvn" path="res://assets/100devs/ui/bottom_layers/000.png" id="6_y6wp3"]
+[ext_resource type="Texture2D" uid="uid://c8f5ue81ki05k" path="res://assets/100devs/ui/bottom_layers/001.png" id="7_7ecrl"]
+[ext_resource type="Texture2D" uid="uid://w8eremeuu5ns" path="res://assets/100devs/ui/bottom_layers/002.png" id="8_nmgag"]
+[ext_resource type="Texture2D" uid="uid://dyibld0xh8q7y" path="res://assets/100devs/ui/bottom_layers/003.png" id="9_sv6g1"]
+[ext_resource type="Texture2D" uid="uid://tprrpxmqvrtn" path="res://assets/100devs/ui/bottom_layers/004.png" id="10_vm6gw"]
+[ext_resource type="FontVariation" uid="uid://cs4y5cn70ghcn" path="res://game/ui/theme/base_theme_font.tres" id="11_7ecrl"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -24,91 +22,7 @@ size_flags_vertical = 3
 theme = ExtResource("1_478ix")
 script = ExtResource("1_spbnf")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -224.0
-offset_top = -323.5
-offset_right = 224.0
-offset_bottom = 323.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
-layout_mode = 2
-theme_override_constants/separation = 48
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="FloatingText" parent="PanelContainer/VBoxContainer/VBoxContainer" instance=ExtResource("3_hjbl3")]
-custom_minimum_size = Vector2(0, 150)
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="RichTextLabel" parent="PanelContainer/VBoxContainer/VBoxContainer/FloatingText" index="0"]
-material = SubResource("ShaderMaterial_3nlpe")
-offset_right = 0.0
-offset_bottom = 0.0
-theme_override_colors/font_outline_color = Color(0.36078432, 0.5568628, 1, 1)
-text = "[wave][tilt]PAPER TOWN![/tilt][wave]"
-
-[node name="Control" type="Control" parent="PanelContainer/VBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-mouse_filter = 1
-
-[node name="Control" type="Control" parent="PanelContainer/VBoxContainer/VBoxContainer/Control"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-grow_horizontal = 2
-scale = Vector2(0.2, 0.2)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/VBoxContainer/Control/Control"]
-texture_filter = 4
-clip_contents = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-theme_override_colors/font_outline_color = Color(0.39999998, 0.5900001, 1, 1)
-theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
-theme_override_constants/shadow_outline_size = 190
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 10
-theme_override_constants/outline_size = 165
-theme_override_fonts/normal_font = ExtResource("4_3nuvx")
-theme_override_font_sizes/normal_font_size = 160
-bbcode_enabled = true
-text = "[wave]attack  of  the  bristling  boars"
-fit_content = true
-autowrap_mode = 0
-
-[node name="VBoxContainer | Buttons" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
-theme_override_constants/separation = -30
-
-[node name="Play" type="Button" parent="PanelContainer/VBoxContainer/VBoxContainer | Buttons"]
-unique_name_in_owner = true
-layout_mode = 2
-text = " "
-
-[node name="Control" type="Control" parent="PanelContainer/VBoxContainer/VBoxContainer | Buttons/Play"]
+[node name="Control" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -117,115 +31,98 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.25, 0.25)
-mouse_filter = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/VBoxContainer | Buttons/Play/Control"]
-texture_filter = 4
-clip_contents = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-theme_override_colors/font_outline_color = Color(0.972549, 0.68235296, 0.8, 1)
-theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
-theme_override_constants/shadow_outline_size = 190
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 10
-theme_override_constants/outline_size = 165
-theme_override_fonts/normal_font = ExtResource("4_3nuvx")
-theme_override_font_sizes/normal_font_size = 160
-bbcode_enabled = true
-text = "[wave amp=50]PLAY"
-fit_content = true
-autowrap_mode = 0
+[node name="Book" type="Node2D" parent="Control"]
+position = Vector2(-75, -9)
 
-[node name="Settings" type="Button" parent="PanelContainer/VBoxContainer/VBoxContainer | Buttons"]
+[node name="BookBack" type="Node2D" parent="Control/Book"]
+position = Vector2(97, 55)
+
+[node name="BookBack1" type="Sprite2D" parent="Control/Book/BookBack"]
+texture = ExtResource("6_y6wp3")
+
+[node name="BookBack2" type="Sprite2D" parent="Control/Book/BookBack"]
+texture = ExtResource("7_7ecrl")
+
+[node name="BookBack3" type="Sprite2D" parent="Control/Book/BookBack"]
+texture = ExtResource("8_nmgag")
+
+[node name="BookBack4" type="Sprite2D" parent="Control/Book/BookBack"]
+texture = ExtResource("9_sv6g1")
+
+[node name="BookBack5" type="Sprite2D" parent="Control/Book/BookBack"]
+texture = ExtResource("10_vm6gw")
+
+[node name="Play" type="Button" parent="Control/Book/BookBack"]
 unique_name_in_owner = true
-visible = false
-layout_mode = 2
-text = " "
-
-[node name="Control" type="Control" parent="PanelContainer/VBoxContainer/VBoxContainer | Buttons/Settings"]
-layout_mode = 1
+custom_minimum_size = Vector2(300, 50)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -94.33331
+offset_top = -97.83334
+offset_right = 205.66669
+offset_bottom = 11.1666565
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.25, 0.25)
-mouse_filter = 1
+theme = ExtResource("1_478ix")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/VBoxContainer | Buttons/Settings/Control"]
-texture_filter = 4
-clip_contents = false
+[node name="Label" type="Label" parent="Control/Book/BookBack/Play"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -21.5
-offset_top = -11.5
-offset_right = 21.5
-offset_bottom = 11.5
+offset_top = -100.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
-theme_override_colors/font_outline_color = Color(0.972549, 0.68235296, 0.8, 1)
-theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
-theme_override_constants/shadow_outline_size = 190
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 10
-theme_override_constants/outline_size = 165
-theme_override_fonts/normal_font = ExtResource("4_3nuvx")
-theme_override_font_sizes/normal_font_size = 160
-bbcode_enabled = true
-text = "[wave amp=50]SETTINGS"
-fit_content = true
-autowrap_mode = 0
+theme_override_colors/font_outline_color = Color(0.46666667, 0, 0, 0.21960784)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("11_7ecrl")
+theme_override_font_sizes/font_size = 32
+text = "
+PLAY
+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer/VBoxContainer | Buttons"]
+[node name="Quit" type="Button" parent="Control/Book/BookBack"]
 unique_name_in_owner = true
-layout_mode = 2
-text = " "
-
-[node name="Control" type="Control" parent="PanelContainer/VBoxContainer/VBoxContainer | Buttons/Quit"]
-layout_mode = 1
+custom_minimum_size = Vector2(300, 50)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -94.33331
+offset_top = 15.333313
+offset_right = 205.66669
+offset_bottom = 111.33331
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.25, 0.25)
-mouse_filter = 1
+theme = ExtResource("1_478ix")
+theme_override_font_sizes/font_size = 24
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/VBoxContainer | Buttons/Quit/Control"]
-texture_filter = 4
-clip_contents = false
+[node name="Label" type="Label" parent="Control/Book/BookBack/Quit"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
-theme_override_colors/font_outline_color = Color(0.972549, 0.68235296, 0.8, 1)
-theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
-theme_override_constants/shadow_outline_size = 190
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 10
-theme_override_constants/outline_size = 165
-theme_override_fonts/normal_font = ExtResource("4_3nuvx")
-theme_override_font_sizes/normal_font_size = 160
-bbcode_enabled = true
-text = "[wave amp=50]QUIT"
-fit_content = true
-autowrap_mode = 0
+theme_override_colors/font_outline_color = Color(0.921642, 0.64227486, 0.31750333, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("11_7ecrl")
+theme_override_font_sizes/font_size = 24
+text = "
+QUIT
+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[editable path="PanelContainer/VBoxContainer/VBoxContainer/FloatingText"]
+[node name="BookFront" type="AnimatedSprite2D" parent="Control/Book"]
+unique_name_in_owner = true
+sprite_frames = ExtResource("6_3nlpe")
+animation = &"front"
