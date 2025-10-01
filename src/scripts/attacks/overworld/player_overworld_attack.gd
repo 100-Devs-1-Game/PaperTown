@@ -10,6 +10,7 @@ func _ready():
 func start_timer(time: float):
 	lasting_timer.wait_time = time
 	lasting_timer.start()
+	Audio.play_sfx_atnode(get_parent(), Audio.SFX_PLACEHOLDER)
 
 
 func on_timer_timeout():

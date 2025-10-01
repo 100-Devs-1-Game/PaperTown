@@ -14,6 +14,10 @@ config/name="Paper Town: Attack of the Bristling Boars!"
 run/main_scene="uid://cygqjanirnqqt"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 
+[audio]
+
+buses/default_bus_layout="uid://c1mmqpueeika"
+
 [autoload]
 
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
@@ -22,6 +26,7 @@ Tags="*res://autoloads/tags.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 FloatingText="*res://autoloads/floating_text.gd"
 GlobalUtils="*res://autoloads/globalutils.gd"
+Audio="*res://autoloads/audio.gd"
 
 [debug_draw_3d]
 
