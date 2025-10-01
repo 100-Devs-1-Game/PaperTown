@@ -6,5 +6,5 @@ light_color = Color(1, 1, 0.8627451, 1)
 light_energy = 0.2
 shadow_enabled = true
 directional_shadow_mode = 1
+directional_shadow_blend_splits = true
 directional_shadow_fade_start = 1.0
-directional_shadow_max_distance = 300.0

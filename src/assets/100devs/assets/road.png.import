@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://brktd4ykp2dsc"
-path.s3tc="res://.godot/imported/road.png-26a6002b1d07db2c670ada3be027f807.s3tc.ctex"
+path="res://.godot/imported/road.png-26a6002b1d07db2c670ada3be027f807.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/100devs/assets/road.png"
-dest_files=["res://.godot/imported/road.png-26a6002b1d07db2c670ada3be027f807.s3tc.ctex"]
+dest_files=["res://.godot/imported/road.png-26a6002b1d07db2c670ada3be027f807.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=3
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
