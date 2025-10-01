@@ -127,3 +127,5 @@ vertical_alignment = 1
 unique_name_in_owner = true
 sprite_frames = ExtResource("6_3nlpe")
 animation = &"front"
+frame = 9
+frame_progress = 1.0
