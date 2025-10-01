@@ -1,4 +1,4 @@
-class_name Enemy extends CharacterBody3D
+class_name Enemy extends ICharacter
 
 enum State { WANDER, ALERT, CHASE, BATTLE }
 
@@ -23,6 +23,9 @@ signal enemy_state_changed(new_state: State)
 
 
 func _ready():
+	assert(alert_timer.one_shot)
+	assert(walk_timer.one_shot)
+
 	detection_bubble.body_entered.connect(on_detection_bubble_body_entered)
 	alert_timer.timeout.connect(on_alert_timeout)
 	walk_timer.timeout.connect(on_walk_timeout)
@@ -30,9 +33,6 @@ func _ready():
 	debug_excla_mark.text = ""
 
 	change_state(State.WANDER)
-
-	movement_component.get_random_spot(navigation_agent_3d, self)
-	walk_timer.start()
 
 
 func _physics_process(delta):
@@ -68,7 +68,8 @@ func chase():
 func on_alert_timeout():
 	change_state(State.CHASE)
 	debug_excla_mark.text = ""
-	overworld_attack_component.generate_attack(self, 0.0, 0.0, -1.0)
+	var dir_to_player := (get_tree().get_first_node_in_group("player") as Node3D).global_position - global_position
+	var _attack: IOverworldAttack = overworld_attack_component.generate_attack(self, dir_to_player.normalized().x, min(1.5, dir_to_player.length()), 1.0)
 
 
 func on_walk_timeout():
@@ -86,6 +87,7 @@ func on_detection_bubble_body_entered(body):
 		debug_excla_mark.text = "!!"
 		target = body
 		alert_timer.start()
+		movement_component.face_position(target.global_position)
 
 
 func change_state(new_state: State) -> void:
@@ -93,3 +95,12 @@ func change_state(new_state: State) -> void:
 		return
 	current_state = new_state
 	enemy_state_changed.emit(current_state)
+
+	if current_state == State.WANDER:
+		movement_component.get_random_spot(navigation_agent_3d, self)
+		movement_component.move_to_target(navigation_agent_3d, self)
+		walk_timer.start()
+
+
+func exit_attack_state():
+	change_state(State.WANDER)

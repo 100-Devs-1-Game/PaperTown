@@ -5,11 +5,12 @@ var on_attack_cooldown := false
 
 
 # TODO: Link to an anim player
-func generate_attack(character_body: CharacterBody3D, dir: float, dist: float, time: float):
+func generate_attack(character_body: CharacterBody3D, dir: float, dist: float, time: float) -> IOverworldAttack:
 	if on_attack_cooldown:
-		return
+		return null
 
-	var attack = overworld_attack.instantiate()
+	var attack: IOverworldAttack = overworld_attack.instantiate()
+	assert(attack)
 
 	character_body.add_child(attack)
 	attack.global_position = Vector3(
@@ -21,6 +22,7 @@ func generate_attack(character_body: CharacterBody3D, dir: float, dist: float, t
 		attack.lasting_timer.timeout.connect(on_timer_timeout)
 		attack.start_timer(time)
 	on_attack_cooldown = true
+	return attack
 
 
 # Below will be obsolete with anim player

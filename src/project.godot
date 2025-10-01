@@ -28,6 +28,10 @@ FloatingText="*res://autoloads/floating_text.gd"
 GlobalUtils="*res://autoloads/globalutils.gd"
 Audio="*res://autoloads/audio.gd"
 
+[debug]
+
+gdscript/warnings/unused_signal=0
+
 [debug_draw_3d]
 
 settings/addon_root_folder="res://addons/debug_draw_3d"

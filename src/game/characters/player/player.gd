@@ -1,4 +1,4 @@
-class_name Player extends CharacterBody3D
+class_name Player extends ICharacter
 
 enum State { MOVEMENT, ATTACK, BATTLE }
 

@@ -76,9 +76,9 @@
 [resource]
 animations = [{
 "frames": [],
-"loop": true,
+"loop": false,
 "name": &"battle_defeat",
-"speed": 24.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -189,9 +189,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("36_mr0dw")
 }],
-"loop": true,
+"loop": false,
 "name": &"battle_start",
-"speed": 24.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -302,7 +302,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("36_uxnhu")
 }],
-"loop": true,
+"loop": false,
 "name": &"battle_victory",
-"speed": 24.0
+"speed": 12.0
 }]

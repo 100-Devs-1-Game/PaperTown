@@ -1,0 +1,50 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://cqi8e14qh3pc2"]
+
+[ext_resource type="Texture2D" uid="uid://bprriqj6tua8c" path="res://assets/100devs/ui/book_cover_frames/00000.png" id="1_aaccl"]
+[ext_resource type="Texture2D" uid="uid://b2osq6xrvnapg" path="res://assets/100devs/ui/book_cover_frames/00001.png" id="2_sd3b7"]
+[ext_resource type="Texture2D" uid="uid://jlcgut0euuus" path="res://assets/100devs/ui/book_cover_frames/00002.png" id="3_eig6i"]
+[ext_resource type="Texture2D" uid="uid://dy484aks752lg" path="res://assets/100devs/ui/book_cover_frames/00003.png" id="4_0f6dk"]
+[ext_resource type="Texture2D" uid="uid://co3fhm753tkta" path="res://assets/100devs/ui/book_cover_frames/00004.png" id="5_nlena"]
+[ext_resource type="Texture2D" uid="uid://c3wr7hxvqam21" path="res://assets/100devs/ui/book_cover_frames/00005.png" id="6_uukid"]
+[ext_resource type="Texture2D" uid="uid://bflg6iimxupn2" path="res://assets/100devs/ui/book_cover_frames/00006.png" id="7_cnfbr"]
+[ext_resource type="Texture2D" uid="uid://dlqo2vv16tq0f" path="res://assets/100devs/ui/book_cover_frames/00007.png" id="8_fqo4u"]
+[ext_resource type="Texture2D" uid="uid://cd7b7k7tuin16" path="res://assets/100devs/ui/book_cover_frames/00008.png" id="9_8murg"]
+[ext_resource type="Texture2D" uid="uid://cmk2wj0lbaikp" path="res://assets/100devs/ui/book_cover_frames/00009.png" id="10_vkbke"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_aaccl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_sd3b7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_eig6i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0f6dk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nlena")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uukid")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cnfbr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fqo4u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8murg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vkbke")
+}],
+"loop": false,
+"name": &"front",
+"speed": 12.0
+}]

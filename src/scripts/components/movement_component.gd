@@ -21,9 +21,16 @@ func accelerate_in_direction(direction: Vector3):
 		swap_facing_direction()
 
 
+func face_position(position: Vector3) -> void:
+	var dir_to_target := position - (get_parent() as Node3D).global_position
+	if (facing_right == true and dir_to_target.x < 0.0) or (facing_right == false and dir_to_target.x > 0.0):
+		swap_facing_direction()
+
+
 func update_target_location(nav_agent, target_location):
 	reached_destination = false
 	nav_agent.set_target_position(target_location)
+	face_position(target_location)
 
 
 func move_to_target(nav_agent: NavigationAgent3D, character_body: CharacterBody3D):
