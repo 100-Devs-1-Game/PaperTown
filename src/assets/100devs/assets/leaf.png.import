@@ -2,7 +2,7 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1lnbvq1prjsp"
+uid="uid://b87te1r7s0ob6"
 path.s3tc="res://.godot/imported/leaf.png-e43ccae9700d64ee1a229ea7d4a90a6d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
@@ -24,7 +24,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -37,5 +37,5 @@ process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=512
+process/size_limit=2048
 detect_3d/compress_to=0

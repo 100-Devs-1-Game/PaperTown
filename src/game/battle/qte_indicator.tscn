@@ -16,11 +16,10 @@ grow_vertical = 2
 script = ExtResource("1_ev6d5")
 
 [node name="QTERing" type="Sprite2D" parent="."]
-scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_f8vo6")
 
 [node name="SweetSpot" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_w4hbe")
 
 [node name="Timer" type="Timer" parent="."]
