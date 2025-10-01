@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn7ijmwcaixl2"]
+
+[ext_resource type="ArrayMesh" uid="uid://cux046m5wgxwy" path="res://assets/100devs/assets/data/rocking_chair_rocking-chair.mesh.res" id="1_h6yuj"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_h6yuj"]
+
+[node name="RockingChair" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.98210764, 0.059164315, 0.17878437, 0.0020571945, 0.9459394, -0.32433614, -0.18830825, 0.31890085, 0.9288929, 0, 0.027651094, 0)
+mesh = ExtResource("1_h6yuj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, -0.041927636, 0.9999999, 0.034032196)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("CylinderShape3D_h6yuj")
