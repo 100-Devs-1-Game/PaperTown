@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cygqjanirnqqt"]
+[gd_scene load_steps=9 format=3 uid="uid://cygqjanirnqqt"]
 
 [ext_resource type="Script" uid="uid://b5k4cn4tkdvlk" path="res://game/main.gd" id="1_oa506"]
 [ext_resource type="PackedScene" uid="uid://vh1c5iw178fp" path="res://game/game.tscn" id="2_emt18"]
 [ext_resource type="PackedScene" uid="uid://13pulyn1bbcj" path="res://game/ui/screen.tscn" id="3_vop5m"]
+[ext_resource type="PackedScene" uid="uid://cup8w5o8dum5r" path="res://game/characters/attacks/overworld/player_overworld_attack.tscn" id="4_5un7r"]
+[ext_resource type="PackedScene" uid="uid://ljf0m6me4r67" path="res://game/characters/attacks/overworld/boar_overworld_attack.tscn" id="5_dgpao"]
+[ext_resource type="PackedScene" uid="uid://c8x3kcryc0xtb" path="res://game/characters/enemies/boar.tscn" id="6_wjctj"]
+[ext_resource type="PackedScene" uid="uid://jvef32xe1ytl" path="res://game/characters/enemies/baby_boar.tscn" id="7_xkbyp"]
+[ext_resource type="PackedScene" uid="uid://daltrhtfxoebt" path="res://game/characters/enemies/rudolph.tscn" id="8_xkbyp"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_oa506")
@@ -12,3 +17,17 @@ unique_name_in_owner = true
 
 [node name="Screen" parent="." instance=ExtResource("3_vop5m")]
 unique_name_in_owner = true
+
+[node name="preload to avoid stutters" type="Node3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+visible = false
+
+[node name="PlayerOverworldAttack" parent="preload to avoid stutters" instance=ExtResource("4_5un7r")]
+
+[node name="BoarOverworldAttack" parent="preload to avoid stutters" instance=ExtResource("5_dgpao")]
+
+[node name="Boar" parent="preload to avoid stutters" instance=ExtResource("6_wjctj")]
+
+[node name="BabyBoar" parent="preload to avoid stutters" instance=ExtResource("7_xkbyp")]
+
+[node name="Rudolph" parent="preload to avoid stutters" instance=ExtResource("8_xkbyp")]
