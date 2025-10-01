@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://bipfmnkvcb6f"]
+
+[ext_resource type="Script" uid="uid://csosbglok5q5n" path="res://game/ui/screen_transition.gd" id="1_q1rf0"]
+[ext_resource type="SpriteFrames" uid="uid://venbliny6y4n" path="res://game/ui/screen_transition_spriteframes.tres" id="2_b1t7k"]
+
+[node name="ScreenTransition" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_q1rf0")
+
+[node name="BlackBorders" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Left" type="ColorRect" parent="BlackBorders"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -1640.0
+offset_right = -640.0
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Right" type="ColorRect" parent="BlackBorders"]
+custom_minimum_size = Vector2(1000, 0)
+layout_direction = 3
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -1640.0
+offset_right = -640.0
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control"]
+unique_name_in_owner = true
+sprite_frames = ExtResource("2_b1t7k")
+animation = &"battle_victory"

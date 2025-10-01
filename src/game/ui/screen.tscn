@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dth4062q1cegh" path="res://game/ui/screen.gd" id="1_eria8"]
 [ext_resource type="Shader" uid="uid://cbo0suho5kddy" path="res://game/ui/screen_blur.gdshader" id="2_50n40"]
-[ext_resource type="Shader" uid="uid://dx4bdfrh3vmdc" path="res://game/ui/stripe.gdshader" id="2_jdf4q"]
-[ext_resource type="Shader" uid="uid://b0folliwyqccd" path="res://game/ui/screen_swipe_circles.gdshader" id="4_jdf4q"]
-[ext_resource type="Shader" uid="uid://iylpvkk3hgm8" path="res://game/ui/screen_swipe_dots.gdshader" id="6_2176l"]
+[ext_resource type="Shader" uid="uid://dx4bdfrh3vmdc" path="res://game/ui/screen_stripes.gdshader" id="2_jdf4q"]
+[ext_resource type="Shader" uid="uid://b0folliwyqccd" path="res://game/ui/unused_shaders/screen_swipe_circles.gdshader" id="4_jdf4q"]
+[ext_resource type="Shader" uid="uid://iylpvkk3hgm8" path="res://game/ui/unused_shaders/screen_swipe_dots.gdshader" id="6_2176l"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_if1mq"]
 shader = ExtResource("2_50n40")

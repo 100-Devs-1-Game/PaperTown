@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=7 format=3 uid="uid://w46o85kkkof2"]
 
-[ext_resource type="FontVariation" uid="uid://cs4y5cn70ghcn" path="res://game/ui/base_theme_font.tres" id="1_v1344"]
+[ext_resource type="FontVariation" uid="uid://cs4y5cn70ghcn" path="res://game/ui/theme/base_theme_font.tres" id="1_v1344"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_agvlg"]
 content_margin_left = 4.0

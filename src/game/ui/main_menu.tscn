@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://blhwwgupnhdwy"]
 
-[ext_resource type="Theme" uid="uid://w46o85kkkof2" path="res://game/ui/base_theme.tres" id="1_478ix"]
+[ext_resource type="Theme" uid="uid://w46o85kkkof2" path="res://game/ui/theme/base_theme.tres" id="1_478ix"]
 [ext_resource type="Script" uid="uid://c83yg6jw4oq58" path="res://game/ui/main_menu.gd" id="1_spbnf"]
 [ext_resource type="PackedScene" uid="uid://cajrbf7ccprgv" path="res://game/other/floating_text/floating_text.tscn" id="3_hjbl3"]
-[ext_resource type="FontVariation" uid="uid://ditpur2fgahcx" path="res://game/ui/font_variation.tres" id="4_3nuvx"]
+[ext_resource type="FontVariation" uid="uid://ditpur2fgahcx" path="res://game/ui/theme/font_variation.tres" id="4_3nuvx"]
 [ext_resource type="Shader" uid="uid://chhfhfvslvbio" path="res://game/other/floating_text/floating_text_gradient.gdshader" id="4_w7b7d"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3nlpe"]
