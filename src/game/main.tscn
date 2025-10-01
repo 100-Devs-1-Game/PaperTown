@@ -20,7 +20,6 @@ unique_name_in_owner = true
 
 [node name="preload to avoid stutters" type="Node3D" parent="."]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
-visible = false
 
 [node name="PlayerOverworldAttack" parent="preload to avoid stutters" instance=ExtResource("4_5un7r")]
 
