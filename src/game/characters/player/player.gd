@@ -9,6 +9,8 @@ var attack_distance := 1.5
 var attack_time = 0.3
 var current_state: State
 var stats = STATS
+var talkable_npcs = []
+var talkable_state := false
 
 @onready var visuals: Node3D = %Visuals
 @onready var animated_sprite_3d: AnimatedSprite3D = %AnimatedSprite3D
@@ -16,12 +18,16 @@ var stats = STATS
 @onready var movement_component = %MovementComponent
 @onready var overworld_attack_component = %OverworldAttackComponent
 @onready var collision_shape_3d = %CollisionShape3D
+@onready var personal_space_bubble = $PersonalSpaceBubble
 
 signal player_state_changed(new_state: State)
 
 
 func _ready():
 	change_state(State.MOVEMENT)
+
+	personal_space_bubble.body_entered.connect(on_body_entered)
+	personal_space_bubble.body_exited.connect(on_body_exited)
 
 	if stats == null:
 		push_error("Player stats not loaded!")
@@ -58,7 +64,10 @@ func handle_movement(delta):
 	movement_component.move(self)
 
 	if Input.is_action_just_pressed("attack_overworld"):
-		handle_attack()
+		if talkable_state:
+			talkable_npcs[talkable_npcs.size() - 1].npc_component.interact_with_player()
+		else:
+			handle_attack()
 
 
 func get_movement_vector():
@@ -97,6 +106,16 @@ func handle_attack():
 		ft3d, ft3d.position + (Vector3.RIGHT * dir * attack_distance) + Vector3.UP, 1
 	)
 
+func add_talkable_npc(body: CharacterBody3D):
+	talkable_state = true
+	talkable_npcs.append(body)
+	
+func remove_talkable_npc(body: CharacterBody3D):
+	if body in talkable_npcs:
+		talkable_npcs.erase(body)
+		
+	if talkable_npcs.is_empty():
+		talkable_state = false
 
 # This will likely get obsolete with an anim player
 func exit_attack_state():
@@ -108,3 +127,13 @@ func change_state(new_state: State) -> void:
 		return
 	current_state = new_state
 	player_state_changed.emit(current_state)
+
+func on_body_entered(body):
+	print("body entered!")
+	if body in get_tree().get_nodes_in_group("followers"):
+		print("STOP!!!")
+		body.follower_component.stop_following_player()
+	
+func on_body_exited(body):
+	if body in get_tree().get_nodes_in_group("followers"):
+		body.follower_component.start_following_player()
