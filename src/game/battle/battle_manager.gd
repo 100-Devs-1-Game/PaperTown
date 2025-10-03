@@ -15,6 +15,10 @@ const QTE_INDICATOR = preload("uid://k2fu5rlm10mf")
 @onready var enemy_character: Array[Enemy] = []
 @onready var camera_3d: Camera3D = $Camera3D
 
+var screen_transition = preload("res://game/ui/screen_transition.tscn")
+var overworld_scene
+
+# Battle variables
 # Battle variables
 var player_action: GlobalUtils.PlayerAction
 var battle_menu_instance: BattleMenu
@@ -23,8 +27,15 @@ var dodge_success: bool
 var current_enemy_index: int = 0
 var alive_enemies: Array[Enemy] = []
 var is_battle_active: bool = true
+var dodge_success: bool
+var current_enemy_index: int = 0
+var alive_enemies: Array[Enemy] = []
+var is_battle_active: bool = true
 
 func _ready() -> void:
+	# TODO: This SHOULD NOT be one static thing
+	overworld_scene = "res://game/overworld/overworld_test2.tscn"
+	
 	# Generate boars
 	for i in range(3):
 		var boar = BOAR.instantiate()
@@ -60,7 +71,16 @@ func start_battle() -> void:
 	player_character.stats.hit_counter = 0
 	update_alive_enemies()
 	start_player_turn()
+	player_character.stats.hit_counter = 0
+	update_alive_enemies()
+	start_player_turn()
 
+func update_alive_enemies() -> void:
+	alive_enemies.clear()
+	for enemy in enemy_character:
+		# ✅ Check for null AND valid instance AND hp > 0
+		if is_instance_valid(enemy) and enemy.stats.current_hp > 0:
+			alive_enemies.append(enemy)
 func update_alive_enemies() -> void:
 	alive_enemies.clear()
 	for enemy in enemy_character:
@@ -74,12 +94,21 @@ func start_player_turn() -> void:
 
 	print("Player's turn!")
 	battle_menu_instance.show_menu()
+	if not is_battle_active:
+		return
+
+	print("Player's turn!")
+	battle_menu_instance.show_menu()
 
 func handle_player_action(selected_action: GlobalUtils.PlayerAction, selected_target: int) -> void:
 	if not is_battle_active:
 		return
 
+	if not is_battle_active:
+		return
+
 	player_action = selected_action
+
 
 	if player_action == GlobalUtils.PlayerAction.RUN_AWAY:
 		execute_run_attempt()
@@ -87,6 +116,15 @@ func handle_player_action(selected_action: GlobalUtils.PlayerAction, selected_ta
 		execute_attack(selected_target)
 
 func execute_attack(target: int) -> void:
+	var damage: int = 0
+
+	match player_action:
+		GlobalUtils.PlayerAction.TONGUE_SLAP:
+			damage = player_character.stats.attack
+			print("Player used Tongue Slap!")
+		GlobalUtils.PlayerAction.TAIL_WHIP:
+			damage = player_character.stats.attack * 2
+			print("Player used Tail Whip!")
 	var damage: int = 0
 
 	match player_action:
@@ -113,16 +151,49 @@ func execute_attack(target: int) -> void:
 
 	# Player turn finished, start enemy turns
 	start_enemy_turns()
+	if damage > 0 and target < enemy_character.size():
+		enemy_character[target].stats.current_hp -= damage
+		print("Dealt %d damage to enemy %d!" % [damage, target + 1])
+
+		if enemy_character[target].stats.current_hp <= 0:
+			print("Enemy %d defeated!" % (target + 1))
+			enemy_character[target].queue_free()
+
+			# Check if all enemies defeated
+			update_alive_enemies()
+			if alive_enemies.size() == 0:
+				win_battle()
+				return
+
+	# Player turn finished, start enemy turns
+	start_enemy_turns()
 
 func execute_run_attempt() -> void:
 	var run_chance := randi() % 100
 	if run_chance < 50:
 		print("Successfully ran away!")
-		end_battle()
+		end_battle("won")
 	else:
 		print("Failed to run away!")
 		start_enemy_turns()
+		start_enemy_turns()
 
+func start_enemy_turns() -> void:
+	if not is_battle_active:
+		return
+
+	update_alive_enemies()
+	current_enemy_index = 0
+	print("Enemy turns begin!")
+	execute_next_enemy_turn()
+
+func execute_next_enemy_turn() -> void:
+	if not is_battle_active:
+		return
+
+	# Check if all enemies have acted
+	if current_enemy_index >= alive_enemies.size():
+		# All enemies finished, back to player turn
 func start_enemy_turns() -> void:
 	if not is_battle_active:
 		return
@@ -181,14 +252,26 @@ func execute_next_enemy_turn() -> void:
 
 func win_battle() -> void:
 	is_battle_active = false
-	print("Victory! All enemies defeated!")
-	end_battle()
+	end_battle("won")
 
 func lose_battle() -> void:
 	is_battle_active = false
 	print("Defeat! You were overwhelmed!")
-	end_battle()
+	end_battle("lost")
 
-func end_battle() -> void:
+func end_battle(result : String) -> void:
 	print("Battle ends.")
+	
+	var screen_transition_instance = screen_transition.instantiate()
+	get_tree().root.add_child(screen_transition_instance)
+	
+	if result == "won":
+		screen_transition_instance.do_transition(ScreenTransition.TransitionType.BATTLE_WON)
+	elif result == "lost":
+		screen_transition_instance.do_transition(ScreenTransition.TransitionType.BATTLE_LOST)
+		
+	
 	# TODO: clear battle scene, play victory or defeat splash, exit to OW
+	# TODO: We need to track the player's position in the overworld after this
+	await screen_transition_instance.transition_halfway
+	get_tree().change_scene_to_file(overworld_scene)

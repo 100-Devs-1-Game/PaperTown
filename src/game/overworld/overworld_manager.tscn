@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c673ixvf0lirq"]
+
+[ext_resource type="Script" uid="uid://72nc7yhpvfh" path="res://game/overworld/overworld_manager.gd" id="1_07dh0"]
+
+[node name="OverworldManager" type="Node"]
+script = ExtResource("1_07dh0")
