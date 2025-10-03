@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkncxy1hhno8p"]
+
+[ext_resource type="Script" uid="uid://b7xas7gnml6gd" path="res://game/characters/components/npc_component.gd" id="1_o86d4"]
+
+[node name="NPCComponent" type="Node"]
+script = ExtResource("1_o86d4")
