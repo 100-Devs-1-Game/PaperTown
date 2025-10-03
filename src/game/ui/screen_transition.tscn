@@ -4,6 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://venbliny6y4n" path="res://game/ui/screen_transition_spriteframes.tres" id="2_b1t7k"]
 
 [node name="ScreenTransition" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -57,4 +58,6 @@ grow_vertical = 2
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control"]
 unique_name_in_owner = true
 sprite_frames = ExtResource("2_b1t7k")
-animation = &"battle_defeat"
+animation = &"battle_start"
+frame = 35
+frame_progress = 1.0

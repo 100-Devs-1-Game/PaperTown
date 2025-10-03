@@ -27,6 +27,7 @@ func _ready():
 	assert(walk_timer.one_shot)
 
 	detection_bubble.body_entered.connect(on_detection_bubble_body_entered)
+	detection_bubble.body_exited.connect(on_detection_bubble_body_exited)
 	alert_timer.timeout.connect(on_alert_timeout)
 	walk_timer.timeout.connect(on_walk_timeout)
 
@@ -66,10 +67,14 @@ func chase():
 
 
 func on_alert_timeout():
+	if current_state != State.ALERT:
+		return
+	
 	change_state(State.CHASE)
 	debug_excla_mark.text = ""
 	var dir_to_player := (get_tree().get_first_node_in_group("player") as Node3D).global_position - global_position
-	var _attack: IOverworldAttack = overworld_attack_component.generate_attack(self, dir_to_player.normalized().x, min(1.5, dir_to_player.length()), 1.0)
+	# min(1.5, dir_to_player.length())
+	var _attack: IOverworldAttack = overworld_attack_component.generate_attack(self, dir_to_player.normalized().x, 0, -1)
 
 
 func on_walk_timeout():
@@ -97,10 +102,15 @@ func change_state(new_state: State) -> void:
 	enemy_state_changed.emit(current_state)
 
 	if current_state == State.WANDER:
-		movement_component.get_random_spot(navigation_agent_3d, self)
+		movement_component.update_target_location(navigation_agent_3d, global_position)
 		movement_component.move_to_target(navigation_agent_3d, self)
 		walk_timer.start()
 
+func on_detection_bubble_body_exited(body):
+	if body in get_tree().get_nodes_in_group("player") and (current_state == State.CHASE or current_state == State.ALERT):
+		overworld_attack_component.resolve_attack()
+		
 
 func exit_attack_state():
+	debug_excla_mark.text = ""
 	change_state(State.WANDER)
