@@ -4,6 +4,5 @@
 
 [resource]
 resource_name = "wire"
-cull_mode = 2
 albedo_texture = ExtResource("1_7qpsw")
 roughness = 0.49999997

@@ -5,7 +5,6 @@
 
 [resource]
 resource_name = "cardboard_dark"
-cull_mode = 2
 albedo_texture = ExtResource("1_2lfyw")
 normal_enabled = true
 normal_texture = ExtResource("2_puwul")

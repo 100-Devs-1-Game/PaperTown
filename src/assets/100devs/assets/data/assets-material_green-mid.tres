@@ -2,5 +2,4 @@
 
 [resource]
 resource_name = "green_mid"
-cull_mode = 2
 albedo_color = Color(0.2324605, 0.45825592, 0.22249319, 1)

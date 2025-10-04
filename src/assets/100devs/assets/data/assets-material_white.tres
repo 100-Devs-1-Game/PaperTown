@@ -2,5 +2,4 @@
 
 [resource]
 resource_name = "white"
-cull_mode = 2
 roughness = 0.5
