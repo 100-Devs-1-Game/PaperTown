@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlnsxa0hoxkmh"]
+
+[ext_resource type="ArrayMesh" uid="uid://bd6vu7dhfvpp2" path="res://assets/100devs/assets/data/assets_bridge-stone_river.mesh.res" id="1_7a5gw"]
+[ext_resource type="ArrayMesh" uid="uid://c5joceoaml636" path="res://assets/100devs/assets/data/assets_bridge-stone_river_river-waves.mesh.res" id="2_brn38"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7a5gw"]
+size = Vector3(10, 2.25, 40)
+
+[node name="River" type="Node3D"]
+
+[node name="river" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.5404682, 0, 0, 0, 3.5404685, 0, 0, 0, 17.00952, 1.723949, -1.5289984, -7.233687)
+mesh = ExtResource("1_7a5gw")
+skeleton = NodePath("")
+
+[node name="river_waves" type="MeshInstance3D" parent="river"]
+transform = Transform3D(0.0019548067, -1.2096544e-08, 0.47613674, 3.0452723e-09, 0.05828162, 8.7205265e-08, 0.014541436, -1.0579216e-08, -0.06400711, -0.082071215, 0.48165658, 0.7260698)
+mesh = ExtResource("2_brn38")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -1, -8)
+shape = SubResource("BoxShape3D_7a5gw")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -1, -8)
+shape = SubResource("BoxShape3D_7a5gw")

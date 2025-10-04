@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://buhow28a52c24"]
+
+[ext_resource type="PackedScene" uid="uid://bxf2iw36fhu4j" path="res://game/environment/floor/floor_middle.tscn" id="1_jhkwj"]
+
+[node name="EverythingFloorchunkSmall" type="Node3D"]
+
+[node name="FloorMiddle" parent="." instance=ExtResource("1_jhkwj")]
+
+[node name="FloorMiddle2" parent="." instance=ExtResource("1_jhkwj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="FloorMiddle3" parent="." instance=ExtResource("1_jhkwj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="FloorMiddle4" parent="." instance=ExtResource("1_jhkwj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="FloorMiddle5" parent="." instance=ExtResource("1_jhkwj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
+
+[node name="FloorMiddle6" parent="." instance=ExtResource("1_jhkwj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4)
+
+[node name="FloorMiddle7" parent="." instance=ExtResource("1_jhkwj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="FloorMiddle8" parent="." instance=ExtResource("1_jhkwj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4)
+
+[node name="FloorMiddle9" parent="." instance=ExtResource("1_jhkwj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 4)

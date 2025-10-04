@@ -4,7 +4,7 @@ extends Camera3D
 @export var speed: float = 5.0
 
 # -10 seems like a good default, but maybe we want 0 inside houses?
-var target_angle: float = -10.0
+var target_angle: float = -20.0
 # 45 FOV seems great
 var target_fov: float = 45.0
 var target: Node3D

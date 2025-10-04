@@ -31,6 +31,8 @@ Audio="*res://autoloads/audio.gd"
 [debug]
 
 gdscript/warnings/unused_signal=0
+shapes/collision/shape_color=Color(2.8878452e-07, 0.37957016, 0.4446158, 1)
+shapes/collision/contact_color=Color(1, 0.2, 0.101960786, 1)
 
 [debug_draw_3d]
 
