@@ -4,6 +4,8 @@ enum State { WANDER, ALERT, CHASE, BATTLE }
 
 const STATS = preload("res://game/resources/stats.tres")
 
+@export var friendly := false
+
 var stats = STATS.duplicate(true)
 var current_state: State
 var target: CharacterBody3D = null
@@ -60,12 +62,18 @@ func alert():
 
 
 func chase():
+	if friendly:
+		return
+
 	movement_component.update_target_location(navigation_agent_3d, target.global_position)
 	movement_component.move_to_target(navigation_agent_3d, self)
 	animated_sprite_3d.play(&"charge")
 
 
 func on_alert_timeout():
+	if friendly:
+		return
+
 	change_state(State.CHASE)
 	debug_excla_mark.text = ""
 	var dir_to_player := (get_tree().get_first_node_in_group("player") as Node3D).global_position - global_position
@@ -82,6 +90,9 @@ func on_walk_timeout():
 
 
 func on_detection_bubble_body_entered(body):
+	if friendly:
+		return
+
 	if body in get_tree().get_nodes_in_group("player") and current_state == State.WANDER:
 		change_state(State.ALERT)
 		debug_excla_mark.text = "!!"
@@ -93,6 +104,10 @@ func on_detection_bubble_body_entered(body):
 func change_state(new_state: State) -> void:
 	if current_state == new_state:
 		return
+
+	if friendly && new_state != State.WANDER:
+		return
+
 	current_state = new_state
 	enemy_state_changed.emit(current_state)
 

@@ -1,37 +1,47 @@
 [gd_scene load_steps=4 format=3 uid="uid://ca78wwm4o5ydj"]
 
-[ext_resource type="PackedScene" uid="uid://bdv4w5a651hhk" path="res://game/environment/object/tree_short.tscn" id="1_i4cfs"]
-[ext_resource type="PackedScene" uid="uid://bmcjj4rkgknfa" path="res://game/environment/object/tree_striped.tscn" id="2_i4cfs"]
-[ext_resource type="PackedScene" uid="uid://b168j8sqnakkp" path="res://game/overworld/levels/everything_flowers.tscn" id="3_76yjt"]
+[ext_resource type="ArrayMesh" uid="uid://bs5ouuueqqhnv" path="res://assets/100devs/assets/data/assets_tree-short.mesh.res" id="1_76yjt"]
+[ext_resource type="ArrayMesh" uid="uid://lpsfjj3sx3nk" path="res://assets/100devs/assets/data/assets_tree-striped.mesh.res" id="2_vl3q6"]
+[ext_resource type="ArrayMesh" uid="uid://b0kl1nw5ym4mf" path="res://assets/100devs/assets/data/assets_flower-blue.mesh.res" id="3_qldkt"]
 
 [node name="EverythingTreechunkShort" type="Node3D"]
 
-[node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+[node name="TreeShort" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, -3.4969112e-08, -0.55840003, 0, 0.8, -2.440844e-08, -1.2308629, -0.4, 0.6866212)
+mesh = ExtResource("1_76yjt")
 
-[node name="TreeShort" parent="Node3D" instance=ExtResource("1_i4cfs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4767368, 0, 0.7726817)
+[node name="TreeShort2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, -3.4969112e-08, -0.55840003, 0, 0.8, -2.440844e-08, 2.088334, -0.4, 2.6969838)
+mesh = ExtResource("1_76yjt")
 
-[node name="TreeShort2" parent="Node3D" instance=ExtResource("1_i4cfs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6722593, 0, 3.285635)
+[node name="TreeShort3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, -3.4969112e-08, -0.55840003, 0, 0.8, -2.440844e-08, 1.2883341, -0.4, 0.11089368)
+mesh = ExtResource("1_76yjt")
 
-[node name="TreeShort3" parent="Node3D" instance=ExtResource("1_i4cfs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6722593, 0, 0.053022385)
+[node name="TreeShort4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, -3.4969112e-08, -0.55840003, 0, 0.8, -2.440844e-08, 3.3693476, -0.4, 1.5820607)
+mesh = ExtResource("1_76yjt")
 
-[node name="TreeShort4" parent="Node3D" instance=ExtResource("1_i4cfs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.273526, 0, 1.8919811)
+[node name="TreeShort5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, -3.4969112e-08, -0.55840003, 0, 0.8, -2.440844e-08, -2.1081047, -0.4, 2.9023762)
+mesh = ExtResource("1_76yjt")
 
-[node name="TreeShort5" parent="Node3D" instance=ExtResource("1_i4cfs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.573289, 0, 3.5423756)
+[node name="TreeShort6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, -3.4969112e-08, -0.55840003, 0, 0.8, -2.440844e-08, 0.29189542, -0.4, 1.7788575)
+mesh = ExtResource("1_76yjt")
 
-[node name="TreeShort6" parent="Node3D" instance=ExtResource("1_i4cfs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42671108, 0, 2.1379771)
+[node name="TreeStriped" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, -3.4969112e-08, -0.7024, 0, 0.8, -3.070288e-08, -1.6307849, 0.1310819, 2.3005886)
+mesh = ExtResource("2_vl3q6")
 
-[node name="TreeStriped" parent="Node3D" instance=ExtResource("2_i4cfs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2.8207545)
+[node name="TreeStriped2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, -3.4969112e-08, -0.7024, 0, 0.8, -3.070288e-08, 2.1843665, 0.1310819, 0.87855536)
+mesh = ExtResource("2_vl3q6")
 
-[node name="TreeStriped2" parent="Node3D" instance=ExtResource("2_i4cfs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.768939, 0, 1.0432131)
+[node name="FlowerBlue" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.86076313, 0, 0, 0, 1, 0.5252154, 0, 2.1155355)
+mesh = ExtResource("3_qldkt")
 
-[node name="EverythingFlowers" parent="." instance=ExtResource("3_76yjt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+[node name="FlowerBlue5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.6494215, 0, 0.76042867, 0, 1, 0, -0.76042867, 0, 0.6494215, -4.427058, 0, 2.4791176)
+mesh = ExtResource("3_qldkt")

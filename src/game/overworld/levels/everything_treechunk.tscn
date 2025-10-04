@@ -1,37 +1,47 @@
 [gd_scene load_steps=4 format=3 uid="uid://0vxsg8lmmbxd"]
 
-[ext_resource type="PackedScene" uid="uid://bdv4w5a651hhk" path="res://game/environment/object/tree_short.tscn" id="1_rplf4"]
-[ext_resource type="PackedScene" uid="uid://dsin55s8mkxxm" path="res://game/environment/object/tree_tall.tscn" id="2_5w84c"]
-[ext_resource type="PackedScene" uid="uid://b168j8sqnakkp" path="res://game/overworld/levels/everything_flowers.tscn" id="3_5w84c"]
+[ext_resource type="ArrayMesh" uid="uid://bs5ouuueqqhnv" path="res://assets/100devs/assets/data/assets_tree-short.mesh.res" id="1_5w84c"]
+[ext_resource type="ArrayMesh" uid="uid://u4gihw6o01rv" path="res://assets/100devs/assets/data/assets_tree-tall.mesh.res" id="2_sa5fc"]
+[ext_resource type="ArrayMesh" uid="uid://b0kl1nw5ym4mf" path="res://assets/100devs/assets/data/assets_flower-blue.mesh.res" id="3_kea8n"]
 
 [node name="EverythingTreechunk" type="Node3D"]
 
-[node name="TreeShort" parent="." instance=ExtResource("1_rplf4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.000327, 0, 0)
+[node name="TreeShort7" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -0.698, 0, 1, -3.051055e-08, -3.0621688, -0.5, 0.08559471)
+mesh = ExtResource("1_5w84c")
 
-[node name="TreeShort2" parent="." instance=ExtResource("1_rplf4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6722593, 0, 3.285635)
+[node name="TreeShort8" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -0.698, 0, 1, -3.051055e-08, 2.6104176, -0.5, 3.3712296)
+mesh = ExtResource("1_5w84c")
 
-[node name="TreeShort3" parent="." instance=ExtResource("1_rplf4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6722593, 0, 0.053022385)
+[node name="TreeShort9" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -0.698, 0, 1, -3.051055e-08, 1.6104175, -0.5, 0.1386171)
+mesh = ExtResource("1_5w84c")
 
-[node name="TreeShort4" parent="." instance=ExtResource("1_rplf4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.273526, 0, 1.8919811)
+[node name="TreeShort10" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -0.698, 0, 1, -3.051055e-08, 4.211684, -0.5, 1.9775758)
+mesh = ExtResource("1_5w84c")
 
-[node name="TreeShort5" parent="." instance=ExtResource("1_rplf4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.573289, 0, 3.5423756)
+[node name="TreeShort11" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -0.698, 0, 1, -3.051055e-08, -2.6351306, -0.5, 3.6279702)
+mesh = ExtResource("1_5w84c")
 
-[node name="TreeShort6" parent="." instance=ExtResource("1_rplf4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42671108, 0, 1.8002052)
+[node name="TreeShort12" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -0.698, 0, 1, -3.051055e-08, 0.36486927, -0.5, 1.8857999)
+mesh = ExtResource("1_5w84c")
 
-[node name="TreeTall" parent="." instance=ExtResource("2_5w84c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2209997, 0, 2)
+[node name="TreeTall4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -2.2594807, 0.081, 2.086316)
+mesh = ExtResource("2_sa5fc")
 
-[node name="TreeTall2" parent="." instance=ExtResource("2_5w84c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2209997, 0, -1)
+[node name="TreeTall5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1.2594807, 0.081, -0.9136838)
+mesh = ExtResource("2_sa5fc")
 
-[node name="TreeTall3" parent="." instance=ExtResource("2_5w84c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6491299, 0, 1.0201778)
+[node name="TreeTall6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 3.6106489, 0.081, 1.1064941)
+mesh = ExtResource("2_sa5fc")
 
-[node name="EverythingFlowers" parent="." instance=ExtResource("3_5w84c")]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0.5801618, 0, 2.0127006)
+[node name="FlowerBlue5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.48706615, 0, 0.5703215, 0, 0.75, 0, -0.5703215, 0, 0.48706615, -1.0960889, 0, 2.7624376)
+mesh = ExtResource("3_kea8n")

@@ -1,36 +1,42 @@
 [gd_scene load_steps=3 format=3 uid="uid://cu4l58agwq61g"]
 
-[ext_resource type="PackedScene" uid="uid://dx4ulpnywy74r" path="res://game/environment/decoration/flower_blue.tscn" id="1_jmht2"]
-[ext_resource type="PackedScene" uid="uid://o50vffwet2vh" path="res://game/environment/decoration/flower_pink.tscn" id="2_084wx"]
+[ext_resource type="ArrayMesh" uid="uid://cnqklr468isqg" path="res://assets/100devs/assets/data/assets_flower-pink.mesh.res" id="3_p24by"]
+[ext_resource type="ArrayMesh" uid="uid://b0kl1nw5ym4mf" path="res://assets/100devs/assets/data/assets_flower-blue.mesh.res" id="4_c6yry"]
 
 [node name="EverythingFlowerfield" type="Node3D"]
 
-[node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(0.865, 0, 0, 0, 0.865, 0, 0, 0, 0.865, -0.865, 0, 0)
+[node name="FlowerBlue" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5446797, 0, -0.52553195, 0, 0.75687504, 0, 0.52553195, 0, 0.5446797, 4.607191, 0, 0.35388023)
+mesh = ExtResource("4_c6yry")
 
-[node name="FlowerBlue" parent="Node3D" instance=ExtResource("1_jmht2")]
-transform = Transform3D(0.6296875, 0, -0.6075514, 0, 0.875, 0, 0.6075514, 0, 0.6296875, 6.326233, 0, 0.40911007)
+[node name="FlowerBlue2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.947175, 0, 0, 0, 0.947175, 0, 0, 0, 0.947175, -0.865, 0, -1.9842328)
+mesh = ExtResource("4_c6yry")
 
-[node name="FlowerBlue2" parent="Node3D" instance=ExtResource("1_jmht2")]
-transform = Transform3D(1.095, 0, 0, 0, 1.095, 0, 0, 0, 1.095, 0, 0, -2.2939107)
+[node name="FlowerBlue3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.6444226, 0.0003022616, -0.0017397681, 1.8755237e-11, 0.634914, 0.110307865, 0.0017658299, -0.110307455, 0.6349116, 1.1040357, 0, 1.3287755)
+mesh = ExtResource("4_c6yry")
 
-[node name="FlowerBlue3" parent="Node3D" instance=ExtResource("1_jmht2")]
-transform = Transform3D(0.7449972, 0.00034943534, -0.0020112926, 2.1682354e-11, 0.7340046, 0.12752354, 0.0020414218, -0.12752306, 0.7340018, 2.276342, 0, 1.5361567)
+[node name="FlowerBlue4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8245886, 0, 0.4481997, 0, 0.938525, 0, -0.4481997, 0, 0.8245886, 2.9799414, 0, -3.4740171)
+mesh = ExtResource("4_c6yry")
 
-[node name="FlowerBlue4" parent="Node3D" instance=ExtResource("1_jmht2")]
-transform = Transform3D(0.9532816, 0, 0.5181499, 0, 1.085, 0, -0.5181499, 0, 0.9532816, 4.445019, 0, -4.016205)
+[node name="FlowerBlue5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7844551, -0.1349773, 0.3385799, 0.14668074, 0.8524727, 0, -0.3336765, 0.057414047, 0.79598284, -3.427851, 0, 2.2783802)
+mesh = ExtResource("4_c6yry")
 
-[node name="FlowerBlue5" parent="Node3D" instance=ExtResource("1_jmht2")]
-transform = Transform3D(0.9068845, -0.15604311, 0.39142182, 0.16957311, 0.9855176, 0, -0.38575315, 0.06637462, 0.9202114, -2.9628334, 0, 2.6339655)
+[node name="FlowerPink" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8024879, 0, -0.17687896, 0, 0.82175, 0, 0.17687896, 0, 0.8024879, -1.1253457, 0, 0.9330438)
+mesh = ExtResource("3_p24by")
 
-[node name="FlowerPink" parent="Node3D" instance=ExtResource("2_084wx")]
-transform = Transform3D(0.9277317, 0, -0.20448434, 0, 0.95, 0, 0.20448434, 0, 0.9277317, -0.3009777, 0, 1.0786633)
+[node name="FlowerPink4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7634058, 0, 0.3481616, 0, 0.83905005, 0, -0.3481616, 0, 0.7634058, 1.272959, 4.1246415e-07, -0.364747)
+mesh = ExtResource("3_p24by")
 
-[node name="FlowerPink4" parent="Node3D" instance=ExtResource("2_084wx")]
-transform = Transform3D(0.88255006, 0, 0.40249896, 0, 0.97, 0, -0.40249896, 0, 0.88255006, 2.471629, 4.7683716e-07, -0.42167282)
+[node name="FlowerPink3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9104486, -0.06225974, 0, 0.06225974, 0.9104486, 0, 0, 0, 0.91257495, -0.48628697, 0, -4.673681)
+mesh = ExtResource("3_p24by")
 
-[node name="FlowerPink3" parent="Node3D" instance=ExtResource("2_084wx")]
-transform = Transform3D(1.0525417, -0.07197658, 0, 0.07197658, 1.0525417, 0, 0, 0, 1.055, 0.43781853, 0, -5.403099)
-
-[node name="FlowerPink2" parent="Node3D" instance=ExtResource("2_084wx")]
-transform = Transform3D(0.94273376, 0.117273316, 0, -0.117273316, 0.94273376, 0, 0, 0, 0.95, -3.4773524, 0, -1.9988878)
+[node name="FlowerPink2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.81546474, 0.10144142, 0, -0.10144142, 0.81546474, 0, 0, 0, 0.82175, -3.8729098, 0, -1.729038)
+mesh = ExtResource("3_p24by")
