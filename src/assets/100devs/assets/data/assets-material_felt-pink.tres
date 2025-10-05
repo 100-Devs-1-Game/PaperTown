@@ -4,7 +4,6 @@
 
 [resource]
 resource_name = "felt_pink"
-cull_mode = 2
 albedo_color = Color(0.9064302, 0.25066382, 0.5266633, 1)
 normal_enabled = true
 normal_texture = ExtResource("1_toq34")

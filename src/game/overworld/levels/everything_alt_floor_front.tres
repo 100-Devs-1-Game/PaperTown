@@ -1,0 +1,35 @@
+[gd_resource type="ArrayMesh" load_steps=4 format=3 uid="uid://dbpt3v1qkc72u"]
+
+[ext_resource type="Material" uid="uid://c2cwbf0jlsy0" path="res://game/overworld/levels/alternative_grass_material.tres" id="1_y4wfw"]
+[ext_resource type="Material" uid="uid://mi14epe54g6y" path="res://assets/100devs/assets/data/assets-material_cardboard.tres" id="2_ib1ny"]
+[ext_resource type="ArrayMesh" uid="uid://dakl2uqajo1el" path="res://assets/100devs/assets/data/assets_floor-front.mesh.shadow.res" id="3_na6wk"]
+
+[resource]
+resource_name = "assets_floor-front_plane-064.mesh"
+_surfaces = [{
+"aabb": AABB(0, 0, 0, 4, 1e-05, 4),
+"attribute_data": PackedByteArray(6, 150, 134, 4, 18, 190, 244, 40, 6, 150, 244, 40, 18, 190, 134, 4),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"material": ExtResource("1_y4wfw"),
+"name": "road",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}, {
+"aabb": AABB(0, -0.99887574, 4, 4, 0.99887574, 1e-05),
+"attribute_data": PackedByteArray(255, 255, 0, 0, 154, 205, 164, 33, 154, 205, 0, 0, 255, 255, 164, 33),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"material": ExtResource("2_ib1ny"),
+"name": "cardboard",
+"primitive": 3,
+"uv_scale": Vector4(1.6379207, 0.21138668, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(255, 255, 255, 255, 0, 0, 0, 128, 0, 0, 0, 0, 0, 0, 0, 128, 0, 0, 255, 255, 0, 0, 0, 128, 255, 255, 0, 0, 0, 0, 0, 128, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255)
+}]
+blend_shape_mode = 0
+shadow_mesh = ExtResource("3_na6wk")

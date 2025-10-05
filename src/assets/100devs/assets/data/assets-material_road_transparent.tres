@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d1dbgdhtx68ch"]
+
+[ext_resource type="Texture2D" uid="uid://brktd4ykp2dsc" path="res://assets/100devs/assets/road.png" id="1_xituq"]
+
+[resource]
+resource_name = "road"
+transparency = 4
+albedo_texture = ExtResource("1_xituq")

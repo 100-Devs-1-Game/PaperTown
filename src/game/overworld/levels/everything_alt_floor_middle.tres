@@ -1,0 +1,22 @@
+[gd_resource type="ArrayMesh" load_steps=3 format=3 uid="uid://5r07rv47hb48"]
+
+[ext_resource type="Material" uid="uid://c2cwbf0jlsy0" path="res://game/overworld/levels/alternative_grass_material.tres" id="1_ycssi"]
+[ext_resource type="ArrayMesh" uid="uid://shxp7m075yj" path="res://assets/100devs/assets/data/assets_floor-middle.mesh.shadow.res" id="2_w747m"]
+
+[resource]
+resource_name = "assets_floor-middle_plane-063.mesh"
+_surfaces = [{
+"aabb": AABB(0, 0, 0, 4, 1e-05, 4),
+"attribute_data": PackedByteArray(6, 150, 134, 4, 18, 190, 244, 40, 6, 150, 244, 40, 18, 190, 134, 4),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"material": ExtResource("1_ycssi"),
+"name": "altgrass",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = ExtResource("2_w747m")

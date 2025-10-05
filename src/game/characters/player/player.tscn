@@ -10,7 +10,8 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_3qf5w"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5hw72"]
-height = 1.6
+margin = 0.1
+radius = 1.0
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 collision_layer = 2
@@ -31,6 +32,7 @@ overworld_attack = ExtResource("4_65114")
 
 [node name="Visuals" type="Node3D" parent="."]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18757889, 0)
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Visuals"]
 unique_name_in_owner = true

@@ -10,6 +10,6 @@ func _ready():
 func start_battle(body):
 	var screen_transistion_instance = screen_transistion.instantiate()
 	get_tree().root.add_child(screen_transistion_instance)
-	screen_transistion_instance.do_transition()
+	screen_transistion_instance.do_transition(ScreenTransition.TransitionType.BATTLE_START)
 	await screen_transistion_instance.transition_halfway
 	get_tree().change_scene_to_packed(battle_scene)

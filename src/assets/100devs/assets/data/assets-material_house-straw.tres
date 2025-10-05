@@ -6,7 +6,6 @@
 [resource]
 resource_name = "house_straw"
 transparency = 4
-cull_mode = 2
 albedo_texture = ExtResource("1_fkjf5")
 roughness = 0.5
 normal_enabled = true

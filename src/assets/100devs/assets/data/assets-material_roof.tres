@@ -5,7 +5,6 @@
 
 [resource]
 resource_name = "roof"
-cull_mode = 2
 albedo_texture = ExtResource("1_e1i62")
 roughness = 0.53174603
 normal_enabled = true

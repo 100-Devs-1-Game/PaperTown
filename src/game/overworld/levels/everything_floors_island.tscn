@@ -18,9 +18,12 @@ transform = Transform3D(1, 0, 0, 0, 8, 0, 0, 0, 1, 0, 0, 0)
 [node name="FloorLeft" parent="." instance=ExtResource("2_kr2my")]
 transform = Transform3D(1, 0, 0, 0, 8, 0, 0, 0, 1, -4, 0, 0)
 
+<<<<<<< HEAD
 [node name="FloorLeft2" parent="." instance=ExtResource("2_kr2my")]
 transform = Transform3D(1, 0, 0, 0, 8, 0, 0, 0, 1, -4, 0, 0)
 
+=======
+>>>>>>> main
 [node name="FloorBack" parent="." instance=ExtResource("3_4mefj")]
 transform = Transform3D(1, 0, 0, 0, 8, 0, 0, 0, 1, 0, 0, -4)
 

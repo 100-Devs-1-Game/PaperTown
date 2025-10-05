@@ -112,11 +112,11 @@ func handle_attack():
 func add_talkable_npc(body: CharacterBody3D):
 	talkable_state = true
 	talkable_npcs.append(body)
-	
+
 func remove_talkable_npc(body: CharacterBody3D):
 	if body in talkable_npcs:
 		talkable_npcs.erase(body)
-		
+
 	if talkable_npcs.is_empty():
 		talkable_state = false
 
@@ -136,7 +136,7 @@ func on_body_entered(body):
 	if body in get_tree().get_nodes_in_group("followers"):
 		print("STOP!!!")
 		body.follower_component.stop_following_player()
-	
+
 func on_body_exited(body):
 	if body in get_tree().get_nodes_in_group("followers"):
 		body.follower_component.start_following_player()

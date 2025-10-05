@@ -1,59 +1,53 @@
 class_name BattleManager extends Node3D
 
-
-signal battle_state_changed(new_state: GlobalUtils.BattleState)
-
 const PLAYER = preload("uid://px8n52y05giq")
 const BOAR = preload("uid://c8x3kcryc0xtb")
 const BATTLE_MENU = preload("uid://ca65elqv0fxhy")
 const QTE_INDICATOR = preload("uid://k2fu5rlm10mf")
+
 @onready var player_spawn: Vector3 = $PlayerSpawn.global_position
 @onready var enemy_spawn: Array[Vector3] = [
 	$EnemySpawn1.global_position,
 	$EnemySpawn2.global_position,
 	$EnemySpawn3.global_position
 ]
-@onready var player_character:= PLAYER.instantiate()
+@onready var player_character := PLAYER.instantiate()
 @onready var enemy_character: Array[Enemy] = []
 @onready var camera_3d: Camera3D = $Camera3D
 
+var screen_transition = preload("res://game/ui/screen_transition.tscn")
+var overworld_scene
 
-# Battle State variables
-var current_state: GlobalUtils.BattleState
+# Battle variables
 var player_action: GlobalUtils.PlayerAction
-var enemy_action: GlobalUtils.EnemyAction
 var battle_menu_instance: BattleMenu
 var qte_indicator_instance: QuickTimeEvent
-
-
-func change_state(new_state: GlobalUtils.BattleState) -> void:
-	if current_state == new_state:
-		return
-	current_state = new_state
-	battle_state_changed.emit(current_state)
-
+var dodge_success: bool
+var current_enemy_index: int = 0
+var alive_enemies: Array[Enemy] = []
+var is_battle_active: bool = true
 
 func _ready() -> void:
-	#Generate boars
+	# TODO: This SHOULD NOT be one static thing
+	overworld_scene = "res://game/overworld/overworld_test2.tscn"
+	
+	# Generate boars
 	for i in range(3):
 		var boar = BOAR.instantiate()
 		enemy_character.append(boar)
-	#Set up the battle scene
 	setup_battle()
 
-
-# Initialize the battle scene
 func setup_battle() -> void:
 	# Initialize Player Character
 	add_child(player_character)
 	player_character.position = player_spawn
 	player_character.change_state(player_character.State.BATTLE)
 
-	# Initialize Enemy Character(s)
-	for e in enemy_character.size():
-		add_child(enemy_character[e])
-		enemy_character[e].position = enemy_spawn[e]
-		enemy_character[e].change_state(enemy_character[e].State.BATTLE)
+	# Initialize Enemy Characters
+	for i in range(enemy_character.size()):
+		add_child(enemy_character[i])
+		enemy_character[i].position = enemy_spawn[i]
+		enemy_character[i].change_state(enemy_character[i].State.BATTLE)
 
 	# Instantiate UI elements
 	battle_menu_instance = BATTLE_MENU.instantiate()
@@ -64,126 +58,155 @@ func setup_battle() -> void:
 
 	# Connect Signals
 	battle_menu_instance.action_selected.connect(handle_player_action)
-	qte_indicator_instance.qte_result.connect(handle_player_dodge)
 
 	# Start the battle
-	change_state(GlobalUtils.BattleState.START)
 	start_battle()
 
-
-# Start the Battle
 func start_battle() -> void:
-	if current_state == GlobalUtils.BattleState.START:
-		player_character.stats.hit_counter = 0
-		change_state(GlobalUtils.BattleState.PLAYER_TURN_START)
-		start_player_turn()
+	player_character.stats.hit_counter = 0
+	update_alive_enemies()
+	start_player_turn()
 
+func update_alive_enemies() -> void:
+	alive_enemies.clear()
+	for enemy in enemy_character:
+		# ✅ Check for null AND valid instance AND hp > 0
+		if is_instance_valid(enemy) and enemy.stats.current_hp > 0:
+			alive_enemies.append(enemy)
 
 func start_player_turn() -> void:
-	if current_state == GlobalUtils.BattleState.PLAYER_TURN_START:
-		change_state(GlobalUtils.BattleState.PLAYER_SELECTING_ACTION)
-		battle_menu_instance.show_menu()
+	if not is_battle_active:
+		return
 
+	print("Player's turn!")
+	battle_menu_instance.show_menu()
 
 func handle_player_action(selected_action: GlobalUtils.PlayerAction, selected_target: int) -> void:
+	if not is_battle_active:
+		return
+
 	player_action = selected_action
+
 	if player_action == GlobalUtils.PlayerAction.RUN_AWAY:
 		execute_run_attempt()
 	else:
-		change_state(GlobalUtils.BattleState.PLAYER_EXECUTING_ACTION)
 		execute_attack(selected_target)
 
-
 func execute_attack(target: int) -> void:
-	var damage: int
-	if current_state == GlobalUtils.BattleState.PLAYER_EXECUTING_ACTION:
-		match player_action:
-			GlobalUtils.PlayerAction.TONGUE_SLAP:
-				damage = player_character.stats.attack
-				print("Player attacked with Tongue Slap!")
-			GlobalUtils.PlayerAction.TAIL_WHIP:
-				damage = player_character.stats.attack * 2
-				print("Player attacked with Tail Whip!")
-			GlobalUtils.PlayerAction.RUN_AWAY:
-				execute_run_attempt()
+	var damage: int = 0
 
-		if damage > 0:
-			enemy_character[target].stats.current_hp -= damage
-			print("Player used Tongue Slap! Dealt %d damage." % damage)
-			is_enemy_defeated(enemy_character[target])
-		
-		end_player_turn()
+	match player_action:
+		GlobalUtils.PlayerAction.TONGUE_SLAP:
+			damage = player_character.stats.attack
+			print("Player used Tongue Slap!")
+		GlobalUtils.PlayerAction.TAIL_WHIP:
+			damage = player_character.stats.attack * 2
+			print("Player used Tail Whip!")
 
+	if damage > 0 and target < enemy_character.size():
+		enemy_character[target].stats.current_hp -= damage
+		print("Dealt %d damage to enemy %d!" % [damage, target + 1])
 
-func end_player_turn() -> void:
-	if current_state == GlobalUtils.BattleState.PLAYER_EXECUTING_ACTION:
-		change_state(GlobalUtils.BattleState.ENEMY_TURN_START)
-		start_enemy_turn()
+		if enemy_character[target].stats.current_hp <= 0:
+			print("Enemy %d defeated!" % (target + 1))
+			enemy_character[target].queue_free()
 
+			# Check if all enemies defeated
+			update_alive_enemies()
+			if alive_enemies.size() == 0:
+				win_battle()
+				return
 
-func is_enemy_defeated(enemy: Enemy):
-	if enemy.stats.current_hp <= 0:
-		enemy.queue_free()
-		end_battle(true)
-	else:
-		start_enemy_turn()
-
+	# Player turn finished, start enemy turns
+	start_enemy_turns()
 
 func execute_run_attempt() -> void:
 	var run_chance := randi() % 100
 	if run_chance < 50:
 		print("Successfully ran away!")
-		end_battle(false)  # Running away is not a victory
+		end_battle("won")
 	else:
 		print("Failed to run away!")
-		start_enemy_turn()
+		start_enemy_turns()
 
+func start_enemy_turns() -> void:
+	if not is_battle_active:
+		return
 
-func start_enemy_turn() -> void:
-	if current_state == GlobalUtils.BattleState.ENEMY_TURN_START:
-		for enemy in enemy_character.size():
-			var enemy_ai = randi_range(0,2)
-			match enemy_ai:
-				0:
-					change_state(GlobalUtils.BattleState.ENEMY_ATTACKING)
-					handle_enemy_attack()
-				1: print("Enemy stares at you!")
-				2: print("Enemy flourishes weapon!")
+	update_alive_enemies()
+	current_enemy_index = 0
+	print("Enemy turns begin!")
+	execute_next_enemy_turn()
 
+func execute_next_enemy_turn() -> void:
+	if not is_battle_active:
+		return
 
-func handle_enemy_attack() -> void:
-	print("The enemy attacks!")
-	# TODO: Enemy AI and attack animation
-	qte_indicator_instance.start_qte()
-
-
-func handle_player_dodge(result: bool) -> void:
-	if result:
-		# animate dodge
-		print("Enemy attack missed!")
-		# Hit counter doesn't increase
-	else:
-		# animate damage taken
-		print("Oh no! The enemy hit you!")
-		player_character.stats.hit_counter += 1
-
-
-func continue_battle() -> void:
-	# Check if player has been hit too many times
-	if player_character.stats.hit_counter >= 3:
-		end_battle(false)  # Player loses
-	else:
-		# Continue to next turn
+	# Check if all enemies have acted
+	if current_enemy_index >= alive_enemies.size():
+		# All enemies finished, back to player turn
 		await get_tree().create_timer(1.0).timeout
 		start_player_turn()
+		return
+
+	# Get current enemy
+	var current_enemy = alive_enemies[current_enemy_index]
+	var enemy_number = enemy_character.find(current_enemy) + 1
+	print("Enemy %d's turn!" % enemy_number)
+
+	# Enemy AI decision
+	var enemy_ai = randi_range(0, 2)
+	match enemy_ai:
+		0:
+			print("Boar %d attacks!" % enemy_number)
+			qte_indicator_instance.start_qte()
+			await qte_indicator_instance.qte_finished
+			if qte_indicator_instance.qte_result:
+				print("You dodged the enemy attack!")
+			else:
+				print("Oh no! The enemy hit you!")
+				player_character.stats.hit_counter += 1
+				var hits_left: int = 3 - player_character.stats.hit_counter
+				print("You can take %d more hits!" % hits_left)
+
+			# Check if Player is defeated.
+			if player_character.stats.hit_counter >= 3:
+				lose_battle()
+				return
+		1:
+			print("Boar %d stares at you!" % enemy_number)
+
+		2:
+			print("Boar %d flourishes weapon!" % enemy_number)
 
 
-func end_battle(player_won: bool) -> void:
-	if player_won:
-		change_state(GlobalUtils.BattleState.WON)
-	else:
-		change_state(GlobalUtils.BattleState.LOST)
+	# Move to next enemy
+	current_enemy_index += 1
+	execute_next_enemy_turn()
 
-	# Wait a moment then return to overworld or show game over
-	# await get_tree().create_timer(3.0).timeout
-	# TODO: Return to overworld scene
+
+func win_battle() -> void:
+	is_battle_active = false
+	end_battle("won")
+
+func lose_battle() -> void:
+	is_battle_active = false
+	print("Defeat! You were overwhelmed!")
+	end_battle("lost")
+
+func end_battle(result : String) -> void:
+	print("Battle ends.")
+	
+	var screen_transition_instance = screen_transition.instantiate()
+	get_tree().root.add_child(screen_transition_instance)
+	
+	if result == "won":
+		screen_transition_instance.do_transition(ScreenTransition.TransitionType.BATTLE_WON)
+	elif result == "lost":
+		screen_transition_instance.do_transition(ScreenTransition.TransitionType.BATTLE_LOST)
+		
+	
+	# TODO: clear battle scene, play victory or defeat splash, exit to OW
+	# TODO: We need to track the player's position in the overworld after this
+	await screen_transition_instance.transition_halfway
+	get_tree().change_scene_to_file(overworld_scene)

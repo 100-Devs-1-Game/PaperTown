@@ -4,6 +4,5 @@
 
 [resource]
 resource_name = "house_acorn_no_normals"
-cull_mode = 2
 albedo_texture = ExtResource("1_pady1")
 roughness = 0.6818182

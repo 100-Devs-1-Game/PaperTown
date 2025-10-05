@@ -58,6 +58,4 @@ grow_vertical = 2
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control"]
 unique_name_in_owner = true
 sprite_frames = ExtResource("2_b1t7k")
-animation = &"battle_start"
-frame = 35
-frame_progress = 1.0
+animation = &"battle_defeat"

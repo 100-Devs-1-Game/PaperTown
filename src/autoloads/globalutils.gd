@@ -10,11 +10,9 @@ enum BattleState {
 	ENEMY_ATTACKING,
 	PLAYER_DODGING,
 	PROCESSING_RESULTS,
-	WON,
-	LOST
+	END
 }
 enum MenuState { ACTIVE, TARGET_SELECTION, INACTIVE }
 
 # Actions
 enum PlayerAction { TONGUE_SLAP, TAIL_WHIP, RUN_AWAY }
-enum EnemyAction { ATTACK, DEFEND, NOTHING }

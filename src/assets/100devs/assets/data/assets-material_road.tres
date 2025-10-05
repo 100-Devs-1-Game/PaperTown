@@ -4,5 +4,4 @@
 
 [resource]
 resource_name = "road"
-cull_mode = 2
 albedo_texture = ExtResource("1_334i0")

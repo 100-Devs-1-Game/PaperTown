@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [gd_scene load_steps=2 format=3 uid="uid://buhow28a52c24"]
 
 [ext_resource type="PackedScene" uid="uid://bxf2iw36fhu4j" path="res://game/environment/floor/floor_middle.tscn" id="1_jhkwj"]
@@ -29,3 +30,56 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4)
 
 [node name="FloorMiddle9" parent="." instance=ExtResource("1_jhkwj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 4)
+=======
+[gd_scene load_steps=3 format=3 uid="uid://buhow28a52c24"]
+
+[ext_resource type="ArrayMesh" uid="uid://p0jlppteyig7" path="res://assets/100devs/assets/data/assets_floor-middle.mesh.res" id="1_jhkwj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pcnyh"]
+size = Vector3(12, 1, 12)
+
+[node name="EverythingFloorchunkSmall" type="Node3D"]
+
+[node name="FloorMiddle10" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+mesh = ExtResource("1_jhkwj")
+
+[node name="FloorMiddle11" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+mesh = ExtResource("1_jhkwj")
+
+[node name="FloorMiddle12" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -2)
+mesh = ExtResource("1_jhkwj")
+
+[node name="FloorMiddle13" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -6)
+mesh = ExtResource("1_jhkwj")
+
+[node name="FloorMiddle14" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -6)
+mesh = ExtResource("1_jhkwj")
+
+[node name="FloorMiddle15" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -6)
+mesh = ExtResource("1_jhkwj")
+
+[node name="FloorMiddle16" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+mesh = ExtResource("1_jhkwj")
+
+[node name="FloorMiddle17" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+mesh = ExtResource("1_jhkwj")
+
+[node name="FloorMiddle18" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 2)
+mesh = ExtResource("1_jhkwj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_pcnyh")
+>>>>>>> main

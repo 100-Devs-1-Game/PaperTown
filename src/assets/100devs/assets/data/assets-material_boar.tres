@@ -5,6 +5,5 @@
 [resource]
 resource_name = "boar"
 transparency = 4
-cull_mode = 2
 albedo_texture = ExtResource("1_fmrn3")
 roughness = 0.5

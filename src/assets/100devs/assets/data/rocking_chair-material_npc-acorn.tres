@@ -5,7 +5,6 @@
 [resource]
 resource_name = "npc_acorn"
 transparency = 4
-cull_mode = 2
 albedo_texture = ExtResource("1_gb15o")
 roughness = 0.5
 uv1_offset = Vector3(-0.22, 0.38, 0)

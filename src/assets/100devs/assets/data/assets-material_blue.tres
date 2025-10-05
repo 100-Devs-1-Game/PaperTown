@@ -4,7 +4,6 @@
 
 [resource]
 resource_name = "blue"
-cull_mode = 2
 albedo_color = Color(0.22715256, 0.55441827, 0.6961853, 1)
 roughness = 0.5
 normal_enabled = true
