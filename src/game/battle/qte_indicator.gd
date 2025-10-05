@@ -1,59 +1,72 @@
 class_name QuickTimeEvent extends Control
 
 signal qte_result(qte_success: bool)
+signal qte_finished  # ✅ Add this signal to indicate QTE is completely done
 
 @onready var qte_ring: Sprite2D = $QTERing
 @onready var sweet_spot: Sprite2D = $SweetSpot
 @onready var timer: Timer = $Timer
 @onready var button: Button = $Button
 
-var is_active: bool
+var is_active: bool = false
 var required_input = "ui_accept"
-var initial_ring_scale: Vector2 = Vector2(.7, .7)
-var current_ring_scale: Vector2
+var initial_ring_scale: Vector2 = Vector2(0.7, 0.7)
 
 
 func _ready() -> void:
 	timer.timeout.connect(_on_timer_timeout)
 	button.pressed.connect(_on_button_pressed)
-	is_active = false
-	hide()
+	reset_qte()
 
 
 func _process(delta: float) -> void:
 	if is_active:
-		var shrink_rate = .7 / timer.wait_time
+		var shrink_rate = 0.7 / timer.wait_time
 		qte_ring.scale.x -= shrink_rate * delta
 		qte_ring.scale.y -= shrink_rate * delta
-	if not is_active:
-		hide()
 
 
 func _on_timer_timeout() -> void:
+	if not is_active:  # ✅ Safety check
+		return
+
+	print("QTE timeout - failed!")
 	qte_result.emit(false)
-	is_active = false
-	timer.stop()
-	return
+	reset_qte()
+	qte_finished.emit()  # ✅ Signal that QTE is completely done
 
 
 func _on_button_pressed() -> void:
-	if is_active:
-		stop_qte()
-		check_for_success()
+	if not is_active:  # ✅ Safety check
+		return
+
+	print("Button pressed during QTE!")
+	stop_qte()
+	check_for_success()
 
 
-func check_for_success():
-	if current_ring_scale <= sweet_spot.scale:
+func check_for_success() -> void:
+	var current_ring_scale = qte_ring.scale
+	print("Ring scale: %s, Sweet spot scale: %s" % [current_ring_scale, sweet_spot.scale])
+
+	# Check if ring is smaller than or equal to sweet spot (successful hit)
+	if current_ring_scale.x <= sweet_spot.scale.x:
+		print("QTE SUCCESS!")
 		qte_result.emit(true)
-		print(qte_result)
-		is_active = false
 	else:
+		print("QTE FAILED - too early!")
 		qte_result.emit(false)
-		print(qte_result)
-		is_active = false
+
+	reset_qte()
+	qte_finished.emit()  # ✅ Signal that QTE is completely done
 
 
 func start_qte() -> void:
+	if is_active:  # ✅ Don't start if already active
+		print("QTE already active - ignoring start request")
+		return
+
+	print("Starting QTE...")
 	show()
 	is_active = true
 	qte_ring.scale = initial_ring_scale
@@ -62,8 +75,12 @@ func start_qte() -> void:
 
 func stop_qte() -> void:
 	is_active = false
-	print("Current Ring Size: %s" % current_ring_scale)
-	print("Sweet Spot Size: %s" % sweet_spot.scale)
-	current_ring_scale = qte_ring.get_scale()
-	qte_ring.scale = current_ring_scale
 	timer.stop()
+
+
+func reset_qte() -> void:
+	is_active = false
+	timer.stop()
+	qte_ring.scale = initial_ring_scale
+	hide()
+	print("QTE reset and hidden")

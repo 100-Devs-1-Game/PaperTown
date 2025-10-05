@@ -25,6 +25,9 @@ func _ready() -> void:
 	tongue_button.pressed.connect(_on_action_selected.bind(GlobalUtils.PlayerAction.TONGUE_SLAP))
 	tail_button.pressed.connect(_on_action_selected.bind(GlobalUtils.PlayerAction.TAIL_WHIP))
 	run_button.pressed.connect(_on_action_selected.bind(GlobalUtils.PlayerAction.RUN_AWAY))
+	
+	target_selection.target_selected.connect(_on_target_selected)
+	
 	hide_menu()
 
 
@@ -42,7 +45,6 @@ func _on_action_selected(action: GlobalUtils.PlayerAction) -> void:
 
 func show_target_selection() -> void:
 	change_state(GlobalUtils.MenuState.TARGET_SELECTION)
-	target_selection.target_selected.connect(_on_target_selected)
 	target_selection.activate()
 
 
