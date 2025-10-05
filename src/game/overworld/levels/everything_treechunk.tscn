@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://0vxsg8lmmbxd"]
+
+[ext_resource type="PackedScene" uid="uid://bdv4w5a651hhk" path="res://game/environment/object/tree_short.tscn" id="1_rplf4"]
+[ext_resource type="PackedScene" uid="uid://dsin55s8mkxxm" path="res://game/environment/object/tree_tall.tscn" id="2_5w84c"]
+[ext_resource type="PackedScene" uid="uid://b168j8sqnakkp" path="res://game/overworld/levels/everything_flowers.tscn" id="3_5w84c"]
+
+[node name="EverythingTreechunk" type="Node3D"]
+
+[node name="TreeShort" parent="." instance=ExtResource("1_rplf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.000327, 0, 0)
+
+[node name="TreeShort2" parent="." instance=ExtResource("1_rplf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6722593, 0, 3.285635)
+
+[node name="TreeShort3" parent="." instance=ExtResource("1_rplf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6722593, 0, 0.053022385)
+
+[node name="TreeShort4" parent="." instance=ExtResource("1_rplf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.273526, 0, 1.8919811)
+
+[node name="TreeShort5" parent="." instance=ExtResource("1_rplf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.573289, 0, 3.5423756)
+
+[node name="TreeShort6" parent="." instance=ExtResource("1_rplf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42671108, 0, 1.8002052)
+
+[node name="TreeTall" parent="." instance=ExtResource("2_5w84c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2209997, 0, 2)
+
+[node name="TreeTall2" parent="." instance=ExtResource("2_5w84c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2209997, 0, -1)
+
+[node name="TreeTall3" parent="." instance=ExtResource("2_5w84c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6491299, 0, 1.0201778)
+
+[node name="EverythingFlowers" parent="." instance=ExtResource("3_5w84c")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0.5801618, 0, 2.0127006)

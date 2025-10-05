@@ -11,6 +11,7 @@ var current_state: State
 var stats = STATS
 var talkable_npcs = []
 var talkable_state := false
+var facing_behind := false
 
 @onready var visuals: Node3D = %Visuals
 @onready var animated_sprite_3d: AnimatedSprite3D = %AnimatedSprite3D
@@ -80,12 +81,14 @@ func get_movement_vector():
 		movement_component.swap_facing_direction()
 
 	if input_dir.length() > 0.0:
-		if input_dir.y > 0.0:
+		if input_dir.y >= 0.0:
+			facing_behind = false
 			animated_sprite_3d.play(&"walk")
 		else:
+			facing_behind = true
 			animated_sprite_3d.play(&"walk_behind")
 	else:
-		animated_sprite_3d.play(&"idle")
+		animated_sprite_3d.play(&"idle") if not facing_behind else animated_sprite_3d.play(&"idle_behind")
 
 	return Vector3(input_dir.x, 0.0, input_dir.y)
 

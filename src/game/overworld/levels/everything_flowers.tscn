@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://b168j8sqnakkp"]
+
+[ext_resource type="PackedScene" uid="uid://dx4ulpnywy74r" path="res://game/environment/decoration/flower_blue.tscn" id="1_xqm0s"]
+
+[node name="EverythingFlowers" type="Node3D"]
+
+[node name="FlowerBlue" parent="." instance=ExtResource("1_xqm0s")]
+transform = Transform3D(1, 0, 0, 0, 0.86076313, 0, 0, 0, 1, -3.0024579, 0, -0.53913546)
+
+[node name="FlowerBlue2" parent="." instance=ExtResource("1_xqm0s")]
+transform = Transform3D(0.8924563, 0, -0.9422803, 0, 1.2468529, 0, 0.9576787, 0, 0.87810665, 2, 0, -0.17437124)
+
+[node name="FlowerBlue3" parent="." instance=ExtResource("1_xqm0s")]
+transform = Transform3D(0.9576518, 0, 0.28792885, 0, 1.1226172, 0, -0.28792885, 0, 0.9576518, -0.38131368, 0, 0.17549849)
+
+[node name="FlowerBlue4" parent="." instance=ExtResource("1_xqm0s")]
+transform = Transform3D(1.2519529, 0, 0, 0, 0.9428652, 0, 0, 0, 0.9081317, 4.6053915, 0, 0.5222213)
+
+[node name="FlowerBlue5" parent="." instance=ExtResource("1_xqm0s")]
+transform = Transform3D(0.6494215, 0, 0.76042867, 0, 1, 0, -0.76042867, 0, 0.6494215, -5.427058, 0, 0.47911763)

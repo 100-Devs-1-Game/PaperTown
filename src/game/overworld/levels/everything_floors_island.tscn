@@ -1,0 +1,43 @@
+[gd_scene load_steps=10 format=3 uid="uid://6pmoniey51rc"]
+
+[ext_resource type="PackedScene" uid="uid://bxf2iw36fhu4j" path="res://game/environment/floor/floor_middle.tscn" id="1_wtnpr"]
+[ext_resource type="PackedScene" uid="uid://cjq7ym6xn2pqo" path="res://game/environment/floor/floor_left.tscn" id="2_kr2my"]
+[ext_resource type="PackedScene" uid="uid://ctkb2uf230c4s" path="res://game/environment/floor/floor_back.tscn" id="3_4mefj"]
+[ext_resource type="PackedScene" uid="uid://cvyfwbeb4j5yl" path="res://game/environment/floor/floor_corner_back_left.tscn" id="4_180fw"]
+[ext_resource type="PackedScene" uid="uid://bwyvbkecmta7b" path="res://game/environment/floor/floor_corner_back_right.tscn" id="5_bsmr2"]
+[ext_resource type="PackedScene" uid="uid://cktqdkpjnljbb" path="res://game/environment/floor/floor_corner_front_left.tscn" id="6_muo5y"]
+[ext_resource type="PackedScene" uid="uid://1xffej8rych6" path="res://game/environment/floor/floor_corner_front_right.tscn" id="7_qhuqi"]
+[ext_resource type="PackedScene" uid="uid://dpj20m70q42wj" path="res://game/environment/floor/floor_front.tscn" id="8_66kl4"]
+[ext_resource type="PackedScene" uid="uid://cpsr21ixm0kel" path="res://game/environment/floor/floor_right.tscn" id="9_3p4pl"]
+
+[node name="FloorsIsland" type="Node3D"]
+
+[node name="FloorMiddle" parent="." instance=ExtResource("1_wtnpr")]
+transform = Transform3D(1, 0, 0, 0, 8, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="FloorLeft" parent="." instance=ExtResource("2_kr2my")]
+transform = Transform3D(1, 0, 0, 0, 8, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="FloorLeft2" parent="." instance=ExtResource("2_kr2my")]
+transform = Transform3D(1, 0, 0, 0, 8, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="FloorBack" parent="." instance=ExtResource("3_4mefj")]
+transform = Transform3D(1, 0, 0, 0, 8, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="FloorCornerBackLeft" parent="." instance=ExtResource("4_180fw")]
+transform = Transform3D(1, 0, 0, 0, 8, 0, 0, 0, 1, -4, 0, -4)
+
+[node name="FloorCornerBackRight" parent="." instance=ExtResource("5_bsmr2")]
+transform = Transform3D(1, 0, 0, 0, 8, 0, 0, 0, 1, 4, 0, -4)
+
+[node name="FloorCornerFrontLeft" parent="." instance=ExtResource("6_muo5y")]
+transform = Transform3D(1, 0, 0, 0, 8, 0, 0, 0, 1, -4, 0, 4)
+
+[node name="FloorCornerFrontRight" parent="." instance=ExtResource("7_qhuqi")]
+transform = Transform3D(1, 0, 0, 0, 8, 0, 0, 0, 1, 4, 0, 4)
+
+[node name="FloorFront" parent="." instance=ExtResource("8_66kl4")]
+transform = Transform3D(1, 0, 0, 0, 8, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="FloorRight" parent="." instance=ExtResource("9_3p4pl")]
+transform = Transform3D(1, 0, 1.1920929e-07, 0, 8, 0, -1.1920929e-07, 0, 1, 4, 0, 0)
