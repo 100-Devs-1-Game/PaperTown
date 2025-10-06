@@ -4,5 +4,5 @@
 
 [resource]
 resource_name = "road"
-transparency = 4
+transparency = 1
 albedo_texture = ExtResource("1_xituq")
