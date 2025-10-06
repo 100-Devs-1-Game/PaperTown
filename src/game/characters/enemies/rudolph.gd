@@ -26,25 +26,32 @@ func _physics_process(delta):
 
 	movement_component.apply_gravity(delta, self)
 
+	play_animations()
+
 	match current_state:
 		State.NPC:
-			pass
+			follow_player()
 		State.FOLLOWER:
-			pass
+			follow_player()
 		State.BATTLE:
-			pass
-
-	follow_player()
-	play_animations()
+			movement_component.facing_right = true
+			movement_component.move(self)
 
 
 func follow_player():
+	if current_state == State.BATTLE:
+		return
+
 	follower_component.follow_player(navigation_agent_3d, movement_component, player, self)
 	facing_behind = true if velocity.z < 0 else false
 
 
 func on_interacted_with():
+	if current_state == State.BATTLE:
+		return
+
 	npc_component.is_talkable = false
+	print("RUDOLPH IS NOW FOLLOWING")
 	change_state(State.FOLLOWER)  # TODO: full code has to be a bit more complex
 
 
@@ -53,6 +60,9 @@ func change_state(new_state: State) -> void:
 		return
 	current_state = new_state
 	rudolph_state_changed.emit(current_state)
+
+	if current_state == State.BATTLE:
+		movement_component.facing_right = true
 
 
 func play_animations():

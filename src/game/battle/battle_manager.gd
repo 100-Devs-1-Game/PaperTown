@@ -4,12 +4,15 @@ const PLAYER = preload("uid://px8n52y05giq")
 const BOAR = preload("uid://c8x3kcryc0xtb")
 const BATTLE_MENU = preload("uid://ca65elqv0fxhy")
 const QTE_INDICATOR = preload("uid://k2fu5rlm10mf")
+const RUDOLPH = preload("res://game/characters/enemies/rudolph.tscn")
 
 @onready var player_spawn: Vector3 = $PlayerSpawn.global_position
+@onready var rudolph_spawn: Vector3 = $RudolphSpawn.global_position
 @onready var enemy_spawn: Array[Vector3] = [
 	$EnemySpawn1.global_position, $EnemySpawn2.global_position, $EnemySpawn3.global_position
 ]
 @onready var player_character := PLAYER.instantiate()
+@onready var rudolph := RUDOLPH.instantiate()
 @onready var enemy_character: Array[Enemy] = []
 @onready var camera: Camera = %Camera
 
@@ -44,6 +47,11 @@ func setup_battle() -> void:
 	player_character.position = player_spawn
 	player_character.reset_physics_interpolation()
 	player_character.change_state(player_character.State.BATTLE)
+
+	add_child(rudolph)
+	rudolph.position = rudolph_spawn
+	rudolph.reset_physics_interpolation()
+	rudolph.change_state(rudolph.State.BATTLE)
 
 	# Initialize Enemy Characters
 	for i in range(enemy_character.size()):
