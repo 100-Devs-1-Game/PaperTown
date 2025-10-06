@@ -52,7 +52,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_lkyge")
 
-[node name="HouseAcorn" type="Node3D"]
+[node name="HouseAcorn" type="Node3D" groups=["navmesh"]]
 
 [node name="house_acorn_interior" type="Node3D" parent="."]
 transform = Transform3D(3.053258, 0, 0, 0, 3.053258, 0, 0, 0, 3.053258, 0, 6, 0)

@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dpj20m70q42wj" path="res://game/environment/floor/floor_front.tscn" id="8_66kl4"]
 [ext_resource type="PackedScene" uid="uid://cpsr21ixm0kel" path="res://game/environment/floor/floor_right.tscn" id="9_3p4pl"]
 
-[node name="FloorsIsland" type="Node3D"]
+[node name="FloorsIsland" type="Node3D" groups=["navmesh"]]
 
 [node name="FloorMiddle" parent="." instance=ExtResource("1_wtnpr")]
 transform = Transform3D(1, 0, 0, 0, 8, 0, 0, 0, 1, 0, 0, 0)

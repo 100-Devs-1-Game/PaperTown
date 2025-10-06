@@ -9,7 +9,7 @@ data = PackedVector3Array(-0.8613, -0.3554, 0.2589, -0.4635, -0.24329999, 0.2543
 radius = 0.05
 height = 0.5
 
-[node name="BridgeStone" type="Node3D"]
+[node name="BridgeStone" type="Node3D" groups=["navmesh"]]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(4.535, 0, 0, 0, 4, 0, 0, 0, 4.535, 0, 0.42900002, 0)

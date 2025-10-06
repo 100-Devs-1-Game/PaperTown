@@ -5,7 +5,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_hwu02"]
 size = Vector3(2.63, 1.5, 1.86)
 
-[node name="PicnicTable" type="Node3D"]
+[node name="PicnicTable" type="Node3D" groups=["navmesh"]]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.71, 0, 0, 0, 0.71, 0, 0, 0, 0.71, 0, 0, 0)

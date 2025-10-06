@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://ucmbipiukcp6"]
+[gd_scene load_steps=45 format=3 uid="uid://ucmbipiukcp6"]
 
 [ext_resource type="PackedScene" uid="uid://dt8efoha3ph50" path="res://game/overworld/levels/everything_floorchunk.tscn" id="1_x5nb8"]
 [ext_resource type="PackedScene" uid="uid://0vxsg8lmmbxd" path="res://game/overworld/levels/everything_treechunk.tscn" id="2_m7vha"]
@@ -41,6 +41,8 @@
 [ext_resource type="PackedScene" uid="uid://b4lfw3w43bbqf" path="res://game/environment/floor_other/road.tscn" id="36_rof3i"]
 [ext_resource type="PackedScene" uid="uid://c8x3kcryc0xtb" path="res://game/characters/enemies/boar.tscn" id="39_3dq15"]
 [ext_resource type="PackedScene" uid="uid://c2chpy4t1yiej" path="res://game/overworld/levels/everything_floorchunk_alternative.tscn" id="40_f4aaq"]
+[ext_resource type="PackedScene" uid="uid://daltrhtfxoebt" path="res://game/characters/enemies/rudolph.tscn" id="42_4fxk1"]
+[ext_resource type="NavigationMesh" uid="uid://rnv63mojlu4c" path="res://game/overworld/levels/everything_navmesh.tres" id="42_sdmqt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_opxy2"]
 size = Vector3(5, 20, 1)
@@ -3054,6 +3056,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 154, -1.1, 68)
 
 [node name="EverythingFloorchunk36" parent="." instance=ExtResource("40_f4aaq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 134, -1, 68)
+
+[node name="Rudolph" parent="." node_paths=PackedStringArray("player") instance=ExtResource("42_4fxk1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.147266, 0.63691807, 13.743364)
+player = NodePath("../Player")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = ExtResource("42_sdmqt")
 
 [editable path="InvisibleWall"]
 [editable path="InvisibleWall2"]

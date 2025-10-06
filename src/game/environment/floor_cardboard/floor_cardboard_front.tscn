@@ -5,7 +5,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_ggx2i"]
 size = Vector3(4, 1, 4)
 
-[node name="FloorCardboardFront" type="Node3D"]
+[node name="FloorCardboardFront" type="Node3D" groups=["navmesh"]]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 0.8, -2, 0, -2)

@@ -4,7 +4,7 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_h6yuj"]
 
-[node name="RockingChair" type="Node3D"]
+[node name="RockingChair" type="Node3D" groups=["navmesh"]]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
