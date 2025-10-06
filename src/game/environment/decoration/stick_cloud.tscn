@@ -48,18 +48,15 @@ shadow_mesh = SubResource("ArrayMesh_avqx0")
 
 [node name="cloud" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.8410081, 0.3493008, 0.17510337, 0.25758874, 0.1518502, -0.9799763, -0.73779184, 0.92462456, 0.09479074, 0, 3.198309, 0)
-visible = false
 mesh = ExtResource("1_rlntn")
 skeleton = NodePath("")
 
 [node name="toothpick" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.036505133, 0.41288877, 0.014209591, -0.013757642, 1.4220681, 0.0061772764, -0.0115313595, -0.3895243, 0.037613798, -1, 1.6673093, 0.883)
-visible = false
 mesh = ExtResource("2_atrk1")
 skeleton = NodePath("")
 
 [node name="toothpick_001" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.030355623, -0.91547376, 0.011909352, 0.02135034, 1.2232354, 0.011952227, -0.016660383, -0.10043476, 0.03701595, 2, 1.4643092, -0.553849)
-visible = false
 mesh = SubResource("ArrayMesh_4ejrg")
 skeleton = NodePath("")

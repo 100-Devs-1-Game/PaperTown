@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://gn0uuyakhb04"]
+
+[resource]
+resource_name = "candle_red"
+albedo_color = Color(0.6138189, 0.14276104, 0.11977087, 1)
+metallic = 0.24545455
+roughness = 0.41363633

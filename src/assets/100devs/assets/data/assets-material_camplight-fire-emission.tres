@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bro17sdgpx6de"]
+
+[resource]
+resource_name = "camplight_fire_emission"
+albedo_color = Color(0.9064652, 0.49851584, 0.02465771, 1)
+roughness = 0.5
+emission_enabled = true
+emission = Color(1, 0.53990394, 0.057834286, 1)
+emission_energy_multiplier = 5.0
