@@ -19,14 +19,10 @@ var screen_transition = preload("res://game/ui/screen_transition.tscn")
 var overworld_scene
 
 # Battle variables
-# Battle variables
 var player_action: GlobalUtils.PlayerAction
 var battle_menu_instance: BattleMenu
 var qte_indicator_instance: QuickTimeEvent
-var dodge_success: bool
-var current_enemy_index: int = 0
-var alive_enemies: Array[Enemy] = []
-var is_battle_active: bool = true
+
 var dodge_success: bool
 var current_enemy_index: int = 0
 var alive_enemies: Array[Enemy] = []
@@ -71,16 +67,7 @@ func start_battle() -> void:
 	player_character.stats.hit_counter = 0
 	update_alive_enemies()
 	start_player_turn()
-	player_character.stats.hit_counter = 0
-	update_alive_enemies()
-	start_player_turn()
 
-func update_alive_enemies() -> void:
-	alive_enemies.clear()
-	for enemy in enemy_character:
-		# ✅ Check for null AND valid instance AND hp > 0
-		if is_instance_valid(enemy) and enemy.stats.current_hp > 0:
-			alive_enemies.append(enemy)
 func update_alive_enemies() -> void:
 	alive_enemies.clear()
 	for enemy in enemy_character:
@@ -94,21 +81,12 @@ func start_player_turn() -> void:
 
 	print("Player's turn!")
 	battle_menu_instance.show_menu()
-	if not is_battle_active:
-		return
-
-	print("Player's turn!")
-	battle_menu_instance.show_menu()
 
 func handle_player_action(selected_action: GlobalUtils.PlayerAction, selected_target: int) -> void:
 	if not is_battle_active:
 		return
-
-	if not is_battle_active:
-		return
-
+	
 	player_action = selected_action
-
 
 	if player_action == GlobalUtils.PlayerAction.RUN_AWAY:
 		execute_run_attempt()
@@ -125,32 +103,7 @@ func execute_attack(target: int) -> void:
 		GlobalUtils.PlayerAction.TAIL_WHIP:
 			damage = player_character.stats.attack * 2
 			print("Player used Tail Whip!")
-	var damage: int = 0
 
-	match player_action:
-		GlobalUtils.PlayerAction.TONGUE_SLAP:
-			damage = player_character.stats.attack
-			print("Player used Tongue Slap!")
-		GlobalUtils.PlayerAction.TAIL_WHIP:
-			damage = player_character.stats.attack * 2
-			print("Player used Tail Whip!")
-
-	if damage > 0 and target < enemy_character.size():
-		enemy_character[target].stats.current_hp -= damage
-		print("Dealt %d damage to enemy %d!" % [damage, target + 1])
-
-		if enemy_character[target].stats.current_hp <= 0:
-			print("Enemy %d defeated!" % (target + 1))
-			enemy_character[target].queue_free()
-
-			# Check if all enemies defeated
-			update_alive_enemies()
-			if alive_enemies.size() == 0:
-				win_battle()
-				return
-
-	# Player turn finished, start enemy turns
-	start_enemy_turns()
 	if damage > 0 and target < enemy_character.size():
 		enemy_character[target].stats.current_hp -= damage
 		print("Dealt %d damage to enemy %d!" % [damage, target + 1])
@@ -172,28 +125,11 @@ func execute_run_attempt() -> void:
 	var run_chance := randi() % 100
 	if run_chance < 50:
 		print("Successfully ran away!")
-		end_battle("won")
+		win_battle()
 	else:
 		print("Failed to run away!")
 		start_enemy_turns()
-		start_enemy_turns()
 
-func start_enemy_turns() -> void:
-	if not is_battle_active:
-		return
-
-	update_alive_enemies()
-	current_enemy_index = 0
-	print("Enemy turns begin!")
-	execute_next_enemy_turn()
-
-func execute_next_enemy_turn() -> void:
-	if not is_battle_active:
-		return
-
-	# Check if all enemies have acted
-	if current_enemy_index >= alive_enemies.size():
-		# All enemies finished, back to player turn
 func start_enemy_turns() -> void:
 	if not is_battle_active:
 		return
@@ -259,7 +195,7 @@ func lose_battle() -> void:
 	print("Defeat! You were overwhelmed!")
 	end_battle("lost")
 
-func end_battle(result : String) -> void:
+func end_battle(result: String) -> void:
 	print("Battle ends.")
 	
 	var screen_transition_instance = screen_transition.instantiate()
