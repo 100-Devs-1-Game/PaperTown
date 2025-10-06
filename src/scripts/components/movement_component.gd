@@ -55,6 +55,9 @@ func move_to_target(nav_agent: NavigationAgent3D, character_body: CharacterBody3
 	accelerate_in_direction(direction)
 	move(character_body)
 
+	if nav_agent.is_navigation_finished():
+		reached_destination = true
+		velocity = Vector3.ZERO
 
 func apply_gravity(delta, character_body: CharacterBody3D):
 	character_body.velocity.y -= gravity * delta
