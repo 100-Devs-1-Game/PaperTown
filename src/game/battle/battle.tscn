@@ -38,7 +38,7 @@ directional_shadow_max_distance = 40.0
 
 [node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("5_7w56k")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 24)
 offset = Vector3(0, 6, 12)
 state = 1
 target = NodePath("../DirectionalLight3D")
