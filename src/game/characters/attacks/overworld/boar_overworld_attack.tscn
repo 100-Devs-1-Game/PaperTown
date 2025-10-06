@@ -7,8 +7,10 @@ albedo_color = Color(1, 0.12549, 0, 0.243137)
 
 [sub_resource type="BoxMesh" id="BoxMesh_canbt"]
 material = SubResource("StandardMaterial3D_60u0v")
+size = Vector3(2.03, 1.89, 2.405)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gc3ww"]
+size = Vector3(3.5954666, 2.7250366, 2.4935913)
 
 [node name="BoarOverworldAttack" type="Node3D"]
 script = ExtResource("1_6kvxr")
@@ -19,12 +21,13 @@ collision_layer = 16
 collision_mask = 6
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.497553, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.96248853, 0.0034359694)
+visible = false
 layers = 8
 mesh = SubResource("BoxMesh_canbt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.500172, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015453339, 1.3626903, -0.0042715073)
 shape = SubResource("BoxShape3D_gc3ww")
 
 [node name="LastingTimer" type="Timer" parent="."]
