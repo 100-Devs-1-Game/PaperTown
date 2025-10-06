@@ -42,9 +42,7 @@ cast_shadow = 2
 pixel_size = 0.004
 alpha_cut = 2
 sprite_frames = ExtResource("5_65114")
-animation = &"walk"
-frame = 6
-frame_progress = 0.13388003
+animation = &"idle_behind"
 
 [node name="PersonalSpaceBubble" type="Area3D" parent="."]
 collision_layer = 5

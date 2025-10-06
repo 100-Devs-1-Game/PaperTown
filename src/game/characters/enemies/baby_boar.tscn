@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://jvef32xe1ytl"]
+[gd_scene load_steps=8 format=3 uid="uid://jvef32xe1ytl"]
 
 [ext_resource type="Script" uid="uid://ca7axbox0vwo4" path="res://game/characters/enemies/baby_boar.gd" id="1_u324k"]
 [ext_resource type="PackedScene" uid="uid://hh6v17l3ftdd" path="res://game/characters/components/follower_component.tscn" id="3_a8t0e"]
 [ext_resource type="PackedScene" uid="uid://c3yxi66r1gr3e" path="res://game/characters/components/movement_component.tscn" id="4_2sjd4"]
-[ext_resource type="Script" uid="uid://cce2ll4mmuxon" path="res://game/characters/components/follower_component.gd" id="4_t3fkb"]
 [ext_resource type="PackedScene" uid="uid://dmbdhufmkkvci" path="res://game/characters/components/flipper_component.tscn" id="5_rg8xn"]
 [ext_resource type="SpriteFrames" uid="uid://ciudp36yslewt" path="res://game/characters/enemies/baby_boar_spriteframes.tres" id="7_t3fkb"]
 
@@ -22,10 +21,7 @@ script = ExtResource("1_u324k")
 max_movement_speed = 4.0
 unit_travel = 2.0
 
-[node name="FollowerComponent" parent="." node_paths=PackedStringArray("movement_component", "navigation_agent_3d") instance=ExtResource("3_a8t0e")]
-script = ExtResource("4_t3fkb")
-movement_component = NodePath("../MovementComponent")
-navigation_agent_3d = NodePath("../NavigationAgent3D")
+[node name="FollowerComponent" parent="." instance=ExtResource("3_a8t0e")]
 
 [node name="FlipperComponent" parent="." node_paths=PackedStringArray("target", "movement_component") instance=ExtResource("5_rg8xn")]
 target = NodePath("../Visuals")

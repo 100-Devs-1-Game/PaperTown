@@ -15,6 +15,9 @@ const QTE_INDICATOR = preload("uid://k2fu5rlm10mf")
 @onready var enemy_character: Array[Enemy] = []
 @onready var camera_3d: Camera3D = $Camera3D
 
+var screen_transition = preload("res://game/ui/screen_transition.tscn")
+var overworld_scene
+
 # Battle variables
 var player_action: GlobalUtils.PlayerAction
 var battle_menu_instance: BattleMenu
@@ -25,6 +28,9 @@ var alive_enemies: Array[Enemy] = []
 var is_battle_active: bool = true
 
 func _ready() -> void:
+	# TODO: This SHOULD NOT be one static thing
+	overworld_scene = "res://game/overworld/overworld_test2.tscn"
+	
 	# Generate boars
 	for i in range(3):
 		var boar = BOAR.instantiate()
@@ -118,7 +124,7 @@ func execute_run_attempt() -> void:
 	var run_chance := randi() % 100
 	if run_chance < 50:
 		print("Successfully ran away!")
-		end_battle()
+		end_battle("won")
 	else:
 		print("Failed to run away!")
 		start_enemy_turns()
@@ -181,14 +187,25 @@ func execute_next_enemy_turn() -> void:
 
 func win_battle() -> void:
 	is_battle_active = false
-	print("Victory! All enemies defeated!")
-	end_battle()
+	end_battle("won")
 
 func lose_battle() -> void:
 	is_battle_active = false
-	print("Defeat! You were overwhelmed!")
-	end_battle()
+	end_battle("lost")
 
-func end_battle() -> void:
+func end_battle(result : String) -> void:
 	print("Battle ends.")
+	
+	var screen_transition_instance = screen_transition.instantiate()
+	get_tree().root.add_child(screen_transition_instance)
+	
+	if result == "won":
+		screen_transition_instance.do_transition(ScreenTransition.TransitionType.BATTLE_WON)
+	elif result == "lost":
+		screen_transition_instance.do_transition(ScreenTransition.TransitionType.BATTLE_LOST)
+		
+	
 	# TODO: clear battle scene, play victory or defeat splash, exit to OW
+	# TODO: We need to track the player's position in the overworld after this
+	await screen_transition_instance.transition_halfway
+	get_tree().change_scene_to_file(overworld_scene)

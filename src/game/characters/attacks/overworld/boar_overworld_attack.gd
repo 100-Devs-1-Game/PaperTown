@@ -4,7 +4,6 @@ extends IOverworldAttack
 @onready var area_3d: Area3D = %Area3D
 
 func _ready():
-	lasting_timer.timeout.connect(on_timer_timeout)
 	area_3d.body_entered.connect(
 		func(body: Node3D):
 			var player: Player = body as Player
@@ -24,7 +23,3 @@ func _ready():
 func start_timer(time: float):
 	lasting_timer.wait_time = time
 	lasting_timer.start()
-
-
-func on_timer_timeout():
-	self.queue_free()
