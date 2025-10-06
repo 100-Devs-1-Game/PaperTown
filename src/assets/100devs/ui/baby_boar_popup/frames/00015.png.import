@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://wd1nyxmrjsej"
-path.s3tc="res://.godot/imported/00015.png-be015eabacd82d5a4d501a6709d1d5b3.s3tc.ctex"
+path="res://.godot/imported/00015.png-be015eabacd82d5a4d501a6709d1d5b3.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/100devs/ui/baby_boar_popup/frames/00015.png"
-dest_files=["res://.godot/imported/00015.png-be015eabacd82d5a4d501a6709d1d5b3.s3tc.ctex"]
+dest_files=["res://.godot/imported/00015.png-be015eabacd82d5a4d501a6709d1d5b3.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
