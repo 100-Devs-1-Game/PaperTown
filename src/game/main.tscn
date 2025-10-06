@@ -1,9 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://cygqjanirnqqt"]
+[gd_scene load_steps=21 format=3 uid="uid://cygqjanirnqqt"]
 
 [ext_resource type="Script" uid="uid://b5k4cn4tkdvlk" path="res://game/main.gd" id="1_oa506"]
+[ext_resource type="PackedScene" uid="uid://c673ixvf0lirq" path="res://game/overworld/overworld_manager.tscn" id="2_017dk"]
 [ext_resource type="PackedScene" uid="uid://vh1c5iw178fp" path="res://game/game.tscn" id="2_emt18"]
+[ext_resource type="PackedScene" uid="uid://k126qihwv8y" path="res://game/battle/battle.tscn" id="3_m8y2r"]
 [ext_resource type="PackedScene" uid="uid://13pulyn1bbcj" path="res://game/ui/screen.tscn" id="3_vop5m"]
 [ext_resource type="PackedScene" uid="uid://cup8w5o8dum5r" path="res://game/characters/attacks/overworld/player_overworld_attack.tscn" id="4_5un7r"]
+[ext_resource type="PackedScene" uid="uid://bipfmnkvcb6f" path="res://game/ui/screen_transition.tscn" id="4_le3en"]
 [ext_resource type="PackedScene" uid="uid://ljf0m6me4r67" path="res://game/characters/attacks/overworld/boar_overworld_attack.tscn" id="5_dgpao"]
 [ext_resource type="PackedScene" uid="uid://c8x3kcryc0xtb" path="res://game/characters/enemies/boar.tscn" id="6_wjctj"]
 [ext_resource type="PackedScene" uid="uid://jvef32xe1ytl" path="res://game/characters/enemies/baby_boar.tscn" id="7_xkbyp"]
@@ -21,6 +24,10 @@
 [node name="Main" type="Node"]
 script = ExtResource("1_oa506")
 
+[node name="OverworldManager" parent="." instance=ExtResource("2_017dk")]
+battle_scene = ExtResource("3_m8y2r")
+screen_transistion = ExtResource("4_le3en")
+
 [node name="Game" parent="." instance=ExtResource("2_emt18")]
 unique_name_in_owner = true
 
@@ -31,8 +38,10 @@ unique_name_in_owner = true
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
 
 [node name="PlayerOverworldAttack" parent="preload to avoid stutters" instance=ExtResource("4_5un7r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1100, 0)
 
 [node name="BoarOverworldAttack" parent="preload to avoid stutters" instance=ExtResource("5_dgpao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1000, 0)
 
 [node name="Boar" parent="preload to avoid stutters" instance=ExtResource("6_wjctj")]
 

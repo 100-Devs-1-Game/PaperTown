@@ -2206,8 +2206,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 16)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 21)
 
 [node name="Sunlight" parent="PicnicTable3" instance=ExtResource("7_21qb8")]
-shadow_normal_bias = 4.0
-shadow_blur = 0.0
 
 [node name="SharedWorldEnvironment" parent="." instance=ExtResource("7_p2ltc")]
 
