@@ -7,7 +7,7 @@
 [ext_resource type="SpriteFrames" uid="uid://ciudp36yslewt" path="res://game/characters/enemies/baby_boar_spriteframes.tres" id="7_t3fkb"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t3fkb"]
-height = 1.0
+radius = 1.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_t3fkb"]
 radius = 8.119
@@ -34,7 +34,7 @@ speed = 720.0
 wait_time = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["followers"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49538982, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_t3fkb")
 
 [node name="DetectionBubble" type="Area3D" parent="."]
