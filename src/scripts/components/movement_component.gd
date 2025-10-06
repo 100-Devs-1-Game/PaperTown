@@ -12,6 +12,7 @@ var snap_vector := Vector3.DOWN
 var velocity = Vector3.ZERO
 var facing_right := false
 var reached_destination := false
+var landed_after_jump := true
 
 
 func accelerate_in_direction(direction: Vector3):
@@ -37,7 +38,11 @@ func update_target_location(nav_agent, target_location):
 
 
 func move_to_target(nav_agent: NavigationAgent3D, character_body: CharacterBody3D):
+	if nav_agent.is_navigation_finished():
+		reached_destination = true
+
 	if reached_destination:
+		move(character_body)
 		return
 
 	var next_location = nav_agent.get_next_path_position()
@@ -50,9 +55,6 @@ func move_to_target(nav_agent: NavigationAgent3D, character_body: CharacterBody3
 	accelerate_in_direction(direction)
 	move(character_body)
 
-	if nav_agent.is_navigation_finished():
-		reached_destination = true
-
 
 func apply_gravity(delta, character_body: CharacterBody3D):
 	character_body.velocity.y -= gravity * delta
@@ -60,8 +62,8 @@ func apply_gravity(delta, character_body: CharacterBody3D):
 
 func get_random_spot(nav_agent, character_body: CharacterBody3D):
 	reached_destination = false
-	var x_movement_coefficient = randi_range(-1, 1)
-	var z_movement_coefficient = randi_range(-1, 1)
+	var x_movement_coefficient = randi_range(-2, 2)
+	var z_movement_coefficient = randi_range(-2, 2)
 
 	var current_position = character_body.position
 
@@ -79,9 +81,17 @@ func move(character_body: CharacterBody3D):
 	character_body.move_and_slide()
 	velocity = character_body.velocity
 
+	if character_body.is_on_floor():
+		landed_after_jump = true
 
-func jump(character_body: CharacterBody3D):
+
+func jump(character_body: CharacterBody3D) -> bool:
+	if !landed_after_jump:
+		return false
+
 	character_body.velocity.y += jump_strength
+	landed_after_jump = false
+	return true
 
 
 func swap_facing_direction():

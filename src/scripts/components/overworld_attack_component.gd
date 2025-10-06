@@ -1,4 +1,4 @@
-extends Node
+class_name OverworldAttackComponent extends Node
 
 @export var overworld_attack: PackedScene
 var on_attack_cooldown := false

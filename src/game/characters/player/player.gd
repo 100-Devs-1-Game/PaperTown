@@ -52,7 +52,7 @@ func handle_movement(delta):
 	var movement_vector = get_movement_vector()
 	direction = movement_vector.normalized()
 
-	if is_on_floor() and Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump"):
 		movement_component.jump(self)
 		var ft3d := FloatingText.spawn(global_position + Vector3(0, 2, 0), "oop")
 		ft3d.scale *= 0.25

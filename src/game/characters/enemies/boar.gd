@@ -12,13 +12,13 @@ var target: CharacterBody3D = null
 var chase_time := -1.0
 var wander_cooldown := false
 
-@onready var overworld_attack_component = $OverworldAttackComponent
-@onready var movement_component = $MovementComponent
-@onready var alert_timer = $AlertTimer
-@onready var detection_bubble = $DetectionBubble
-@onready var walk_timer = $WalkTimer
-@onready var navigation_agent_3d = $NavigationAgent3D
-@onready var debug_excla_mark = $Visuals/debug_excla_mark
+@onready var overworld_attack_component: OverworldAttackComponent = $OverworldAttackComponent
+@onready var movement_component: MovementComponent = $MovementComponent
+@onready var alert_timer: Timer = $AlertTimer
+@onready var detection_bubble: Area3D = $DetectionBubble
+@onready var walk_timer: Timer = $WalkTimer
+@onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
+@onready var debug_excla_mark: Label3D = $Visuals/debug_excla_mark
 @onready var animated_sprite_3d: AnimatedSprite3D = $Visuals/AnimatedSprite3D
 
 signal enemy_state_changed(new_state: State)
@@ -27,6 +27,7 @@ signal enemy_state_changed(new_state: State)
 func _ready():
 	assert(alert_timer.one_shot)
 	assert(walk_timer.one_shot)
+	walk_timer.wait_time *= randf_range(0.8, 1.2)
 
 	detection_bubble.body_entered.connect(on_detection_bubble_body_entered)
 	detection_bubble.body_exited.connect(on_detection_bubble_body_exited)
@@ -35,6 +36,7 @@ func _ready():
 
 	debug_excla_mark.text = ""
 
+	movement_component.get_random_spot(navigation_agent_3d, self)
 	change_state(State.WANDER)
 
 
@@ -59,11 +61,12 @@ func wander():
 
 
 func alert():
-	pass
+	movement_component.move(self)
 
 
 func chase():
 	if friendly:
+		movement_component.move(self)
 		return
 
 	movement_component.update_target_location(navigation_agent_3d, target.global_position)
@@ -108,9 +111,6 @@ func on_detection_bubble_body_entered(body):
 
 
 func change_state(new_state: State) -> void:
-	if current_state == new_state:
-		return
-
 	if friendly && new_state != State.WANDER:
 		return
 

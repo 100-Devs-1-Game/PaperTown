@@ -35,7 +35,7 @@ speed = 720.0
 one_shot = true
 
 [node name="WalkTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 4.0
 one_shot = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -68,7 +68,6 @@ animation = &"idle"
 frame_progress = 0.30359858
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-target_desired_distance = 0.5
 debug_enabled = true
 
 [connection signal="body_entered" from="DetectionBubble" to="." method="_on_detection_bubble_body_entered"]

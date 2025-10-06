@@ -10,6 +10,10 @@ var in_battle := false
 
 
 func _ready() -> void:
+	# delay a couple of frames to let characters settle on the floor
+	await get_tree().process_frame
+	await get_tree().process_frame
+
 	self.process_mode = PROCESS_MODE_ALWAYS
 	game.process_mode = Node.PROCESS_MODE_PAUSABLE
 	screen.process_mode = PROCESS_MODE_ALWAYS

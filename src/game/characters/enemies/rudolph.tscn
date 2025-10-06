@@ -19,7 +19,6 @@ collision_mask = 7
 script = ExtResource("1_nec56")
 
 [node name="MovementComponent" parent="." instance=ExtResource("2_uohj4")]
-max_movement_speed = 4.0
 unit_travel = 2.0
 
 [node name="FollowerComponent" parent="." instance=ExtResource("3_pe82k")]
