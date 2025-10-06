@@ -50,6 +50,8 @@ func _physics_process(delta):
 			alert()
 		State.CHASE:
 			chase()
+		State.BATTLE:
+			battle()
 
 
 func wander():
@@ -73,6 +75,11 @@ func chase():
 	movement_component.move_to_target(navigation_agent_3d, self)
 	animated_sprite_3d.play(&"charge")
 
+func battle():
+	if not animated_sprite_3d.is_playing():
+		animated_sprite_3d.play(&"idle")
+
+	movement_component.move(self)
 
 func on_alert_timeout():
 	if friendly:
@@ -121,6 +128,9 @@ func change_state(new_state: State) -> void:
 		movement_component.update_target_location(navigation_agent_3d, global_position)
 		movement_component.move_to_target(navigation_agent_3d, self)
 		walk_timer.start()
+
+	if current_state == State.BATTLE:
+		movement_component.facing_right = false
 
 
 func on_detection_bubble_body_exited(body):

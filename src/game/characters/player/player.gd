@@ -16,10 +16,10 @@ var facing_behind := false
 @onready var visuals: Node3D = %Visuals
 @onready var animated_sprite_3d: AnimatedSprite3D = %AnimatedSprite3D
 
-@onready var movement_component = %MovementComponent
-@onready var overworld_attack_component = %OverworldAttackComponent
-@onready var collision_shape_3d = %CollisionShape3D
-@onready var personal_space_bubble = $PersonalSpaceBubble
+@onready var movement_component: MovementComponent = %MovementComponent
+@onready var overworld_attack_component: OverworldAttackComponent = %OverworldAttackComponent
+@onready var collision_shape_3d: CollisionShape3D = %CollisionShape3D
+@onready var personal_space_bubble: Area3D = $PersonalSpaceBubble
 
 signal player_state_changed(new_state: State)
 
@@ -38,16 +38,18 @@ func _ready():
 func _physics_process(delta):
 	# TODO: final code is going to be much more sophisticated than this
 
+	movement_component.apply_gravity(delta, self)
+
 	match current_state:
 		State.MOVEMENT:
 			handle_movement(delta)
 		State.ATTACK:
 			pass
 		State.BATTLE:
-			pass
+			animation_handler(Vector3.ZERO)
+			movement_component.move(self)
 
-func handle_movement(delta):
-	movement_component.apply_gravity(delta, self)
+func handle_movement(_delta):
 	var movement_vector = get_movement_vector()
 	direction = movement_vector.normalized()
 
@@ -73,39 +75,42 @@ func handle_movement(delta):
 		else:
 			handle_attack()
 
-
-func get_movement_vector():
-	var input_dir := Vector2(Input.get_axis(&"left", &"right"), Input.get_axis(&"up", &"down"))
-
+func animation_handler(movement_direction: Vector3):
 	if (
-		(movement_component.facing_right == true and input_dir.x < 0.0)
-		or (movement_component.facing_right == false and input_dir.x > 0.0)
+		(movement_component.facing_right == true and movement_direction.x < 0.0)
+		or (movement_component.facing_right == false and movement_direction.x > 0.0)
 	):
 		movement_component.swap_facing_direction()
 
-	if input_dir.length() > 0.0:
-		if input_dir.y >= 0.0:
+	if movement_direction.length() > 0.0:
+		if movement_direction.y >= 0.0:
 			facing_behind = false
 		else:
 			facing_behind = true
 
-	if is_on_floor():
-		if input_dir != Vector2.ZERO:
-			if not facing_behind && animated_sprite_3d.animation != &"walk":
-				print("walk")
-				animated_sprite_3d.play(&"walk")
-			elif facing_behind && animated_sprite_3d.animation != &"walk_behind":
-				print("walk_behind")
-				animated_sprite_3d.play(&"walk_behind")
-		else:
-			if facing_behind && animated_sprite_3d.animation != &"idle_behind":
-				print("idle_behind")
-				animated_sprite_3d.play(&"idle_behind")
-			elif input_dir == Vector2.ZERO && not facing_behind && animated_sprite_3d.animation != &"idle":
-				print("idle")
-				animated_sprite_3d.play(&"idle")
+	if not is_on_floor():
+		return
 
-	return Vector3(input_dir.x, 0.0, input_dir.y)
+	if movement_direction != Vector3.ZERO:
+		if not facing_behind && animated_sprite_3d.animation != &"walk":
+			print("walk")
+			animated_sprite_3d.play(&"walk")
+		elif facing_behind && animated_sprite_3d.animation != &"walk_behind":
+			print("walk_behind")
+			animated_sprite_3d.play(&"walk_behind")
+	else:
+		if facing_behind && animated_sprite_3d.animation != &"idle_behind":
+			print("idle_behind")
+			animated_sprite_3d.play(&"idle_behind")
+		elif movement_direction == Vector3.ZERO && not facing_behind && animated_sprite_3d.animation != &"idle":
+			print("idle")
+			animated_sprite_3d.play(&"idle")
+
+func get_movement_vector():
+	var input_dir := Vector2(Input.get_axis(&"left", &"right"), Input.get_axis(&"up", &"down"))
+	var movement_vector := Vector3(input_dir.x, 0.0, input_dir.y)
+	animation_handler(movement_vector)
+	return movement_vector
 
 
 # TODO: This should be handled by anim player
@@ -146,11 +151,16 @@ func exit_attack_state():
 func change_state(new_state: State) -> void:
 	if current_state == new_state:
 		return
+
 	current_state = new_state
 	player_state_changed.emit(current_state)
 
+	if current_state == State.BATTLE:
+		facing_behind = false
+		movement_component.facing_right = true
 
-func on_body_entered(body):
+
+func on_body_entered(_body):
 	print("body entered player!")
 	#if body in get_tree().get_nodes_in_group("followers"):
 		#print("STOP!!!")

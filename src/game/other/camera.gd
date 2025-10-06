@@ -1,13 +1,16 @@
-extends Camera3D
+class_name Camera extends Camera3D
+
+enum State {
+	FOLLOW_PLAYER,
+	MANUAL
+}
 
 @export var offset: Vector3 = Vector3.ZERO
 @export var speed: float = 5.0
-
-# -10 seems like a good default, but maybe we want 0 inside houses?
-var target_angle: float = -20.0
-# 45 FOV seems great
-var target_fov: float = 45.0
-var target: Node3D
+@export var state: State = State.FOLLOW_PLAYER
+@export var target: Node3D
+@export var target_angle: float = -20.0
+@export var target_fov: float = 45.0
 
 
 func _ready() -> void:
@@ -22,10 +25,19 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if !target:
-		target = get_tree().get_first_node_in_group("player")
+	fov = move_toward(fov, target_fov, delta)
+	global_rotation.x = deg_to_rad(target_angle)
+
+	if state == State.FOLLOW_PLAYER:
 		if !target:
-			return
+			target = get_tree().get_first_node_in_group("player")
+			if !target:
+				return
+
+	if !target:
+		push_error("pls assign a target for the camera, thx")
+		assert(false)
+		return
 
 	var distance := ((target.global_position + offset) - global_position).length()
 	# a very well thought out smoothing function. yes.
@@ -34,5 +46,3 @@ func _physics_process(delta: float) -> void:
 	global_position = global_position.move_toward(
 		target.global_position + offset, delta * speed * speed_mul
 	)
-	global_rotation.x = deg_to_rad(target_angle)
-	fov = move_toward(fov, target_fov, delta)

@@ -3,10 +3,10 @@ extends Container
 signal target_selected(target_index: int)
 
 var target_buttons: Array[Button] = []
-var camera: Camera3D
+var camera: Camera
 
 
-func setup_target_buttons(enemies: Array[Enemy], battle_camera: Camera3D) -> void:
+func setup_target_buttons(enemies: Array[Enemy], battle_camera: Camera) -> void:
 	camera = battle_camera
 
 	# Clear existing buttons

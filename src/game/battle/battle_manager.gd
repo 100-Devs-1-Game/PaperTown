@@ -11,7 +11,7 @@ const QTE_INDICATOR = preload("uid://k2fu5rlm10mf")
 ]
 @onready var player_character := PLAYER.instantiate()
 @onready var enemy_character: Array[Enemy] = []
-@onready var camera_3d: Camera3D = $Camera3D
+@onready var camera: Camera = %Camera
 
 var screen_transition = preload("res://game/ui/screen_transition.tscn")
 var overworld_scene
@@ -42,18 +42,20 @@ func setup_battle() -> void:
 	# Initialize Player Character
 	add_child(player_character)
 	player_character.position = player_spawn
+	player_character.reset_physics_interpolation()
 	player_character.change_state(player_character.State.BATTLE)
 
 	# Initialize Enemy Characters
 	for i in range(enemy_character.size()):
 		add_child(enemy_character[i])
 		enemy_character[i].position = enemy_spawn[i]
+		enemy_character[i].reset_physics_interpolation()
 		enemy_character[i].change_state(enemy_character[i].State.BATTLE)
 
 	# Instantiate UI elements
 	battle_menu_instance = BATTLE_MENU.instantiate()
 	add_child(battle_menu_instance)
-	battle_menu_instance.target_selection.setup_target_buttons(enemy_character, camera_3d)
+	battle_menu_instance.target_selection.setup_target_buttons(enemy_character, camera)
 	qte_indicator_instance = QTE_INDICATOR.instantiate()
 	battle_menu_instance.add_child(qte_indicator_instance)
 
