@@ -46,7 +46,6 @@ func _physics_process(delta):
 		State.BATTLE:
 			pass
 
-
 func handle_movement(delta):
 	movement_component.apply_gravity(delta, self)
 	var movement_vector = get_movement_vector()
@@ -54,6 +53,10 @@ func handle_movement(delta):
 
 	if Input.is_action_just_pressed("jump"):
 		movement_component.jump(self)
+		if facing_behind:
+			animated_sprite_3d.play(&"jump_behind")
+		else:
+			animated_sprite_3d.play(&"jump")
 		var ft3d := FloatingText.spawn(global_position + Vector3(0, 2, 0), "oop")
 		ft3d.scale *= 0.25
 		ft3d.randomize_position(Vector3(1, 0.5, 0))
@@ -83,12 +86,24 @@ func get_movement_vector():
 	if input_dir.length() > 0.0:
 		if input_dir.y >= 0.0:
 			facing_behind = false
-			animated_sprite_3d.play(&"walk")
 		else:
 			facing_behind = true
-			animated_sprite_3d.play(&"walk_behind")
-	else:
-		animated_sprite_3d.play(&"idle" if not facing_behind else &"idle_behind")
+
+	if is_on_floor():
+		if input_dir != Vector2.ZERO:
+			if not facing_behind && animated_sprite_3d.animation != &"walk":
+				print("walk")
+				animated_sprite_3d.play(&"walk")
+			elif facing_behind && animated_sprite_3d.animation != &"walk_behind":
+				print("walk_behind")
+				animated_sprite_3d.play(&"walk_behind")
+		else:
+			if facing_behind && animated_sprite_3d.animation != &"idle_behind":
+				print("idle_behind")
+				animated_sprite_3d.play(&"idle_behind")
+			elif input_dir == Vector2.ZERO && not facing_behind && animated_sprite_3d.animation != &"idle":
+				print("idle")
+				animated_sprite_3d.play(&"idle")
 
 	return Vector3(input_dir.x, 0.0, input_dir.y)
 
