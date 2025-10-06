@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cygqjanirnqqt"]
+[gd_scene load_steps=18 format=3 uid="uid://cygqjanirnqqt"]
 
 [ext_resource type="Script" uid="uid://b5k4cn4tkdvlk" path="res://game/main.gd" id="1_oa506"]
 [ext_resource type="PackedScene" uid="uid://vh1c5iw178fp" path="res://game/game.tscn" id="2_emt18"]
@@ -8,6 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://c8x3kcryc0xtb" path="res://game/characters/enemies/boar.tscn" id="6_wjctj"]
 [ext_resource type="PackedScene" uid="uid://jvef32xe1ytl" path="res://game/characters/enemies/baby_boar.tscn" id="7_xkbyp"]
 [ext_resource type="PackedScene" uid="uid://daltrhtfxoebt" path="res://game/characters/enemies/rudolph.tscn" id="8_xkbyp"]
+[ext_resource type="PackedScene" uid="uid://romkf60q2s4o" path="res://game/environment/house/house_acorn.tscn" id="9_tv0fx"]
+[ext_resource type="PackedScene" uid="uid://chlijhxwcjsfp" path="res://game/environment/house/house_straw.tscn" id="10_017dk"]
+[ext_resource type="PackedScene" uid="uid://cg8oi4aiby2yq" path="res://game/environment/decoration/stick_cloud.tscn" id="11_8ymx4"]
+[ext_resource type="PackedScene" uid="uid://c2chpy4t1yiej" path="res://game/overworld/levels/everything_floorchunk_alternative.tscn" id="12_m8y2r"]
+[ext_resource type="PackedScene" uid="uid://coum0bwlspw84" path="res://game/environment/bridge/bridge_stone.tscn" id="13_le3en"]
+[ext_resource type="PackedScene" uid="uid://dbhjo4f3ij4sb" path="res://game/environment/bridge/bridge_popsicle.tscn" id="14_rqwoc"]
+[ext_resource type="PackedScene" uid="uid://dlnsxa0hoxkmh" path="res://game/environment/river.tscn" id="15_2o2kd"]
+[ext_resource type="PackedScene" uid="uid://b4lfw3w43bbqf" path="res://game/environment/floor_other/road.tscn" id="16_rvc4y"]
+[ext_resource type="PackedScene" uid="uid://cio03om4d7mig" path="res://game/environment/object/circular_fence.tscn" id="17_c08u8"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_oa506")
@@ -30,3 +39,21 @@ transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
 [node name="BabyBoar" parent="preload to avoid stutters" instance=ExtResource("7_xkbyp")]
 
 [node name="Rudolph" parent="preload to avoid stutters" instance=ExtResource("8_xkbyp")]
+
+[node name="HouseAcorn" parent="preload to avoid stutters" instance=ExtResource("9_tv0fx")]
+
+[node name="HouseStraw" parent="preload to avoid stutters" instance=ExtResource("10_017dk")]
+
+[node name="StickCloud" parent="preload to avoid stutters" instance=ExtResource("11_8ymx4")]
+
+[node name="EverythingFloorchunk" parent="preload to avoid stutters" instance=ExtResource("12_m8y2r")]
+
+[node name="BridgeStone" parent="preload to avoid stutters" instance=ExtResource("13_le3en")]
+
+[node name="BridgePopsicle" parent="preload to avoid stutters" instance=ExtResource("14_rqwoc")]
+
+[node name="River" parent="preload to avoid stutters" instance=ExtResource("15_2o2kd")]
+
+[node name="Road" parent="preload to avoid stutters" instance=ExtResource("16_rvc4y")]
+
+[node name="CircularFence" parent="preload to avoid stutters" instance=ExtResource("17_c08u8")]

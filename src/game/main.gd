@@ -11,6 +11,7 @@ var in_battle := false
 
 func _ready() -> void:
 	# delay a couple of frames to let characters settle on the floor
+	FloatingText.spawn($"preload to avoid stutters".global_position, "test")
 	await get_tree().process_frame
 	await get_tree().process_frame
 
