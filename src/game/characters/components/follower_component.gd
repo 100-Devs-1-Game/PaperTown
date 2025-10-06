@@ -24,10 +24,10 @@ func follow_player(
 	assert(movement_component)
 
 	if following_player:
-		print(get_parent().name, " is following player, going to ", player.global_position, " and is now at ", get_parent().global_position)
+		#print(get_parent().name, " is following player, going to ", player.global_position, " and is now at ", get_parent().global_position)
 		movement_component.update_target_location(navigation_agent_3d, player.global_position)
 		movement_component.move_to_target(navigation_agent_3d, follower)
 	else:
-		print(get_parent().name, " is not following player, going to ", follower.global_position, " and is now at ", get_parent().global_position)
+		#print(get_parent().name, " is not following player, going to ", follower.global_position, " and is now at ", get_parent().global_position)
 		movement_component.update_target_location(navigation_agent_3d, follower.global_position)
 		movement_component.move_to_target(navigation_agent_3d, follower)
