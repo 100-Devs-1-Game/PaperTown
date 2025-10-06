@@ -77,9 +77,13 @@ func on_alert_timeout():
 
 	change_state(State.CHASE)
 	debug_excla_mark.text = ""
-	var dir_to_player := (get_tree().get_first_node_in_group("player") as Node3D).global_position - global_position
+	var dir_to_player := (
+		(get_tree().get_first_node_in_group("player") as Node3D).global_position - global_position
+	)
 	# min(1.5, dir_to_player.length())
-	var _attack: IOverworldAttack = overworld_attack_component.generate_attack(self, dir_to_player.normalized().x, 0, -1)
+	var _attack: IOverworldAttack = overworld_attack_component.generate_attack(
+		self, dir_to_player.normalized().x, 0, -1
+	)
 
 
 func on_walk_timeout():
@@ -118,10 +122,14 @@ func change_state(new_state: State) -> void:
 		movement_component.move_to_target(navigation_agent_3d, self)
 		walk_timer.start()
 
+
 func on_detection_bubble_body_exited(body):
-	if body in get_tree().get_nodes_in_group("player") and (current_state == State.CHASE or current_state == State.ALERT):
+	if (
+		body in get_tree().get_nodes_in_group("player")
+		and (current_state == State.CHASE or current_state == State.ALERT)
+	):
 		overworld_attack_component.resolve_attack()
-		
+
 
 func exit_attack_state():
 	debug_excla_mark.text = ""

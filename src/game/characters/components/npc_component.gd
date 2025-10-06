@@ -1,11 +1,12 @@
 extends Node
 
-@export var talking_range : Area3D
-@export var movement_component : MovementComponent
+@export var talking_range: Area3D
+@export var movement_component: MovementComponent
 
 var is_talkable := true
 
 signal interacted_with
+
 
 func _ready():
 	talking_range.body_entered.connect(on_body_entered)

@@ -2,6 +2,7 @@
 class_name FlattenHierarchy
 extends EditorScript
 
+
 func _run():
 	var selected_nodes := EditorInterface.get_selection().get_selected_nodes()
 	for node in selected_nodes:
@@ -9,6 +10,7 @@ func _run():
 			flatten_hierarchy(node, node)
 		else:
 			print("skipping ", node.name)
+
 
 func flatten_hierarchy(root: Node3D, parent: Node3D):
 	print("flattening ", root.name)

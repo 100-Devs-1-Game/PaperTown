@@ -23,7 +23,10 @@ func accelerate_in_direction(direction: Vector3):
 
 func face_position(position: Vector3) -> void:
 	var dir_to_target := position - (get_parent() as Node3D).global_position
-	if (facing_right == true and dir_to_target.x < 0.0) or (facing_right == false and dir_to_target.x > 0.0):
+	if (
+		(facing_right == true and dir_to_target.x < 0.0)
+		or (facing_right == false and dir_to_target.x > 0.0)
+	):
 		swap_facing_direction()
 
 

@@ -9,6 +9,7 @@ var target_angle: float = -20.0
 var target_fov: float = 45.0
 var target: Node3D
 
+
 func _ready() -> void:
 	if offset == Vector3.ZERO:
 		offset = global_position
@@ -30,6 +31,8 @@ func _physics_process(delta: float) -> void:
 	# a very well thought out smoothing function. yes.
 	var speed_mul := 4 * clampf(distance / 10.0, 0.0, 1.0)
 	#print(distance, " = ", speed_mul)
-	global_position = global_position.move_toward(target.global_position + offset, delta * speed * speed_mul)
+	global_position = global_position.move_toward(
+		target.global_position + offset, delta * speed * speed_mul
+	)
 	global_rotation.x = deg_to_rad(target_angle)
 	fov = move_toward(fov, target_fov, delta)

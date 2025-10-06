@@ -7,9 +7,7 @@ const QTE_INDICATOR = preload("uid://k2fu5rlm10mf")
 
 @onready var player_spawn: Vector3 = $PlayerSpawn.global_position
 @onready var enemy_spawn: Array[Vector3] = [
-	$EnemySpawn1.global_position,
-	$EnemySpawn2.global_position,
-	$EnemySpawn3.global_position
+	$EnemySpawn1.global_position, $EnemySpawn2.global_position, $EnemySpawn3.global_position
 ]
 @onready var player_character := PLAYER.instantiate()
 @onready var enemy_character: Array[Enemy] = []
@@ -28,15 +26,17 @@ var current_enemy_index: int = 0
 var alive_enemies: Array[Enemy] = []
 var is_battle_active: bool = true
 
+
 func _ready() -> void:
 	# TODO: This SHOULD NOT be one static thing
 	overworld_scene = "res://game/overworld/overworld_test2.tscn"
-	
+
 	# Generate boars
 	for i in range(3):
 		var boar = BOAR.instantiate()
 		enemy_character.append(boar)
 	setup_battle()
+
 
 func setup_battle() -> void:
 	# Initialize Player Character
@@ -63,10 +63,12 @@ func setup_battle() -> void:
 	# Start the battle
 	start_battle()
 
+
 func start_battle() -> void:
 	player_character.stats.hit_counter = 0
 	update_alive_enemies()
 	start_player_turn()
+
 
 func update_alive_enemies() -> void:
 	alive_enemies.clear()
@@ -75,6 +77,7 @@ func update_alive_enemies() -> void:
 		if is_instance_valid(enemy) and enemy.stats.current_hp > 0:
 			alive_enemies.append(enemy)
 
+
 func start_player_turn() -> void:
 	if not is_battle_active:
 		return
@@ -82,16 +85,18 @@ func start_player_turn() -> void:
 	print("Player's turn!")
 	battle_menu_instance.show_menu()
 
+
 func handle_player_action(selected_action: GlobalUtils.PlayerAction, selected_target: int) -> void:
 	if not is_battle_active:
 		return
-	
+
 	player_action = selected_action
 
 	if player_action == GlobalUtils.PlayerAction.RUN_AWAY:
 		execute_run_attempt()
 	else:
 		execute_attack(selected_target)
+
 
 func execute_attack(target: int) -> void:
 	var damage: int = 0
@@ -121,6 +126,7 @@ func execute_attack(target: int) -> void:
 	# Player turn finished, start enemy turns
 	start_enemy_turns()
 
+
 func execute_run_attempt() -> void:
 	var run_chance := randi() % 100
 	if run_chance < 50:
@@ -130,6 +136,7 @@ func execute_run_attempt() -> void:
 		print("Failed to run away!")
 		start_enemy_turns()
 
+
 func start_enemy_turns() -> void:
 	if not is_battle_active:
 		return
@@ -138,6 +145,7 @@ func start_enemy_turns() -> void:
 	current_enemy_index = 0
 	print("Enemy turns begin!")
 	execute_next_enemy_turn()
+
 
 func execute_next_enemy_turn() -> void:
 	if not is_battle_active:
@@ -180,7 +188,6 @@ func execute_next_enemy_turn() -> void:
 		2:
 			print("Boar %d flourishes weapon!" % enemy_number)
 
-
 	# Move to next enemy
 	current_enemy_index += 1
 	execute_next_enemy_turn()
@@ -190,23 +197,24 @@ func win_battle() -> void:
 	is_battle_active = false
 	end_battle("won")
 
+
 func lose_battle() -> void:
 	is_battle_active = false
 	print("Defeat! You were overwhelmed!")
 	end_battle("lost")
 
+
 func end_battle(result: String) -> void:
 	print("Battle ends.")
-	
+
 	var screen_transition_instance = screen_transition.instantiate()
 	get_tree().root.add_child(screen_transition_instance)
-	
+
 	if result == "won":
 		screen_transition_instance.do_transition(ScreenTransition.TransitionType.BATTLE_WON)
 	elif result == "lost":
 		screen_transition_instance.do_transition(ScreenTransition.TransitionType.BATTLE_LOST)
-		
-	
+
 	# TODO: clear battle scene, play victory or defeat splash, exit to OW
 	# TODO: We need to track the player's position in the overworld after this
 	await screen_transition_instance.transition_halfway

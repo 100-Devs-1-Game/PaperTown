@@ -8,24 +8,20 @@ const SCREEN_TRANSITION_SCENE := preload("res://game/ui/screen_transition.tscn")
 
 var in_battle := false
 
+
 func _ready() -> void:
 	self.process_mode = PROCESS_MODE_ALWAYS
 	game.process_mode = Node.PROCESS_MODE_PAUSABLE
 	screen.process_mode = PROCESS_MODE_ALWAYS
 	get_tree().paused = true
 
-	screen.started_fadeout.connect(func():
-		get_viewport().get_camera_3d().process_mode = Node.PROCESS_MODE_ALWAYS
+	screen.started_fadeout.connect(
+		func(): get_viewport().get_camera_3d().process_mode = Node.PROCESS_MODE_ALWAYS
 	)
 
-	screen.finished_fadeout.connect(func():
-		get_tree().paused = false
-	)
+	screen.finished_fadeout.connect(func(): get_tree().paused = false)
 
-	screen.started_fadein.connect(
-		func():
-			get_tree().paused = true
-	)
+	screen.started_fadein.connect(func(): get_tree().paused = true)
 
 	Signals.battle_started.connect(
 		func(enemy: ICharacter):

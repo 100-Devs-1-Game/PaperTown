@@ -88,7 +88,7 @@ func get_movement_vector():
 			facing_behind = true
 			animated_sprite_3d.play(&"walk_behind")
 	else:
-		animated_sprite_3d.play(&"idle") if not facing_behind else animated_sprite_3d.play(&"idle_behind")
+		animated_sprite_3d.play(&"idle" if not facing_behind else &"idle_behind")
 
 	return Vector3(input_dir.x, 0.0, input_dir.y)
 
@@ -109,9 +109,11 @@ func handle_attack():
 		ft3d, ft3d.position + (Vector3.RIGHT * dir * attack_distance) + Vector3.UP, 1
 	)
 
+
 func add_talkable_npc(body: CharacterBody3D):
 	talkable_state = true
 	talkable_npcs.append(body)
+
 
 func remove_talkable_npc(body: CharacterBody3D):
 	if body in talkable_npcs:
@@ -119,6 +121,7 @@ func remove_talkable_npc(body: CharacterBody3D):
 
 	if talkable_npcs.is_empty():
 		talkable_state = false
+
 
 # This will likely get obsolete with an anim player
 func exit_attack_state():
@@ -131,11 +134,13 @@ func change_state(new_state: State) -> void:
 	current_state = new_state
 	player_state_changed.emit(current_state)
 
+
 func on_body_entered(body):
 	print("body entered!")
 	if body in get_tree().get_nodes_in_group("followers"):
 		print("STOP!!!")
 		body.follower_component.stop_following_player()
+
 
 func on_body_exited(body):
 	if body in get_tree().get_nodes_in_group("followers"):
