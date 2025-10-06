@@ -8,13 +8,12 @@
 [ext_resource type="SpriteFrames" uid="uid://1stbc7bssfw8" path="res://game/characters/enemies/rudolph_spriteframes.tres" id="5_uohj4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l1yg8"]
-radius = 1.5
-height = 3.0
+radius = 1.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_t3fkb"]
 radius = 8.119
 
-[node name="Rudolph" type="CharacterBody3D"]
+[node name="Rudolph" type="CharacterBody3D" groups=["followers"]]
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_nec56")
@@ -40,7 +39,7 @@ speed = 720.0
 wait_time = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4953898, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_l1yg8")
 
 [node name="TalkingRange" type="Area3D" parent="."]

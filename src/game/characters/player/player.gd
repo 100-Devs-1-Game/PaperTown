@@ -136,10 +136,10 @@ func change_state(new_state: State) -> void:
 
 
 func on_body_entered(body):
-	print("body entered!")
-	if body in get_tree().get_nodes_in_group("followers"):
-		print("STOP!!!")
-		body.follower_component.stop_following_player()
+	print("body entered player!")
+	#if body in get_tree().get_nodes_in_group("followers"):
+		#print("STOP!!!")
+		#body.follower_component.stop_following_player()
 
 
 func on_body_exited(body):

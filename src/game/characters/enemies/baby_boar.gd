@@ -17,6 +17,9 @@ func _ready():
 
 
 func _physics_process(delta):
+	if !player:
+		player = get_tree().get_first_node_in_group(&"player")
+
 	if current_state == State.FOLLOWER:
 		movement_component.apply_gravity(delta, self)
 		follower_component.follow_player(navigation_agent_3d, movement_component, player, self)

@@ -1,4 +1,4 @@
-extends Node
+class_name NPCComponent extends Node
 
 @export var talking_range: Area3D
 @export var movement_component: MovementComponent

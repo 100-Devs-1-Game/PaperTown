@@ -44,6 +44,9 @@ func move_to_target(nav_agent: NavigationAgent3D, character_body: CharacterBody3
 	var local_location = next_location - character_body.global_position
 
 	var direction = local_location.normalized()
+	DebugDraw3D.draw_arrow(character_body.global_position + Vector3.UP, nav_agent.target_position + Vector3.UP, Color.GREEN, 0.1)
+	DebugDraw3D.draw_arrow(character_body.global_position + Vector3.UP, next_location + Vector3.UP, Color.RED, 0.1)
+	DebugDraw3D.draw_arrow_ray(character_body.global_position + Vector3.UP, direction, 5.0, Color.BLACK, 0.1)
 	accelerate_in_direction(direction)
 	move(character_body)
 

@@ -7,11 +7,11 @@ enum State { NPC, FOLLOWER, BATTLE }
 var current_state: State
 var facing_behind := false
 
-@onready var npc_component = $NPCComponent
-@onready var follower_component = $FollowerComponent
-@onready var movement_component = $MovementComponent
-@onready var navigation_agent_3d = $NavigationAgent3D
-@onready var animated_sprite_3d = $Visuals/AnimatedSprite3D
+@onready var npc_component: NPCComponent = $NPCComponent
+@onready var follower_component:FollowerComponent = $FollowerComponent
+@onready var movement_component: MovementComponent = $MovementComponent
+@onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
+@onready var animated_sprite_3d: AnimatedSprite3D = $Visuals/AnimatedSprite3D
 
 signal rudolph_state_changed
 
@@ -21,21 +21,26 @@ func _ready():
 
 
 func _physics_process(delta):
+	if !player:
+		player = get_tree().get_first_node_in_group(&"player")
+
 	movement_component.apply_gravity(delta, self)
 
 	match current_state:
 		State.NPC:
 			pass
 		State.FOLLOWER:
-			follow_player()
+			pass
 		State.BATTLE:
 			pass
+
+	follow_player()
+	play_animations()
 
 
 func follow_player():
 	follower_component.follow_player(navigation_agent_3d, movement_component, player, self)
 	facing_behind = true if velocity.z < 0 else false
-	play_animations()
 
 
 func on_interacted_with():
@@ -58,7 +63,7 @@ func play_animations():
 	if facing_behind:
 		string_suffix = "_behind"
 
-	if not follower_component.following_player:
+	if Vector2(movement_component.velocity.x, movement_component.velocity.z).length_squared() < 0.1:
 		string_prefix = "idle"
 	else:
 		string_prefix = "walk"
