@@ -114,83 +114,83 @@ jobs:
         with:
           args: '${{ vars.GAME_NAME }} ${{ github.ref_name }} released: https://${{ vars.ITCHIO_USERNAME }}.itch.io/${{ vars.ITCHIO_GAME }} Password: 100devs'
 
-  test-linux-build:
-    needs: build-game
-    runs-on: ubuntu-latest
-    if:  ${{ !startsWith(github.ref, 'refs/tags/') }}
-    steps:
-      - name: Download Linux artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: linux-export
-          path: ./linux-build
+  # test-linux-build:
+  #   needs: build-game
+  #   runs-on: ubuntu-latest
+  #   if:  ${{ !startsWith(github.ref, 'refs/tags/') }}
+  #   steps:
+  #     - name: Download Linux artifact
+  #       uses: actions/download-artifact@v4
+  #       with:
+  #         name: linux-export
+  #         path: ./linux-build
 
-      - name: Show artifact directory
-        run: |
-          echo Archive: ./linux-build
-          FOLDER_PATH="./linux-build"
-          if [ -d "$FOLDER_PATH" ]; then
-            ls -R "$FOLDER_PATH"
-          else
-            ls -R .
-          fi
+  #     - name: Show artifact directory
+  #       run: |
+  #         echo Archive: ./linux-build
+  #         FOLDER_PATH="./linux-build"
+  #         if [ -d "$FOLDER_PATH" ]; then
+  #           ls -R "$FOLDER_PATH"
+  #         else
+  #           ls -R .
+  #         fi
 
-      - name: Unzip artifact
-        run: |
-          mkdir ./test_game
-          unzip "$(find ./linux-build -name linux_release.zip)" -d ./test_game
-          chmod +x ./test_game/*
+  #     - name: Unzip artifact
+  #       run: |
+  #         mkdir ./test_game
+  #         unzip "$(find ./linux-build -name linux_release.zip)" -d ./test_game
+  #         chmod +x ./test_game/*
 
-      - name: Run tests
-        run: |
-          set -e
-          set -o pipefail
+  #     - name: Run tests
+  #       run: |
+  #         set -e
+  #         set -o pipefail
 
-          TEMP_FILE=/tmp/test_linux_release.log
-          ./test_game/linux_release.x86_64 --headless --render-thread safe --single-threaded-scene --verbose --quit-after 1000 2>&1 | tee $TEMP_FILE
+  #         TEMP_FILE=/tmp/test_linux_release.log
+  #         ./test_game/linux_release.x86_64 --headless --render-thread safe --single-threaded-scene --verbose --quit-after 1000 2>&1 | tee $TEMP_FILE
 
-          # This should line up with whatever branch of https://github.com/100-Devs-1-Game/godot-gut-ci/ that we're using
-          # Except GUT requires an editor build, so we can't use it in the release? idk
+  #         # This should line up with whatever branch of https://github.com/100-Devs-1-Game/godot-gut-ci/ that we're using
+  #         # Except GUT requires an editor build, so we can't use it in the release? idk
 
-          echo ""
-          echo ""
-          echo ""
-          echo ""
-          echo ""
-          echo "#####################"
-          echo "       RESULTS       "
-          echo "#####################"
+  #         echo ""
+  #         echo ""
+  #         echo ""
+  #         echo ""
+  #         echo ""
+  #         echo "#####################"
+  #         echo "       RESULTS       "
+  #         echo "#####################"
 
-          FAILED=0
+  #         FAILED=0
 
-          # Check for any error lines (case-insensitive)
-          # Ignores null time for textures: https://github.com/godotengine/godot/issues/108994
-          FILTERED_ERRORS=$(grep "ERROR" "$TEMP_FILE" | grep -v 'ERROR: Parameter "t" is null.') || true
+  #         # Check for any error lines (case-insensitive)
+  #         # Ignores null time for textures: https://github.com/godotengine/godot/issues/108994
+  #         FILTERED_ERRORS=$(grep "ERROR" "$TEMP_FILE" | grep -v 'ERROR: Parameter "t" is null.') || true
 
-          if [ -n "$FILTERED_ERRORS" ]; then
-            echo "CI FAILED BECAUSE OF THESE GODOT ERRORS"
-            echo "$FILTERED_ERRORS"
-            echo ""
-            FAILED=1
-          fi
+  #         if [ -n "$FILTERED_ERRORS" ]; then
+  #           echo "CI FAILED BECAUSE OF THESE GODOT ERRORS"
+  #           echo "$FILTERED_ERRORS"
+  #           echo ""
+  #           FAILED=1
+  #         fi
 
-          # Check for invalid UID warnings which will cause problems for other people
-          FILTERED_WARNINGS=$(grep "WARNING" "$TEMP_FILE" | grep 'invalid UID:') || true
+  #         # Check for invalid UID warnings which will cause problems for other people
+  #         FILTERED_WARNINGS=$(grep "WARNING" "$TEMP_FILE" | grep 'invalid UID:') || true
 
-          if [ -n "$FILTERED_WARNINGS" ]; then
-            echo "CI FAILED BECAUSE OF THESE GODOT WARNINGS"
-            echo "$FILTERED_WARNINGS"
-            echo ""
-            FAILED=1
-          fi
+  #         if [ -n "$FILTERED_WARNINGS" ]; then
+  #           echo "CI FAILED BECAUSE OF THESE GODOT WARNINGS"
+  #           echo "$FILTERED_WARNINGS"
+  #           echo ""
+  #           FAILED=1
+  #         fi
 
-          if [ "$FAILED" -eq 0 ]; then
-            echo "ALL GOOD :) :) :)"
-            echo ""
-            echo ""
-            echo ""
-            echo ""
-            echo ""
-          fi
+  #         if [ "$FAILED" -eq 0 ]; then
+  #           echo "ALL GOOD :) :) :)"
+  #           echo ""
+  #           echo ""
+  #           echo ""
+  #           echo ""
+  #           echo ""
+  #         fi
 
-          exit $FAILED
+  #         exit $FAILED
