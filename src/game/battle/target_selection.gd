@@ -17,6 +17,9 @@ func setup_target_buttons(enemies: Array[Enemy], battle_camera: Camera) -> void:
 
 	# Create buttons for each alive enemy
 	for i in range(enemies.size()):
+		if not is_instance_valid(enemies[i]):
+			continue
+
 		if enemies[i].stats.current_hp > 0:
 			var button = Button.new()
 			button.text = "Target"

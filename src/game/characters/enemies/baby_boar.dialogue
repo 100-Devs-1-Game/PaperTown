@@ -1,0 +1,27 @@
+~ start
+if not Dialogue.can_finish_acorn_quest:
+	set Dialogue.can_finish_acorn_quest = true
+	Rudolph: A baby boar!
+	Baby Boar: [i]Oink Oink[/i]
+	Player: ...
+	Rudolph: Oh no, this is nothing like that game
+	Player: ...
+	Rudolph: Well... for starters I'm a rheindeer, not a bear
+	Player: ...
+	Rudolph: I just have a big appetite!
+	Player: ...
+	Rudolph: Nevermind that. What should we do?
+	Player: ...
+	Rudolph: Bring her with us?!?
+	Player: ...
+	Rudolph: We are not calling her porkchop...
+	Porkchop: [i][wave amp=25 freq=5]oooooooink![/wave][/i]
+	Player: ...!
+	Rudolph: That doesn't mean anything!
+	Porkchop: [i]Oink![/i]
+	Rudolph: ... Okay fine, maybe she does like that name. Let's just head back and tell Ol' Man Acorn
+	=> END
+% Porkchop: [i]Oink Oink[/i]
+% Porkchop: [i]Oink![/i]
+% Porkchop: [i][wave amp=25 freq=5]oooooooink![/wave][/i]
+=> END

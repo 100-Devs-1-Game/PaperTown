@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cjsw18oruvptv"
+path="res://.godot/imported/oldman.dialogue-66fb61066b741c8ad115dc7e25fac798.tres"
+
+[deps]
+
+source_file="res://game/characters/enemies/oldman.dialogue"
+dest_files=["res://.godot/imported/oldman.dialogue-66fb61066b741c8ad115dc7e25fac798.tres"]
+
+[params]
+
+defaults=true

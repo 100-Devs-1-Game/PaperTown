@@ -93,6 +93,7 @@ func start_player_turn() -> void:
 		return
 
 	print("Player's turn!")
+	battle_menu_instance.target_selection.setup_target_buttons(enemy_character, camera)
 	battle_menu_instance.show_menu()
 
 

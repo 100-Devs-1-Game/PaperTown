@@ -7,12 +7,14 @@
 [node name="RockingChair" type="Node3D" groups=["navmesh"]]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 
+[node name="Node3D" type="Node3D" parent="."]
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.98210764, 0.059164315, 0.17878437, 0.0020571945, 0.9459394, -0.32433614, -0.18830825, 0.31890085, 0.9288929, 0, 0.027651094, 0)
+transform = Transform3D(1.4731617, 0.088746406, 0.26817644, 0.003085792, 1.4189094, -0.48650432, -0.28246242, 0.47835135, 1.3933394, 0, 0.027651092, 0)
 mesh = ExtResource("1_h6yuj")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, -0.041927636, 0.9999999, 0.034032196)
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -0.041927636, 0.9999998, 0.034032192)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("CylinderShape3D_h6yuj")

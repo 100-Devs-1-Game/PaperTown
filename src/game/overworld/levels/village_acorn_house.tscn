@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://df70g5qks2ftd"]
+[gd_scene load_steps=3 format=3 uid="uid://df70g5qks2ftd"]
 
 [ext_resource type="PackedScene" uid="uid://romkf60q2s4o" path="res://game/environment/house/house_acorn.tscn" id="1_y51cd"]
+[ext_resource type="PackedScene" uid="uid://b0nfyp8bnj7sx" path="res://game/characters/enemies/oldman.tscn" id="2_k3hqa"]
 
 [node name="VillageAcornHouse" type="Node3D"]
 
 [node name="HouseAcorn" parent="." instance=ExtResource("1_y51cd")]
 
-[node name="TODO - TheAcornManScene" type="Node3D" parent="."]
+[node name="OldMan" parent="." instance=ExtResource("2_k3hqa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)

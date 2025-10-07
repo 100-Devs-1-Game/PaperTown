@@ -2,14 +2,14 @@ class_name Player extends ICharacter
 
 enum State { MOVEMENT, ATTACK, BATTLE }
 
-const STATS = preload("res://game/resources/stats.tres")
+const STATS = preload("res://game/resources/stats.tres") as Stats
 
-var direction
+var direction: Vector3
 var attack_distance := 1.5
 var attack_time = 0.3
 var current_state: State
-var stats = STATS
-var talkable_npcs = []
+var stats := STATS
+var talkable_npcs: Array[Node3D] = []
 var talkable_state := false
 var facing_behind := false
 
@@ -38,19 +38,25 @@ func _ready():
 func _physics_process(delta):
 	# TODO: final code is going to be much more sophisticated than this
 
-	movement_component.apply_gravity(delta, self)
 
-	match current_state:
-		State.MOVEMENT:
-			handle_movement(delta)
-		State.ATTACK:
-			pass
-		State.BATTLE:
-			animation_handler(Vector3.ZERO)
-			movement_component.move(self)
+	if Dialogue.dialogue_is_running:
+		movement_component.velocity = Vector3.ZERO
+		movement_component.apply_gravity(delta, self)
+		animation_handler(Vector3.ZERO)
+		movement_component.move(self)
+	else:
+		movement_component.apply_gravity(delta, self)
+		match current_state:
+			State.MOVEMENT:
+				handle_movement(delta)
+			State.ATTACK:
+				pass
+			State.BATTLE:
+				animation_handler(Vector3.ZERO)
+				movement_component.move(self)
 
 func handle_movement(_delta):
-	var movement_vector = get_movement_vector()
+	var movement_vector := get_movement_vector()
 	direction = movement_vector.normalized()
 
 	if Input.is_action_just_pressed("jump"):
@@ -71,7 +77,12 @@ func handle_movement(_delta):
 
 	if Input.is_action_just_pressed("attack_overworld"):
 		if talkable_state:
-			talkable_npcs[talkable_npcs.size() - 1].npc_component.interact_with_player()
+			var closest_npc := talkable_npcs[0]
+			for npc in talkable_npcs:
+				if (npc.global_position - global_position).length_squared() < (closest_npc.global_position - global_position).length_squared():
+					closest_npc = npc
+
+			closest_npc.npc_component.interact_with_player()
 		else:
 			handle_attack()
 
@@ -106,7 +117,7 @@ func animation_handler(movement_direction: Vector3):
 			print("idle")
 			animated_sprite_3d.play(&"idle")
 
-func get_movement_vector():
+func get_movement_vector() -> Vector3:
 	var input_dir := Vector2(Input.get_axis(&"left", &"right"), Input.get_axis(&"up", &"down"))
 	var movement_vector := Vector3(input_dir.x, 0.0, input_dir.y)
 	animation_handler(movement_vector)
@@ -169,4 +180,6 @@ func on_body_entered(_body):
 
 func on_body_exited(body):
 	if body in get_tree().get_nodes_in_group("followers"):
+		if body is Rudolph and not Dialogue.finished_rudolph_intro:
+			return
 		body.follower_component.start_following_player()

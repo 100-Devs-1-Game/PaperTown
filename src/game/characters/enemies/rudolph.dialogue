@@ -1,0 +1,68 @@
+~ start
+if not Dialogue.finished_rudolph_intro:
+	set Dialogue.finished_rudolph_intro = true
+	=> intro
+elif not Dialogue.started_acorn_quest:
+	% Rudolph: We should go talk to Ol' Man Acorn and see if he has any errands for us!
+	% Rudolph: I'm only helping you for now!
+	=> END
+elif Dialogue.finished_acorn_quest:
+	%
+		Rudolph: With that, we can finally purchase those supplies!
+		Player: ...
+		Rudolph: Oh right! The developers didn't add a shop, huh?
+		Player: ...
+		Rudolph: What's a fourth wall?
+		=> END
+	%
+		Rudolph: That was so much fun!
+		Player: !!!
+		Rudolph: Travel the world with you? ...Okay!
+		=> END
+elif Dialogue.can_finish_acorn_quest:
+	%
+		Rudolph: We should head back and tell Ol' Man Acorn!
+		=> END
+	%
+		Rudolph: Really? Porkchop?
+		Porkchop: [i]Oink?[/i]
+		Rudolph: No, I didn't mean... nevermind
+		=> END
+else:
+	Rudolph: I can't believe you spent all your money on muffins
+	=> END
+
+~ leftbehind
+Rudolph: Oh hey! Where are you off to so suddenly?
+Player: ...
+=> intro2
+
+~ intro
+Rudolph: I love it here
+Player: ...
+Rudolph: That's part of the charm!
+Player: ...
+Rudolph: Oh... I see. Where would you go instead?
+Player: ...
+=> intro2
+
+~ intro2
+Rudolph: [shake rate=20 level=10]YOU WANT TO TRAVEL THE WHOLE WORLD?[/shake] That's... That's...
+Player: ...
+Rudolph: But it could take years!
+Player: ... !
+Rudolph: And it's dangerous!
+Player: ... [shake rate=20 level=10]!!![/shake]
+Rudolph: Okay Okay! Then you'll need to get some supplies
+Player: ...
+Rudolph: [shake rate=20 level=10]You spent all your money on muffins?![/shake]
+Rudolph: Well... What about Ol' Man Acorn?
+Player: ...?
+Rudolph: Yeah! They might have some errands for you
+Player: [shake rate=20 level=10] !!![/shake]
+Rudolph: Good luck!
+Player: [shake rate=20 level=10] !!!!!![/shake]
+Rudolph: You want me to come with you?
+Player: [shake rate=20 level=10] !!![/shake]
+Rudolph: Okay! Let's do this
+=> END

@@ -20,14 +20,19 @@ var wander_cooldown := false
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var debug_excla_mark: Label3D = $Visuals/debug_excla_mark
 @onready var animated_sprite_3d: AnimatedSprite3D = $Visuals/AnimatedSprite3D
+@onready var npc_component: NPCComponent = %NPCComponent
 
 signal enemy_state_changed(new_state: State)
-
 
 func _ready():
 	assert(alert_timer.one_shot)
 	assert(walk_timer.one_shot)
 	walk_timer.wait_time *= randf_range(0.8, 1.2)
+
+	if friendly:
+		npc_component.interacted_with.connect(on_interacted_with)
+	else:
+		npc_component.queue_free()
 
 	detection_bubble.body_entered.connect(on_detection_bubble_body_entered)
 	detection_bubble.body_exited.connect(on_detection_bubble_body_exited)
@@ -52,6 +57,10 @@ func _physics_process(delta):
 			chase()
 		State.BATTLE:
 			battle()
+
+
+func on_interacted_with():
+	pass
 
 
 func wander():

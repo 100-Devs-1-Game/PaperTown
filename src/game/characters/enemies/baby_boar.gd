@@ -10,7 +10,7 @@ var current_state: State = State.FOLLOWER
 @onready var movement_component = $MovementComponent
 @onready var navigation_agent_3d = $NavigationAgent3D
 @onready var animated_sprite_3d = $Visuals/AnimatedSprite3D
-
+@onready var npc_component: NPCComponent = %NPCComponent
 
 func _ready():
 	change_state(State.FOLLOWER)

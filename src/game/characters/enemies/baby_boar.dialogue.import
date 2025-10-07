@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://b8wftk26470vg"
+path="res://.godot/imported/baby_boar.dialogue-b9767ac7f480c966c79f84fee81afd76.tres"
+
+[deps]
+
+source_file="res://game/characters/enemies/baby_boar.dialogue"
+dest_files=["res://.godot/imported/baby_boar.dialogue-b9767ac7f480c966c79f84fee81afd76.tres"]
+
+[params]
+
+defaults=true
