@@ -61,6 +61,7 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://add
 navmesh="used for navmesh baking"
 followers="used for follower component"
 player=""
+camera="Camera"
 
 [gui]
 

@@ -1,6 +1,6 @@
 class_name Player extends ICharacter
 
-enum State { MOVEMENT, ATTACK, BATTLE }
+enum State { MOVEMENT, ATTACK, BATTLE, CUTSCENE }
 
 const STATS = preload("res://game/resources/stats.tres") as Stats
 
@@ -52,6 +52,9 @@ func _physics_process(delta):
 			State.ATTACK:
 				pass
 			State.BATTLE:
+				animation_handler(Vector3.ZERO)
+				movement_component.move(self)
+			State.CUTSCENE:
 				animation_handler(Vector3.ZERO)
 				movement_component.move(self)
 
@@ -170,6 +173,9 @@ func change_state(new_state: State) -> void:
 	if current_state == State.BATTLE:
 		facing_behind = false
 		movement_component.facing_right = true
+
+	if current_state == State.CUTSCENE:
+		movement_component.velocity = Vector3.ZERO
 
 
 func on_body_entered(_body):

@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=4 uid="uid://romkf60q2s4o"]
+[gd_scene load_steps=27 format=4 uid="uid://romkf60q2s4o"]
 
+[ext_resource type="Script" uid="uid://biqnmf4kq2g5q" path="res://game/environment/house/house_acorn.gd" id="1_t0vqe"]
 [ext_resource type="ArrayMesh" uid="uid://b15fffhqgpmcj" path="res://assets/100devs/assets/data/assets_house-acorn-interior_door-back.mesh.res" id="4_ji46r"]
 [ext_resource type="ArrayMesh" uid="uid://ccn67r7crdcg1" path="res://assets/100devs/assets/data/assets_house-acorn-interior_door-front.mesh.res" id="5_t5l1l"]
 [ext_resource type="ArrayMesh" uid="uid://dh5st7maaqtiw" path="res://assets/100devs/assets/data/assets_house-acorn-interior_fridge.mesh.res" id="6_4u1wa"]
@@ -51,7 +52,142 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_lkyge")
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_yagqv"]
+radius = 1.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t0vqe"]
+size = Vector3(2, 34.63, 2)
+
+[sub_resource type="Animation" id="Animation_3n5pc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("house_acorn_interior/FrontPivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("house_acorn_interior/roof:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.9651142, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("house_acorn_interior/FrontPivot/DoorPivot:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("house_acorn_interior/FrontPivot:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.9653729, 0.6865469)]
+}
+
+[sub_resource type="Animation" id="Animation_yagqv"]
+resource_name = "door"
+
+[sub_resource type="Animation" id="Animation_t0vqe"]
+resource_name = "house"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("house_acorn_interior/FrontPivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.4486233, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("house_acorn_interior/roof:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.9651142, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("house_acorn_interior/FrontPivot/DoorPivot:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -3.1415927, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("house_acorn_interior/FrontPivot:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.9653729, 0.6865469), Vector3(0, -1.925, 0.687)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t0vqe"]
+_data = {
+&"RESET": SubResource("Animation_3n5pc"),
+&"door": SubResource("Animation_yagqv"),
+&"house": SubResource("Animation_t0vqe")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yagqv"]
+size = Vector3(7, 4, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3n5pc"]
+size = Vector3(5, 4, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rxugb"]
+size = Vector3(2.75, 4, 0.5)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_t0vqe"]
+height = 4.0
+radius = 0.75
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xukry"]
+size = Vector3(6, 4, 4)
+
 [node name="HouseAcorn" type="Node3D" groups=["navmesh"]]
+script = ExtResource("1_t0vqe")
 
 [node name="house_acorn_interior" type="Node3D" parent="."]
 transform = Transform3D(3.053258, 0, 0, 0, 3.053258, 0, 0, 0, 3.053258, 0, 6, 0)
@@ -59,11 +195,6 @@ transform = Transform3D(3.053258, 0, 0, 0, 3.053258, 0, 0, 0, 3.053258, 0, 6, 0)
 [node name="door_back" type="MeshInstance3D" parent="house_acorn_interior"]
 transform = Transform3D(0.327519, 0, 0, 0, 0.31339425, 0.09514588, 0, -0.09514588, 0.31339425, 0.28866768, -1.9654573, -0.7928171)
 mesh = ExtResource("4_ji46r")
-skeleton = NodePath("")
-
-[node name="door_front" type="MeshInstance3D" parent="house_acorn_interior"]
-transform = Transform3D(0.327519, 0, 0, 0, 0.327519, 0, 0, 0, 0.327519, 0.28866768, -1.9654573, 0.7694285)
-mesh = ExtResource("5_t5l1l")
 skeleton = NodePath("")
 
 [node name="fridge" type="MeshInstance3D" parent="house_acorn_interior"]
@@ -76,19 +207,36 @@ transform = Transform3D(0.12845473, 0, -0.08715075, 0, 0.17967829, 0, 0.07737183
 mesh = SubResource("ArrayMesh_ml8fe")
 skeleton = NodePath("")
 
-[node name="front" type="MeshInstance3D" parent="house_acorn_interior"]
-transform = Transform3D(0.327519, 0, 0, 0, 0.327519, 0, 0, 0, 0.327519, 0, -1.9651142, 0.75329375)
+[node name="StaticBody3D" type="StaticBody3D" parent="house_acorn_interior/fridge"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="house_acorn_interior/fridge/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.017199218, 0)
+shape = SubResource("CylinderShape3D_yagqv")
+
+[node name="FrontPivot" type="Node3D" parent="house_acorn_interior"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9653729, 0.6865469)
+
+[node name="grass_curly_house_acorn_front" type="MeshInstance3D" parent="house_acorn_interior/FrontPivot"]
+transform = Transform3D(0.07683558, -0.112187706, -0.6125681, 0.07785318, 0.6141014, -0.1027032, -0.6178711, 0.063427046, -0.08911696, -0.8571482, 0.5809235, 0.47889084)
+mesh = ExtResource("18_l3hh8")
+skeleton = NodePath("")
+
+[node name="DoorPivot" type="Node3D" parent="house_acorn_interior/FrontPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27372918, 0.20984997, 0.1407345)
+
+[node name="door_front" type="MeshInstance3D" parent="house_acorn_interior/FrontPivot/DoorPivot"]
+transform = Transform3D(0.327519, 0, 0, 0, 0.327519, 0, 0, 0, 0.327519, 0.0149385035, -0.2099343, -0.057852864)
+mesh = ExtResource("5_t5l1l")
+skeleton = NodePath("")
+
+[node name="front" type="MeshInstance3D" parent="house_acorn_interior/FrontPivot"]
+transform = Transform3D(0.327519, 0, 0, 0, 0.327519, 0, 0, 0, 0.327519, 0, 0.00025877904, 0.06674689)
 mesh = ExtResource("7_hbtpx")
 skeleton = NodePath("")
 
 [node name="grass_curly_house_acorn" type="MeshInstance3D" parent="house_acorn_interior"]
 transform = Transform3D(0.327519, 0, 0, 0, 0.327519, 0, 0, 0, 0.327519, 1.2862659, -1.5454582, -0.5127325)
 mesh = ExtResource("17_ehftw")
-skeleton = NodePath("")
-
-[node name="grass_curly_house_acorn_front" type="MeshInstance3D" parent="house_acorn_interior"]
-transform = Transform3D(0.07683558, -0.112187706, -0.6125681, 0.07785318, 0.6141014, -0.1027032, -0.6178711, 0.063427046, -0.08911696, -0.8571482, -1.3844495, 1.1654377)
-mesh = ExtResource("18_l3hh8")
 skeleton = NodePath("")
 
 [node name="roof" type="MeshInstance3D" parent="house_acorn_interior"]
@@ -106,6 +254,12 @@ transform = Transform3D(0.37363154, 0, 0, 0, 0.019322071, 0, 0, 0, 0.17731634, -
 mesh = ExtResource("20_ebsfv")
 skeleton = NodePath("")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="house_acorn_interior/table"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="house_acorn_interior/table/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.982766, 0)
+shape = SubResource("BoxShape3D_t0vqe")
+
 [node name="timber_beams" type="MeshInstance3D" parent="house_acorn_interior"]
 transform = Transform3D(0.327519, 0, 0, 0, 0.327519, 0, 0, 0, 0.327519, 0, -1.9651142, 0)
 mesh = ExtResource("21_cq63k")
@@ -115,3 +269,52 @@ skeleton = NodePath("")
 transform = Transform3D(0.327519, 0, 0, 0, 0.327519, 0, 0, 0, 0.327519, 0, -1.9651142, 0)
 mesh = ExtResource("22_5waxj")
 skeleton = NodePath("")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_t0vqe")
+}
+
+[node name="StaticBody3DWalls" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3DWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2.4133713)
+shape = SubResource("BoxShape3D_yagqv")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3DWalls"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.4718323, 2, -0.028000021)
+shape = SubResource("BoxShape3D_3n5pc")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3DWalls"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.8064368, 2, -0.027999705)
+shape = SubResource("BoxShape3D_3n5pc")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3DWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5797172, 2, 2.5214252)
+shape = SubResource("BoxShape3D_rxugb")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3DWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5548751, 2, 2.608105)
+shape = SubResource("BoxShape3D_rxugb")
+
+[node name="DoorZone" type="Area3D" parent="."]
+unique_name_in_owner = true
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.8118622)
+shape = SubResource("CylinderShape3D_t0vqe")
+
+[node name="CameraTarget" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -11.07918)
+
+[node name="IndoorZone" type="Area3D" parent="."]
+unique_name_in_owner = true
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="IndoorZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.022941, 0)
+shape = SubResource("BoxShape3D_xukry")

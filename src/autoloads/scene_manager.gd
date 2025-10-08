@@ -13,9 +13,9 @@ var started: bool = false
 func _exit_tree() -> void:
 	# let's not leak the nodes. whichever scene is not "current" is not in the tree, so we have to free it
 	# using free vs queue_free because I don't think there is an opportunity next frame to free them? idk
-	if current_scene == battle_scene:
+	if current_scene == battle_scene && game_scene:
 		game_scene.free()
-	else:
+	elif battle_scene:
 		battle_scene.free()
 
 func start(root: Node) -> void:

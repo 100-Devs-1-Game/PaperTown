@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bscjj56ijag0p"]
+[gd_scene load_steps=6 format=3 uid="uid://bscjj56ijag0p"]
 
 [ext_resource type="PackedScene" uid="uid://romkf60q2s4o" path="res://game/environment/house/house_acorn.tscn" id="1_alg57"]
 [ext_resource type="PackedScene" uid="uid://chlijhxwcjsfp" path="res://game/environment/house/house_straw.tscn" id="2_nraoe"]
+[ext_resource type="PackedScene" uid="uid://crtm3xevyq3w6" path="res://game/environment/floor/test.tscn" id="3_wa4vv"]
+[ext_resource type="PackedScene" uid="uid://px8n52y05giq" path="res://game/characters/player/player.tscn" id="4_j77mt"]
+[ext_resource type="PackedScene" uid="uid://dxhii6l3t8ca" path="res://game/other/camera.tscn" id="5_j77mt"]
 
 [node name="TestHouses" type="Node3D"]
 
@@ -10,3 +13,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
 
 [node name="HouseStraw" parent="." instance=ExtResource("2_nraoe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+
+[node name="TestFloor" parent="." instance=ExtResource("3_wa4vv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 2)
+
+[node name="Player" parent="." instance=ExtResource("4_j77mt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6598034, 0.2972517, 5.9046955)
+
+[node name="Camera" parent="." instance=ExtResource("5_j77mt")]

@@ -5,7 +5,7 @@
 [ext_resource type="CameraAttributesPractical" uid="uid://cm5rcvo256osi" path="res://game/environment/world_environment_camera_attributes.tres" id="2_2if83"]
 [ext_resource type="Compositor" uid="uid://culqiwrg3fjcw" path="res://game/environment/world_environment_compositor.tres" id="3_spqv0"]
 
-[node name="Camera" type="Camera3D"]
+[node name="Camera" type="Camera3D" groups=["camera"]]
 environment = ExtResource("1_k6dfb")
 attributes = ExtResource("2_2if83")
 compositor = ExtResource("3_spqv0")

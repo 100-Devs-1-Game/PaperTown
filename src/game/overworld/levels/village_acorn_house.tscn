@@ -8,4 +8,4 @@
 [node name="HouseAcorn" parent="." instance=ExtResource("1_y51cd")]
 
 [node name="OldMan" parent="." instance=ExtResource("2_k3hqa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 2.2502832, 2.3841858e-07, 0.62025106)
