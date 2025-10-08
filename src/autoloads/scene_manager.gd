@@ -6,7 +6,6 @@ extends Node
 var root_parent: Node
 
 var current_scene: Node3D
-var previous_scene_process_mode: ProcessMode
 var battle_scene: Node3D
 var game_scene: Node3D
 var started: bool = false
@@ -41,8 +40,6 @@ func start(root: Node) -> void:
 		if current_scene.get_parent() == null:
 			root_parent.add_child(current_scene)
 
-		previous_scene_process_mode = current_scene.process_mode
-
 	started = true
 
 func switch_to_battle() -> void:
@@ -57,7 +54,6 @@ func switch_to_battle() -> void:
 		assert(false)
 		return
 
-	previous_scene_process_mode = current_scene.process_mode
 	current_scene.process_mode = Node.PROCESS_MODE_DISABLED
 	current_scene.set_physics_process(false)
 
@@ -65,7 +61,7 @@ func switch_to_battle() -> void:
 	current_scene = battle_scene
 	root_parent.add_child(current_scene)
 
-	current_scene.process_mode = previous_scene_process_mode
+	current_scene.process_mode = Node.PROCESS_MODE_PAUSABLE
 	current_scene.set_physics_process(true)
 	print("FINISHED SWITCHING TO BATTLE")
 
@@ -82,7 +78,6 @@ func switch_to_game() -> void:
 		assert(false)
 		return
 
-	previous_scene_process_mode = current_scene.process_mode
 	current_scene.process_mode = Node.PROCESS_MODE_DISABLED
 	current_scene.set_physics_process(false)
 
@@ -90,6 +85,6 @@ func switch_to_game() -> void:
 	current_scene = game_scene
 	root_parent.add_child(current_scene)
 
-	current_scene.process_mode = previous_scene_process_mode
+	current_scene.process_mode = Node.PROCESS_MODE_PAUSABLE
 	current_scene.set_physics_process(true)
 	print("FINISHED SWITCHING TO GAME")

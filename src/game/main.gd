@@ -38,14 +38,6 @@ func _ready() -> void:
 
 	Signals.battle_started.connect(
 		func(enemy: ICharacter):
-			print("starting battle")
-			if in_battle:
-				print("already in battle!")
-				print_stack()
-				return
-
-			in_battle = true
-
 			var defer := func():
 				game.process_mode = Node.PROCESS_MODE_DISABLED
 				game.set_physics_process(false)
