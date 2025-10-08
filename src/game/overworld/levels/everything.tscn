@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://ucmbipiukcp6"]
+[gd_scene load_steps=56 format=3 uid="uid://ucmbipiukcp6"]
 
 [ext_resource type="Script" uid="uid://cuisw4b85d5gn" path="res://game/overworld/levels/everything.gd" id="1_g4sm0"]
 [ext_resource type="PackedScene" uid="uid://dt8efoha3ph50" path="res://game/overworld/levels/everything_floorchunk.tscn" id="1_x5nb8"]
@@ -51,6 +51,8 @@
 [ext_resource type="Material" uid="uid://bbx1r5eeab18j" path="res://assets/100devs/assets/data/assets-material_blue.tres" id="48_yo3uw"]
 [ext_resource type="Texture2D" uid="uid://c12ql0g6cns12" path="res://assets/100devs/hill_1.png" id="49_3emo4"]
 [ext_resource type="Texture2D" uid="uid://bvdj56r17dlgb" path="res://assets/100devs/hill_2.png" id="50_g4sm0"]
+[ext_resource type="PackedScene" uid="uid://dsin55s8mkxxm" path="res://game/environment/object/tree_tall.tscn" id="52_e0ime"]
+[ext_resource type="PackedScene" uid="uid://bmcjj4rkgknfa" path="res://game/environment/object/tree_striped.tscn" id="53_70ugw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_opxy2"]
 size = Vector3(5, 20, 1)
@@ -2780,7 +2782,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.320885, 0.27023387, 30.810
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123.66413, 1.1281805, 9.291776)
 
 [node name="Fireplace" parent="." instance=ExtResource("47_yo3uw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.138245, 0, 46.814175)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.138245, -0.999974, 46.814175)
 
 [node name="Ocean" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83, -2.05, -55)
@@ -2796,6 +2798,30 @@ texture = ExtResource("49_3emo4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -153.01828)
 pixel_size = 0.1
 texture = ExtResource("50_g4sm0")
+
+[node name="TreeTall" parent="." instance=ExtResource("52_e0ime")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.10203, 0.32497025, 24.574413)
+
+[node name="TreeTall2" parent="." instance=ExtResource("52_e0ime")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 133.65756, 0.47150135, 21.34619)
+
+[node name="TreeStriped" parent="." instance=ExtResource("53_70ugw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.92206, 0, 30.698448)
+
+[node name="TreeStriped2" parent="." instance=ExtResource("53_70ugw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 138.01868, -0.1497941, 34.093685)
+
+[node name="FlowerPink" parent="." instance=ExtResource("22_ub254")]
+transform = Transform3D(0.9619753, 0, -0.27313662, 0, 1, 0, 0.27313662, 0, 0.9619753, 122.8678, 0.5039191, 20.079191)
+
+[node name="FlowerPink2" parent="." instance=ExtResource("22_ub254")]
+transform = Transform3D(0.9093596, 0, 0.416011, 0, 1, 0, -0.416011, 0, 0.9093596, 104.00518, 0, 30.698914)
+
+[node name="FlowerPink5" parent="." instance=ExtResource("22_ub254")]
+transform = Transform3D(0.9008423, -0.05835736, 0.43020654, -3.7252903e-09, 0.99092466, 0.13441858, -0.43414655, -0.121089935, 0.89266676, 123.11301, -0.14094734, 37.6629)
+
+[node name="FlowerPink6" parent="." instance=ExtResource("22_ub254")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.06953, -0.14094734, 37.84068)
 
 [editable path="InvisibleWall"]
 [editable path="InvisibleWall2"]
