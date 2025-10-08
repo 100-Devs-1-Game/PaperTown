@@ -27,11 +27,14 @@ func _physics_process(delta):
 
 
 func play_animations():
-	if not follower_component.following_player:
+	if not follower_component.following_player and not Dialogue.can_finish_acorn_quest:
+		animated_sprite_3d.play(&"sleeping")
+	elif absf(movement_component.velocity.x) > 0 || absf(movement_component.velocity.z) > 0 || absf(velocity.x) > 0 || absf(velocity.z) > 0:
+		animated_sprite_3d.play(&"walk")
+	else:
+		animated_sprite_3d.play(&"walk")
 		animated_sprite_3d.frame = 2
 		animated_sprite_3d.pause()
-	else:
-		animated_sprite_3d.play("default")
 
 
 func change_state(new_state: State) -> void:

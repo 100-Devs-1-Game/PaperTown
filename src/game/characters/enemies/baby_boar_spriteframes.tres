@@ -9,6 +9,14 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("4_nu3u5")
+}],
+"loop": true,
+"name": &"sleeping",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("1_frm3k")
 }, {
 "duration": 1.0,
@@ -18,14 +26,6 @@ animations = [{
 "texture": ExtResource("3_2ci03")
 }],
 "loop": true,
-"name": &"default",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_nu3u5")
-}],
-"loop": true,
-"name": &"sleeping",
+"name": &"walk",
 "speed": 12.0
 }]
