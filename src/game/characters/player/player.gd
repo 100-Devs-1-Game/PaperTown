@@ -84,7 +84,7 @@ func handle_movement(_delta):
 
 			closest_npc.npc_component.interact_with_player()
 		else:
-			handle_attack()
+			pass#handle_attack()
 
 func animation_handler(movement_direction: Vector3):
 	if (
@@ -125,6 +125,7 @@ func get_movement_vector() -> Vector3:
 
 
 # TODO: This should be handled by anim player
+# TODO: disabling overworld attack because boars attack player and that's enough for now
 func handle_attack():
 	if not is_on_floor():
 		return
