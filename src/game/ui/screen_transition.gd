@@ -20,7 +20,7 @@ signal transition_halfway
 func _physics_process(_delta):
 	if (
 		animated_sprite_2d.frame
-		== transition_dictionary[current_transition]["scene_transition_frame"]
+		>= transition_dictionary[current_transition]["scene_transition_frame"]
 	):
 		transition_halfway.emit()
 

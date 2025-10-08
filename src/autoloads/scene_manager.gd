@@ -40,6 +40,9 @@ func start(root: Node) -> void:
 		if current_scene.get_parent() == null:
 			root_parent.add_child(current_scene)
 
+	DialogueManager.get_current_scene = func():
+		return game_scene
+
 	started = true
 
 func switch_to_battle() -> void:

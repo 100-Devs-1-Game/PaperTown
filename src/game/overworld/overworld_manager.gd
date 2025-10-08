@@ -22,7 +22,9 @@ func _ready():
 			var screen_transistion_instance = screen_transistion.instantiate()
 			get_tree().root.add_child(screen_transistion_instance)
 			screen_transistion_instance.do_transition(ScreenTransition.TransitionType.BATTLE_START)
+			print("waiting for transition, before battle")
 			await screen_transistion_instance.transition_halfway
+			print("finished transition, going to battle")
 			SceneManager.switch_to_battle()
 
 	)
