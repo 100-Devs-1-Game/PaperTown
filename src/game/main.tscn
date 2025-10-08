@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cygqjanirnqqt"]
+[gd_scene load_steps=24 format=3 uid="uid://cygqjanirnqqt"]
 
 [ext_resource type="Script" uid="uid://b5k4cn4tkdvlk" path="res://game/main.gd" id="1_oa506"]
 [ext_resource type="PackedScene" uid="uid://c673ixvf0lirq" path="res://game/overworld/overworld_manager.tscn" id="2_017dk"]
@@ -19,6 +19,10 @@
 [ext_resource type="PackedScene" uid="uid://dlnsxa0hoxkmh" path="res://game/environment/river.tscn" id="15_2o2kd"]
 [ext_resource type="PackedScene" uid="uid://b4lfw3w43bbqf" path="res://game/environment/floor_other/road.tscn" id="16_rvc4y"]
 [ext_resource type="PackedScene" uid="uid://cio03om4d7mig" path="res://game/environment/object/circular_fence.tscn" id="17_c08u8"]
+[ext_resource type="PackedScene" uid="uid://df70g5qks2ftd" path="res://game/overworld/levels/village_acorn_house.tscn" id="20_2o2kd"]
+[ext_resource type="PackedScene" uid="uid://dmovis6102n7v" path="res://game/environment/object/lightpost.tscn" id="21_rvc4y"]
+[ext_resource type="PackedScene" uid="uid://dsx1k367nhyi6" path="res://game/environment/object/fireplace.tscn" id="22_c08u8"]
+[ext_resource type="PackedScene" uid="uid://dki3n2pnxnpps" path="res://game/environment/object/direction_sign.tscn" id="23_a5bbb"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_oa506")
@@ -68,3 +72,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1000, 0)
 [node name="Road" parent="preload to avoid stutters" instance=ExtResource("16_rvc4y")]
 
 [node name="CircularFence" parent="preload to avoid stutters" instance=ExtResource("17_c08u8")]
+
+[node name="VillageAcornHouse" parent="preload to avoid stutters" instance=ExtResource("20_2o2kd")]
+
+[node name="Lightpost" parent="preload to avoid stutters" instance=ExtResource("21_rvc4y")]
+
+[node name="Fireplace" parent="preload to avoid stutters" instance=ExtResource("22_c08u8")]
+
+[node name="DirectionSign" parent="preload to avoid stutters" instance=ExtResource("23_a5bbb")]
