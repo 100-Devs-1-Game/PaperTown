@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://chlijhxwcjsfp"]
+[gd_scene load_steps=9 format=3 uid="uid://chlijhxwcjsfp"]
 
 [ext_resource type="ArrayMesh" uid="uid://doesuj5bnk4tw" path="res://assets/100devs/assets/data/assets_house-straw.mesh.res" id="1_hx4g7"]
 [ext_resource type="ArrayMesh" uid="uid://c6yxdpmni33op" path="res://assets/100devs/assets/data/assets_house-straw_door-house-straw.mesh.res" id="2_re7xr"]
@@ -6,7 +6,16 @@
 [ext_resource type="ArrayMesh" uid="uid://pkjpj2w0e2qh" path="res://assets/100devs/assets/data/assets_house-straw_roof-straw.mesh.res" id="4_62hyg"]
 [ext_resource type="ArrayMesh" uid="uid://ctyoct2uim3ct" path="res://assets/100devs/assets/data/assets_house-straw_window.mesh.res" id="5_75nb1"]
 
-[node name="HouseStraw" type="Node3D"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hx4g7"]
+radius = 3.75
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_re7xr"]
+radius = 4.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_524yu"]
+size = Vector3(2.696, 4, 4.118)
+
+[node name="HouseStraw" type="Node3D" groups=["navmesh"]]
 
 [node name="house_straw" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.61053115, 0, 0, 0, 0.61053115, 0, 0, 0, 0.61053115, 0, 1.923, 0)
@@ -32,3 +41,17 @@ skeleton = NodePath("")
 transform = Transform3D(1.4471037, -0.39566782, 0.011436523, -2.201209e-08, -0.0772819, -1.4514533, 0.29669723, 1.9298204, -0.05578032, -2.5529213, 0.086339, 3.3426933)
 mesh = ExtResource("5_75nb1")
 skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.6741443, 0, 0, 0, 1, 0, 0, 0, 0.6049788, 0.4767058, 0, 0)
+shape = SubResource("CylinderShape3D_hx4g7")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.6741443, 0, 0, 0, 1, 0, 0, 0, 0.6049788, -0.3783357, 0, 0)
+shape = SubResource("CylinderShape3D_re7xr")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6561725, 0, 0)
+shape = SubResource("BoxShape3D_524yu")
