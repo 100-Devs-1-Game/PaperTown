@@ -94,7 +94,7 @@ func animation_handler(movement_direction: Vector3):
 		movement_component.swap_facing_direction()
 
 	if movement_direction.length() > 0.0:
-		if movement_direction.y >= 0.0:
+		if movement_direction.z >= 0.0:
 			facing_behind = false
 		else:
 			facing_behind = true

@@ -6,7 +6,7 @@ enum TransitionType { NONE, BATTLE_START, BATTLE_WON, BATTLE_LOST }
 var current_transition := TransitionType.NONE
 
 var transition_dictionary = {
-	TransitionType.NONE: {"animation_name": "", "scene_transition_frame": 0},
+	TransitionType.NONE: {"animation_name": "", "scene_transition_frame": -1},
 	TransitionType.BATTLE_START: {"animation_name": "battle_start", "scene_transition_frame": 25},
 	TransitionType.BATTLE_WON: {"animation_name": "battle_victory", "scene_transition_frame": 27},
 	TransitionType.BATTLE_LOST: {"animation_name": "battle_defeat", "scene_transition_frame": 25}
