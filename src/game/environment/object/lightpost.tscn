@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmovis6102n7v"]
+
+[ext_resource type="ArrayMesh" uid="uid://caiap515gkpqe" path="res://assets/100devs/assets/data/assets_lightpost.mesh.res" id="1_535w1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_htvhl"]
+height = 6.0
+
+[node name="Lightpost" type="Node3D" groups=["navmesh"]]
+
+[node name="lightpost" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.08114339, 0, -0.08176261, 0, 0.28343093, 0, 0.08176261, 0, 0.08114339, 0, 3.783, 0)
+mesh = ExtResource("1_535w1")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.355297, 0)
+shape = SubResource("CapsuleShape3D_htvhl")

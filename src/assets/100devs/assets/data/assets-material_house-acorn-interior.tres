@@ -4,5 +4,7 @@
 
 [resource]
 resource_name = "house_acorn_interior"
+transparency = 4
+cull_mode = 2
 albedo_texture = ExtResource("1_smp6m")
 roughness = 0.6818182

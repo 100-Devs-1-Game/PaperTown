@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu8gjvyiys3es"]
+
+[ext_resource type="ArrayMesh" uid="uid://dbsg2xexgyw1x" path="res://assets/100devs/assets/data/assets_clothes-line.mesh.res" id="1_2vl8m"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2vl8m"]
+height = 4.0
+
+[node name="ClothesLine" type="Node3D" groups=["navmesh"]]
+
+[node name="clothes_line" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.77422583, 0.106954865, 0.6238069, -0.2960179, 0.9323633, 0.20753843, -0.5594174, -0.3453396, 0.75352025, 0, 2.1917343, 0)
+mesh = ExtResource("1_2vl8m")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.053423, 1.0000005, 1.2481139)
+shape = SubResource("CapsuleShape3D_2vl8m")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.064364, 1.0000004, -1.0371494)
+shape = SubResource("CapsuleShape3D_2vl8m")

@@ -24,7 +24,7 @@ func follow_player(
 	assert(get_parent())
 	assert(navigation_agent_3d)
 	assert(movement_component)
-	
+
 	if following_player:
 		if (follower.global_position - player.global_position).length_squared() > MAX_DISTANCE_AWAY_FROM_PLAYER:
 			follower.global_position = Vector3(player.global_position.x - 3.0, player.global_position.y, player.global_position.z)

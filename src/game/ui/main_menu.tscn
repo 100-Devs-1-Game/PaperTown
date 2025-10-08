@@ -582,7 +582,6 @@ bus_name = "SFX"
 
 [node name="Panel" type="Panel" parent="Control/Book/BookBack"]
 custom_minimum_size = Vector2(64, 64)
-anchors_preset = -1
 offset_left = -652.0
 offset_top = 232.0
 offset_right = -588.0

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dki3n2pnxnpps"]
+
+[ext_resource type="ArrayMesh" uid="uid://6jb6ubaqxm01" path="res://assets/100devs/assets/data/assets_direction-post.mesh.res" id="1_ry828"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ry828"]
+height = 3.0
+
+[node name="DirectionSign" type="Node3D" groups=["navmesh"]]
+
+[node name="direction_post" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.935, 0)
+mesh = ExtResource("1_ry828")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_ry828")

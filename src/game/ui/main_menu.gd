@@ -1,8 +1,5 @@
-@tool
 class_name MainMenu
 extends Control
-
-const BUTTON_WIDTH = 400
 
 @onready var play: Button = %Play
 @onready var quit: Button = %Quit

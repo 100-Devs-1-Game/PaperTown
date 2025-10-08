@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsx1k367nhyi6"]
+
+[ext_resource type="ArrayMesh" uid="uid://b4vnmrg5m4msm" path="res://assets/100devs/assets/data/assets_fireplace.mesh.res" id="1_vw6fb"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vw6fb"]
+radius = 1.0
+height = 4.0
+
+[node name="Fireplace" type="Node3D" groups=["navmesh"]]
+
+[node name="fireplace" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_vw6fb")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7007371, 0)
+shape = SubResource("CapsuleShape3D_vw6fb")
