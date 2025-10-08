@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://brp3jpvgnpkae"]
+[gd_scene load_steps=14 format=3 uid="uid://brp3jpvgnpkae"]
 
 [ext_resource type="Script" uid="uid://cjp5y6kgj3rn5" path="res://game/dialogue/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
+[ext_resource type="FontFile" uid="uid://d5g5shv3q1f3" path="res://assets/external/fontsforpeas/heygorgeous.ttf" id="2_ccsdl"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
@@ -63,6 +64,34 @@ MarginContainer/constants/margin_right = 30
 MarginContainer/constants/margin_top = 15
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ccsdl"]
+bg_color = Color(0.536428, 0.7560944, 0.74737626, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.432, 0.5346, 0.54, 0)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.6155624, 0.8240253, 0.7655, 1)
+shadow_size = 1
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="FontVariation" id="FontVariation_ccsdl"]
+base_font = ExtResource("2_ccsdl")
+variation_embolden = 1.2
+
+[sub_resource type="FontVariation" id="FontVariation_hmyem"]
+base_font = ExtResource("2_ccsdl")
+variation_embolden = 1.2
+variation_transform = Transform2D(1, 0.2, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_hviol"]
+base_font = ExtResource("2_ccsdl")
+variation_transform = Transform2D(1, 0.2, 0, 1, 0, 0)
+
 [node name="ExampleBalloon" type="CanvasLayer"]
 layer = 100
 script = ExtResource("1_36de5")
@@ -83,7 +112,9 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 320.0
 offset_top = -219.0
+offset_right = -320.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -91,18 +122,23 @@ grow_vertical = 0
 clip_children = 2
 layout_mode = 2
 mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_ccsdl")
 
 [node name="MarginContainer" type="MarginContainer" parent="Balloon/MarginContainer/PanelContainer"]
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Balloon/MarginContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 19
 
 [node name="CharacterLabel" type="RichTextLabel" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 2
 mouse_filter = 1
+theme_override_colors/default_color = Color(0.9254902, 0.9764706, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.1221, 0.28841996, 0.33, 0.24705882)
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/normal_font = ExtResource("2_ccsdl")
 bbcode_enabled = true
 text = "Character"
 fit_content = true
@@ -112,7 +148,20 @@ scroll_active = false
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.9254902, 0.9764706, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.1221, 0.28841996, 0.33, 0.1882353)
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/normal_font = ExtResource("2_ccsdl")
+theme_override_fonts/bold_font = SubResource("FontVariation_ccsdl")
+theme_override_fonts/bold_italics_font = SubResource("FontVariation_hmyem")
+theme_override_fonts/italics_font = SubResource("FontVariation_hviol")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+theme_override_font_sizes/bold_italics_font_size = 16
+theme_override_font_sizes/italics_font_size = 16
+theme_override_font_sizes/mono_font_size = 16
 text = "Dialogue..."
+seconds_per_step = 0.03
 
 [node name="ResponsesMenu" type="VBoxContainer" parent="Balloon" node_paths=PackedStringArray("response_template")]
 unique_name_in_owner = true
