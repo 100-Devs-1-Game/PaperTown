@@ -28,6 +28,7 @@ GlobalUtils="*res://autoloads/globalutils.gd"
 Audio="*res://autoloads/audio.gd"
 Dialogue="*res://autoloads/dialogue.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+SceneManager="*res://autoloads/scene_manager.gd"
 
 [debug]
 

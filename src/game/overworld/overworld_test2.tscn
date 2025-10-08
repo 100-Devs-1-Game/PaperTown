@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://bhkdpnlry77vw"]
+[gd_scene load_steps=13 format=3 uid="uid://bhkdpnlry77vw"]
 
 [ext_resource type="PackedScene" uid="uid://px8n52y05giq" path="res://game/characters/player/player.tscn" id="1_pbnk2"]
 [ext_resource type="PackedScene" uid="uid://c673ixvf0lirq" path="res://game/overworld/overworld_manager.tscn" id="1_wsvh4"]
-[ext_resource type="PackedScene" uid="uid://k126qihwv8y" path="res://game/battle/battle.tscn" id="2_wupwi"]
 [ext_resource type="PackedScene" uid="uid://c8x3kcryc0xtb" path="res://game/characters/enemies/boar.tscn" id="2_yqhvd"]
 [ext_resource type="PackedScene" uid="uid://bipfmnkvcb6f" path="res://game/ui/screen_transition.tscn" id="3_nwyg3"]
 [ext_resource type="PackedScene" uid="uid://dxhii6l3t8ca" path="res://game/other/camera.tscn" id="3_yqhvd"]
@@ -28,7 +27,6 @@ ambient_light_color = Color(0.462745, 0.776471, 0.823529, 1)
 [node name="OverworldTest" type="Node3D"]
 
 [node name="OverworldManager" parent="." instance=ExtResource("1_wsvh4")]
-battle_scene = ExtResource("2_wupwi")
 screen_transistion = ExtResource("3_nwyg3")
 
 [node name="Player" parent="." instance=ExtResource("1_pbnk2")]

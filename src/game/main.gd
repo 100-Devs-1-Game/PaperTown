@@ -10,6 +10,10 @@ var in_battle := false
 
 
 func _ready() -> void:
+	# We use the game scene we instantiated and then tell it which parent to place scenes in
+	SceneManager.game_scene = game
+	SceneManager.start(%Scenes)
+
 	# spawn text to avoid shader compilation stutter later
 	var ft3d := FloatingText.spawn($"preload to avoid stutters".global_position, "test")
 	ft3d.modulate.a = 0.0
@@ -31,6 +35,7 @@ func _ready() -> void:
 
 	screen.started_fadein.connect(func(): get_tree().paused = true)
 
+
 	Signals.battle_started.connect(
 		func(enemy: ICharacter):
 			print("starting battle")
@@ -50,37 +55,22 @@ func _ready() -> void:
 
 	Signals.battle_lost.connect(
 		func(_enemy: ICharacter):
-			print("battle lost")
-			if !in_battle:
-				assert(false)
-				return
-
 			game.process_mode = Node.PROCESS_MODE_PAUSABLE
 			game.set_physics_process(true)
-
-			# cool-down before next combat can start
-			await get_tree().create_timer(1.0).timeout
-			in_battle = false
 	)
 
 	Signals.battle_won.connect(
-		func(enemy: ICharacter):
-			print("battle won")
-			if !in_battle:
-				assert(false)
-				return
-
-			enemy.queue_free()
-
+		func(_enemy: ICharacter):
 			game.process_mode = Node.PROCESS_MODE_PAUSABLE
 			game.set_physics_process(true)
-
-			# cool-down before next combat can start
-			await get_tree().create_timer(1.0).timeout
-			in_battle = false
 	)
+
 
 	await get_tree().process_frame
 	await get_tree().process_frame
 
 	$"preload to avoid stutters".queue_free()
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed(&"toggle_debug_popup"):
+		$OverworldManager.start_battle(null)

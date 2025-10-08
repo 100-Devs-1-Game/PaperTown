@@ -1,5 +1,6 @@
-[gd_scene load_steps=53 format=3 uid="uid://ucmbipiukcp6"]
+[gd_scene load_steps=54 format=3 uid="uid://ucmbipiukcp6"]
 
+[ext_resource type="Script" uid="uid://cuisw4b85d5gn" path="res://game/overworld/levels/everything.gd" id="1_g4sm0"]
 [ext_resource type="PackedScene" uid="uid://dt8efoha3ph50" path="res://game/overworld/levels/everything_floorchunk.tscn" id="1_x5nb8"]
 [ext_resource type="PackedScene" uid="uid://0vxsg8lmmbxd" path="res://game/overworld/levels/everything_treechunk.tscn" id="2_m7vha"]
 [ext_resource type="PackedScene" uid="uid://b4qwglfem2fn2" path="res://game/overworld/levels/everything_invisible_wall.tscn" id="3_2n63w"]
@@ -63,6 +64,7 @@ geometry_source_geometry_mode = 1
 geometry_source_group_name = &"navmesh"
 
 [node name="Everything" type="Node3D"]
+script = ExtResource("1_g4sm0")
 
 [node name="EverythingFloorchunk3" parent="." instance=ExtResource("1_x5nb8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
@@ -2745,13 +2747,16 @@ player = NodePath("../Player")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 185.55035, 1.9348164, 36.055557)
 
 [node name="Hostile Boar" parent="." instance=ExtResource("39_3dq15")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 220.46227, 1.9348164, 45.782257)
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 196.5467, 1.9348202, 23.946198)
 
 [node name="Hostile Boar2" parent="." instance=ExtResource("39_3dq15")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 213.42067, 1.9348164, 47.21879)
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 192.36363, 1.9348202, 29.754642)
 
 [node name="Hostile Boar3" parent="." instance=ExtResource("39_3dq15")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 218.48744, 1.9348164, 50.074978)
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 192.3317, 1.9348202, 35.625496)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_sdmqt")

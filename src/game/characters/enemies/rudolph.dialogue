@@ -4,7 +4,7 @@ if not Dialogue.finished_rudolph_intro:
 	=> intro
 elif not Dialogue.started_acorn_quest:
 	% Rudolph: We should go talk to Ol' Man Acorn and see if he has any errands for us!
-	% Rudolph: I'm only helping you for now!
+	% Rudolph: What would you do without me!
 	=> END
 elif Dialogue.finished_acorn_quest:
 	%

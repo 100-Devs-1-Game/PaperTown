@@ -1,9 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://cygqjanirnqqt"]
+[gd_scene load_steps=20 format=3 uid="uid://cygqjanirnqqt"]
 
 [ext_resource type="Script" uid="uid://b5k4cn4tkdvlk" path="res://game/main.gd" id="1_oa506"]
 [ext_resource type="PackedScene" uid="uid://c673ixvf0lirq" path="res://game/overworld/overworld_manager.tscn" id="2_017dk"]
 [ext_resource type="PackedScene" uid="uid://vh1c5iw178fp" path="res://game/game.tscn" id="2_emt18"]
-[ext_resource type="PackedScene" uid="uid://k126qihwv8y" path="res://game/battle/battle.tscn" id="3_m8y2r"]
 [ext_resource type="PackedScene" uid="uid://13pulyn1bbcj" path="res://game/ui/screen.tscn" id="3_vop5m"]
 [ext_resource type="PackedScene" uid="uid://cup8w5o8dum5r" path="res://game/characters/attacks/overworld/player_overworld_attack.tscn" id="4_5un7r"]
 [ext_resource type="PackedScene" uid="uid://bipfmnkvcb6f" path="res://game/ui/screen_transition.tscn" id="4_le3en"]
@@ -24,12 +23,15 @@
 [node name="Main" type="Node"]
 script = ExtResource("1_oa506")
 
-[node name="OverworldManager" parent="." instance=ExtResource("2_017dk")]
-battle_scene = ExtResource("3_m8y2r")
-screen_transistion = ExtResource("4_le3en")
-
-[node name="Game" parent="." instance=ExtResource("2_emt18")]
+[node name="Scenes" type="Node3D" parent="."]
 unique_name_in_owner = true
+
+[node name="Game" parent="Scenes" instance=ExtResource("2_emt18")]
+unique_name_in_owner = true
+visible = true
+
+[node name="OverworldManager" parent="." instance=ExtResource("2_017dk")]
+screen_transistion = ExtResource("4_le3en")
 
 [node name="Screen" parent="." instance=ExtResource("3_vop5m")]
 unique_name_in_owner = true

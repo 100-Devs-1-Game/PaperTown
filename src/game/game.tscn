@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://ucmbipiukcp6" path="res://game/overworld/levels/everything.tscn" id="2_vasa2"]
 
 [node name="Game" type="Node3D"]
+visible = false
 script = ExtResource("1_l1rk1")
 
 [node name="Everything" parent="." instance=ExtResource("2_vasa2")]
+unique_name_in_owner = true

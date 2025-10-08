@@ -14,14 +14,18 @@ var facing_behind := false
 @onready var animated_sprite_3d: AnimatedSprite3D = $Visuals/AnimatedSprite3D
 @onready var left_behind_range: Area3D = $LeftBehindRange
 
-
 signal rudolph_state_changed
 
 
 func _ready():
+	await get_parent().ready
+
 	npc_component.interacted_with.connect(on_interacted_with)
 	left_behind_range.body_exited.connect(
 		func(body: Node3D):
+			if current_state == State.BATTLE:
+				return
+
 			assert(body)
 			assert(player)
 

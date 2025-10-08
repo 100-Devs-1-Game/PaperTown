@@ -207,12 +207,14 @@ func execute_next_enemy_turn() -> void:
 func win_battle() -> void:
 	is_battle_active = false
 	end_battle("won")
+	Signals.battle_won.emit(null)
 
 
 func lose_battle() -> void:
 	is_battle_active = false
 	print("Defeat! You were overwhelmed!")
 	end_battle("lost")
+	Signals.battle_lost.emit(null)
 
 
 func end_battle(result: String) -> void:
@@ -229,4 +231,4 @@ func end_battle(result: String) -> void:
 	# TODO: clear battle scene, play victory or defeat splash, exit to OW
 	# TODO: We need to track the player's position in the overworld after this
 	await screen_transition_instance.transition_halfway
-	get_tree().change_scene_to_file(overworld_scene)
+	SceneManager.switch_to_game()
