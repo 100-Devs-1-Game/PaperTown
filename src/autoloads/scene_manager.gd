@@ -44,6 +44,7 @@ func start(root: Node) -> void:
 		return game_scene
 
 	started = true
+	Audio.play_music(Audio.MUSIC_OVERWORLD)
 
 func switch_to_battle() -> void:
 	print("SWITCHING TO BATTLE")
@@ -67,6 +68,7 @@ func switch_to_battle() -> void:
 	current_scene.process_mode = Node.PROCESS_MODE_PAUSABLE
 	current_scene.set_physics_process(true)
 	print("FINISHED SWITCHING TO BATTLE")
+	Audio.play_music(Audio.MUSIC_COMBAT)
 
 
 func switch_to_game() -> void:
@@ -91,3 +93,4 @@ func switch_to_game() -> void:
 	current_scene.process_mode = Node.PROCESS_MODE_PAUSABLE
 	current_scene.set_physics_process(true)
 	print("FINISHED SWITCHING TO GAME")
+	Audio.play_music(Audio.MUSIC_OVERWORLD)

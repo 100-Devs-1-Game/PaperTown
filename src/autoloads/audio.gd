@@ -1,9 +1,103 @@
 extends Node
 
 const SFX_PLACEHOLDER: AudioStream = preload("res://assets/100devs/warp-306033.mp3")
+const MUSIC_OVERWORLD: AudioStream = preload("res://assets/100devs/music/a_good_vibe.ogg")
+const MUSIC_COMBAT: AudioStream = preload("res://assets/100devs/music/charge.ogg")
+
 # TODO: add other SFX/UI/Music etc sounds
 
-# TODO add music playing and fading
+const MUSIC_FADE_TIME: float = 1.0
+var music_player: AudioStreamPlayer
+var next_song: AudioStream
+var music_tween: Tween
+var music_timer: Timer
+
+func _ready() -> void:
+	music_player = AudioStreamPlayer.new()
+	music_player.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(music_player)
+	music_player.bus = &"Music"
+	assert(AudioServer.get_bus_index(music_player.bus) >= 0)
+
+	music_timer = Timer.new()
+	music_timer.one_shot = true
+	add_child(music_timer)
+	music_timer.timeout.connect(_on_music_loop_timeout)
+
+
+func play_music(music: AudioStream) -> void:
+	if !music:
+		push_error("tried to make SFX but provided invalid audio stream")
+		assert(false)
+		return
+
+	if music_player.stream == music:
+		print("PLAYING MUSIC THAT IS ALREADY PLAYING: ", music.resource_path)
+		return
+
+	if music_player.stream:
+		print("MUSIC WILL CHANGE FROM '", music_player.stream.resource_path, "' TO '", music.resource_path, "'")
+	else:
+		print("MUSIC WILL CHANGE TO '", music.resource_path, "'")
+
+	next_song = music
+	_fade_music_out_in()
+
+
+func _fade_music_out_in() -> void:
+	if music_tween:
+		music_tween.kill()
+
+	if music_player.playing:
+		music_tween = create_tween()
+		music_tween.tween_property(music_player, ^"volume_db", -40, MUSIC_FADE_TIME)
+		music_tween.tween_callback(
+			func():
+				music_player.stop()
+				_start_next_song()
+		)
+	else:
+		_start_next_song()
+
+
+func _start_next_song() -> void:
+	if !next_song:
+		next_song = music_player.stream
+
+	music_player.stream = next_song
+	music_player.volume_db = -40
+	music_player.play()
+
+	var fade_in := create_tween()
+	fade_in.tween_property(music_player, ^"volume_db", 0, MUSIC_FADE_TIME)
+
+	_schedule_music_loop_fade()
+
+
+func _schedule_music_loop_fade() -> void:
+	if !music_player.stream:
+		return
+
+	var duration := music_player.stream.get_length()
+	if duration <= 0:
+		return
+
+	music_timer.start(max(0.1, duration - MUSIC_FADE_TIME))
+
+
+func _on_music_loop_timeout() -> void:
+	if !music_player.stream:
+		return
+
+	var fade_out := create_tween()
+	fade_out.tween_property(music_player, "volume_db", -40, MUSIC_FADE_TIME)
+	fade_out.tween_callback(func():
+		music_player.stop()
+		music_player.play()
+		var fade_in := create_tween()
+		fade_in.tween_property(music_player, "volume_db", 0, MUSIC_FADE_TIME)
+		_schedule_music_loop_fade()
+	)
 
 
 func make_sfx(sfx: AudioStream, pitch_offset: float) -> AudioStreamPlayer3D:
