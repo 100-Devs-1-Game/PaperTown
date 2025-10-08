@@ -21,6 +21,7 @@ func _ready():
 			queue_free()
 	)
 
+
 func start_timer(time: float):
 	lasting_timer.wait_time = time
 	lasting_timer.start()

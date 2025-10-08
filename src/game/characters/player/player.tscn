@@ -15,7 +15,6 @@ radius = 1.0
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 collision_layer = 2
-collision_mask = 5
 script = ExtResource("1_yjtv7")
 
 [node name="FlipperComponent" parent="." node_paths=PackedStringArray("target", "movement_component") instance=ExtResource("5_3qf5w")]
@@ -42,7 +41,7 @@ cast_shadow = 2
 pixel_size = 0.004
 alpha_cut = 2
 sprite_frames = ExtResource("5_65114")
-animation = &"idle_behind"
+animation = &"jump_behind"
 
 [node name="PersonalSpaceBubble" type="Area3D" parent="."]
 collision_layer = 5

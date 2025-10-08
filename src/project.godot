@@ -20,13 +20,14 @@ buses/default_bus_layout="uid://c1mmqpueeika"
 
 [autoload]
 
-PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 Signals="*res://autoloads/signals.gd"
 Tags="*res://autoloads/tags.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 FloatingText="*res://autoloads/floating_text.gd"
 GlobalUtils="*res://autoloads/globalutils.gd"
 Audio="*res://autoloads/audio.gd"
+Dialogue="*res://autoloads/dialogue.gd"
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 
 [debug]
 
@@ -41,6 +42,7 @@ settings/addon_root_folder="res://addons/debug_draw_3d"
 [dialogue_manager]
 
 runtime/balloon_path="res://game/dialogue/balloon.tscn"
+runtime/warn_about_method_property_or_signal_name_conflicts=true
 
 [display]
 
@@ -51,7 +53,13 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/format_on_save/plugin.cfg", "res://addons/gut/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/resource_resave/plugin.cfg", "res://addons/script-ide/plugin.cfg", "res://addons/version_check/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/format_on_save/plugin.cfg", "res://addons/gut/plugin.cfg", "res://addons/resource_resave/plugin.cfg", "res://addons/script-ide/plugin.cfg", "res://addons/version_check/plugin.cfg")
+
+[global_group]
+
+navmesh="used for navmesh baking"
+followers="used for follower component"
+player=""
 
 [gui]
 
@@ -118,7 +126,7 @@ attack_overworld={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://game/dialogue/test_dialogue_01.dialogue")
+locale/translations_pot_files=PackedStringArray("res://game/characters/enemies/baby_boar.dialogue", "res://game/characters/enemies/boar.dialogue", "res://game/characters/enemies/rudolph.dialogue", "res://game/characters/enemies/oldman.dialogue")
 
 [layer_names]
 

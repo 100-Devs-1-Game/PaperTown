@@ -5,6 +5,7 @@
 
 [resource]
 resource_name = "house_acorn_w_normals"
+cull_mode = 2
 albedo_texture = ExtResource("1_0gssl")
 normal_enabled = true
 normal_texture = ExtResource("2_c6pm3")

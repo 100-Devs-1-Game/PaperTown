@@ -5,7 +5,7 @@
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_00gjn"]
 height = 5.0
 
-[node name="TreeTall" type="Node3D"]
+[node name="TreeTall" type="Node3D" groups=["navmesh"]]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.038481057, 0.081, 0.08631623)

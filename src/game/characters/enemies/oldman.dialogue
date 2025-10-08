@@ -1,0 +1,45 @@
+~ start
+if not Dialogue.started_acorn_quest:
+	set Dialogue.started_acorn_quest = true
+	=> quest_start
+elif not Dialogue.can_finish_acorn_quest:
+	=> quest_in_progress
+elif Dialogue.finished_acorn_quest:
+	Ol' Man Acorn: I don't need any more help right now! Maybe you should leave a comment for the game instead?
+elif Dialogue.can_finish_acorn_quest:
+	set Dialogue.finished_acorn_quest = true
+	=> quest_complete
+=> END
+
+~ quest_start
+Ol' Man Acorn: [shake rate=20 level=10]Those blasted boars![/shake]
+Rudolph: Sorry?
+Ol' Man Acorn: There's a group of wild boars that keep breaking my fence [shake rate=15 level=5][i]and trampling my flowers![/i][/shake]
+Rudolph: That's terrible!
+Ol' Man Acorn: Tragically so!
+Rudolph: And rude!!
+Ol' Man Acorn: So you understand!!
+Rudolph: And fixing all of that must be quite expensive!!!
+Ol' Man Acorn: Well! Yes! It is!
+Rudolph: I understand. We'll take care of them for you
+Ol' Man Acorn: Really? That would be a big help
+Rudolph: Of course! And think of how much money you'll save in the long run!
+Ol' Man Acorn: ... Ah-ha
+Ol' Man Acorn: Very well! Come and see me when the problem is... [shake rate=20 level=10]*ahem*[/shake] [i]dealt with[/i]
+=> END
+
+~ quest_in_progress
+Ol' Man Acorn: Back so soon?
+Rudolph: We were just passing by. We'll go find those wild boars and deal with them for you now!
+Ol' Man Acorn: Brilliant! I think I saw them head somewhere towards the east!
+=> END
+
+~ quest_complete
+Rudolph: Those boars won't be bothering you or your garden anymore
+Ol' Man Acorn: [wave amp=25 freq=5]Wonderful![/wave]
+Ol' Man Acorn: Here, take this
+Rudolph: That's... Amazing! Thank you
+Rudolph: Let us know if you need help with anything else 
+Ol' Man Acorn: Let's hope not! [wave amp=50 freq=5][shake rate=15 level=5]Heh heh heh[/shake][/wave]
+=> END
+

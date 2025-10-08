@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4ucwnmjmhlr"]
+
+[ext_resource type="PackedScene" uid="uid://dt8efoha3ph50" path="res://game/overworld/levels/everything_floorchunk.tscn" id="1_huc5j"]
+[ext_resource type="PackedScene" uid="uid://c2chpy4t1yiej" path="res://game/overworld/levels/everything_floorchunk_alternative.tscn" id="2_75ope"]
+[ext_resource type="PackedScene" uid="uid://dxhii6l3t8ca" path="res://game/other/camera.tscn" id="3_ul6mp"]
+[ext_resource type="PackedScene" uid="uid://px8n52y05giq" path="res://game/characters/player/player.tscn" id="4_0pjir"]
+[ext_resource type="PackedScene" uid="uid://daltrhtfxoebt" path="res://game/characters/enemies/rudolph.tscn" id="5_ye3wf"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_nxycx"]
+vertices = PackedVector3Array(-9.5, 0.5, -9.5, -9.5, 0.5, 9.5, 29.5, 0.5, 9.5, 29.5, 0.5, -9.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+geometry_collision_mask = 1
+geometry_source_geometry_mode = 1
+geometry_source_group_name = &"navmesh"
+
+[node name="TestNavmesh" type="Node3D"]
+
+[node name="EverythingFloorchunk" parent="." instance=ExtResource("1_huc5j")]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_nxycx")
+
+[node name="EverythingFloorchunk2" parent="." instance=ExtResource("2_75ope")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
+
+[node name="Camera" parent="." instance=ExtResource("3_ul6mp")]
+
+[node name="Player" parent="." instance=ExtResource("4_0pjir")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="Rudolph" parent="." instance=ExtResource("5_ye3wf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)

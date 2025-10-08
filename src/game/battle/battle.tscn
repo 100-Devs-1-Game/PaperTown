@@ -1,43 +1,44 @@
-[gd_scene load_steps=5 format=3 uid="uid://k126qihwv8y"]
+[gd_scene load_steps=6 format=3 uid="uid://k126qihwv8y"]
 
 [ext_resource type="Script" uid="uid://ckeeoresabf6t" path="res://game/battle/battle_manager.gd" id="1_2a4vk"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2a4vk"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_2a4vk"]
-size = Vector2(32, 6)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_iyig8"]
-size = Vector3(32, 0.1, 6)
+[ext_resource type="PackedScene" uid="uid://dsym4h28e24e3" path="res://game/battle/battle_environment.tscn" id="2_i61o2"]
+[ext_resource type="PackedScene" uid="uid://dapoyk6c1p3kc" path="res://game/environment/sunlight.tscn" id="3_7w56k"]
+[ext_resource type="PackedScene" uid="uid://blkjapuvymat6" path="res://game/environment/world_environment.tscn" id="4_faeqb"]
+[ext_resource type="PackedScene" uid="uid://dxhii6l3t8ca" path="res://game/other/camera.tscn" id="5_7w56k"]
 
 [node name="Battle" type="Node3D"]
 script = ExtResource("1_2a4vk")
 
-[node name="Floor" type="StaticBody3D" parent="."]
-physics_material_override = SubResource("PhysicsMaterial_2a4vk")
+[node name="Floor" type="Node3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
-mesh = SubResource("PlaneMesh_2a4vk")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
-shape = SubResource("BoxShape3D_iyig8")
+[node name="BattleEnvironment" parent="Floor" instance=ExtResource("2_i61o2")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.70671177, -0.70750165, 0, 0.70750165, 0.70671177, 0, 0, 0)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.315, 3.407)
-fov = 107.75154
-
 [node name="PlayerSpawn" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 2)
+
+[node name="RudolphSpawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
 
 [node name="EnemySpawn1" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -2)
 
 [node name="EnemySpawn2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1)
 
 [node name="EnemySpawn3" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 4)
+
+[node name="Sunlight" parent="." instance=ExtResource("3_7w56k")]
+directional_shadow_max_distance = 40.0
+
+[node name="SharedWorldEnvironment" parent="." instance=ExtResource("4_faeqb")]
+
+[node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("5_7w56k")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 24)
+offset = Vector3(0, 6, 12)
+state = 1
+target = NodePath("../DirectionalLight3D")

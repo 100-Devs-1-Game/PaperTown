@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cigkrnadjxa2r"
+path="res://.godot/imported/rudolph.dialogue-caa2165723bb9ce92401efeb8f8193ea.tres"
+
+[deps]
+
+source_file="res://game/characters/enemies/rudolph.dialogue"
+dest_files=["res://.godot/imported/rudolph.dialogue-caa2165723bb9ce92401efeb8f8193ea.tres"]
+
+[params]
+
+defaults=true

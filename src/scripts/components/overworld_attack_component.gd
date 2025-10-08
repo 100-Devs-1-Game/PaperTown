@@ -1,11 +1,14 @@
-extends Node
+class_name OverworldAttackComponent extends Node
 
 @export var overworld_attack: PackedScene
 var on_attack_cooldown := false
 var attack: IOverworldAttack
 
+
 # TODO: Link to an anim player
-func generate_attack(character_body: CharacterBody3D, dir: float, dist: float, time: float) -> IOverworldAttack:
+func generate_attack(
+	character_body: CharacterBody3D, dir: float, dist: float, time: float
+) -> IOverworldAttack:
 	if on_attack_cooldown:
 		return null
 

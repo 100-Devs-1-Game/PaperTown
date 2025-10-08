@@ -5,7 +5,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_ijob8"]
 size = Vector3(4, 1, 4)
 
-[node name="FloorLeft" type="Node3D"]
+[node name="FloorLeft" type="Node3D" groups=["navmesh"]]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2, 0, -2)

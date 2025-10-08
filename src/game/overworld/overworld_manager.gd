@@ -1,13 +1,14 @@
 extends Node
 
-@export var battle_scene : PackedScene
-@export var screen_transistion : PackedScene
+@export var battle_scene: PackedScene
+@export var screen_transistion: PackedScene
+
 
 func _ready():
 	Signals.battle_started.connect(start_battle)
-	
-	
-func start_battle(body):
+
+
+func start_battle(_enemy: Node3D):
 	var screen_transistion_instance = screen_transistion.instantiate()
 	get_tree().root.add_child(screen_transistion_instance)
 	screen_transistion_instance.do_transition(ScreenTransition.TransitionType.BATTLE_START)

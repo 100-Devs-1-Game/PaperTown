@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://k3e0dm6rky8u"]
+
+[ext_resource type="Texture2D" uid="uid://bhpu4301lxi01" path="res://assets/100devs/assets/cardboard_normal.png" id="1_71m8e"]
+
+[resource]
+resource_name = "yellow"
+albedo_color = Color(0.67141426, 0.48159418, 0, 1)
+roughness = 0.5
+normal_enabled = true
+normal_texture = ExtResource("1_71m8e")

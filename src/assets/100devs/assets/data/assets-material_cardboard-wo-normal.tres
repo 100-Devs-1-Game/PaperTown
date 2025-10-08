@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cgeddj0cx4kwu"]
+
+[ext_resource type="Texture2D" uid="uid://ysjuajxsd5t2" path="res://assets/100devs/assets/cardboard.png" id="1_jsygc"]
+
+[resource]
+resource_name = "cardboard_wo_normal"
+albedo_texture = ExtResource("1_jsygc")
+roughness = 0.6

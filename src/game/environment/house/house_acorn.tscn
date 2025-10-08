@@ -1,10 +1,9 @@
-[gd_scene load_steps=16 format=4 uid="uid://romkf60q2s4o"]
+[gd_scene load_steps=15 format=4 uid="uid://romkf60q2s4o"]
 
 [ext_resource type="ArrayMesh" uid="uid://b15fffhqgpmcj" path="res://assets/100devs/assets/data/assets_house-acorn-interior_door-back.mesh.res" id="4_ji46r"]
 [ext_resource type="ArrayMesh" uid="uid://ccn67r7crdcg1" path="res://assets/100devs/assets/data/assets_house-acorn-interior_door-front.mesh.res" id="5_t5l1l"]
 [ext_resource type="ArrayMesh" uid="uid://dh5st7maaqtiw" path="res://assets/100devs/assets/data/assets_house-acorn-interior_fridge.mesh.res" id="6_4u1wa"]
 [ext_resource type="ArrayMesh" uid="uid://dtgo1gkka0g5b" path="res://assets/100devs/assets/data/assets_house-acorn-interior_front.mesh.res" id="7_hbtpx"]
-[ext_resource type="ArrayMesh" uid="uid://bqvxq0ibyd23u" path="res://assets/100devs/assets/data/assets_house-acorn-interior_npc-acorn.mesh.res" id="11_l3hh8"]
 [ext_resource type="ArrayMesh" uid="uid://c84ktt1y118no" path="res://assets/100devs/assets/data/assets_house-acorn-interior_roof-inside.mesh.res" id="13_ebsfv"]
 [ext_resource type="ArrayMesh" uid="uid://racrercgb2si" path="res://assets/100devs/assets/data/assets_house-acorn-interior_grass-curly-house-acorn.mesh.res" id="17_ehftw"]
 [ext_resource type="ArrayMesh" uid="uid://cdqow77jg6og1" path="res://assets/100devs/assets/data/assets_house-acorn-interior_grass-curly-house-acorn-front.mesh.res" id="18_l3hh8"]
@@ -52,7 +51,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_lkyge")
 
-[node name="HouseAcorn" type="Node3D"]
+[node name="HouseAcorn" type="Node3D" groups=["navmesh"]]
 
 [node name="house_acorn_interior" type="Node3D" parent="."]
 transform = Transform3D(3.053258, 0, 0, 0, 3.053258, 0, 0, 0, 3.053258, 0, 6, 0)
@@ -90,11 +89,6 @@ skeleton = NodePath("")
 [node name="grass_curly_house_acorn_front" type="MeshInstance3D" parent="house_acorn_interior"]
 transform = Transform3D(0.07683558, -0.112187706, -0.6125681, 0.07785318, 0.6141014, -0.1027032, -0.6178711, 0.063427046, -0.08911696, -0.8571482, -1.3844495, 1.1654377)
 mesh = ExtResource("18_l3hh8")
-skeleton = NodePath("")
-
-[node name="npc_acorn" type="MeshInstance3D" parent="house_acorn_interior"]
-transform = Transform3D(0.24563925, 0, 0, 0, 0, -0.24563925, 0, 0.24563925, 0, 0.35767603, -1.719475, -0.21677446)
-mesh = ExtResource("11_l3hh8")
 skeleton = NodePath("")
 
 [node name="roof" type="MeshInstance3D" parent="house_acorn_interior"]

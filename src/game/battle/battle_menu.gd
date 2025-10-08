@@ -1,6 +1,5 @@
 class_name BattleMenu extends Control
 
-
 signal action_selected(action_type: GlobalUtils.PlayerAction, target_index: int)
 signal menu_state_changed(menu_state: GlobalUtils.MenuState)
 
@@ -25,9 +24,9 @@ func _ready() -> void:
 	tongue_button.pressed.connect(_on_action_selected.bind(GlobalUtils.PlayerAction.TONGUE_SLAP))
 	tail_button.pressed.connect(_on_action_selected.bind(GlobalUtils.PlayerAction.TAIL_WHIP))
 	run_button.pressed.connect(_on_action_selected.bind(GlobalUtils.PlayerAction.RUN_AWAY))
-	
+
 	target_selection.target_selected.connect(_on_target_selected)
-	
+
 	hide_menu()
 
 

@@ -6,7 +6,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_7a5gw"]
 size = Vector3(10, 2.25, 40)
 
-[node name="River" type="Node3D"]
+[node name="River" type="Node3D" groups=["navmesh"]]
 
 [node name="river" type="MeshInstance3D" parent="."]
 transform = Transform3D(3.5404682, 0, 0, 0, 3.5404685, 0, 0, 0, 17.00952, 1.723949, -1.5289984, -7.233687)

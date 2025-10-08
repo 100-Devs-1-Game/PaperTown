@@ -1,81 +1,225 @@
-[gd_resource type="SpriteFrames" load_steps=73 format=3 uid="uid://venbliny6y4n"]
+[gd_resource type="SpriteFrames" load_steps=109 format=3 uid="uid://venbliny6y4n"]
 
 [ext_resource type="Texture2D" uid="uid://bgiu0etgey6yd" path="res://assets/100devs/ui/victory_screen_frames/000.png" id="1_7vuw4"]
+[ext_resource type="Texture2D" uid="uid://tuuema68sfds" path="res://assets/100devs/ui/defeat_screen_frames/000.png" id="1_ma4k2"]
 [ext_resource type="Texture2D" uid="uid://cepmown6fhvp" path="res://assets/100devs/ui/battle_start_frames/000.png" id="1_v5uu2"]
 [ext_resource type="Texture2D" uid="uid://d3l5fgsu8alck" path="res://assets/100devs/ui/battle_start_frames/001.png" id="2_04bq6"]
+[ext_resource type="Texture2D" uid="uid://c67ihr6lf7a75" path="res://assets/100devs/ui/defeat_screen_frames/001.png" id="2_qyop6"]
 [ext_resource type="Texture2D" uid="uid://dy3ynwwhighrl" path="res://assets/100devs/ui/victory_screen_frames/001.png" id="2_wv57o"]
 [ext_resource type="Texture2D" uid="uid://dbyv3hbd54o16" path="res://assets/100devs/ui/victory_screen_frames/002.png" id="3_iv3bt"]
 [ext_resource type="Texture2D" uid="uid://b2qliy61lhf5u" path="res://assets/100devs/ui/battle_start_frames/002.png" id="3_k44ul"]
+[ext_resource type="Texture2D" uid="uid://vsynt32adbo6" path="res://assets/100devs/ui/defeat_screen_frames/002.png" id="3_x2e4g"]
 [ext_resource type="Texture2D" uid="uid://b566s0irms5ku" path="res://assets/100devs/ui/victory_screen_frames/003.png" id="4_2dhor"]
+[ext_resource type="Texture2D" uid="uid://cqev0nki4v238" path="res://assets/100devs/ui/defeat_screen_frames/003.png" id="4_23ydp"]
 [ext_resource type="Texture2D" uid="uid://c1crrkorqyntm" path="res://assets/100devs/ui/battle_start_frames/003.png" id="4_vi7fm"]
+[ext_resource type="Texture2D" uid="uid://ck7ae2fyyjwxc" path="res://assets/100devs/ui/defeat_screen_frames/004.png" id="5_kh6ga"]
 [ext_resource type="Texture2D" uid="uid://bwmu0m3ja32dq" path="res://assets/100devs/ui/victory_screen_frames/004.png" id="5_x6yhv"]
 [ext_resource type="Texture2D" uid="uid://2ouolci7reth" path="res://assets/100devs/ui/battle_start_frames/004.png" id="5_yvunp"]
 [ext_resource type="Texture2D" uid="uid://c4sheb0cffloc" path="res://assets/100devs/ui/battle_start_frames/005.png" id="6_j1hvu"]
 [ext_resource type="Texture2D" uid="uid://dmuuaktyeh7cy" path="res://assets/100devs/ui/victory_screen_frames/005.png" id="6_jdcm5"]
+[ext_resource type="Texture2D" uid="uid://cq6u3jgo4tb88" path="res://assets/100devs/ui/defeat_screen_frames/005.png" id="6_jtxki"]
+[ext_resource type="Texture2D" uid="uid://lnbe7kgp3ko1" path="res://assets/100devs/ui/defeat_screen_frames/006.png" id="7_c2p8u"]
 [ext_resource type="Texture2D" uid="uid://dirjwaohp5074" path="res://assets/100devs/ui/victory_screen_frames/006.png" id="7_j6ejv"]
 [ext_resource type="Texture2D" uid="uid://d27iw0vc7plw5" path="res://assets/100devs/ui/battle_start_frames/006.png" id="7_v0u2q"]
+[ext_resource type="Texture2D" uid="uid://5xl6e5xvykl5" path="res://assets/100devs/ui/defeat_screen_frames/007.png" id="8_3yab7"]
 [ext_resource type="Texture2D" uid="uid://cl23dmeggg0ww" path="res://assets/100devs/ui/victory_screen_frames/007.png" id="8_cmdey"]
 [ext_resource type="Texture2D" uid="uid://c4dqr7edv2l60" path="res://assets/100devs/ui/battle_start_frames/007.png" id="8_q0kr7"]
 [ext_resource type="Texture2D" uid="uid://n6vo1d0a1oml" path="res://assets/100devs/ui/battle_start_frames/008.png" id="9_0cdpf"]
 [ext_resource type="Texture2D" uid="uid://byt3dtxghp7dh" path="res://assets/100devs/ui/victory_screen_frames/008.png" id="9_jx16g"]
+[ext_resource type="Texture2D" uid="uid://c2emp1vwrarja" path="res://assets/100devs/ui/defeat_screen_frames/008.png" id="9_t4sry"]
 [ext_resource type="Texture2D" uid="uid://yaqtnpfeq1tg" path="res://assets/100devs/ui/victory_screen_frames/009.png" id="10_2neo6"]
+[ext_resource type="Texture2D" uid="uid://dm05tm2moaavt" path="res://assets/100devs/ui/defeat_screen_frames/009.png" id="10_l4l67"]
 [ext_resource type="Texture2D" uid="uid://w7b7myk68be" path="res://assets/100devs/ui/battle_start_frames/009.png" id="10_n13js"]
 [ext_resource type="Texture2D" uid="uid://cigdj1mo41na0" path="res://assets/100devs/ui/victory_screen_frames/010.png" id="11_fgn3p"]
 [ext_resource type="Texture2D" uid="uid://fvna2a5ly0f8" path="res://assets/100devs/ui/battle_start_frames/010.png" id="11_gtq83"]
+[ext_resource type="Texture2D" uid="uid://dfstjnymgqesa" path="res://assets/100devs/ui/defeat_screen_frames/010.png" id="11_pttv2"]
+[ext_resource type="Texture2D" uid="uid://haeawsdafy4n" path="res://assets/100devs/ui/defeat_screen_frames/011.png" id="12_1f2e4"]
 [ext_resource type="Texture2D" uid="uid://bhog3bup6fwun" path="res://assets/100devs/ui/battle_start_frames/011.png" id="12_27ajb"]
 [ext_resource type="Texture2D" uid="uid://c5h1lpi34ktbr" path="res://assets/100devs/ui/victory_screen_frames/011.png" id="12_ka177"]
 [ext_resource type="Texture2D" uid="uid://bxox8w03whlem" path="res://assets/100devs/ui/battle_start_frames/012.png" id="13_4sv1b"]
+[ext_resource type="Texture2D" uid="uid://cg2n5ykngj000" path="res://assets/100devs/ui/defeat_screen_frames/012.png" id="13_28fhx"]
 [ext_resource type="Texture2D" uid="uid://ym4ashdon1e3" path="res://assets/100devs/ui/victory_screen_frames/012.png" id="13_1576s"]
 [ext_resource type="Texture2D" uid="uid://ba1kyjvp3pht7" path="res://assets/100devs/ui/battle_start_frames/013.png" id="14_djd2k"]
 [ext_resource type="Texture2D" uid="uid://d0xab5r5ryghq" path="res://assets/100devs/ui/victory_screen_frames/013.png" id="14_kk4hi"]
+[ext_resource type="Texture2D" uid="uid://cir16qq4n0o3b" path="res://assets/100devs/ui/defeat_screen_frames/013.png" id="14_wdycm"]
+[ext_resource type="Texture2D" uid="uid://c17b6irrnssfs" path="res://assets/100devs/ui/defeat_screen_frames/014.png" id="15_73bh3"]
 [ext_resource type="Texture2D" uid="uid://cumvm2wr16kfo" path="res://assets/100devs/ui/victory_screen_frames/014.png" id="15_by87j"]
 [ext_resource type="Texture2D" uid="uid://cag2ufab6uvxt" path="res://assets/100devs/ui/battle_start_frames/014.png" id="15_pwb6b"]
 [ext_resource type="Texture2D" uid="uid://b4min1ifdke8n" path="res://assets/100devs/ui/victory_screen_frames/015.png" id="16_dpf2o"]
+[ext_resource type="Texture2D" uid="uid://dumwnp5qx6vpq" path="res://assets/100devs/ui/defeat_screen_frames/015.png" id="16_f0lfp"]
 [ext_resource type="Texture2D" uid="uid://3mklphrx33lo" path="res://assets/100devs/ui/battle_start_frames/015.png" id="16_xyi8h"]
 [ext_resource type="Texture2D" uid="uid://dbxr71ylx7ali" path="res://assets/100devs/ui/battle_start_frames/016.png" id="17_6yeyb"]
 [ext_resource type="Texture2D" uid="uid://bbaorumqbv07u" path="res://assets/100devs/ui/victory_screen_frames/016.png" id="17_t2xjl"]
+[ext_resource type="Texture2D" uid="uid://4dusmv0t50k0" path="res://assets/100devs/ui/defeat_screen_frames/016.png" id="17_vuhbb"]
 [ext_resource type="Texture2D" uid="uid://b3tmq6vly6oqy" path="res://assets/100devs/ui/battle_start_frames/017.png" id="18_hoylf"]
 [ext_resource type="Texture2D" uid="uid://07yp1chk0vum" path="res://assets/100devs/ui/victory_screen_frames/017.png" id="18_lj7cv"]
+[ext_resource type="Texture2D" uid="uid://cvdb6mbw7pt1v" path="res://assets/100devs/ui/defeat_screen_frames/017.png" id="18_sxx6m"]
+[ext_resource type="Texture2D" uid="uid://dfmcnxip58ubl" path="res://assets/100devs/ui/defeat_screen_frames/018.png" id="19_dd2gq"]
 [ext_resource type="Texture2D" uid="uid://bwjjwjbrqr5c6" path="res://assets/100devs/ui/victory_screen_frames/018.png" id="19_mjkeq"]
 [ext_resource type="Texture2D" uid="uid://e462mvt8thum" path="res://assets/100devs/ui/battle_start_frames/018.png" id="19_st63k"]
 [ext_resource type="Texture2D" uid="uid://bpuquimdjm0sq" path="res://assets/100devs/ui/victory_screen_frames/019.png" id="20_4eg1r"]
+[ext_resource type="Texture2D" uid="uid://b5cvq4gtfbxuk" path="res://assets/100devs/ui/defeat_screen_frames/019.png" id="20_nn8hx"]
 [ext_resource type="Texture2D" uid="uid://flyoridquqto" path="res://assets/100devs/ui/battle_start_frames/019.png" id="20_trg6p"]
 [ext_resource type="Texture2D" uid="uid://cmm7byuosgw6d" path="res://assets/100devs/ui/victory_screen_frames/020.png" id="21_3vol3"]
 [ext_resource type="Texture2D" uid="uid://p82u1a2eqawg" path="res://assets/100devs/ui/battle_start_frames/020.png" id="21_b2q23"]
+[ext_resource type="Texture2D" uid="uid://yabygtthy3ss" path="res://assets/100devs/ui/defeat_screen_frames/020.png" id="21_pcwrr"]
 [ext_resource type="Texture2D" uid="uid://doyckufpw3j1f" path="res://assets/100devs/ui/battle_start_frames/021.png" id="22_6cefl"]
 [ext_resource type="Texture2D" uid="uid://chvmfro4nvie1" path="res://assets/100devs/ui/victory_screen_frames/021.png" id="22_de1vr"]
+[ext_resource type="Texture2D" uid="uid://cu4ptpn4u5g0i" path="res://assets/100devs/ui/defeat_screen_frames/021.png" id="22_ejuts"]
 [ext_resource type="Texture2D" uid="uid://qwv0sivgtwfl" path="res://assets/100devs/ui/victory_screen_frames/022.png" id="23_1sb45"]
+[ext_resource type="Texture2D" uid="uid://by5d3ut2uvtlt" path="res://assets/100devs/ui/defeat_screen_frames/022.png" id="23_8a8gf"]
 [ext_resource type="Texture2D" uid="uid://bcuaaejdh0hea" path="res://assets/100devs/ui/battle_start_frames/022.png" id="23_r2qhk"]
+[ext_resource type="Texture2D" uid="uid://c1mqpva0147qa" path="res://assets/100devs/ui/defeat_screen_frames/023.png" id="24_euifm"]
 [ext_resource type="Texture2D" uid="uid://dgtqeg8q05b11" path="res://assets/100devs/ui/victory_screen_frames/023.png" id="24_iyja7"]
 [ext_resource type="Texture2D" uid="uid://blfw3omauiq13" path="res://assets/100devs/ui/battle_start_frames/023.png" id="24_wt05k"]
+[ext_resource type="Texture2D" uid="uid://b576vfvm0upfa" path="res://assets/100devs/ui/defeat_screen_frames/024.png" id="25_d2vgs"]
 [ext_resource type="Texture2D" uid="uid://du8yque7rpcbn" path="res://assets/100devs/ui/battle_start_frames/024.png" id="25_p3pym"]
 [ext_resource type="Texture2D" uid="uid://bgc1dx080cmkr" path="res://assets/100devs/ui/victory_screen_frames/024.png" id="25_tvwc8"]
 [ext_resource type="Texture2D" uid="uid://cxy8mm6xku3b1" path="res://assets/100devs/ui/battle_start_frames/025.png" id="26_02rhc"]
 [ext_resource type="Texture2D" uid="uid://b7tjvgmm4b1n6" path="res://assets/100devs/ui/victory_screen_frames/025.png" id="26_jrl0l"]
+[ext_resource type="Texture2D" uid="uid://dy2suuas3dc0w" path="res://assets/100devs/ui/defeat_screen_frames/025.png" id="26_nmo6y"]
+[ext_resource type="Texture2D" uid="uid://bniu4frleucpy" path="res://assets/100devs/ui/defeat_screen_frames/026.png" id="27_2rct7"]
 [ext_resource type="Texture2D" uid="uid://bsagywksw8ejb" path="res://assets/100devs/ui/victory_screen_frames/026.png" id="27_alu5w"]
 [ext_resource type="Texture2D" uid="uid://bvk8tacmiq8u0" path="res://assets/100devs/ui/battle_start_frames/026.png" id="27_m72f3"]
 [ext_resource type="Texture2D" uid="uid://dijwgsrwxuu1v" path="res://assets/100devs/ui/victory_screen_frames/027.png" id="28_8rn8a"]
 [ext_resource type="Texture2D" uid="uid://1h3s20k1sje2" path="res://assets/100devs/ui/battle_start_frames/027.png" id="28_l1xck"]
+[ext_resource type="Texture2D" uid="uid://bf2k32a5wdsmf" path="res://assets/100devs/ui/defeat_screen_frames/027.png" id="28_v0aoq"]
 [ext_resource type="Texture2D" uid="uid://c3m37n5kwhat3" path="res://assets/100devs/ui/victory_screen_frames/028.png" id="29_0qsha"]
 [ext_resource type="Texture2D" uid="uid://d1epmpfj0cqw" path="res://assets/100devs/ui/battle_start_frames/028.png" id="29_ocqoo"]
+[ext_resource type="Texture2D" uid="uid://dgtcvmwtw488u" path="res://assets/100devs/ui/defeat_screen_frames/028.png" id="29_x633w"]
 [ext_resource type="Texture2D" uid="uid://c84ci0a36clsn" path="res://assets/100devs/ui/battle_start_frames/029.png" id="30_qh6tq"]
 [ext_resource type="Texture2D" uid="uid://bkjv20qkvbr1j" path="res://assets/100devs/ui/victory_screen_frames/029.png" id="30_rv8fu"]
+[ext_resource type="Texture2D" uid="uid://c13okccngg5wm" path="res://assets/100devs/ui/defeat_screen_frames/029.png" id="30_xovwi"]
 [ext_resource type="Texture2D" uid="uid://sgg3pwun3487" path="res://assets/100devs/ui/battle_start_frames/030.png" id="31_ehuer"]
+[ext_resource type="Texture2D" uid="uid://dj1erlj4urj0x" path="res://assets/100devs/ui/defeat_screen_frames/030.png" id="31_jin8w"]
 [ext_resource type="Texture2D" uid="uid://op6fd830nevg" path="res://assets/100devs/ui/victory_screen_frames/030.png" id="31_kuulm"]
 [ext_resource type="Texture2D" uid="uid://c71q8swllnn2u" path="res://assets/100devs/ui/victory_screen_frames/031.png" id="32_hww3g"]
+[ext_resource type="Texture2D" uid="uid://ccwnx7dharnjw" path="res://assets/100devs/ui/defeat_screen_frames/031.png" id="32_qnvvf"]
 [ext_resource type="Texture2D" uid="uid://bmbc00nnoqxr3" path="res://assets/100devs/ui/battle_start_frames/031.png" id="32_x2atf"]
 [ext_resource type="Texture2D" uid="uid://biwr7sn1dukrq" path="res://assets/100devs/ui/battle_start_frames/032.png" id="33_2g3p4"]
 [ext_resource type="Texture2D" uid="uid://c7ehfmiekq2ls" path="res://assets/100devs/ui/victory_screen_frames/032.png" id="33_blsmt"]
+[ext_resource type="Texture2D" uid="uid://b38dgeiekjnpu" path="res://assets/100devs/ui/defeat_screen_frames/032.png" id="33_xbwce"]
 [ext_resource type="Texture2D" uid="uid://byd8n1xtrqktc" path="res://assets/100devs/ui/victory_screen_frames/033.png" id="34_au7ke"]
+[ext_resource type="Texture2D" uid="uid://dbl6ts0xn5w5l" path="res://assets/100devs/ui/defeat_screen_frames/033.png" id="34_kqo3g"]
 [ext_resource type="Texture2D" uid="uid://ckbhuqwih5ifr" path="res://assets/100devs/ui/battle_start_frames/033.png" id="34_uqsvq"]
+[ext_resource type="Texture2D" uid="uid://cv2fy5ip3ipfm" path="res://assets/100devs/ui/defeat_screen_frames/034.png" id="35_3isgh"]
 [ext_resource type="Texture2D" uid="uid://clw1vsd3qvh63" path="res://assets/100devs/ui/victory_screen_frames/034.png" id="35_l030i"]
 [ext_resource type="Texture2D" uid="uid://bjteomjgmpwl4" path="res://assets/100devs/ui/battle_start_frames/034.png" id="35_ttqjr"]
 [ext_resource type="Texture2D" uid="uid://cuus5ykahvapg" path="res://assets/100devs/ui/battle_start_frames/035.png" id="36_mr0dw"]
+[ext_resource type="Texture2D" uid="uid://8kfudayxie8w" path="res://assets/100devs/ui/defeat_screen_frames/035.png" id="36_uwwao"]
 [ext_resource type="Texture2D" uid="uid://rtltotsw4htn" path="res://assets/100devs/ui/victory_screen_frames/035.png" id="36_uxnhu"]
 
 [resource]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ma4k2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qyop6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_x2e4g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_23ydp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kh6ga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jtxki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_c2p8u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3yab7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_t4sry")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_l4l67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_pttv2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_1f2e4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_28fhx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_wdycm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_73bh3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_f0lfp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_vuhbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_sxx6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_dd2gq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_nn8hx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_pcwrr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_ejuts")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_8a8gf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_euifm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_d2vgs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_nmo6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_2rct7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_v0aoq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_x633w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_xovwi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_jin8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_qnvvf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_xbwce")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_kqo3g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_3isgh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_uwwao")
+}],
 "loop": false,
 "name": &"battle_defeat",
 "speed": 12.0

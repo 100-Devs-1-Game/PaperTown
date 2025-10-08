@@ -2,10 +2,10 @@
 
 [ext_resource type="ArrayMesh" uid="uid://p0jlppteyig7" path="res://assets/100devs/assets/data/assets_floor-middle.mesh.res" id="1_0uc1o"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_a4aay"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_0uc1o"]
 size = Vector3(20, 1, 20)
 
-[node name="EverythingFloorchunk" type="Node3D"]
+[node name="EverythingFloorchunk" type="Node3D" groups=["navmesh"]]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
@@ -112,4 +112,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("BoxShape3D_a4aay")
+shape = SubResource("BoxShape3D_0uc1o")

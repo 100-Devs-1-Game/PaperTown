@@ -30,7 +30,9 @@ var dialogue_line: DialogueLine:
 		if value:
 			dialogue_line = value
 			apply_dialogue_line()
+			Dialogue.dialogue_is_running = true
 		else:
+			Dialogue.dialogue_is_running = false
 			# The dialogue has finished so close the balloon
 			queue_free()
 	get:
@@ -87,6 +89,7 @@ func _notification(what: int) -> void:
 func start(
 	dialogue_resource: DialogueResource, title: String, extra_game_states: Array = []
 ) -> void:
+	Dialogue.dialogue_is_running = true
 	temporary_game_states = [self] + extra_game_states
 	is_waiting_for_input = false
 	resource = dialogue_resource

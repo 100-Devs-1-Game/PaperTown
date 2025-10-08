@@ -8,7 +8,7 @@ data = PackedVector3Array(15.2273, 0.37289998, -6.619, 15.7771, 0.37289998, -1.6
 [sub_resource type="SphereShape3D" id="SphereShape3D_nwb4s"]
 radius = 0.838
 
-[node name="Wavy" type="Node3D"]
+[node name="Wavy" type="Node3D" groups=["navmesh"]]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3735774, 0)

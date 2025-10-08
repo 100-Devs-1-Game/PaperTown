@@ -62,10 +62,10 @@ transform = Transform3D(1, 0, 0, 0, 0.800397, 0.599471, 0, -0.599471, 0.800397, 
 
 [node name="Camera" parent="." instance=ExtResource("3_yqhvd")]
 
-[node name="BabyBoar" parent="." node_paths=PackedStringArray("player") groups=["followers"] instance=ExtResource("4_hhocr")]
+[node name="BabyBoar" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_hhocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.281403, 0.68473434, -11.596237)
 player = NodePath("../Player")
 
-[node name="Rudolph" parent="." node_paths=PackedStringArray("player") groups=["followers"] instance=ExtResource("5_dks1r")]
+[node name="Rudolph" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_dks1r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3765042, 0)
 player = NodePath("../Player")

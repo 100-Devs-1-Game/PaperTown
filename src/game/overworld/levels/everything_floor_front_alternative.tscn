@@ -5,7 +5,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_tsc2n"]
 size = Vector3(4, 1, 4)
 
-[node name="FloorFrontAlt" type="Node3D"]
+[node name="FloorFrontAlt" type="Node3D" groups=["navmesh"]]
 transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
