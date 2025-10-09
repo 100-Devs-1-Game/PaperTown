@@ -105,7 +105,7 @@ func apply_dialogue_line() -> void:
 	balloon.grab_focus()
 
 	character_label.visible = not dialogue_line.character.is_empty()
-	character_label.text = tr(dialogue_line.character, "dialogue")
+	character_label.text = tr(dialogue_line.character, "dialogue").to_upper()
 
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line

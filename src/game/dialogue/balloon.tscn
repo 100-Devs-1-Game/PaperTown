@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://brp3jpvgnpkae"]
+[gd_scene load_steps=18 format=3 uid="uid://brp3jpvgnpkae"]
 
 [ext_resource type="Script" uid="uid://cjp5y6kgj3rn5" path="res://game/dialogue/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="FontFile" uid="uid://d5g5shv3q1f3" path="res://assets/external/fontsforpeas/heygorgeous.ttf" id="2_ccsdl"]
+[ext_resource type="Texture2D" uid="uid://dgl28ndpv2f17" path="res://assets/100devs/ui/speech_box/speech_box.png" id="2_hmyem"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
@@ -64,20 +65,18 @@ MarginContainer/constants/margin_right = 30
 MarginContainer/constants/margin_top = 15
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ccsdl"]
-bg_color = Color(0.536428, 0.7560944, 0.74737626, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.432, 0.5346, 0.54, 0)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_color = Color(0.6155624, 0.8240253, 0.7655, 1)
-shadow_size = 1
-shadow_offset = Vector2(3, 3)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hviol"]
+texture = ExtResource("2_hmyem")
+
+[sub_resource type="FontVariation" id="FontVariation_8xa4f"]
+base_font = ExtResource("2_ccsdl")
+spacing_glyph = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hmyem"]
+content_margin_left = 8.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
 
 [sub_resource type="FontVariation" id="FontVariation_ccsdl"]
 base_font = ExtResource("2_ccsdl")
@@ -91,6 +90,12 @@ variation_transform = Transform2D(1, 0.2, 0, 1, 0, 0)
 [sub_resource type="FontVariation" id="FontVariation_hviol"]
 base_font = ExtResource("2_ccsdl")
 variation_transform = Transform2D(1, 0.2, 0, 1, 0, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hviol"]
+content_margin_left = 8.0
+content_margin_top = 0.0
+content_margin_right = 8.0
+content_margin_bottom = 0.0
 
 [node name="ExampleBalloon" type="CanvasLayer"]
 layer = 100
@@ -113,34 +118,48 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 320.0
-offset_top = -219.0
+offset_top = -235.54501
 offset_right = -320.0
+offset_bottom = -16.544922
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
 
 [node name="PanelContainer" type="PanelContainer" parent="Balloon/MarginContainer"]
 clip_children = 2
 layout_mode = 2
 mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_ccsdl")
+theme_override_styles/panel = SubResource("StyleBoxTexture_hviol")
 
 [node name="MarginContainer" type="MarginContainer" parent="Balloon/MarginContainer/PanelContainer"]
+modulate = Color(1, 1, 1, 0.78431374)
 layout_mode = 2
+theme_override_constants/margin_left = 56
+theme_override_constants/margin_top = 38
+theme_override_constants/margin_right = 56
+theme_override_constants/margin_bottom = 38
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Balloon/MarginContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 19
+theme_override_constants/separation = 8
 
 [node name="CharacterLabel" type="RichTextLabel" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
-theme_override_colors/default_color = Color(0.9254902, 0.9764706, 1, 1)
-theme_override_colors/font_shadow_color = Color(0.1221, 0.28841996, 0.33, 0.24705882)
-theme_override_constants/shadow_outline_size = 4
-theme_override_fonts/normal_font = ExtResource("2_ccsdl")
+theme_override_colors/default_color = Color(0.4082572, 0.52584934, 0.8651397, 1)
+theme_override_colors/font_shadow_color = Color(0.7490196, 0.79607844, 0.9411765, 1)
+theme_override_constants/shadow_outline_size = 8
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/underline_alpha = 255
+theme_override_fonts/normal_font = SubResource("FontVariation_8xa4f")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hmyem")
 bbcode_enabled = true
-text = "Character"
+text = "RUDOLPH"
 fit_content = true
 scroll_active = false
 
@@ -148,9 +167,11 @@ scroll_active = false
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/default_color = Color(0.9254902, 0.9764706, 1, 1)
-theme_override_colors/font_shadow_color = Color(0.1221, 0.28841996, 0.33, 0.1882353)
-theme_override_constants/shadow_outline_size = 4
+theme_override_colors/default_color = Color(0.42698836, 0.54339373, 0.8750358, 1)
+theme_override_colors/font_shadow_color = Color(0.7494233, 0.7971629, 0.9407241, 1)
+theme_override_constants/shadow_outline_size = 8
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
 theme_override_fonts/normal_font = ExtResource("2_ccsdl")
 theme_override_fonts/bold_font = SubResource("FontVariation_ccsdl")
 theme_override_fonts/bold_italics_font = SubResource("FontVariation_hmyem")
@@ -160,6 +181,7 @@ theme_override_font_sizes/bold_font_size = 16
 theme_override_font_sizes/bold_italics_font_size = 16
 theme_override_font_sizes/italics_font_size = 16
 theme_override_font_sizes/mono_font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hviol")
 text = "Dialogue..."
 seconds_per_step = 0.03
 
