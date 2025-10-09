@@ -20,6 +20,7 @@ if not Dialogue.can_finish_acorn_quest:
 	Rudolph: That doesn't mean anything!
 	Porkchop: [i]Oink![/i]
 	Rudolph: ... Okay fine, maybe she does like that name. Let's just head back and tell Ol' Man Acorn
+	do Signals.pet_unlocked.emit()
 	=> END
 % Porkchop: [i]Oink Oink[/i]
 % Porkchop: [i]Oink![/i]

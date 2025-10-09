@@ -1,9 +1,236 @@
-[gd_scene load_steps=5 format=3 uid="uid://vh1c5iw178fp"]
+[gd_scene load_steps=45 format=3 uid="uid://vh1c5iw178fp"]
 
 [ext_resource type="Script" uid="uid://cocfftsju044g" path="res://game/game.gd" id="1_l1rk1"]
 [ext_resource type="PackedScene" uid="uid://ucmbipiukcp6" path="res://game/overworld/levels/everything.tscn" id="2_vasa2"]
 [ext_resource type="Texture2D" uid="uid://dx7khedc42nc2" path="res://assets/100devs/ui/bag_o_scales.png" id="3_h7iqs"]
 [ext_resource type="FontFile" uid="uid://d5g5shv3q1f3" path="res://assets/external/fontsforpeas/heygorgeous.ttf" id="4_4fuuu"]
+[ext_resource type="Texture2D" uid="uid://dlw6l5xj6rrly" path="res://assets/100devs/ui/baby_boar_popup/frames/00000.png" id="5_cieqw"]
+[ext_resource type="Texture2D" uid="uid://c7c4hc8wbxap7" path="res://assets/100devs/ui/baby_boar_popup/frames/00001.png" id="6_ta815"]
+[ext_resource type="Texture2D" uid="uid://dvgp57lgwy3gm" path="res://assets/100devs/ui/baby_boar_popup/frames/00002.png" id="7_64wtb"]
+[ext_resource type="Texture2D" uid="uid://cwqwxmts41jus" path="res://assets/100devs/ui/baby_boar_popup/frames/00003.png" id="8_0rekh"]
+[ext_resource type="Texture2D" uid="uid://c0xuxjflxh8r1" path="res://assets/100devs/ui/baby_boar_popup/frames/00004.png" id="9_281ou"]
+[ext_resource type="Texture2D" uid="uid://ccynh4xf01cfg" path="res://assets/100devs/ui/baby_boar_popup/frames/00005.png" id="10_nrbry"]
+[ext_resource type="Texture2D" uid="uid://mt0ygi0jdhmj" path="res://assets/100devs/ui/baby_boar_popup/frames/00006.png" id="11_iswgq"]
+[ext_resource type="Texture2D" uid="uid://cncfdqmvve1i0" path="res://assets/100devs/ui/baby_boar_popup/frames/00007.png" id="12_7tmf6"]
+[ext_resource type="Texture2D" uid="uid://bwx6ovntnfx7w" path="res://assets/100devs/ui/baby_boar_popup/frames/00008.png" id="13_sisia"]
+[ext_resource type="Texture2D" uid="uid://byw5wuy4nt60m" path="res://assets/100devs/ui/baby_boar_popup/frames/00009.png" id="14_xorak"]
+[ext_resource type="Texture2D" uid="uid://btwi5gx0rm5qx" path="res://assets/100devs/ui/baby_boar_popup/frames/00010.png" id="15_4jymc"]
+[ext_resource type="Texture2D" uid="uid://tadc2xjkmgdf" path="res://assets/100devs/ui/baby_boar_popup/frames/00011.png" id="16_0lgry"]
+[ext_resource type="Texture2D" uid="uid://drk3i00cj58wx" path="res://assets/100devs/ui/baby_boar_popup/frames/00012.png" id="17_h7iu2"]
+[ext_resource type="Texture2D" uid="uid://d3tf0wwhoq3gh" path="res://assets/100devs/ui/baby_boar_popup/frames/00013.png" id="18_8sg4y"]
+[ext_resource type="Texture2D" uid="uid://bxbce24ch4uq7" path="res://assets/100devs/ui/baby_boar_popup/frames/00014.png" id="19_vktc5"]
+[ext_resource type="Texture2D" uid="uid://wd1nyxmrjsej" path="res://assets/100devs/ui/baby_boar_popup/frames/00015.png" id="20_ohnrv"]
+[ext_resource type="Texture2D" uid="uid://cvnem7ea6d4ud" path="res://assets/100devs/ui/baby_boar_popup/frames/00016.png" id="21_kaw54"]
+[ext_resource type="Texture2D" uid="uid://dja6ekmpwbmhy" path="res://assets/100devs/ui/baby_boar_popup/frames/00017.png" id="22_1paru"]
+[ext_resource type="Texture2D" uid="uid://cr3r4hffr2lb4" path="res://assets/100devs/ui/baby_boar_popup/frames/00018.png" id="23_jbuku"]
+[ext_resource type="Texture2D" uid="uid://d1jg2r0xk1g25" path="res://assets/100devs/ui/baby_boar_popup/frames/00019.png" id="24_bq3im"]
+[ext_resource type="Texture2D" uid="uid://bqcqkapmmys3y" path="res://assets/100devs/ui/baby_boar_popup/frames/00020.png" id="25_weo45"]
+[ext_resource type="Texture2D" uid="uid://djgnq3ybpx16w" path="res://assets/100devs/ui/baby_boar_popup/frames/00021.png" id="26_3crti"]
+[ext_resource type="Texture2D" uid="uid://ddehgf3cvov21" path="res://assets/100devs/ui/baby_boar_popup/frames/00022.png" id="27_fwql0"]
+[ext_resource type="Texture2D" uid="uid://ckie1h3iushir" path="res://assets/100devs/ui/baby_boar_popup/frames/00023.png" id="28_yeywo"]
+[ext_resource type="Texture2D" uid="uid://c2e5koqhnynox" path="res://assets/100devs/ui/baby_boar_popup/frames/00024.png" id="29_xi3ba"]
+[ext_resource type="Texture2D" uid="uid://daou410tp2t2x" path="res://assets/100devs/ui/baby_boar_popup/frames/00025.png" id="30_at8vr"]
+[ext_resource type="Texture2D" uid="uid://c5pws72i0qsst" path="res://assets/100devs/ui/baby_boar_popup/frames/00026.png" id="31_3hog8"]
+[ext_resource type="Texture2D" uid="uid://dnbhm13xwevqr" path="res://assets/100devs/ui/baby_boar_popup/frames/00027.png" id="32_4e2d6"]
+[ext_resource type="Texture2D" uid="uid://bplo3076wf7gy" path="res://assets/100devs/ui/baby_boar_popup/frames/00028.png" id="33_rr8ep"]
+[ext_resource type="Texture2D" uid="uid://chqkfnty7sekj" path="res://assets/100devs/ui/baby_boar_popup/frames/00029.png" id="34_ohuyl"]
+[ext_resource type="Texture2D" uid="uid://pm8t20ndryq1" path="res://assets/100devs/ui/baby_boar_popup/frames/00030.png" id="35_o3dub"]
+[ext_resource type="Texture2D" uid="uid://cy1nxrab7o6lq" path="res://assets/100devs/ui/baby_boar_popup/frames/00031.png" id="36_gk1pq"]
+[ext_resource type="Texture2D" uid="uid://b28qvf7c7rnx2" path="res://assets/100devs/ui/baby_boar_popup/frames/00032.png" id="37_3wmuf"]
+[ext_resource type="Texture2D" uid="uid://drqmdm3xthgs6" path="res://assets/100devs/ui/baby_boar_popup/frames/00033.png" id="38_vgjtp"]
+[ext_resource type="Texture2D" uid="uid://kx8aji1ocny2" path="res://assets/100devs/ui/baby_boar_popup/frames/00034.png" id="39_my0r7"]
+[ext_resource type="Texture2D" uid="uid://cjslptjpxocuy" path="res://assets/100devs/ui/baby_boar_popup/frames/00035.png" id="40_ym2td"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vf2gg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_cieqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ta815")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_64wtb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0rekh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_281ou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_nrbry")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_iswgq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_7tmf6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_sisia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_xorak")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_4jymc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_0lgry")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_h7iu2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_8sg4y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_vktc5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ohnrv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_kaw54")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_1paru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_jbuku")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_bq3im")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_weo45")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_3crti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_fwql0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_yeywo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_xi3ba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_at8vr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_3hog8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_4e2d6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_rr8ep")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_ohuyl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_o3dub")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_gk1pq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_3wmuf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_vgjtp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_my0r7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_ym2td")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="Animation" id="Animation_cieqw"]
+resource_name = "pet_unlock"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD/PetUnlock:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(0.5, 1, 0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -400), Vector2(0, -400), Vector2(0, -600)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HUD/PetUnlock:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HUD/PetUnlock/AnimatedSprite2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"default", 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ta815"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD/PetUnlock:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HUD/PetUnlock:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_64wtb"]
+_data = {
+&"RESET": SubResource("Animation_ta815"),
+&"pet_unlock": SubResource("Animation_cieqw")
+}
 
 [node name="Game" type="Node3D"]
 visible = false
@@ -12,14 +239,19 @@ script = ExtResource("1_l1rk1")
 [node name="Everything" parent="." instance=ExtResource("2_vasa2")]
 unique_name_in_owner = true
 
-[node name="Scales" type="Control" parent="."]
-unique_name_in_owner = true
+[node name="HUD" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureRect" type="TextureRect" parent="Scales"]
+[node name="Scales" type="Control" parent="HUD"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="HUD/Scales"]
 layout_mode = 0
 offset_left = 23.0
 offset_top = 16.0
@@ -28,7 +260,7 @@ offset_bottom = 266.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_h7iqs")
 
-[node name="ScaleCount" type="Label" parent="Scales"]
+[node name="ScaleCount" type="Label" parent="HUD/Scales"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 74.0
@@ -42,3 +274,19 @@ theme_override_font_sizes/font_size = 32
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PetUnlock" type="Control" parent="HUD"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HUD/PetUnlock"]
+position = Vector2(1080, 920)
+sprite_frames = SubResource("SpriteFrames_vf2gg")
+frame_progress = 0.21505527
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_64wtb")
+}
