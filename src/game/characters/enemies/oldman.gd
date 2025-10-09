@@ -6,6 +6,7 @@ extends CharacterBody3D
 
 func _ready():
 	npc_component.interacted_with.connect(on_interacted_with)
+	animation_player.play(&"idle")
 
 
 func on_interacted_with():
