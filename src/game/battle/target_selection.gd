@@ -1,4 +1,4 @@
-extends Container
+class_name TargetSelection extends Container
 
 signal target_selected(target_index: int)
 

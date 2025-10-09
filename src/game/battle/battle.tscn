@@ -13,7 +13,8 @@ script = ExtResource("1_2a4vk")
 
 [node name="BattleEnvironment" parent="Floor" instance=ExtResource("2_i61o2")]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="CenterStage" type="Node3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.70671177, -0.70750165, 0, 0.70750165, 0.70671177, 0, 0, 0)
 
 [node name="PlayerSpawn" type="Node3D" parent="."]
@@ -41,4 +42,4 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 24)
 offset = Vector3(0, 6, 18)
 state = 1
-target = NodePath("../DirectionalLight3D")
+target = NodePath("../CenterStage")

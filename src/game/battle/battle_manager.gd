@@ -18,6 +18,7 @@ const RUDOLPH = preload("res://game/characters/enemies/rudolph.tscn")
 
 var screen_transition = preload("res://game/ui/screen_transition.tscn")
 var overworld_scene
+var center_stage_original_pos
 
 # Battle variables
 var player_action: GlobalUtils.PlayerAction
@@ -33,6 +34,7 @@ var is_battle_active: bool = true
 func _ready() -> void:
 	# TODO: This SHOULD NOT be one static thing
 	overworld_scene = "res://game/overworld/overworld_test2.tscn"
+	center_stage_original_pos = %CenterStage.global_position
 
 	# Generate boars
 	for i in range(3):
@@ -92,6 +94,8 @@ func start_player_turn() -> void:
 	if not is_battle_active:
 		return
 
+	#%CenterStage.global_position = center_stage_original_pos
+
 	print("Player's turn!")
 	battle_menu_instance.target_selection.setup_target_pointers(enemy_character)
 	battle_menu_instance.show_menu()
@@ -121,6 +125,8 @@ func execute_attack(target: int) -> void:
 			print("Player used Tail Whip!")
 
 	if damage > 0 and target >= 0 and target < alive_enemies.size() and is_instance_valid(alive_enemies[target]):
+		#%CenterStage.global_position.x = (center_stage_original_pos.x + alive_enemies[target].global_position.x) / 2.0
+		#%CenterStage.global_position.z = (center_stage_original_pos.z + alive_enemies[target].global_position.z) / 2.0
 		var ft3d := FloatingText.spawn(alive_enemies[target].global_position + Vector3(0, 3, 2), str(damage))
 		ft3d.scale *= 0.5
 		FloatingText.animate_towards(
@@ -141,6 +147,8 @@ func execute_attack(target: int) -> void:
 				return
 	else:
 		print("?")
+
+	await get_tree().create_timer(0.5).timeout
 
 	# Player turn finished, start enemy turns
 	start_enemy_turns()
@@ -177,6 +185,10 @@ func execute_next_enemy_turn() -> void:
 		start_player_turn()
 		return
 
+	#%CenterStage.global_position.x = (center_stage_original_pos.x + alive_enemies[current_enemy_index].global_position.x) / 2.0
+	#%CenterStage.global_position.z = (center_stage_original_pos.z + alive_enemies[current_enemy_index].global_position.z) / 2.0
+	await get_tree().create_timer(0.5).timeout
+
 	# Get current enemy
 	var current_enemy = alive_enemies[current_enemy_index]
 	var enemy_number = enemy_character.find(current_enemy) + 1
@@ -190,6 +202,9 @@ func execute_next_enemy_turn() -> void:
 			print("Boar %d attacks!" % enemy_number)
 			qte_indicator_instance.start_qte()
 			await qte_indicator_instance.qte_finished
+			#%CenterStage.global_position.x = center_stage_original_pos.x
+			#%CenterStage.global_position.z = center_stage_original_pos.z
+			await get_tree().create_timer(0.5).timeout
 			if qte_indicator_instance.success:
 				print("You dodged the enemy attack!")
 
@@ -219,18 +234,25 @@ func execute_next_enemy_turn() -> void:
 		2:
 			print("Boar %d flourishes weapon!" % enemy_number)
 
+	await get_tree().create_timer(0.5).timeout
 	# Move to next enemy
 	current_enemy_index += 1
 	execute_next_enemy_turn()
 
 
 func win_battle() -> void:
+	#%CenterStage.global_position.x = center_stage_original_pos.x
+	#%CenterStage.global_position.z = center_stage_original_pos.z
+	await get_tree().create_timer(1.0).timeout
 	is_battle_active = false
 	end_battle("won")
 	Signals.battle_won.emit(null)
 
 
 func lose_battle() -> void:
+	#%CenterStage.global_position.x = center_stage_original_pos.x
+	#%CenterStage.global_position.z = center_stage_original_pos.z
+	await get_tree().create_timer(1.0).timeout
 	is_battle_active = false
 	print("Defeat! You were overwhelmed!")
 	end_battle("lost")

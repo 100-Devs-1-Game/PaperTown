@@ -6,7 +6,7 @@ signal menu_state_changed(menu_state: GlobalUtils.MenuState)
 @onready var tongue_button: Button = $BattleMenu/ActionSelection/TongueButton
 @onready var tail_button: Button = $BattleMenu/ActionSelection/TailButton
 @onready var run_button: TextureButton = $BattleMenu/RunButton
-@onready var target_selection: Container = $TargetSelection
+@onready var target_selection: TargetSelection = $TargetSelection
 
 var current_state: GlobalUtils.MenuState
 var selected_action: GlobalUtils.PlayerAction
