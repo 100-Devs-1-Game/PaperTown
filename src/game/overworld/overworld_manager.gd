@@ -1,4 +1,4 @@
-extends Node
+class_name OverworldManager extends Node
 
 @export var screen_transistion: PackedScene
 

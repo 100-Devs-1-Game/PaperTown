@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://vh1c5iw178fp"]
+[gd_scene load_steps=5 format=3 uid="uid://vh1c5iw178fp"]
 
 [ext_resource type="Script" uid="uid://cocfftsju044g" path="res://game/game.gd" id="1_l1rk1"]
 [ext_resource type="PackedScene" uid="uid://ucmbipiukcp6" path="res://game/overworld/levels/everything.tscn" id="2_vasa2"]
+[ext_resource type="Texture2D" uid="uid://dx7khedc42nc2" path="res://assets/100devs/ui/bag_o_scales.png" id="3_h7iqs"]
+[ext_resource type="FontFile" uid="uid://d5g5shv3q1f3" path="res://assets/external/fontsforpeas/heygorgeous.ttf" id="4_4fuuu"]
 
 [node name="Game" type="Node3D"]
 visible = false
@@ -9,3 +11,34 @@ script = ExtResource("1_l1rk1")
 
 [node name="Everything" parent="." instance=ExtResource("2_vasa2")]
 unique_name_in_owner = true
+
+[node name="Scales" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Scales"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 16.0
+offset_right = 273.0
+offset_bottom = 266.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_h7iqs")
+
+[node name="ScaleCount" type="Label" parent="Scales"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 74.0
+offset_top = 71.0
+offset_right = 96.0
+offset_bottom = 146.0
+theme_override_colors/font_outline_color = Color(0.29320663, 0.13084579, 0.06771239, 0.5529412)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("4_4fuuu")
+theme_override_font_sizes/font_size = 32
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
