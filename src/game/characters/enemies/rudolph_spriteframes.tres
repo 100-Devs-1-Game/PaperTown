@@ -96,7 +96,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("8_d46sy")
 }],
-"loop": true,
+"loop": false,
 "name": &"heal",
 "speed": 12.0
 }, {
@@ -125,9 +125,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("16_ks2pg")
 }],
-"loop": true,
+"loop": false,
 "name": &"hit",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,

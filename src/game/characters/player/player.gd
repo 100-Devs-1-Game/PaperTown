@@ -10,6 +10,7 @@ var stats := preload("res://game/resources/player_stats.tres")
 var talkable_npcs: Array[Node3D] = []
 var talkable_state := false
 var facing_behind := false
+var attacking := false
 
 @onready var visuals: Node3D = %Visuals
 @onready var animated_sprite_3d: AnimatedSprite3D = %AnimatedSprite3D
@@ -105,6 +106,9 @@ func animation_handler(movement_direction: Vector3):
 	if not is_on_floor():
 		return
 
+	if attacking:
+		return
+
 	if movement_direction != Vector3.ZERO:
 		if not facing_behind && animated_sprite_3d.animation != &"walk":
 			print("walk")
@@ -190,3 +194,69 @@ func on_body_exited(body):
 		if body is Rudolph and not Dialogue.finished_rudolph_intro:
 			return
 		body.follower_component.start_following_player()
+
+
+func get_animated_sprite() -> AnimatedSprite3D:
+	return animated_sprite_3d
+
+
+func play_attack_visuals_one(target: ICharacter) -> void:
+	assert(current_state == State.BATTLE)
+	assert(not attacking)
+
+	attacking = true
+
+
+func play_attack_visuals_two(target: ICharacter) -> void:
+	assert(current_state == State.BATTLE)
+	assert(not attacking)
+
+	attacking = true
+
+
+func end_attack_visuals_one(target: ICharacter) -> void:
+	assert(current_state == State.BATTLE)
+	assert(attacking)
+
+	animated_sprite_3d.play(&"tongueslap")
+	await animated_sprite_3d.animation_finished
+	attacking = false
+	print("FINISHED ATK1")
+
+
+func end_attack_visuals_two(target: ICharacter) -> void:
+	assert(current_state == State.BATTLE)
+	assert(attacking)
+
+	animated_sprite_3d.play(&"tailwhip")
+	await animated_sprite_3d.animation_finished
+	attacking = false
+	print("FINISHED ATK2")
+
+
+func play_damaged_visual() -> void:
+	assert(current_state == State.BATTLE)
+	assert(not attacking)
+
+	attacking = true
+	animated_sprite_3d.play(&"hit")
+	await animated_sprite_3d.animation_finished
+	print("FINISHED HIT")
+	attacking = false
+
+
+func play_dodged_visual() -> void:
+	assert(current_state == State.BATTLE)
+	assert(not attacking)
+
+	attacking = true
+	var idle_frame := 0
+	if animated_sprite_3d.animation == &"idle":
+		idle_frame = animated_sprite_3d.frame
+
+	animated_sprite_3d.play(&"idle_invisible")
+	animated_sprite_3d.frame = idle_frame
+
+	await get_tree().create_timer(1.0).timeout
+	attacking = false
+	print("FINISHED DODGE")

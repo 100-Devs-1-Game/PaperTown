@@ -11,6 +11,7 @@ var current_state: State
 var target: CharacterBody3D = null
 var chase_time := -1.0
 var wander_cooldown := false
+var attacking := false
 
 @onready var overworld_attack_component: OverworldAttackComponent = $OverworldAttackComponent
 @onready var movement_component: MovementComponent = $MovementComponent
@@ -85,7 +86,7 @@ func chase():
 	animated_sprite_3d.play(&"charge")
 
 func battle():
-	if not animated_sprite_3d.is_playing():
+	if not animated_sprite_3d.is_playing() and not attacking:
 		animated_sprite_3d.play(&"idle")
 
 	movement_component.move(self)
@@ -153,3 +154,53 @@ func on_detection_bubble_body_exited(body):
 func exit_attack_state():
 	debug_excla_mark.text = ""
 	change_state(State.WANDER)
+
+
+func get_animated_sprite() -> AnimatedSprite3D:
+	return animated_sprite_3d
+
+
+func play_attack_visuals_one(attack_target: ICharacter) -> void:
+	assert(current_state == State.BATTLE)
+	assert(not attacking)
+
+	attacking = true
+
+
+func play_attack_visuals_two(attack_target: ICharacter) -> void:
+	assert(current_state == State.BATTLE)
+	assert(not attacking)
+
+	attacking = true
+
+
+func end_attack_visuals_one(attack_target: ICharacter) -> void:
+	assert(current_state == State.BATTLE)
+	assert(attacking)
+
+	animated_sprite_3d.play(&"charge")
+	await get_tree().create_timer(1.0).timeout
+	attacking = false
+	animated_sprite_3d.stop()
+	await get_tree().process_frame
+
+
+func end_attack_visuals_two(attack_target: ICharacter) -> void:
+	assert(current_state == State.BATTLE)
+	assert(attacking)
+
+	animated_sprite_3d.play(&"charge")
+	await get_tree().create_timer(1.0).timeout
+	attacking = false
+	animated_sprite_3d.stop()
+	await get_tree().process_frame
+
+
+func play_damaged_visual() -> void:
+	assert(current_state == State.BATTLE)
+	assert(not attacking)
+
+	attacking = true
+	animated_sprite_3d.play(&"hit")
+	await animated_sprite_3d.animation_finished
+	attacking = false

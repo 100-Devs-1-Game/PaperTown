@@ -38,7 +38,7 @@ func _ready() -> void:
 
 	# Generate boars
 	for i in range(3):
-		var boar = BOAR.instantiate()
+		var boar := BOAR.instantiate() as Enemy
 		enemy_character.append(boar)
 	setup_battle()
 
@@ -114,17 +114,19 @@ func handle_player_action(selected_action: GlobalUtils.PlayerAction, selected_ta
 
 
 func execute_attack(target: int) -> void:
-	var damage: int = 0
+	if target >= 0 and target < alive_enemies.size() and is_instance_valid(alive_enemies[target]):
+		var damage: int = 0
 
-	match player_action:
-		GlobalUtils.PlayerAction.TONGUE_SLAP:
-			damage = player_character.stats.attack + ([-3, 0, 3][randi() % 3])
-			print("Player used Tongue Slap!")
-		GlobalUtils.PlayerAction.TAIL_WHIP:
-			damage = player_character.stats.attack + ([-1, 0, 1][randi() % 3])
-			print("Player used Tail Whip!")
+		match player_action:
+			GlobalUtils.PlayerAction.TONGUE_SLAP:
+				damage = player_character.stats.attack + ([-3, 0, 3][randi() % 3])
+				await player_character.play_attack_visuals_one(alive_enemies[target])
+				print("Player used Tongue Slap!")
+			GlobalUtils.PlayerAction.TAIL_WHIP:
+				damage = player_character.stats.attack + ([-1, 0, 1][randi() % 3])
+				await player_character.play_attack_visuals_two(alive_enemies[target])
+				print("Player used Tail Whip!")
 
-	if damage > 0 and target >= 0 and target < alive_enemies.size() and is_instance_valid(alive_enemies[target]):
 		#%CenterStage.global_position.x = (center_stage_original_pos.x + alive_enemies[target].global_position.x) / 2.0
 		#%CenterStage.global_position.z = (center_stage_original_pos.z + alive_enemies[target].global_position.z) / 2.0
 		var ft3d := FloatingText.spawn(alive_enemies[target].global_position + Vector3(0, 3, 2), str(damage))
@@ -132,6 +134,12 @@ func execute_attack(target: int) -> void:
 		FloatingText.animate_towards(
 			ft3d, ft3d.global_position + (Vector3(randf_range(0, 6), 2, 0).normalized() * 2), 1
 		)
+
+		match player_action:
+			GlobalUtils.PlayerAction.TONGUE_SLAP:
+				await player_character.end_attack_visuals_one(alive_enemies[target])
+			GlobalUtils.PlayerAction.TAIL_WHIP:
+				await player_character.end_attack_visuals_two(alive_enemies[target])
 
 		alive_enemies[target].stats.current_hp -= damage
 		print("Dealt %d damage to enemy %d!" % [damage, target + 1])
@@ -200,11 +208,13 @@ func execute_next_enemy_turn() -> void:
 	match enemy_ai:
 		0:
 			print("Boar %d attacks!" % enemy_number)
+			await current_enemy.play_attack_visuals_one(player_character)
 			qte_indicator_instance.start_qte()
 			await qte_indicator_instance.qte_finished
 			#%CenterStage.global_position.x = center_stage_original_pos.x
 			#%CenterStage.global_position.z = center_stage_original_pos.z
 			await get_tree().create_timer(0.5).timeout
+			await current_enemy.end_attack_visuals_one(player_character)
 			if qte_indicator_instance.success:
 				print("You dodged the enemy attack!")
 
@@ -213,6 +223,7 @@ func execute_next_enemy_turn() -> void:
 				FloatingText.animate_towards(
 					ft3d, ft3d.global_position + (Vector3(randf_range(0, 6) * -1, 2, 0).normalized() * 2), 1
 				)
+				await player_character.play_dodged_visual()
 			else:
 				print("Oh no! The enemy hit you!")
 				player_character.stats.hit_counter += 1
@@ -223,6 +234,7 @@ func execute_next_enemy_turn() -> void:
 				FloatingText.animate_towards(
 					ft3d, ft3d.global_position + (Vector3(randf_range(0, 6) * -1, 2, 0).normalized() * 2), 1
 				)
+				await player_character.play_damaged_visual()
 
 			# Check if Player is defeated.
 			if player_character.stats.hit_counter >= 3:

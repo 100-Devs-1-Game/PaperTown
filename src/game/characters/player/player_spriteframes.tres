@@ -122,7 +122,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("12_gc3bt")
 }],
-"loop": true,
+"loop": false,
 "name": &"dazed",
 "speed": 12.0
 }, {
@@ -151,7 +151,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("20_yapat")
 }],
-"loop": true,
+"loop": false,
 "name": &"hit",
 "speed": 12.0
 }, {
@@ -295,7 +295,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("24_tlyfy")
 }],
-"loop": true,
+"loop": false,
 "name": &"tailwhip",
 "speed": 12.0
 }, {
@@ -324,7 +324,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("80_wnixj")
 }],
-"loop": true,
+"loop": false,
 "name": &"tongueslap",
 "speed": 12.0
 }, {

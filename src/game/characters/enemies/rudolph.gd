@@ -1,4 +1,4 @@
-class_name Rudolph extends CharacterBody3D
+class_name Rudolph extends ICharacter
 
 enum State { NPC, FOLLOWER, BATTLE }
 
@@ -6,6 +6,7 @@ enum State { NPC, FOLLOWER, BATTLE }
 
 var current_state: State
 var facing_behind := false
+var attacking := false
 
 @onready var npc_component: NPCComponent = $NPCComponent
 @onready var follower_component:FollowerComponent = $FollowerComponent
@@ -93,6 +94,9 @@ func play_walking_animations():
 	if movement_component.landed_after_jump == false:
 		return
 
+	if attacking:
+		return
+
 	var animation_name := ""
 
 	if Vector2(movement_component.velocity.x, movement_component.velocity.z).length_squared() < 0.1:
@@ -107,6 +111,9 @@ func play_walking_animations():
 	animated_sprite_3d.play(animation_name)
 
 func play_jumping_animations():
+	if attacking:
+		return
+
 	if facing_behind:
 		animated_sprite_3d.play(&"jump_behind")
 	else:
@@ -119,6 +126,7 @@ func play_jumping_animations():
 		ft3d, ft3d.global_position + (Vector3(randf_range(0, 6) * facing_mul, 2, 0).normalized() * 2), 1
 	)
 
+
 func on_player_jump():
 	if not follower_component.following_player:
 		return
@@ -127,3 +135,53 @@ func on_player_jump():
 	await jump_timer.timeout
 	movement_component.jump(self)
 	play_jumping_animations()
+
+
+func exit_attack_state():
+	change_state(State.FOLLOWER)
+
+
+func get_animated_sprite() -> AnimatedSprite3D:
+	return animated_sprite_3d
+
+
+func play_attack_visuals_one(target: ICharacter) -> void:
+	assert(current_state == State.BATTLE)
+	assert(not attacking)
+
+	attacking = true
+
+
+func play_attack_visuals_two(target: ICharacter) -> void:
+	assert(current_state == State.BATTLE)
+	assert(not attacking)
+
+	animated_sprite_3d.play(&"heal")
+	await animated_sprite_3d.animation_finished
+	attacking = true
+
+
+func end_attack_visuals_one(target: ICharacter) -> void:
+	assert(current_state == State.BATTLE)
+	assert(attacking)
+
+	attacking = false
+
+
+func end_attack_visuals_two(target: ICharacter) -> void:
+	assert(current_state == State.BATTLE)
+	assert(attacking)
+
+	animated_sprite_3d.play(&"heal")
+	await animated_sprite_3d.animation_finished
+	attacking = false
+
+
+func play_damaged_visual() -> void:
+	assert(current_state == State.BATTLE)
+	assert(not attacking)
+
+	attacking = true
+	animated_sprite_3d.play(&"hit")
+	await animated_sprite_3d.animation_finished
+	attacking = false
