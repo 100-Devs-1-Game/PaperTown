@@ -45,7 +45,7 @@ func connect_arrow_signals(arrow: Node3D, index: int):
 	if arrow.has_signal("input_event"):
 		arrow.input_event.connect(_on_arrow_clicked.bind(index))
 
-func _on_arrow_clicked(camera: Node, event: InputEvent, click_position: Vector3, click_normal: Vector3, shape_idx: int, target_index: int):
+func _on_arrow_clicked(_camera: Node, event: InputEvent, _click_position: Vector3, _click_normal: Vector3, _shape_idx: int, target_index: int):
 	if not visible:
 		return
 

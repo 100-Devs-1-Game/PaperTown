@@ -37,7 +37,7 @@ func _ready() -> void:
 
 
 	Signals.battle_started.connect(
-		func(enemy: ICharacter):
+		func(_enemy: ICharacter):
 			var defer := func():
 				game.process_mode = Node.PROCESS_MODE_DISABLED
 				game.set_physics_process(false)

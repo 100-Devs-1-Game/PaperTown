@@ -13,7 +13,7 @@ func _ready() -> void:
 		animation_player.play(&"pet_unlock")
 	)
 
-	Signals.battle_lost.connect(func():
+	Signals.battle_lost.connect(func(_enemy: ICharacter):
 		Dialogue.player.stats.scales -= 1
 		Dialogue.player.stats.scales = max(Dialogue.player.stats.scales, 0)
 	)
