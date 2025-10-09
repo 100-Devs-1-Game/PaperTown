@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://blhwwgupnhdwy"]
+[gd_scene load_steps=23 format=3 uid="uid://blhwwgupnhdwy"]
 
 [ext_resource type="Theme" uid="uid://w46o85kkkof2" path="res://game/ui/theme/base_theme.tres" id="1_478ix"]
 [ext_resource type="Script" uid="uid://c83yg6jw4oq58" path="res://game/ui/main_menu.gd" id="1_spbnf"]
@@ -73,6 +73,39 @@ _data = {
 &"RESET": SubResource("Animation_5vhoe"),
 &"default": SubResource("Animation_cx13a")
 }
+
+[sub_resource type="Gradient" id="Gradient_y6wp3"]
+offsets = PackedFloat32Array(0, 0.39949748, 0.45477387)
+colors = PackedColorArray(0.40683255, 0.31734806, 0.5948291, 1, 0.40784314, 0.31764707, 0.59607846, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7ecrl"]
+gradient = SubResource("Gradient_y6wp3")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_7ecrl"]
+offsets = PackedFloat32Array(0, 0.33919597, 0.6934673, 1)
+colors = PackedColorArray(0.5372549, 0.5058824, 0.8, 0, 0.53696764, 0.5042634, 0.7993772, 1, 0.5372549, 0.5058824, 0.8, 1, 0.5372549, 0.5058824, 0.8, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nmgag"]
+gradient = SubResource("Gradient_7ecrl")
+width = 4
+height = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ecrl"]
+content_margin_left = 2.0
+content_margin_top = 4.0
+content_margin_right = 2.0
+content_margin_bottom = 4.0
+bg_color = Color(0.7145573, 0.7195648, 0.92962915, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmgag"]
+bg_color = Color(0.5058824, 0.49411765, 0.8352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sv6g1"]
+bg_color = Color(0.5058824, 0.49411765, 0.8352941, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y6wp3"]
 content_margin_left = 0.0
@@ -497,7 +530,7 @@ offset_right = -63.00003
 offset_bottom = 181.25002
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.6862745, 0.7019608, 1, 1)
-theme_override_constants/outline_size = 16
+theme_override_constants/outline_size = 8
 theme_override_constants/shadow_outline_size = 8
 theme_override_fonts/font = ExtResource("11_7ecrl")
 text = "GLOBAL"
@@ -509,6 +542,12 @@ offset_left = -50.0
 offset_top = 119.0
 offset_right = 150.0
 offset_bottom = 169.0
+theme_override_icons/grabber = SubResource("GradientTexture2D_7ecrl")
+theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_7ecrl")
+theme_override_icons/tick = SubResource("GradientTexture2D_nmgag")
+theme_override_styles/slider = SubResource("StyleBoxFlat_7ecrl")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_nmgag")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_sv6g1")
 tick_count = 20
 ticks_position = 3
 bus_name = "Master"
@@ -530,7 +569,7 @@ offset_right = -54.75003
 offset_bottom = 181.25002
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.6862745, 0.7019608, 1, 1)
-theme_override_constants/outline_size = 16
+theme_override_constants/outline_size = 8
 theme_override_constants/shadow_outline_size = 8
 theme_override_fonts/font = ExtResource("11_7ecrl")
 text = "MUSIC"
@@ -542,6 +581,12 @@ offset_left = -50.0
 offset_top = 119.0
 offset_right = 150.0
 offset_bottom = 169.0
+theme_override_icons/grabber = SubResource("GradientTexture2D_7ecrl")
+theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_7ecrl")
+theme_override_icons/tick = SubResource("GradientTexture2D_nmgag")
+theme_override_styles/slider = SubResource("StyleBoxFlat_7ecrl")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_nmgag")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_sv6g1")
 tick_count = 20
 ticks_position = 3
 bus_name = "Music"
@@ -563,7 +608,7 @@ offset_right = -13.5000305
 offset_bottom = 259.25
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.6862745, 0.7019608, 1, 1)
-theme_override_constants/outline_size = 16
+theme_override_constants/outline_size = 8
 theme_override_constants/shadow_outline_size = 8
 theme_override_fonts/font = ExtResource("11_7ecrl")
 text = "SFX
@@ -572,10 +617,16 @@ text = "SFX
 [node name="VolumeSlider" parent="Control/Book/BookBack/Control2" instance=ExtResource("9_5vhoe")]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 0
-offset_left = -50.0
-offset_top = 119.0
-offset_right = 150.0
-offset_bottom = 169.0
+offset_left = -47.5
+offset_top = 118.749985
+offset_right = 152.5
+offset_bottom = 168.74998
+theme_override_icons/grabber = SubResource("GradientTexture2D_7ecrl")
+theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_7ecrl")
+theme_override_icons/tick = SubResource("GradientTexture2D_nmgag")
+theme_override_styles/slider = SubResource("StyleBoxFlat_7ecrl")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_nmgag")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_sv6g1")
 tick_count = 20
 ticks_position = 3
 bus_name = "SFX"
