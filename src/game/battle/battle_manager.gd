@@ -230,7 +230,5 @@ func end_battle(result: String) -> void:
 	elif result == "lost":
 		screen_transition_instance.do_transition(ScreenTransition.TransitionType.BATTLE_LOST)
 
-	# TODO: clear battle scene, play victory or defeat splash, exit to OW
-	# TODO: We need to track the player's position in the overworld after this
 	await screen_transition_instance.transition_halfway
 	SceneManager.switch_to_game()

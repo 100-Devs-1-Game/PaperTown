@@ -17,19 +17,19 @@ script = ExtResource("1_2a4vk")
 transform = Transform3D(1, 0, 0, 0, 0.70671177, -0.70750165, 0, 0.70750165, 0.70671177, 0, 0, 0)
 
 [node name="PlayerSpawn" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 4)
 
 [node name="RudolphSpawn" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
 
 [node name="EnemySpawn1" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -2)
 
 [node name="EnemySpawn2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 1)
 
 [node name="EnemySpawn3" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 4)
 
 [node name="Sunlight" parent="." instance=ExtResource("3_7w56k")]
 directional_shadow_max_distance = 40.0
@@ -39,6 +39,6 @@ directional_shadow_max_distance = 40.0
 [node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("5_7w56k")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 24)
-offset = Vector3(0, 6, 12)
+offset = Vector3(0, 6, 18)
 state = 1
 target = NodePath("../DirectionalLight3D")
