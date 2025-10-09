@@ -3,6 +3,7 @@ class_name Rudolph extends ICharacter
 enum State { NPC, FOLLOWER, BATTLE }
 
 @export var player: CharacterBody3D
+@export var stats: RudolphStats
 
 var current_state: State
 var facing_behind := false
@@ -17,7 +18,6 @@ var attacking := false
 @onready var jump_timer = $JumpTimer
 
 signal rudolph_state_changed
-
 
 func _ready():
 	await get_parent().ready
@@ -141,6 +141,13 @@ func on_player_jump():
 func exit_attack_state():
 	change_state(State.FOLLOWER)
 
+func take_damage(amount: int):
+	stats.take_damage(amount)
+	Signals.health_changed.emit(stats.current_hp, stats.max_hp)
+
+func heal(amount: int):
+	stats.heal(amount)
+	Signals.health_changed.emit(stats.current_hp, stats.max_hp)
 
 func get_animated_sprite() -> AnimatedSprite3D:
 	return animated_sprite_3d

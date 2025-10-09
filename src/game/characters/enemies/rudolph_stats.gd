@@ -1,11 +1,11 @@
-class_name EnemyStats extends Resource
+class_name RudolphStats extends Resource
 
 @export var level: int = 1
-@export var max_hp: int = 15
+@export var max_hp: int = 10
 @export var current_hp: int
-@export var attack: int = 5
-@export var defense: int = 3
-@export var speed: int = 3
+@export var heal_amount: int = 5
+@export var defense: int = 2
+@export var speed: int = 4
 
 var old_hp: int
 

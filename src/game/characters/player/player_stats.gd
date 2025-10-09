@@ -1,11 +1,11 @@
-class_name EnemyStats extends Resource
+class_name PlayerStats extends Resource
 
 @export var level: int = 1
-@export var max_hp: int = 15
+@export var max_hp: int = 12
 @export var current_hp: int
 @export var attack: int = 5
-@export var defense: int = 3
-@export var speed: int = 3
+@export var defense: int = 1
+@export var speed: int = 5
 
 var old_hp: int
 

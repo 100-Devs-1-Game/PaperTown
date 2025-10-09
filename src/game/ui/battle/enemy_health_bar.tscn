@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2stjw55bjkci"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kgeoa"]
+bg_color = Color(0.051349595, 0.19769111, 0.16764736, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gvg5s"]
+bg_color = Color(0.26560506, 0.7058922, 0.30138713, 1)
+
+[node name="EnemyHealthBar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_right = 153.0
+offset_bottom = 27.0
+theme_override_styles/background = SubResource("StyleBoxFlat_kgeoa")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gvg5s")
+step = 1.0
+value = 50.0
+show_percentage = false

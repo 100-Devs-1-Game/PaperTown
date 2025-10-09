@@ -2,11 +2,12 @@ class_name Player extends ICharacter
 
 enum State { MOVEMENT, ATTACK, BATTLE, CUTSCENE }
 
+@export var stats: PlayerStats
+
 var direction: Vector3
 var attack_distance := 1.5
 var attack_time = 0.3
 var current_state: State
-var stats := preload("res://game/resources/player_stats.tres")
 var talkable_npcs: Array[Node3D] = []
 var talkable_state := false
 var facing_behind := false
@@ -23,7 +24,6 @@ var standard_combat_pos: Vector3
 
 signal player_state_changed(new_state: State)
 signal player_jump
-
 
 func _ready():
 	change_state(State.MOVEMENT)
@@ -198,6 +198,13 @@ func on_body_exited(body):
 			return
 		body.follower_component.start_following_player()
 
+func take_damage(amount: int):
+	stats.take_damage(amount)
+	Signals.health_changed.emit(stats.current_hp, stats.max_hp)
+
+func heal(amount: int):
+	stats.heal(amount)
+	Signals.health_changed.emit(stats.current_hp, stats.max_hp)
 
 func get_animated_sprite() -> AnimatedSprite3D:
 	return animated_sprite_3d
@@ -210,6 +217,7 @@ func play_attack_visuals_one(target: ICharacter) -> void:
 	movement_component.facing_right = true
 	standard_combat_pos = global_position
 	attacking = true
+<<<<<<< Updated upstream
 
 	animated_sprite_3d.play(&"walk")
 	var move_tween := create_tween()
@@ -224,6 +232,9 @@ func play_attack_visuals_one(target: ICharacter) -> void:
 	%CombatOffset.position.x = 0
 	reset_physics_interpolation()
 
+=======
+	
+>>>>>>> Stashed changes
 
 func play_attack_visuals_two(target: ICharacter) -> void:
 	assert(current_state == State.BATTLE)

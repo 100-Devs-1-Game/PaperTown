@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ca65elqv0fxhy"]
+[gd_scene load_steps=12 format=3 uid="uid://ca65elqv0fxhy"]
 
 [ext_resource type="Script" uid="uid://ovpgatviv4uj" path="res://game/battle/battle_menu.gd" id="1_f1ncp"]
 [ext_resource type="Script" uid="uid://dpem82885n1ga" path="res://game/battle/target_selection.gd" id="2_6xbtf"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://buhv7761t5q1a" path="res://assets/100devs/ui/action_bar/000.png" id="2_j27at"]
 [ext_resource type="Texture2D" uid="uid://babqi0n51p8qk" path="res://assets/100devs/ui/action_bar/001.png" id="5_ghuyy"]
 [ext_resource type="Texture2D" uid="uid://b3dwnw7y5sqf5" path="res://assets/100devs/ui/action_bar/2.png" id="6_5mqm6"]
+[ext_resource type="PackedScene" uid="uid://oqykttrp1fep" path="res://game/ui/battle/player_health_bar.tscn" id="8_5mqm6"]
+[ext_resource type="PackedScene" uid="uid://bh2f6fl20kbes" path="res://game/ui/battle/rudolph_health_bar.tscn" id="9_4mqrp"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ge1nx"]
 texture = ExtResource("2_j27at")
@@ -98,3 +100,20 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_6xbtf")
+
+[node name="HealthBars" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 200.0
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+theme_override_constants/separation = 61
+
+[node name="Player" parent="HealthBars" instance=ExtResource("8_5mqm6")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Rudolph" parent="HealthBars" instance=ExtResource("9_4mqrp")]
+layout_mode = 2
+size_flags_horizontal = 3

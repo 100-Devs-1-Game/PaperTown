@@ -20,6 +20,7 @@ func change_state(new_state: GlobalUtils.MenuState) -> void:
 
 
 func _ready() -> void:
+
 	# Connect Signals
 	tongue_button.pressed.connect(_on_action_selected.bind(GlobalUtils.PlayerAction.TONGUE_SLAP))
 	tail_button.pressed.connect(_on_action_selected.bind(GlobalUtils.PlayerAction.TAIL_WHIP))

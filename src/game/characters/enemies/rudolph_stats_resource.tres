@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="RudolphStats" load_steps=2 format=3 uid="uid://eb26uyolm10o"]
+
+[ext_resource type="Script" path="res://game/characters/enemies/rudolph_stats.gd" id="1_kr5sp"]
+
+[resource]
+script = ExtResource("1_kr5sp")
+metadata/_custom_type_script = "uid://dwy2wqhi2bvej"

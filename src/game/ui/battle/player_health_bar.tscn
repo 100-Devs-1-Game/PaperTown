@@ -9,9 +9,15 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6gbhb"]
 texture = ExtResource("2_o1c2b")
 
-[node name="PlayerHealthBar" type="Node2D"]
+[node name="PlayerHealthBar" type="Control"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 100.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 190.0
 offset_top = 12.0
 offset_right = 670.0
