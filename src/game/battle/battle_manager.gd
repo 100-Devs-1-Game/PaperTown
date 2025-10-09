@@ -63,7 +63,7 @@ func setup_battle() -> void:
 	# Instantiate UI elements
 	battle_menu_instance = BATTLE_MENU.instantiate()
 	add_child(battle_menu_instance)
-	battle_menu_instance.target_selection.setup_target_buttons(enemy_character, camera)
+	battle_menu_instance.target_selection.setup_target_pointers(enemy_character)
 	qte_indicator_instance = QTE_INDICATOR.instantiate()
 	battle_menu_instance.add_child(qte_indicator_instance)
 
@@ -93,7 +93,7 @@ func start_player_turn() -> void:
 		return
 
 	print("Player's turn!")
-	battle_menu_instance.target_selection.setup_target_buttons(enemy_character, camera)
+	battle_menu_instance.target_selection.setup_target_pointers(enemy_character)
 	battle_menu_instance.show_menu()
 
 

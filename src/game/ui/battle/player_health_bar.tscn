@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://oqykttrp1fep"]
+
+[ext_resource type="Texture2D" uid="uid://bxcognca0vu4n" path="res://assets/100devs/ui/health_bars/000.png" id="1_arluj"]
+[ext_resource type="Texture2D" uid="uid://ddyerh2me0m7w" path="res://assets/100devs/ui/health_bars/mc.png" id="2_o1c2b"]
+[ext_resource type="Texture2D" uid="uid://dgxmuiedne1dn" path="res://assets/100devs/ui/health_bars/004.png" id="3_ityb8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fp2ga"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6gbhb"]
+texture = ExtResource("2_o1c2b")
+
+[node name="PlayerHealthBar" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 190.0
+offset_top = 12.0
+offset_right = 670.0
+offset_bottom = 159.0
+texture = ExtResource("1_arluj")
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBar" type="ProgressBar" parent="TextureRect"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 38.0
+offset_right = 447.0
+offset_bottom = 110.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_fp2ga")
+theme_override_styles/fill = SubResource("StyleBoxTexture_6gbhb")
+value = 50.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_ityb8")
+centered = false

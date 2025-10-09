@@ -1,15 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://ca65elqv0fxhy"]
+[gd_scene load_steps=10 format=3 uid="uid://ca65elqv0fxhy"]
 
 [ext_resource type="Script" uid="uid://ovpgatviv4uj" path="res://game/battle/battle_menu.gd" id="1_f1ncp"]
 [ext_resource type="Script" uid="uid://dpem82885n1ga" path="res://game/battle/target_selection.gd" id="2_6xbtf"]
+[ext_resource type="Texture2D" uid="uid://c4uhx2y3udxre" path="res://assets/100devs/ui/action_bar/1.png" id="2_dsxrm"]
+[ext_resource type="FontFile" uid="uid://d5g5shv3q1f3" path="res://assets/external/fontsforpeas/heygorgeous.ttf" id="2_ge1nx"]
+[ext_resource type="Texture2D" uid="uid://buhv7761t5q1a" path="res://assets/100devs/ui/action_bar/000.png" id="2_j27at"]
+[ext_resource type="Texture2D" uid="uid://babqi0n51p8qk" path="res://assets/100devs/ui/action_bar/001.png" id="5_ghuyy"]
+[ext_resource type="Texture2D" uid="uid://b3dwnw7y5sqf5" path="res://assets/100devs/ui/action_bar/2.png" id="6_5mqm6"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1lwqo"]
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ge1nx"]
+texture = ExtResource("2_j27at")
 
-[node name="BattleMenu" type="Control"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4mqrp"]
+texture = ExtResource("5_ghuyy")
+
+[node name="BattleUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,41 +23,55 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f1ncp")
 
-[node name="ActionSelection" type="HBoxContainer" parent="."]
+[node name="BattleMenu" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -236.0
+offset_right = 1706.0
+offset_bottom = 78.0
+grow_vertical = 0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_dsxrm")
+
+[node name="ActionSelection" type="HBoxContainer" parent="BattleMenu"]
 layout_mode = 0
-offset_left = 330.0
-offset_top = 556.0
-offset_right = 950.0
-offset_bottom = 720.0
-theme_override_constants/separation = 10
+offset_left = 134.66667
+offset_top = 96.0
+offset_right = 1144.0
+offset_bottom = 280.0
+theme_override_constants/separation = 40
 
-[node name="TongueButton" type="Button" parent="ActionSelection"]
+[node name="TongueButton" type="Button" parent="BattleMenu/ActionSelection"]
 custom_minimum_size = Vector2(200, 164)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_1lwqo")
+theme_override_fonts/font = ExtResource("2_ge1nx")
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxTexture_ge1nx")
 text = "Tongue Slap"
-flat = true
 autowrap_mode = 2
 
-[node name="TailButton" type="Button" parent="ActionSelection"]
+[node name="TailButton" type="Button" parent="BattleMenu/ActionSelection"]
 custom_minimum_size = Vector2(200, 164)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 40
+theme_override_fonts/font = ExtResource("2_ge1nx")
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxTexture_4mqrp")
 text = "Tail Whip"
-flat = true
 autowrap_mode = 2
 
-[node name="RunButton" type="Button" parent="ActionSelection"]
+[node name="RunButton" type="TextureButton" parent="BattleMenu"]
 custom_minimum_size = Vector2(200, 164)
-layout_mode = 2
+layout_mode = 0
+offset_left = 1149.3334
+offset_top = 42.666664
+offset_right = 1404.3334
+offset_bottom = 274.66666
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 40
-text = "Run Away"
-flat = true
-autowrap_mode = 2
+texture_normal = ExtResource("6_5mqm6")
 
 [node name="TargetSelection" type="Container" parent="."]
 layout_mode = 0

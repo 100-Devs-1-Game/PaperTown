@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://bh2f6fl20kbes"]
+
+[ext_resource type="Texture2D" uid="uid://c31dbuskspf48" path="res://assets/100devs/ui/health_bars/001.png" id="1_d3bwy"]
+[ext_resource type="Texture2D" uid="uid://chw3idbtac05j" path="res://assets/100devs/ui/health_bars/rudolph.png" id="2_caww3"]
+[ext_resource type="Texture2D" uid="uid://c3g6886fx4f35" path="res://assets/100devs/ui/health_bars/005.png" id="3_s0vnn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fp2ga"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_anqsj"]
+texture = ExtResource("2_caww3")
+
+[node name="RudolphHealthBar" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 165.0
+offset_top = 43.0
+offset_right = 645.0
+offset_bottom = 190.0
+texture = ExtResource("1_d3bwy")
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBar" type="ProgressBar" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.00625
+anchor_top = -0.013605442
+anchor_right = -0.00625
+anchor_bottom = -0.013605442
+offset_left = 45.0
+offset_top = 38.0
+offset_right = 447.0
+offset_bottom = 110.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_fp2ga")
+theme_override_styles/fill = SubResource("StyleBoxTexture_anqsj")
+value = 100.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_s0vnn")
+centered = false

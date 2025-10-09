@@ -3,9 +3,9 @@ class_name BattleMenu extends Control
 signal action_selected(action_type: GlobalUtils.PlayerAction, target_index: int)
 signal menu_state_changed(menu_state: GlobalUtils.MenuState)
 
-@onready var tongue_button: Button = $ActionSelection/TongueButton
-@onready var tail_button: Button = $ActionSelection/TailButton
-@onready var run_button: Button = $ActionSelection/RunButton
+@onready var tongue_button: Button = $BattleMenu/ActionSelection/TongueButton
+@onready var tail_button: Button = $BattleMenu/ActionSelection/TailButton
+@onready var run_button: TextureButton = $BattleMenu/RunButton
 @onready var target_selection: Container = $TargetSelection
 
 var current_state: GlobalUtils.MenuState
@@ -60,14 +60,14 @@ func hide_target_selection() -> void:
 
 
 func show_menu() -> void:
-	if $ActionSelection.is_visible_in_tree():
+	if $BattleMenu.is_visible_in_tree():
 		pass
 	change_state(GlobalUtils.MenuState.ACTIVE)
-	$ActionSelection.show()
+	$BattleMenu.show()
 
 
 func hide_menu() -> void:
-	if not $ActionSelection.is_visible_in_tree():
+	if not $BattleMenu.is_visible_in_tree():
 		pass
 	change_state(GlobalUtils.MenuState.INACTIVE)
-	$ActionSelection.hide()
+	$BattleMenu.hide()
