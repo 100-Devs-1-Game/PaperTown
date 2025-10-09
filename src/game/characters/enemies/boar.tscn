@@ -28,7 +28,7 @@ script = ExtResource("1_qqv8h")
 overworld_attack = ExtResource("3_40oxg")
 
 [node name="MovementComponent" parent="." instance=ExtResource("4_xarcl")]
-max_movement_speed = 4.0
+max_movement_speed = 7.0
 unit_travel = 2.0
 
 [node name="NPCComponent" type="Node" parent="." node_paths=PackedStringArray("talking_range", "movement_component")]
