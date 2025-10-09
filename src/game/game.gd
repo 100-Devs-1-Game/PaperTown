@@ -13,9 +13,15 @@ func _ready() -> void:
 		animation_player.play(&"pet_unlock")
 	)
 
+	Signals.battle_lost.connect(func():
+		Dialogue.player.stats.scales -= 1
+		Dialogue.player.stats.scales = max(Dialogue.player.stats.scales, 0)
+	)
+
 	overworld_manager = get_tree().get_first_node_in_group(&"overworld")
 	assert(overworld_manager)
 
+
 func _physics_process(_delta: float) -> void:
-	%Scales.visible = overworld_manager.num_rainbow_scales > 0
-	scale_count.text = str(overworld_manager.num_rainbow_scales)
+	%Scales.visible = Dialogue.player.stats.scales > 0
+	scale_count.text = str(Dialogue.player.stats.scales)

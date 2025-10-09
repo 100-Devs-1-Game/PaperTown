@@ -11,7 +11,7 @@ const RUDOLPH = preload("res://game/characters/enemies/rudolph.tscn")
 @onready var enemy_spawn: Array[Vector3] = [
 	$EnemySpawn1.global_position, $EnemySpawn2.global_position, $EnemySpawn3.global_position
 ]
-@onready var player_character := PLAYER.instantiate()
+@onready var player_character := PLAYER.instantiate() as Player
 @onready var rudolph := RUDOLPH.instantiate()
 @onready var enemy_character: Array[Enemy] = []
 @onready var camera: Camera = %Camera
@@ -114,13 +114,19 @@ func execute_attack(target: int) -> void:
 
 	match player_action:
 		GlobalUtils.PlayerAction.TONGUE_SLAP:
-			damage = player_character.stats.attack
+			damage = player_character.stats.attack + ([-3, 0, 3][randi() % 3])
 			print("Player used Tongue Slap!")
 		GlobalUtils.PlayerAction.TAIL_WHIP:
-			damage = player_character.stats.attack * 2
+			damage = player_character.stats.attack + ([-1, 0, 1][randi() % 3])
 			print("Player used Tail Whip!")
 
 	if damage > 0 and target >= 0 and target < alive_enemies.size() and is_instance_valid(alive_enemies[target]):
+		var ft3d := FloatingText.spawn(alive_enemies[target].global_position + Vector3(0, 3, 2), str(damage))
+		ft3d.scale *= 0.5
+		FloatingText.animate_towards(
+			ft3d, ft3d.global_position + (Vector3(randf_range(0, 6), 2, 0).normalized() * 2), 1
+		)
+
 		alive_enemies[target].stats.current_hp -= damage
 		print("Dealt %d damage to enemy %d!" % [damage, target + 1])
 
@@ -141,13 +147,13 @@ func execute_attack(target: int) -> void:
 
 
 func execute_run_attempt() -> void:
-	var run_chance := randi() % 100
-	if run_chance < 50:
-		print("Successfully ran away!")
-		win_battle()
-	else:
-		print("Failed to run away!")
-		start_enemy_turns()
+	lose_battle()
+	#var run_chance := randi() % 100
+	#if run_chance < 50:
+		#print("Successfully ran away!")
+	#else:
+		#print("Failed to run away!")
+		#start_enemy_turns()
 
 
 func start_enemy_turns() -> void:
@@ -178,18 +184,30 @@ func execute_next_enemy_turn() -> void:
 
 	# Enemy AI decision
 	var enemy_ai = randi_range(0, 2)
+	enemy_ai = 0
 	match enemy_ai:
 		0:
 			print("Boar %d attacks!" % enemy_number)
 			qte_indicator_instance.start_qte()
 			await qte_indicator_instance.qte_finished
-			if qte_indicator_instance.qte_result:
+			if qte_indicator_instance.success:
 				print("You dodged the enemy attack!")
+
+				var ft3d := FloatingText.spawn(player_character.global_position + Vector3(0, 1, 2), "dodge")
+				ft3d.scale *= 0.5
+				FloatingText.animate_towards(
+					ft3d, ft3d.global_position + (Vector3(randf_range(0, 6) * -1, 2, 0).normalized() * 2), 1
+				)
 			else:
 				print("Oh no! The enemy hit you!")
 				player_character.stats.hit_counter += 1
 				var hits_left: int = 3 - player_character.stats.hit_counter
 				print("You can take %d more hits!" % hits_left)
+				var ft3d := FloatingText.spawn(player_character.global_position + Vector3(0, 1, 2), "5")
+				ft3d.scale *= 0.5
+				FloatingText.animate_towards(
+					ft3d, ft3d.global_position + (Vector3(randf_range(0, 6) * -1, 2, 0).normalized() * 2), 1
+				)
 
 			# Check if Player is defeated.
 			if player_character.stats.hit_counter >= 3:

@@ -27,3 +27,7 @@ func setup_clickable_sprites():
 func set_selected(is_selected: bool):
 	arrow_selected.visible = is_selected
 	arrow_unselected.visible = not is_selected
+	if is_selected:
+		%AnimationPlayer.play(&"selected")
+	else:
+		%AnimationPlayer.stop()

@@ -1,6 +1,5 @@
 class_name QuickTimeEvent extends Control
 
-signal qte_result(qte_success: bool)
 signal qte_finished  # ✅ Add this signal to indicate QTE is completely done
 
 @onready var qte_ring: Sprite2D = $QTERing
@@ -12,6 +11,7 @@ var is_active: bool = false
 var required_input = "ui_accept"
 var initial_ring_scale: Vector2 = Vector2(0.7, 0.7)
 
+var success := false
 
 func _ready() -> void:
 	timer.timeout.connect(_on_timer_timeout)
@@ -31,7 +31,7 @@ func _on_timer_timeout() -> void:
 		return
 
 	print("QTE timeout - failed!")
-	qte_result.emit(false)
+	success = false
 	reset_qte()
 	qte_finished.emit()  # ✅ Signal that QTE is completely done
 
@@ -52,10 +52,10 @@ func check_for_success() -> void:
 	# Check if ring is smaller than or equal to sweet spot (successful hit)
 	if current_ring_scale.x <= sweet_spot.scale.x:
 		print("QTE SUCCESS!")
-		qte_result.emit(true)
+		success = true
 	else:
 		print("QTE FAILED - too early!")
-		qte_result.emit(false)
+		success = false
 
 	reset_qte()
 	qte_finished.emit()  # ✅ Signal that QTE is completely done

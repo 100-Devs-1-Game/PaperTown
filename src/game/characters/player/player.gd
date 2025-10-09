@@ -2,13 +2,11 @@ class_name Player extends ICharacter
 
 enum State { MOVEMENT, ATTACK, BATTLE, CUTSCENE }
 
-const STATS = preload("res://game/resources/stats.tres") as Stats
-
 var direction: Vector3
 var attack_distance := 1.5
 var attack_time = 0.3
 var current_state: State
-var stats := STATS
+var stats := preload("res://game/resources/player_stats.tres")
 var talkable_npcs: Array[Node3D] = []
 var talkable_state := false
 var facing_behind := false

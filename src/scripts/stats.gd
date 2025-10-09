@@ -5,6 +5,7 @@ class_name Stats extends Resource
 @export var hit_counter: int = 0
 @export var attack: int = 5  # Attack Power
 @export var luck: int = 1  # Critical hit chance
+@export var scales: int = 0  # Scales
 
 @export_group("Enemy Stats")
 @export var max_hp: int = 15
