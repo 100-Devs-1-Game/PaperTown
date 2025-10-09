@@ -442,11 +442,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Phoenix" type="Label" parent="Control/Book/BookBack"]
-offset_left = 158.0
-offset_top = 215.0
-offset_right = 349.0
-offset_bottom = 303.0
-rotation = -0.16108288
+offset_left = 62.0
+offset_top = 213.0
+offset_right = 253.0
+offset_bottom = 301.0
+rotation = -0.083919525
 theme_override_colors/font_shadow_color = Color(0.4509804, 0.6901961, 0.78431374, 0.19215687)
 theme_override_colors/font_outline_color = Color(0.62352943, 0.5568628, 0.8352941, 0.6901961)
 theme_override_constants/outline_size = 8
@@ -474,11 +474,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Lancer" type="Label" parent="Control/Book/BookBack"]
-offset_left = -56.0
-offset_top = 204.0
-offset_right = 135.0
-offset_bottom = 383.0
-rotation = 0.01055003
+offset_left = -174.99998
+offset_top = 191.0
+offset_right = 16.000015
+offset_bottom = 370.0
+rotation = 0.07467033
 theme_override_colors/font_shadow_color = Color(0.4509804, 0.6901961, 0.78431374, 0.19215687)
 theme_override_colors/font_outline_color = Color(0.62352943, 0.5568628, 0.8352941, 0.6901961)
 theme_override_constants/outline_size = 8
