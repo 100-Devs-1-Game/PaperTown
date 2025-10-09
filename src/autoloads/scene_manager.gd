@@ -58,10 +58,12 @@ func switch_to_battle() -> void:
 		assert(false)
 		return
 
+
 	current_scene.process_mode = Node.PROCESS_MODE_DISABLED
 	current_scene.set_physics_process(false)
 
 	root_parent.remove_child(current_scene)
+	battle_scene = preload("res://game/battle/battle.tscn").instantiate()
 	current_scene = battle_scene
 	root_parent.add_child(current_scene)
 
