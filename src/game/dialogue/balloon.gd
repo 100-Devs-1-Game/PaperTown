@@ -65,6 +65,12 @@ func _ready() -> void:
 	mutation_cooldown.timeout.connect(_on_mutation_cooldown_timeout)
 	add_child(mutation_cooldown)
 
+	dialogue_label.skipped_typing.connect(Audio.play_ui.bind(Audio.UI_BUTTON_HIGHLIGHT))
+	dialogue_label.spoke.connect(
+		func(_letter: String, _letter_index: int, _speed: float):
+			Audio.play_ui(Audio.UI_BUTTON_HIGHLIGHT, 0.3)
+	)
+
 
 func _unhandled_input(_event: InputEvent) -> void:
 	# Only the balloon is allowed to handle input while it's showing

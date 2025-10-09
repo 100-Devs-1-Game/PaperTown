@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dlndbb3lnp5if"
+path="res://.godot/imported/oldwoman.dialogue-0dd4aa22e8369c4ea0ae3faeaadccf1f.tres"
+
+[deps]
+
+source_file="res://game/characters/enemies/oldwoman.dialogue"
+dest_files=["res://.godot/imported/oldwoman.dialogue-0dd4aa22e8369c4ea0ae3faeaadccf1f.tres"]
+
+[params]
+
+defaults=true

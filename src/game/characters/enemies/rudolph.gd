@@ -64,6 +64,11 @@ func _physics_process(delta):
 			movement_component.facing_right = true
 			movement_component.move(self)
 
+	if animated_sprite_3d.animation.begins_with("walk"):
+		if animated_sprite_3d.frame % 6 == 0:
+			var rand := randi() % 6
+			Audio.play_sfx_atnode(self, Audio.SFX_FOOTSTEP_GRASS[rand])
+
 
 func follow_player():
 	if current_state == State.BATTLE:

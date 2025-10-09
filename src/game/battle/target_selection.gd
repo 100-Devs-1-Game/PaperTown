@@ -140,6 +140,7 @@ func move_selection(direction: int):
 	target_pointers[current_selection].set_selected(true)
 
 func handle_selection(target: int) -> void:
+	Audio.play_ui(Audio.UI_BUTTON_CLICK)
 	target_selected.emit(target)
 	deactivate()
 

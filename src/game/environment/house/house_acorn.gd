@@ -64,6 +64,7 @@ func open() -> void:
 	opening.emit()
 	camera.state = Camera.State.MANUAL
 	camera.target = camera_target
+	Audio.play_sfx_atnode(self, Audio.SFX_DOOR_OPEN)
 	await animation_player.animation_finished
 	is_open = true
 	opened.emit()
@@ -85,6 +86,7 @@ func close() -> void:
 	closing.emit()
 	camera.state = Camera.State.FOLLOW_PLAYER
 	camera.target = null
+	Audio.play_sfx_atnode(self, Audio.SFX_DOOR_CLOSE)
 	await animation_player.animation_finished
 	is_open = false
 	closed.emit()

@@ -401,7 +401,7 @@ func execute_next_enemy_turn() -> void:
 			await current_enemy.end_attack_visuals_one(player_character)
 
 			# Check if Player is defeated.
-			if player_character.stats.hit_counter >= 3:
+			if player_character.stats.hit_counter >= 4:
 				lose_battle()
 				return
 =======

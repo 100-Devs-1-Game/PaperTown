@@ -60,9 +60,22 @@ func _physics_process(delta):
 		State.BATTLE:
 			battle()
 
+	if animated_sprite_3d.animation.begins_with("walk"):
+		if animated_sprite_3d.frame % 4 == 0:
+			var rand := randi() % 4
+			Audio.play_sfx_atnode(self, Audio.SFX_FOOTSTEP_GRASS[rand])
+
+
+	if animated_sprite_3d.animation.begins_with("charge"):
+		if animated_sprite_3d.frame % 2 == 0:
+			var rand := randi() % 4
+			Audio.play_sfx_atnode(self, Audio.SFX_FOOTSTEP_GRASS[rand])
+		if animated_sprite_3d.frame % 3 == 0:
+			Audio.play_sfx_atnode(self, Audio.SFX_BOAR_OINK)
+
 
 func on_interacted_with():
-	pass
+	Audio.play_sfx_atnode(self, Audio.SFX_BOAR_OINK)
 
 
 func wander():

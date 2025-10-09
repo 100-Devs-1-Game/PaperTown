@@ -1,0 +1,15 @@
+~ start
+if not Dialogue.started_acorn_quest:
+	Ol' Woman Acorn: The forest is so lovely this time of year, don't you think?
+	=> END
+elif not Dialogue.can_finish_acorn_quest:
+	Ol' Woman Acorn: Did you know boars are really good at swimming!
+	=> END
+elif Dialogue.finished_acorn_quest:
+	Ol' Woman Acorn: Oh my! What a cutie!
+	Porkchop: [i]Oink![/i]
+	=> END
+elif Dialogue.can_finish_acorn_quest:
+	Ol' Woman Acorn: There's nothing better than a cup of tea
+	=> END
+=> END

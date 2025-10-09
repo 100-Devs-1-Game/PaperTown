@@ -26,6 +26,13 @@ func _ready() -> void:
 	tail_button.pressed.connect(_on_action_selected.bind(GlobalUtils.PlayerAction.TAIL_WHIP))
 	run_button.pressed.connect(_on_action_selected.bind(GlobalUtils.PlayerAction.RUN_AWAY))
 
+	tongue_button.pressed.connect(Audio.play_ui.bind(Audio.UI_BUTTON_CLICK))
+	tongue_button.mouse_entered.connect(Audio.play_ui.bind(Audio.UI_BUTTON_HIGHLIGHT))
+	tail_button.pressed.connect(Audio.play_ui.bind(Audio.UI_BUTTON_CLICK))
+	tail_button.mouse_entered.connect(Audio.play_ui.bind(Audio.UI_BUTTON_HIGHLIGHT))
+	run_button.pressed.connect(Audio.play_ui.bind(Audio.UI_BUTTON_CLICK))
+	run_button.mouse_entered.connect(Audio.play_ui.bind(Audio.UI_BUTTON_HIGHLIGHT))
+
 	target_selection.target_selected.connect(_on_target_selected)
 
 	hide_menu()
