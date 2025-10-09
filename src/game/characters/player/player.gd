@@ -70,11 +70,11 @@ func handle_movement(_delta):
 			animated_sprite_3d.play(&"jump_behind")
 		else:
 			animated_sprite_3d.play(&"jump")
-		var ft3d := FloatingText.spawn(global_position + Vector3(0, 2, 0), "oop")
-		ft3d.scale *= 0.25
-		ft3d.randomize_position(Vector3(1, 0.5, 0))
+		var ft3d := FloatingText.spawn(global_position + Vector3(0, 1, 2), "oop")
+		ft3d.scale *= 0.5
+		var facing_mul := -1 if movement_component.facing_right else 1
 		FloatingText.animate_towards(
-			ft3d, ft3d.global_position + (Vector3(randf_range(-2, 2), 2, 0).normalized() * 2), 1
+			ft3d, ft3d.global_position + (Vector3(randf_range(0, 6) * facing_mul, 2, 0).normalized() * 2), 1
 		)
 
 	movement_component.accelerate_in_direction(direction)
