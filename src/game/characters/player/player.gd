@@ -27,6 +27,7 @@ signal player_jump
 func _ready():
 	change_state(State.MOVEMENT)
 
+	animated_sprite_3d.play(&"idle")
 	personal_space_bubble.body_entered.connect(on_body_entered)
 	personal_space_bubble.body_exited.connect(on_body_exited)
 
@@ -70,6 +71,7 @@ func handle_movement(_delta):
 		else:
 			animated_sprite_3d.play(&"jump")
 		var ft3d := FloatingText.spawn(global_position + Vector3(0, 1, 2), "oop")
+		FloatingText.colour(ft3d, Color.CORNFLOWER_BLUE)
 		ft3d.scale *= 0.5
 		var facing_mul := -1 if movement_component.facing_right else 1
 		FloatingText.animate_towards(

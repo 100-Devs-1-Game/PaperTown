@@ -41,3 +41,10 @@ func animate_towards(ft3d: FloatingText3D, target: Vector3, duration: float) -> 
 	tween.tween_property(ft3d, "modulate:a", 0.0, duration - 0.6).set_delay(0.6)
 	tween.finished.connect(ft3d.queue_free)
 	return ft3d
+
+
+func colour(ft3d: FloatingText3D, c: Color) -> FloatingText3D:
+	ft3d.floating_text.rtl.add_theme_color_override("font_outline_color", c)
+	ft3d.floating_text.rtl.material.duplicate_deep(Resource.DEEP_DUPLICATE_ALL)
+	(ft3d.floating_text.rtl.material as ShaderMaterial).set_shader_parameter("top_color", c)
+	return ft3d

@@ -12,7 +12,7 @@ const RUDOLPH = preload("res://game/characters/enemies/rudolph.tscn")
 	$EnemySpawn1.global_position, $EnemySpawn2.global_position, $EnemySpawn3.global_position
 ]
 @onready var player_character := PLAYER.instantiate() as Player
-@onready var rudolph := RUDOLPH.instantiate()
+@onready var rudolph := RUDOLPH.instantiate() as Rudolph
 @onready var enemy_character: Array[Enemy] = []
 @onready var camera: Camera = %Camera
 
@@ -110,7 +110,8 @@ func handle_player_action(selected_action: GlobalUtils.PlayerAction, selected_ta
 	if player_action == GlobalUtils.PlayerAction.RUN_AWAY:
 		execute_run_attempt()
 	else:
-		execute_attack(selected_target)
+		await execute_attack(selected_target)
+		start_enemy_turns()
 
 
 func execute_attack(target: int) -> void:
@@ -158,9 +159,6 @@ func execute_attack(target: int) -> void:
 
 	await get_tree().create_timer(0.5).timeout
 
-	# Player turn finished, start enemy turns
-	start_enemy_turns()
-
 
 func execute_run_attempt() -> void:
 	lose_battle()
@@ -182,6 +180,24 @@ func start_enemy_turns() -> void:
 	execute_next_enemy_turn()
 
 
+func start_rudolph_turn() -> void:
+	assert(is_battle_active)
+
+	await rudolph.play_attack_visuals_one(player_character)
+	player_character.stats.hit_counter -= 1
+	player_character.stats.hit_counter = max(player_character.stats.hit_counter, 0)
+
+	var ft3d := FloatingText.spawn(player_character.global_position + Vector3(0, 1, 2), "+5")
+	FloatingText.colour(ft3d, Color.LAWN_GREEN)
+	ft3d.scale *= 0.5
+	FloatingText.animate_towards(
+		ft3d, ft3d.global_position + (Vector3(0, 2, 0).normalized() * 2), 2
+	)
+
+	await rudolph.end_attack_visuals_one(player_character)
+	await get_tree().create_timer(0.5).timeout
+
+
 func execute_next_enemy_turn() -> void:
 	if not is_battle_active:
 		return
@@ -190,6 +206,7 @@ func execute_next_enemy_turn() -> void:
 	if current_enemy_index >= alive_enemies.size():
 		# All enemies finished, back to player turn
 		await get_tree().create_timer(1.0).timeout
+		await start_rudolph_turn()
 		start_player_turn()
 		return
 
@@ -219,6 +236,7 @@ func execute_next_enemy_turn() -> void:
 				print("You dodged the enemy attack!")
 
 				var ft3d := FloatingText.spawn(player_character.global_position + Vector3(0, 1, 2), "dodge")
+				FloatingText.colour(ft3d, Color.CORNFLOWER_BLUE)
 				ft3d.scale *= 0.5
 				FloatingText.animate_towards(
 					ft3d, ft3d.global_position + (Vector3(randf_range(0, 6) * -1, 2, 0).normalized() * 2), 1
@@ -227,7 +245,7 @@ func execute_next_enemy_turn() -> void:
 			else:
 				print("Oh no! The enemy hit you!")
 				player_character.stats.hit_counter += 1
-				var hits_left: int = 3 - player_character.stats.hit_counter
+				var hits_left: int = 4 - player_character.stats.hit_counter
 				print("You can take %d more hits!" % hits_left)
 				var ft3d := FloatingText.spawn(player_character.global_position + Vector3(0, 1, 2), "5")
 				ft3d.scale *= 0.5

@@ -21,6 +21,7 @@ signal rudolph_state_changed
 
 func _ready():
 	await get_parent().ready
+	animated_sprite_3d.play(&"idle")
 
 	if player:
 		player.player_jump.connect(on_player_jump)
@@ -156,8 +157,6 @@ func play_attack_visuals_two(target: ICharacter) -> void:
 	assert(current_state == State.BATTLE)
 	assert(not attacking)
 
-	animated_sprite_3d.play(&"heal")
-	await animated_sprite_3d.animation_finished
 	attacking = true
 
 
@@ -165,6 +164,8 @@ func end_attack_visuals_one(target: ICharacter) -> void:
 	assert(current_state == State.BATTLE)
 	assert(attacking)
 
+	animated_sprite_3d.play(&"heal")
+	await animated_sprite_3d.animation_finished
 	attacking = false
 
 
