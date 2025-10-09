@@ -62,6 +62,7 @@ navmesh="used for navmesh baking"
 followers="used for follower component"
 player=""
 camera="Camera"
+overworld=""
 
 [gui]
 

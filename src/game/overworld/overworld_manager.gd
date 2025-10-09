@@ -1,6 +1,9 @@
 extends Node
 
 @export var screen_transistion: PackedScene
+
+var num_rainbow_scales : int = 0
+
 var in_battle := false
 
 func _ready():
@@ -74,3 +77,7 @@ func _ready():
 
 func start_battle(enemy) -> void:
 	Signals.battle_started.emit(enemy)
+
+func add_rainbow_scale():
+	num_rainbow_scales += 1
+	print("current rainbow scales: " + str(num_rainbow_scales))

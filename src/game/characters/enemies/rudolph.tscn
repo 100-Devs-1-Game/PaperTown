@@ -38,10 +38,8 @@ target = NodePath("../Visuals")
 movement_component = NodePath("../MovementComponent")
 speed = 720.0
 
-[node name="AlertTimer" type="Timer" parent="."]
-
-[node name="WalkTimer" type="Timer" parent="."]
-wait_time = 5.0
+[node name="JumpTimer" type="Timer" parent="."]
+wait_time = 0.2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

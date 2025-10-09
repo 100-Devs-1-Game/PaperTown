@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ckeeoresabf6t" path="res://game/battle/battle_manager.gd" id="1_2a4vk"]
 [ext_resource type="PackedScene" uid="uid://dsym4h28e24e3" path="res://game/battle/battle_environment.tscn" id="2_i61o2"]
 [ext_resource type="PackedScene" uid="uid://dapoyk6c1p3kc" path="res://game/environment/sunlight.tscn" id="3_7w56k"]
-[ext_resource type="PackedScene" path="res://game/environment/world_environment.tscn" id="4_faeqb"]
+[ext_resource type="PackedScene" uid="uid://blkjapuvymat6" path="res://game/environment/world_environment.tscn" id="4_faeqb"]
 [ext_resource type="PackedScene" uid="uid://dxhii6l3t8ca" path="res://game/other/camera.tscn" id="5_7w56k"]
 
 [node name="Battle" type="Node3D"]

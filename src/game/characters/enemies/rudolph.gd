@@ -13,12 +13,16 @@ var facing_behind := false
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var animated_sprite_3d: AnimatedSprite3D = $Visuals/AnimatedSprite3D
 @onready var left_behind_range: Area3D = $LeftBehindRange
+@onready var jump_timer = $JumpTimer
 
 signal rudolph_state_changed
 
 
 func _ready():
 	await get_parent().ready
+
+	if player:
+		player.player_jump.connect(on_player_jump)
 
 	npc_component.interacted_with.connect(on_interacted_with)
 	left_behind_range.body_exited.connect(
@@ -43,10 +47,11 @@ func _ready():
 func _physics_process(delta):
 	if !player:
 		player = get_tree().get_first_node_in_group(&"player")
+		player.player_jump.connect(on_player_jump)
 
 	movement_component.apply_gravity(delta, self)
 
-	play_animations()
+	play_walking_animations()
 
 	match current_state:
 		State.NPC:
@@ -84,19 +89,34 @@ func change_state(new_state: State) -> void:
 		movement_component.facing_right = true
 
 
-func play_animations():
-	var string_prefix := ""
-	var string_suffix := ""
-	var full_string := ""
-
-	if facing_behind:
-		string_suffix = "_behind"
+func play_walking_animations():
+	if movement_component.landed_after_jump == false:
+		return
+	
+	var animation_name := ""
 
 	if Vector2(movement_component.velocity.x, movement_component.velocity.z).length_squared() < 0.1:
-		string_prefix = "idle"
+		animation_name += "idle"
 	else:
-		string_prefix = "walk"
+		animation_name += "walk"
 
-	full_string = string_prefix + string_suffix
+	if facing_behind:
+		animation_name += "_behind"
 
-	animated_sprite_3d.play(full_string)
+
+	animated_sprite_3d.play(animation_name)
+	
+func play_jumping_animations():
+	if facing_behind:
+		animated_sprite_3d.play(&"jump_behind")
+	else:
+		animated_sprite_3d.play(&"jump")
+	
+func on_player_jump():
+	if not follower_component.following_player:
+		return
+	
+	jump_timer.start()
+	await jump_timer.timeout
+	movement_component.jump(self)
+	play_jumping_animations()

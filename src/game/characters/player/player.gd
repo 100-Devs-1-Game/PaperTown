@@ -22,6 +22,7 @@ var facing_behind := false
 @onready var personal_space_bubble: Area3D = $PersonalSpaceBubble
 
 signal player_state_changed(new_state: State)
+signal player_jump
 
 
 func _ready():
@@ -64,6 +65,7 @@ func handle_movement(_delta):
 
 	if Input.is_action_just_pressed("jump"):
 		movement_component.jump(self)
+		player_jump.emit()
 		if facing_behind:
 			animated_sprite_3d.play(&"jump_behind")
 		else:
