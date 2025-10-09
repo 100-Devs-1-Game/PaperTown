@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b4lfw3w43bbqf"]
 
-[ext_resource type="ArrayMesh" uid="uid://c4k750d55bie8" path="res://assets/100devs/assets/data/assets_road-paved.mesh.res" id="1_vrlet"]
+[ext_resource type="ArrayMesh" uid="uid://df1be8oxdqyd3" path="res://assets/100devs/assets/data/road_road-paved.mesh.res" id="1_vrlet"]
 
 [node name="Road" type="Node3D"]
 

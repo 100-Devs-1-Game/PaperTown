@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cfiomk8ynqe1h"]
+
+[resource]
+resource_name = "yellow_button"
+cull_mode = 2
+albedo_color = Color(0.82, 0.6643367, 0.2706, 1)
+metallic = 0.06818182
+roughness = 0.5090909

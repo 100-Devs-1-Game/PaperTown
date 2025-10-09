@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://tbd462ssnaao"]
+
+[resource]
+resource_name = "blue_button"
+cull_mode = 2
+albedo_color = Color(0.3648, 0.6414399, 0.76, 1)
+roughness = 0.5
