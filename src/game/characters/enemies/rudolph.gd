@@ -92,7 +92,7 @@ func change_state(new_state: State) -> void:
 func play_walking_animations():
 	if movement_component.landed_after_jump == false:
 		return
-	
+
 	var animation_name := ""
 
 	if Vector2(movement_component.velocity.x, movement_component.velocity.z).length_squared() < 0.1:
@@ -105,17 +105,17 @@ func play_walking_animations():
 
 
 	animated_sprite_3d.play(animation_name)
-	
+
 func play_jumping_animations():
 	if facing_behind:
 		animated_sprite_3d.play(&"jump_behind")
 	else:
 		animated_sprite_3d.play(&"jump")
-	
+
 func on_player_jump():
 	if not follower_component.following_player:
 		return
-	
+
 	jump_timer.start()
 	await jump_timer.timeout
 	movement_component.jump(self)

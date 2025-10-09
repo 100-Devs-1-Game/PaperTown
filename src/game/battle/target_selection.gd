@@ -33,7 +33,7 @@ func setup_target_pointers(enemy_array: Array[Enemy]) -> void:
 
 		# Set initial selection state
 		arrow.set_selected(i == 0)
-		
+
 		# Connect mouse signals for the arrow
 		connect_arrow_signals(arrow, i)
 
@@ -48,7 +48,7 @@ func connect_arrow_signals(arrow: Node3D, index: int):
 func _on_arrow_clicked(camera: Node, event: InputEvent, click_position: Vector3, click_normal: Vector3, shape_idx: int, target_index: int):
 	if not visible:
 		return
-		
+
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			handle_selection(target_index)

@@ -120,19 +120,21 @@ func execute_attack(target: int) -> void:
 			damage = player_character.stats.attack * 2
 			print("Player used Tail Whip!")
 
-	if damage > 0 and target < enemy_character.size():
-		enemy_character[target].stats.current_hp -= damage
+	if damage > 0 and target >= 0 and target < alive_enemies.size() and is_instance_valid(alive_enemies[target]):
+		alive_enemies[target].stats.current_hp -= damage
 		print("Dealt %d damage to enemy %d!" % [damage, target + 1])
 
-		if enemy_character[target].stats.current_hp <= 0:
+		if alive_enemies[target].stats.current_hp <= 0:
 			print("Enemy %d defeated!" % (target + 1))
-			enemy_character[target].queue_free()
+			alive_enemies[target].queue_free()
 
 			# Check if all enemies defeated
 			update_alive_enemies()
 			if alive_enemies.size() == 0:
 				win_battle()
 				return
+	else:
+		print("?")
 
 	# Player turn finished, start enemy turns
 	start_enemy_turns()
