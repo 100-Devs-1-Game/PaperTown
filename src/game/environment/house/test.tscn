@@ -15,9 +15,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
 
 [node name="TestFloor" parent="." instance=ExtResource("3_wa4vv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.84037, 0, 2)
 
 [node name="Player" parent="." instance=ExtResource("4_j77mt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6598034, 0.2972517, 5.9046955)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.180567, 0.2972517, 5.9046955)
 
 [node name="Camera" parent="." instance=ExtResource("5_j77mt")]

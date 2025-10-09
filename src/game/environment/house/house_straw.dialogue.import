@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cqrhbw7tyyw01"
+path="res://.godot/imported/house_straw.dialogue-06c7072d484decec49a435d067716473.tres"
+
+[deps]
+
+source_file="res://game/environment/house/house_straw.dialogue"
+dest_files=["res://.godot/imported/house_straw.dialogue-06c7072d484decec49a435d067716473.tres"]
+
+[params]
+
+defaults=true

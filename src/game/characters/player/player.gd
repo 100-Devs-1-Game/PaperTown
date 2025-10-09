@@ -147,12 +147,12 @@ func handle_attack():
 	)
 
 
-func add_talkable_npc(body: CharacterBody3D):
+func add_talkable_npc(body: Node3D):
 	talkable_state = true
 	talkable_npcs.append(body)
 
 
-func remove_talkable_npc(body: CharacterBody3D):
+func remove_talkable_npc(body: Node3D):
 	if body in talkable_npcs:
 		talkable_npcs.erase(body)
 

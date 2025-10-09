@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://chlijhxwcjsfp"]
+[gd_scene load_steps=13 format=3 uid="uid://chlijhxwcjsfp"]
 
+[ext_resource type="Script" uid="uid://bht2i054oykev" path="res://game/environment/house/house_straw.gd" id="1_524yu"]
 [ext_resource type="ArrayMesh" uid="uid://doesuj5bnk4tw" path="res://assets/100devs/assets/data/assets_house-straw.mesh.res" id="1_hx4g7"]
 [ext_resource type="ArrayMesh" uid="uid://c6yxdpmni33op" path="res://assets/100devs/assets/data/assets_house-straw_door-house-straw.mesh.res" id="2_re7xr"]
 [ext_resource type="ArrayMesh" uid="uid://vd8yerngnn5d" path="res://assets/100devs/assets/data/assets_house-straw_flowers-house-straw.mesh.res" id="3_524yu"]
 [ext_resource type="ArrayMesh" uid="uid://pkjpj2w0e2qh" path="res://assets/100devs/assets/data/assets_house-straw_roof-straw.mesh.res" id="4_62hyg"]
 [ext_resource type="ArrayMesh" uid="uid://ctyoct2uim3ct" path="res://assets/100devs/assets/data/assets_house-straw_window.mesh.res" id="5_75nb1"]
+[ext_resource type="PackedScene" uid="uid://dkncxy1hhno8p" path="res://game/characters/components/npc_component.tscn" id="7_62hyg"]
+[ext_resource type="Resource" uid="uid://cqrhbw7tyyw01" path="res://game/environment/house/house_straw.dialogue" id="8_62hyg"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_hx4g7"]
 radius = 3.75
@@ -15,7 +18,11 @@ radius = 4.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_524yu"]
 size = Vector3(2.696, 4, 4.118)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_524yu"]
+radius = 1.5
+
 [node name="HouseStraw" type="Node3D" groups=["navmesh"]]
+script = ExtResource("1_524yu")
 
 [node name="house_straw" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.61053115, 0, 0, 0, 0.61053115, 0, 0, 0, 0.61053115, 0, 1.923, 0)
@@ -55,3 +62,15 @@ shape = SubResource("CylinderShape3D_re7xr")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6561725, 0, 0)
 shape = SubResource("BoxShape3D_524yu")
+
+[node name="NPCComponent" parent="." node_paths=PackedStringArray("talking_range") instance=ExtResource("7_62hyg")]
+talking_range = NodePath("../TalkingRange")
+dialogue = ExtResource("8_62hyg")
+
+[node name="TalkingRange" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.003261, 0.59037864, 1.8119042)
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TalkingRange"]
+shape = SubResource("SphereShape3D_524yu")

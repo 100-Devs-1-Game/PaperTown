@@ -33,7 +33,8 @@ func on_body_entered(body):
 	if not player:
 		return
 
-	movement_component.face_position(body.global_position)
+	if movement_component:
+		movement_component.face_position(body.global_position)
 	player.add_talkable_npc(get_parent())
 
 
