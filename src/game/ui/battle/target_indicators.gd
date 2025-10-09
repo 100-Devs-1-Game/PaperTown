@@ -25,6 +25,7 @@ func setup_clickable_sprites():
 	area.input_ray_pickable = true
 
 func set_selected(is_selected: bool):
+	Audio.play_ui(Audio.UI_BUTTON_HIGHLIGHT)
 	arrow_selected.visible = is_selected
 	arrow_unselected.visible = not is_selected
 	if is_selected:

@@ -15,9 +15,13 @@ func get_rtl(btn: Button) -> RichTextLabel:
 func _ready() -> void:
 	play.pressed.connect(fadeout.bind(play))
 	quit.pressed.connect(fadeout.bind(quit))
+	play.pressed.connect(Audio.play_ui.bind(Audio.UI_BUTTON_CLICK))
+	quit.pressed.connect(Audio.play_ui.bind(Audio.UI_BUTTON_CLICK))
 
 	play.mouse_entered.connect(mouse_enter.bind(play))
 	quit.mouse_entered.connect(mouse_enter.bind(quit))
+	play.mouse_entered.connect(Audio.play_ui.bind(Audio.UI_BUTTON_HIGHLIGHT))
+	quit.mouse_entered.connect(Audio.play_ui.bind(Audio.UI_BUTTON_HIGHLIGHT))
 
 	play.mouse_exited.connect(mouse_exit.bind(play))
 	quit.mouse_exited.connect(mouse_exit.bind(quit))

@@ -60,6 +60,12 @@ func _physics_process(delta):
 				animation_handler(Vector3.ZERO)
 				movement_component.move(self)
 
+	if animated_sprite_3d.animation.begins_with("walk"):
+		if animated_sprite_3d.frame % 4 == 0:
+			var rand := randi() % 4
+			Audio.play_sfx_atnode(self, Audio.SFX_FOOTSTEP_GRASS[rand])
+
+
 func handle_movement(_delta):
 	var movement_vector := get_movement_vector()
 	direction = movement_vector.normalized()
@@ -220,7 +226,11 @@ func play_attack_visuals_one(target: ICharacter) -> void:
 	%CombatOffset.position.x = -1
 	reset_physics_interpolation()
 	animated_sprite_3d.play(&"tongueslap")
-	await animated_sprite_3d.animation_finished
+	await get_tree().process_frame
+	await get_tree().process_frame
+	Audio.play_sfx_atnode(self, Audio.SFX_PLAYER_TONGUE)
+	if animated_sprite_3d.is_playing():
+		await animated_sprite_3d.animation_finished
 	%CombatOffset.position.x = 0
 	reset_physics_interpolation()
 
@@ -243,7 +253,11 @@ func play_attack_visuals_two(target: ICharacter) -> void:
 	%CombatOffset.position.x = 1
 	reset_physics_interpolation()
 	animated_sprite_3d.play(&"tailwhip")
-	await animated_sprite_3d.animation_finished
+	await get_tree().process_frame
+	await get_tree().process_frame
+	Audio.play_sfx_atnode(self, Audio.SFX_PLAYER_WHIP)
+	if animated_sprite_3d.is_playing():
+		await animated_sprite_3d.animation_finished
 	animated_sprite_3d.play(&"idle")
 	%CombatOffset.position.x = 0
 	reset_physics_interpolation()
@@ -298,6 +312,7 @@ func play_dodged_visual() -> void:
 		idle_frame = animated_sprite_3d.frame
 
 	animated_sprite_3d.play(&"idle_invisible")
+	Audio.play_sfx_atnode(self, Audio.SFX_PLAYER_DODGE)
 	animated_sprite_3d.frame = idle_frame
 
 	await get_tree().create_timer(1.0).timeout

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ca65elqv0fxhy"]
+[gd_scene load_steps=16 format=3 uid="uid://ca65elqv0fxhy"]
 
 [ext_resource type="Script" uid="uid://ovpgatviv4uj" path="res://game/battle/battle_menu.gd" id="1_f1ncp"]
 [ext_resource type="Script" uid="uid://dpem82885n1ga" path="res://game/battle/target_selection.gd" id="2_6xbtf"]
@@ -7,6 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://buhv7761t5q1a" path="res://assets/100devs/ui/action_bar/000.png" id="2_j27at"]
 [ext_resource type="Texture2D" uid="uid://babqi0n51p8qk" path="res://assets/100devs/ui/action_bar/001.png" id="5_ghuyy"]
 [ext_resource type="Texture2D" uid="uid://b3dwnw7y5sqf5" path="res://assets/100devs/ui/action_bar/2.png" id="6_5mqm6"]
+[ext_resource type="Texture2D" uid="uid://dgxmuiedne1dn" path="res://assets/100devs/ui/health_bars/004.png" id="8_ghuyy"]
+[ext_resource type="Texture2D" uid="uid://c31dbuskspf48" path="res://assets/100devs/ui/health_bars/001.png" id="9_5mqm6"]
+[ext_resource type="Texture2D" uid="uid://c3g6886fx4f35" path="res://assets/100devs/ui/health_bars/005.png" id="10_0lvii"]
+[ext_resource type="Texture2D" uid="uid://ddyerh2me0m7w" path="res://assets/100devs/ui/health_bars/mc.png" id="10_r8ueg"]
+[ext_resource type="Texture2D" uid="uid://bxcognca0vu4n" path="res://assets/100devs/ui/health_bars/000.png" id="11_t6p6i"]
+[ext_resource type="Texture2D" uid="uid://chw3idbtac05j" path="res://assets/100devs/ui/health_bars/rudolph.png" id="12_t6p6i"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ge1nx"]
 texture = ExtResource("2_j27at")
@@ -98,3 +104,76 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_6xbtf")
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.75, 0.75)
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 19.0
+offset_right = 268.0
+offset_bottom = 215.0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_ghuyy")
+
+[node name="TextureRect2" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 21.0
+offset_right = 815.3836
+offset_bottom = 217.0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_5mqm6")
+expand_mode = 3
+
+[node name="TextureRect4" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 55.999996
+offset_right = 1298.1667
+offset_bottom = 252.0
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("10_r8ueg")
+expand_mode = 3
+stretch_mode = 1
+
+[node name="Control2" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 497.0
+offset_top = -2.0
+offset_right = 537.0
+offset_bottom = 38.0
+scale = Vector2(0.75, 0.75)
+
+[node name="TextureRect" type="TextureRect" parent="Control2"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 19.0
+offset_right = 268.0
+offset_bottom = 215.0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("10_0lvii")
+
+[node name="TextureRect2" type="TextureRect" parent="Control2"]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 21.0
+offset_right = 815.3836
+offset_bottom = 217.0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("11_t6p6i")
+expand_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="Control2"]
+layout_mode = 0
+offset_left = 213.33333
+offset_top = 57.33334
+offset_right = 1299.5
+offset_bottom = 253.33334
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("12_t6p6i")
+expand_mode = 3

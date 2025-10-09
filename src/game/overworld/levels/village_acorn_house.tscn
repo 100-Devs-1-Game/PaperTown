@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://df70g5qks2ftd"]
+[gd_scene load_steps=4 format=3 uid="uid://df70g5qks2ftd"]
 
 [ext_resource type="PackedScene" uid="uid://romkf60q2s4o" path="res://game/environment/house/house_acorn.tscn" id="1_y51cd"]
 [ext_resource type="PackedScene" uid="uid://b0nfyp8bnj7sx" path="res://game/characters/enemies/oldman.tscn" id="2_k3hqa"]
+[ext_resource type="PackedScene" uid="uid://cj5by776l5amp" path="res://game/characters/enemies/oldwoman.tscn" id="3_tsqd4"]
 
 [node name="VillageAcornHouse" type="Node3D"]
 
@@ -9,3 +10,6 @@
 
 [node name="OldMan" parent="." instance=ExtResource("2_k3hqa")]
 transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 2.2502832, 2.3841858e-07, 0.62025106)
+
+[node name="OldWoman" parent="." instance=ExtResource("3_tsqd4")]
+transform = Transform3D(0.6066824, 0, 0.79494435, 0, 1, 0, -0.79494435, 0, 0.6066824, -2.8810039, 0, 0.21458974)

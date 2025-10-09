@@ -14,6 +14,7 @@ var current_state: State = State.FOLLOWER
 
 func _ready():
 	change_state(State.FOLLOWER)
+	npc_component.interacted_with.connect(Audio.play_sfx_atnode.bind(self, Audio.SFX_BABY_BOAR_OINK))
 
 
 func _physics_process(delta):

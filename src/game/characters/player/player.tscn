@@ -60,6 +60,3 @@ shape = SubResource("SphereShape3D_3qf5w")
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8040136, 0)
 shape = SubResource("CapsuleShape3D_5hw72")
-
-[node name="AudioListener3D" type="AudioListener3D" parent="."]
-current = true

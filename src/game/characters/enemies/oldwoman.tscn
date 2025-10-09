@@ -1,0 +1,147 @@
+[gd_scene load_steps=21 format=3 uid="uid://cj5by776l5amp"]
+
+[ext_resource type="Script" uid="uid://2kwyamdui6u2" path="res://game/characters/enemies/oldwoman.gd" id="1_kaxc0"]
+[ext_resource type="PackedScene" uid="uid://c3yxi66r1gr3e" path="res://game/characters/components/movement_component.tscn" id="2_gwjo0"]
+[ext_resource type="PackedScene" uid="uid://dkncxy1hhno8p" path="res://game/characters/components/npc_component.tscn" id="3_bg1qe"]
+[ext_resource type="Resource" uid="uid://dlndbb3lnp5if" path="res://game/characters/enemies/oldwoman.dialogue" id="4_kaxc0"]
+[ext_resource type="PackedScene" uid="uid://dmbdhufmkkvci" path="res://game/characters/components/flipper_component.tscn" id="5_cxnka"]
+[ext_resource type="Texture2D" uid="uid://c7v1iivje8y3h" path="res://assets/100devs/characters/acorn_wife/000.png" id="6_kaxc0"]
+[ext_resource type="Texture2D" uid="uid://dwxn1bc7iuiom" path="res://assets/100devs/characters/acorn_wife/001.png" id="7_ahwxl"]
+[ext_resource type="Texture2D" uid="uid://cfp5wypyybcl8" path="res://assets/100devs/characters/acorn_wife/002.png" id="8_7fgsw"]
+[ext_resource type="Texture2D" uid="uid://lddpobg6p2pg" path="res://assets/100devs/characters/acorn_wife/003.png" id="9_ddka5"]
+[ext_resource type="Texture2D" uid="uid://brfgg7vjyrshf" path="res://assets/100devs/characters/acorn_wife/004.png" id="10_tujop"]
+[ext_resource type="Texture2D" uid="uid://m0v0sh2iqu4o" path="res://assets/100devs/characters/acorn_wife/005.png" id="11_qth27"]
+[ext_resource type="Texture2D" uid="uid://b6vwmxfxm1tcj" path="res://assets/100devs/characters/acorn_wife/006.png" id="12_thw0k"]
+[ext_resource type="Texture2D" uid="uid://cu8igpranwdoc" path="res://assets/100devs/characters/acorn_wife/007.png" id="13_kwwsf"]
+[ext_resource type="Texture2D" uid="uid://c4l4yd3coxxpv" path="res://assets/100devs/characters/acorn_wife/008.png" id="14_wccbx"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_m8e8n"]
+radius = 2.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ksp88"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_kaxc0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ahwxl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7fgsw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ddka5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_tujop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_qth27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_thw0k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_kwwsf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_wccbx")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="Animation" id="Animation_7uxcv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dc3ly"]
+resource_name = "idle"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 1.5, 3, 4),
+"transitions": PackedFloat32Array(2, 0.5, 2, 0.5),
+"update": 0,
+"values": [Vector3(0.08726646, 0, 0), Vector3(0, 0, 0), Vector3(-0.08726646, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b0jgq"]
+_data = {
+&"RESET": SubResource("Animation_7uxcv"),
+&"idle": SubResource("Animation_dc3ly")
+}
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dc3ly"]
+radius = 1.0
+height = 2.7885742
+
+[node name="OldWoman" type="CharacterBody3D" groups=["navmesh"]]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_kaxc0")
+
+[node name="MovementComponent" parent="." instance=ExtResource("2_gwjo0")]
+max_movement_speed = 5.7
+unit_travel = 2.0
+
+[node name="NPCComponent" parent="." node_paths=PackedStringArray("talking_range", "movement_component") instance=ExtResource("3_bg1qe")]
+talking_range = NodePath("../TalkingRange")
+movement_component = NodePath("../MovementComponent")
+dialogue = ExtResource("4_kaxc0")
+
+[node name="FlipperComponent" parent="." node_paths=PackedStringArray("target", "movement_component") instance=ExtResource("5_cxnka")]
+target = NodePath("../Visuals")
+movement_component = NodePath("../MovementComponent")
+speed = 720.0
+
+[node name="TalkingRange" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TalkingRange"]
+shape = SubResource("SphereShape3D_m8e8n")
+
+[node name="Visuals" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, -0.5, 0)
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Visuals"]
+transform = Transform3D(2, 0, 0, 0, 2.000001, 0, 0, 0, 2.000001, -0.012078583, 1.9099811, 0.08414773)
+layers = 4
+cast_shadow = 2
+pixel_size = 0.002
+alpha_cut = 2
+sprite_frames = SubResource("SpriteFrames_ksp88")
+frame = 8
+frame_progress = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Visuals")
+libraries = {
+&"": SubResource("AnimationLibrary_b0jgq")
+}
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4400477, -0.06508589)
+shape = SubResource("CapsuleShape3D_dc3ly")
+
+[connection signal="body_entered" from="TalkingRange" to="." method="_on_detection_bubble_body_entered"]

@@ -46,4 +46,4 @@ repos:
         pass_filenames: false
         verbose: true
 
-exclude: '^src/addons/|^src/assets/external'
+exclude: '^src/addons/|^src/assets/external|^src/assets/100devs/sfx'

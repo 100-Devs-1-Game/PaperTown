@@ -7,5 +7,14 @@ extends CharacterBody3D
 func _ready():
 	npc_component.interacted_with.connect(on_interacted_with)
 
+
 func on_interacted_with():
 	pass
+
+
+func start_rocking_audio():
+	Audio.play_sfx_atnode(self, Audio.SFX_ROCKING_CHAIR_START)
+
+
+func stop_rocking_audio():
+	Audio.play_sfx_atnode(self, Audio.SFX_ROCKING_CHAIR_STOP)

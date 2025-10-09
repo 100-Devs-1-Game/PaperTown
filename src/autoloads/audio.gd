@@ -1,10 +1,33 @@
 extends Node
 
-const SFX_PLACEHOLDER: AudioStream = preload("res://assets/100devs/warp-306033.mp3")
+const SFX_PLAYER_DODGE: AudioStream = preload("res://assets/100devs/sfx/F0209PPTWN_action-dodge-miss.ogg")
+const SFX_PLAYER_TONGUE: AudioStream = preload("res://assets/100devs/sfx/F0209PPTWN_action-punch-tongue.ogg")
+const SFX_PLAYER_WHIP: AudioStream = preload("res://assets/100devs/sfx/F0209PPTWN_action-whip.ogg")
+const SFX_BOAR_OINK: AudioStream = preload("res://assets/100devs/sfx/F0209PPTWN_boar-big.ogg")
+const SFX_BABY_BOAR_OINK: AudioStream = preload("res://assets/100devs/sfx/F0209PPTWN_boar-small.ogg")
+const SFX_ROCKING_CHAIR_START: AudioStream = preload("res://assets/100devs/sfx/F0209PPTWN_chair-a.ogg")
+const SFX_ROCKING_CHAIR_STOP: AudioStream = preload("res://assets/100devs/sfx/F0209PPTWN_chair-b.ogg")
+const SFX_DOOR_CLOSE: AudioStream = preload("res://assets/100devs/sfx/F0209PPTWN_door-close.ogg")
+const SFX_DOOR_OPEN: AudioStream = preload("res://assets/100devs/sfx/F0209PPTWN_door-open.ogg")
+const SFX_FOOTSTEP_GRASS_A: AudioStream = preload("res://assets/100devs/sfx/F0209PPTWN_steps-grass-a.ogg")
+const SFX_FOOTSTEP_GRASS_B: AudioStream = preload("res://assets/100devs/sfx/F0209PPTWN_steps-grass-b.ogg")
+const SFX_FOOTSTEP_GRASS_C: AudioStream = preload("res://assets/100devs/sfx/F0209PPTWN_steps-grass-c.ogg")
+const SFX_FOOTSTEP_GRASS_D: AudioStream = preload("res://assets/100devs/sfx/F0209PPTWN_steps-grass-d.ogg")
+const SFX_FOOTSTEP_GRASS: Array[AudioStream] = [
+	SFX_FOOTSTEP_GRASS_A,
+	SFX_FOOTSTEP_GRASS_B,
+	SFX_FOOTSTEP_GRASS_C,
+	SFX_FOOTSTEP_GRASS_D,
+]
+
+
+const UI_BUTTON_CLICK: AudioStream = preload("res://assets/100devs/sfx/F0209PPTWN_UI-button-click.ogg")
+const UI_BUTTON_HIGHLIGHT: AudioStream = preload("res://assets/100devs/sfx/F0209PPTWN_UI-button-highlight.ogg")
+
+
 const MUSIC_OVERWORLD: AudioStream = preload("res://assets/100devs/music/a_good_vibe.ogg")
 const MUSIC_COMBAT: AudioStream = preload("res://assets/100devs/music/charge.ogg")
 
-# TODO: add other SFX/UI/Music etc sounds
 
 const MUSIC_FADE_TIME: float = 1.0
 var music_player: AudioStreamPlayer

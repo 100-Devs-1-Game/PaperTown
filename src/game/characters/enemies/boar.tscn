@@ -85,7 +85,6 @@ pixel_size = 0.004
 alpha_cut = 2
 sprite_frames = ExtResource("5_i8rah")
 animation = &"idle"
-frame_progress = 0.30359858
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 debug_enabled = true
