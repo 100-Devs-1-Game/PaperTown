@@ -8,5 +8,5 @@ class_name Stats extends Resource
 @export var scales: int = 0  # Scales
 
 @export_group("Enemy Stats")
-@export var max_hp: int = 15
+@export var max_hp: int = 10
 @export var current_hp: int = max_hp

@@ -11,6 +11,7 @@ var talkable_npcs: Array[Node3D] = []
 var talkable_state := false
 var facing_behind := false
 var attacking := false
+var standard_combat_pos: Vector3
 
 @onready var visuals: Node3D = %Visuals
 @onready var animated_sprite_3d: AnimatedSprite3D = %AnimatedSprite3D
@@ -206,34 +207,74 @@ func play_attack_visuals_one(target: ICharacter) -> void:
 	assert(current_state == State.BATTLE)
 	assert(not attacking)
 
+	movement_component.facing_right = true
+	standard_combat_pos = global_position
 	attacking = true
+
+	animated_sprite_3d.play(&"walk")
+	var move_tween := create_tween()
+	var attack_pos := target.global_position + Vector3(-3, 0, 0)
+	attack_pos.y = standard_combat_pos.y
+	move_tween.tween_property(self, ^"global_position", attack_pos, 2.0)
+	await move_tween.finished
+	%CombatOffset.position.x = -1
+	reset_physics_interpolation()
+	animated_sprite_3d.play(&"tongueslap")
+	await animated_sprite_3d.animation_finished
+	%CombatOffset.position.x = 0
+	reset_physics_interpolation()
 
 
 func play_attack_visuals_two(target: ICharacter) -> void:
 	assert(current_state == State.BATTLE)
 	assert(not attacking)
 
+	movement_component.facing_right = true
+	standard_combat_pos = global_position
 	attacking = true
+
+	animated_sprite_3d.play(&"walk")
+	var move_tween := create_tween()
+	var attack_pos := target.global_position + Vector3(-3, 0, 0)
+	attack_pos.y = standard_combat_pos.y
+	move_tween.tween_property(self, ^"global_position", attack_pos, 2.0)
+	await move_tween.finished
+	movement_component.facing_right = false
+	%CombatOffset.position.x = 1
+	reset_physics_interpolation()
+	animated_sprite_3d.play(&"tailwhip")
+	await animated_sprite_3d.animation_finished
+	animated_sprite_3d.play(&"idle")
+	%CombatOffset.position.x = 0
+	reset_physics_interpolation()
 
 
 func end_attack_visuals_one(target: ICharacter) -> void:
 	assert(current_state == State.BATTLE)
 	assert(attacking)
 
-	animated_sprite_3d.play(&"tongueslap")
-	await animated_sprite_3d.animation_finished
+	movement_component.facing_right = false
+	animated_sprite_3d.play(&"walk")
+	var move_tween := create_tween()
+	move_tween.tween_property(self, ^"global_position", standard_combat_pos, 2.0)
+	await move_tween.finished
+	movement_component.facing_right = true
+
 	attacking = false
-	print("FINISHED ATK1")
 
 
 func end_attack_visuals_two(target: ICharacter) -> void:
 	assert(current_state == State.BATTLE)
 	assert(attacking)
 
-	animated_sprite_3d.play(&"tailwhip")
-	await animated_sprite_3d.animation_finished
+	movement_component.facing_right = false
+	animated_sprite_3d.play(&"walk")
+	var move_tween := create_tween()
+	move_tween.tween_property(self, ^"global_position", standard_combat_pos, 2.0)
+	await move_tween.finished
+
+	movement_component.facing_right = true
 	attacking = false
-	print("FINISHED ATK2")
 
 
 func play_damaged_visual() -> void:

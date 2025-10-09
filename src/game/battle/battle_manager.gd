@@ -225,13 +225,12 @@ func execute_next_enemy_turn() -> void:
 	match enemy_ai:
 		0:
 			print("Boar %d attacks!" % enemy_number)
-			await current_enemy.play_attack_visuals_one(player_character)
 			qte_indicator_instance.start_qte()
-			await qte_indicator_instance.qte_finished
 			#%CenterStage.global_position.x = center_stage_original_pos.x
 			#%CenterStage.global_position.z = center_stage_original_pos.z
-			await get_tree().create_timer(0.5).timeout
-			await current_enemy.end_attack_visuals_one(player_character)
+			await current_enemy.play_attack_visuals_one(player_character)
+			if qte_indicator_instance.is_active:
+				await qte_indicator_instance.qte_finished
 			if qte_indicator_instance.success:
 				print("You dodged the enemy attack!")
 
@@ -253,6 +252,9 @@ func execute_next_enemy_turn() -> void:
 					ft3d, ft3d.global_position + (Vector3(randf_range(0, 6) * -1, 2, 0).normalized() * 2), 1
 				)
 				await player_character.play_damaged_visual()
+
+			await get_tree().create_timer(0.5).timeout
+			await current_enemy.end_attack_visuals_one(player_character)
 
 			# Check if Player is defeated.
 			if player_character.stats.hit_counter >= 3:

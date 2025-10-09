@@ -5,5 +5,6 @@
 [resource]
 script = ExtResource("1_2j5wb")
 luck = 5
+max_hp = 10
 current_hp = null
 metadata/_custom_type_script = "uid://bvd4lnuwuqrhc"

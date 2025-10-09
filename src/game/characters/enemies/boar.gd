@@ -12,6 +12,7 @@ var target: CharacterBody3D = null
 var chase_time := -1.0
 var wander_cooldown := false
 var attacking := false
+var standard_combat_pos: Vector3
 
 @onready var overworld_attack_component: OverworldAttackComponent = $OverworldAttackComponent
 @onready var movement_component: MovementComponent = $MovementComponent
@@ -164,7 +165,17 @@ func play_attack_visuals_one(attack_target: ICharacter) -> void:
 	assert(current_state == State.BATTLE)
 	assert(not attacking)
 
+	movement_component.facing_right = false
+	standard_combat_pos = global_position
 	attacking = true
+
+	animated_sprite_3d.play(&"charge")
+	var move_tween := create_tween()
+	var attack_pos := attack_target.global_position + Vector3(3, 0, 0)
+	attack_pos.y = standard_combat_pos.y
+	move_tween.tween_property(self, ^"global_position", attack_pos, 1.5)
+	await move_tween.finished
+	animated_sprite_3d.pause()
 
 
 func play_attack_visuals_two(attack_target: ICharacter) -> void:
@@ -178,11 +189,15 @@ func end_attack_visuals_one(attack_target: ICharacter) -> void:
 	assert(current_state == State.BATTLE)
 	assert(attacking)
 
+	movement_component.facing_right = true
 	animated_sprite_3d.play(&"charge")
-	await get_tree().create_timer(1.0).timeout
+	var move_tween := create_tween()
+	move_tween.tween_property(self, ^"global_position", standard_combat_pos, 1.5)
+	await move_tween.finished
+	movement_component.facing_right = false
+	animated_sprite_3d.play(&"idle")
+
 	attacking = false
-	animated_sprite_3d.stop()
-	await get_tree().process_frame
 
 
 func end_attack_visuals_two(attack_target: ICharacter) -> void:
