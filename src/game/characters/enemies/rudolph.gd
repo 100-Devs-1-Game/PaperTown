@@ -66,7 +66,7 @@ func _physics_process(delta):
 
 	if animated_sprite_3d.animation.begins_with("walk"):
 		if animated_sprite_3d.frame % 6 == 0:
-			var rand := randi() % 6
+			var rand := randi() % 4
 			Audio.play_sfx_atnode(self, Audio.SFX_FOOTSTEP_GRASS[rand])
 
 

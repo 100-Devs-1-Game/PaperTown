@@ -5,7 +5,9 @@
 
 [resource]
 resource_name = "road_w_normals"
-transparency = 4
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
 cull_mode = 2
 albedo_texture = ExtResource("1_t7t3p")
 normal_enabled = true

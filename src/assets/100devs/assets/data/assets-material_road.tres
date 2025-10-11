@@ -4,6 +4,8 @@
 
 [resource]
 resource_name = "road"
-transparency = 4
+transparency = 2
+alpha_scissor_threshold = 0.01
+alpha_antialiasing_mode = 0
 cull_mode = 2
 albedo_texture = ExtResource("1_334i0")

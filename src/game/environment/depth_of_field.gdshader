@@ -6,7 +6,7 @@
 // p.s also has fog, too lazy to rename now though
 
 shader_type spatial;
-render_mode unshaded, cull_disabled, depth_draw_always;
+render_mode unshaded, cull_disabled;
 
 uniform sampler2D screen_texture : hint_screen_texture, filter_linear;
 uniform sampler2D depth_texture  : hint_depth_texture, filter_linear;
@@ -73,5 +73,6 @@ void fragment() {
 	ALBEDO.g -= clamp(debug_red, 0.0, 1.0) * blur_strength;
 	ALBEDO.b -= clamp(debug_red, 0.0, 1.0) * blur_strength;
 	// optionally blur alpha, but doesn't seem necessary?
-    ALPHA = col.a;
+    //ALPHA = col.a;
+	//ALPHA = 1.0;
 }
