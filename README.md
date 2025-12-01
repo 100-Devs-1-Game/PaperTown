@@ -1,13 +1,9 @@
-# Paper Town: Attack of the Bristling Boars!
+# MinimalProjectTemplate
+The official 100 Devs - 1 Game Minimal Project Template
 
-## Credits (TODO - Replace with proper credits near the end)
-- BigP4nda
-- Lexo
-- Skin
-- Turtle
-- Zeph
+Put your project under `src/`
 
-## License
+Put all our artists assets ( Textures, Music, SFX ) under `src/assets/`
 
-- `MIT` with the exception of 3rd party code and assets
-- `CC BY-NC-SA 4.0` for our assets stored in `assets/100devs`
+
+Join us on [Discord](https://discord.gg/UHN4AjMw4d)
