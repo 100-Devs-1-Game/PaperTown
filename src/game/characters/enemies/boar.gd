@@ -2,11 +2,11 @@ class_name Enemy extends ICharacter
 
 enum State { WANDER, ALERT, CHASE, BATTLE }
 
-const STATS = preload("res://game/resources/stats.tres")
+const BoarStats = preload("uid://buqmoj8i7hsjw")
 
 @export var friendly := false
 
-var stats = STATS.duplicate(true)
+var stats = BoarStats.new()
 var current_state: State
 var target: CharacterBody3D = null
 var chase_time := -1.0
@@ -169,6 +169,13 @@ func exit_attack_state():
 	debug_excla_mark.text = ""
 	change_state(State.WANDER)
 
+func take_damage(amount: int):
+	stats.take_damage(amount)
+	Signals.health_changed.emit(stats.current_hp, stats.max_hp)
+
+func heal(amount: int):
+	stats.heal(amount)
+	Signals.health_changed.emit(stats.current_hp, stats.max_hp)
 
 func get_animated_sprite() -> AnimatedSprite3D:
 	return animated_sprite_3d
@@ -232,3 +239,11 @@ func play_damaged_visual() -> void:
 	animated_sprite_3d.play(&"hit")
 	await animated_sprite_3d.animation_finished
 	attacking = false
+
+func get_animation_duration(animation_name: String) -> float:
+	var animated_sprite = $Visuals/AnimatedSprite3D
+	if animated_sprite.sprite_frames.has_animation(animation_name):
+		var frame_count = animated_sprite.sprite_frames.get_frame_count(animation_name)
+		var fps = animated_sprite.sprite_frames.get_animation_speed(animation_name)
+		return frame_count / fps
+	return 1.0
